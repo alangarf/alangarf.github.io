@@ -4,6 +4,7 @@ $head: 'Jura', sans-serif;
 $main: 'Spinnaker', sans-serif;
 
 .page-content {
+
     background-color: $content-background-color;
 
     .wrapper {
@@ -23,7 +24,9 @@ $main: 'Spinnaker', sans-serif;
 		li {
 			overflow: auto;
 			clear: both;
-			margin-bottom: 15px;
+            border: 1px solid #E8E8E8;
+            margin-top: 25px;
+            padding: 5px;
 		}
 
 		.post-blurb {
@@ -36,6 +39,16 @@ $main: 'Spinnaker', sans-serif;
             width: 160;
             height: 90px;
         }
+
+        .readmore {
+            clear: left;
+            display: block;
+            text-align: right;
+            padding: 2px 15px;
+            background: #EEE;
+            margin-top: 3em;
+            color: #1D1DEC;
+        }
     }
 
     .post-content {
@@ -46,6 +59,10 @@ $main: 'Spinnaker', sans-serif;
 
         .embed-container {
             margin-bottom: 2em;
+        }
+
+        a {
+            color: #1d1dec;
         }
     }
 }
