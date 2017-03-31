@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>FromOrbit.com</title>
+    <description>Generic nerd who dabbles in programming, electronics, CNC and retro computing.
+</description>
+    <link>http://fromorbit.com/</link>
+    <atom:link href="http://fromorbit.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 31 Mar 2017 13:35:56 +1100</pubDate>
+    <lastBuildDate>Fri, 31 Mar 2017 13:35:56 +1100</lastBuildDate>
+    <generator>Jekyll v3.3.0</generator>
+    
+      <item>
+        <title>Digital Foosball Two</title>
+        <description>
+</description>
+        <pubDate>Sun, 21 Sep 2014 00:00:00 +1000</pubDate>
+        <link>http://fromorbit.com/2014/09/21/digital-foosball-two.html</link>
+        <guid isPermaLink="true">http://fromorbit.com/2014/09/21/digital-foosball-two.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Digital Foosball</title>
+        <description>
+</description>
+        <pubDate>Wed, 17 Sep 2014 00:00:00 +1000</pubDate>
+        <link>http://fromorbit.com/2014/09/17/digital-foosball.html</link>
+        <guid isPermaLink="true">http://fromorbit.com/2014/09/17/digital-foosball.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>The Mini H Quad v2.0 “The Hammer” frame</title>
+        <description>&lt;p&gt;This frame is freely available from &lt;a href=&quot;http://untestedprototype.com/&quot;&gt;http://untestedprototype.com/&lt;/a&gt; and is feature packed for something that’s so small.&lt;/p&gt;
+
+&lt;p&gt;I fully intend to FPV this little quad and hopefully be buzzing around my local park.&lt;/p&gt;
+
+&lt;p&gt;Can’t wait! Damn international shipping!&lt;/p&gt;
+</description>
+        <pubDate>Thu, 21 Nov 2013 00:00:00 +1100</pubDate>
+        <link>http://fromorbit.com/2013/11/21/the-mini-h-quad-v2-0-the-hammer-frame.html</link>
+        <guid isPermaLink="true">http://fromorbit.com/2013/11/21/the-mini-h-quad-v2-0-the-hammer-frame.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Papilio DX board</title>
+        <description>&lt;style&gt;.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;
+&lt;div class=&quot;embed-container&quot;&gt;    &lt;iframe title=&quot;YouTube video player&quot; width=&quot;640&quot; height=&quot;390&quot; src=&quot;//www.youtube.com/embed/A9hyPe9Ne60&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;I found a cool discovery while talking on the phone and fiddling with things on my bench. The cool little Papilio One FPGA board has a perfect fitting random development board from &lt;a href=&quot;http://dx.com&quot;&gt;Deal Extreme&lt;/a&gt; that I just happen to find. They still seem readily available and super useful!&lt;/p&gt;
+</description>
+        <pubDate>Sun, 27 Oct 2013 00:00:00 +1100</pubDate>
+        <link>http://fromorbit.com/2013/10/27/papilio-dx-board.html</link>
+        <guid isPermaLink="true">http://fromorbit.com/2013/10/27/papilio-dx-board.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Initial ZPU muck-about</title>
+        <description>&lt;style&gt;.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;
+&lt;div class=&quot;embed-container&quot;&gt;    &lt;iframe title=&quot;YouTube video player&quot; width=&quot;640&quot; height=&quot;390&quot; src=&quot;//www.youtube.com/embed/iBiuEYxKYM8&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;This is a fairly boring video of me talking to camera about my ideas on using a ZPU softcore CPU for a project I have on the boil. There is also a bit of a rant about crappy operating systems and vendor tools.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 25 May 2013 00:00:00 +1000</pubDate>
+        <link>http://fromorbit.com/2013/05/25/initial-zpu-muck-about.html</link>
+        <guid isPermaLink="true">http://fromorbit.com/2013/05/25/initial-zpu-muck-about.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Bluetooth fun</title>
+        <description>&lt;style&gt;.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;
+&lt;div class=&quot;embed-container&quot;&gt;    &lt;iframe title=&quot;YouTube video player&quot; width=&quot;640&quot; height=&quot;390&quot; src=&quot;//www.youtube.com/embed/G9KFBptf8qU&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;Mucking around on a Sunday with the excellent Bluegiga WT32 module.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 18 May 2013 00:00:00 +1000</pubDate>
+        <link>http://fromorbit.com/2013/05/18/bluetooth-fun.html</link>
+        <guid isPermaLink="true">http://fromorbit.com/2013/05/18/bluetooth-fun.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Tiny Matrix Hack</title>
+        <description>&lt;style&gt;.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;
+&lt;div class=&quot;embed-container&quot;&gt;    &lt;iframe title=&quot;YouTube video player&quot; width=&quot;640&quot; height=&quot;390&quot; src=&quot;//www.youtube.com/embed/ot5yzkOYYsQ&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;This is a PCB mounted version of the &lt;a href=&quot;https://sites.google.com/site/tinymatrix/&quot;&gt;TinyMatrix&lt;/a&gt;. I built it for my little nephew for Christmas. I opted to use AAA batteries as CR2032’s aren’t that common for a kids toy.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 29 Dec 2012 00:00:00 +1100</pubDate>
+        <link>http://fromorbit.com/2012/12/29/tiny-matrix-hack.html</link>
+        <guid isPermaLink="true">http://fromorbit.com/2012/12/29/tiny-matrix-hack.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Web interface for Motion controller</title>
+        <description>&lt;style&gt;.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;
+&lt;div class=&quot;embed-container&quot;&gt;    &lt;iframe title=&quot;YouTube video player&quot; width=&quot;640&quot; height=&quot;390&quot; src=&quot;//www.youtube.com/embed/WJNErsERFzM&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;This is a quick show-and-tell of the working of my motion controller.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 14 Dec 2012 00:00:00 +1100</pubDate>
+        <link>http://fromorbit.com/2012/12/14/web-interface-for-motion-controller.html</link>
+        <guid isPermaLink="true">http://fromorbit.com/2012/12/14/web-interface-for-motion-controller.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>10-turn Potentiometer Tear Down</title>
+        <description>&lt;style&gt;.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;
+&lt;div class=&quot;embed-container&quot;&gt;    &lt;iframe title=&quot;YouTube video player&quot; width=&quot;640&quot; height=&quot;390&quot; src=&quot;//www.youtube.com/embed/LzZHek-ANuA&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;I pull apart a 10-turn potentiometer to see what’s inside. Pretty cool.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 18 Sep 2012 00:00:00 +1000</pubDate>
+        <link>http://fromorbit.com/2012/09/18/10-turn-potentiometer-tear-down.html</link>
+        <guid isPermaLink="true">http://fromorbit.com/2012/09/18/10-turn-potentiometer-tear-down.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Wishbone FPGA Motion Controller</title>
+        <description>&lt;style&gt;.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;
+&lt;div class=&quot;embed-container&quot;&gt;    &lt;iframe title=&quot;YouTube video player&quot; width=&quot;640&quot; height=&quot;390&quot; src=&quot;//www.youtube.com/embed/Kl1pLNiXN6k&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;This is just showing off my little Wishbone motion controller I wrote for this little TS7500 SBC.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 05 Sep 2012 00:00:00 +1000</pubDate>
+        <link>http://fromorbit.com/2012/09/05/wishbone-fpga-motion-controller.html</link>
+        <guid isPermaLink="true">http://fromorbit.com/2012/09/05/wishbone-fpga-motion-controller.html</guid>
+        
+        
+      </item>
+    
+  </channel>
+</rss>

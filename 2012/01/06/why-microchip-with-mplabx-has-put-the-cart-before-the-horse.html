@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Why Microchip with MPLABX has put the cart before the horse.</title>
+  <meta name="description" content="Update: I received a response from Microchip; see the end.">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://fromorbit.com/2012/01/06/why-microchip-with-mplabx-has-put-the-cart-before-the-horse.html">
+  <link rel="alternate" type="application/rss+xml" title="FromOrbit.com" href="/feed.xml">
+  
+  
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">FromOrbit.com</a>
+
+    <nav class="site-nav">
+      <span class="menu-icon">
+        <svg viewBox="0 0 18 15" width="18px" height="15px">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </span>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+          <a class="page-link" href="/contact/">Contact</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Why Microchip with MPLABX has put the cart before the horse.</h1>
+    <p class="post-meta"><time datetime="2012-01-06T00:00:00+11:00" itemprop="datePublished">Jan 6, 2012</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><img src="/assets/images/2012-01-06/MicrochipTechnology_Logo.png" alt="Microchip" /></p>
+<h1 id="update-i-received-a-response-from-microchip-see-the-end">Update: I received a response from Microchip; see the end.</h1>
+
+<h1 id="the-history">The history.</h1>
+
+<p>Hello friends, let this tale of woe be a lesson for those deciding on a MCU supplier.</p>
+
+<p>I had been a long time user of Microchip parts, and a fan for over ten years. I’ve owned and built several PIC programmers. An ICD2, an ICU-U64 and all the CCS compilers, several dsPIC devel boards, I even bought an ICD3 just recently because I wanted get back to my long-held favourite supplier. Even though in the mean time I’d used alternative MCUs from the likes of Atmel, ARM and TI that have better support and open source toolchains.</p>
+
+<p>Let’s start with the ICD2. I bought it long ago in the hope that one day I could use it natively under Linux. Back then I really didn’t mind having to dual-boot my machine into Windows to use MPLAB IDE because it wasn’t too bad to use and I was younger, so jumping through hoops was ok to me back then. I’ve used that ICD2 extensively, creating many NDA protected projects for many large clients (banks, hospitals, telecommunications companies etc) and I’ve also used it to create a few open source projects too (like PICStep).</p>
+
+<p>After a while of getting frustrated with Windows, and also discovering how easy it was to use an AVR under Linux I slowly started to move my projects to Atmel. Adding to that the ease and low entry cost to program an AVR. But without dropping serious dollars on a JTAG mkII I never was able to debug like I could with my ICD2. I missed that. And Atmel were awful at supply and their devices didn’t have the scope of all the peripherals the PICs had.</p>
+
+<h1 id="a-new-beginning-maybe">A new beginning… maybe.</h1>
+
+<p>Fast forward to Nov 2011 and having used a clients boards with a dsPIC on it, I soon started wondering if Linux support in Microchip-land had gotten any better. Looking around I found MPLABX with the long-awaited Linux support! HUZZAH! I thought. I went home that night and dusted off my ICD2 only to find out later that the ICD2 support would be dropped.</p>
+
+<p>A few days later I received a tweet from Microchip advertising “XMAS Specials” that included a discounted ICD3. Knowing the ICD3 was supported under MPLABX I thought “what the hell”, the ICD3 is supposed to be faster anyway, plus it supported PIC32 which would be where I’d be heading soon enough. A few weeks later I had the ICD3 in my hands, and there begins my troubles.</p>
+
+<p>Firstly let me backtrack a little and give you a list of a few niggles I had when I originally installed MPLABX.</p>
+
+<p>MPLABX and all Microchip compilers need root access to install. Don’t ask me why other than they want to default install into /opt but <strong>anything</strong> that needs root makes me worry.
+MPLABX creates a big fat “MPLABXProjects” in the root of your home directory <strong>every time</strong> it starts. Even if you go and change your preferences and move it to somewhere else, it will still create it.
+It bugs you about ‘plugins’ you can install when updating, which install just fine. They have toolbars and buttons and everything, but dare click on one and a helpful dialog leaps forth and states “This feature only works in Windows”.</p>
+
+<p>And they dumped support for ICD2 when they already had the framework working.
+“Not to worry” I tell myself, it’s only a Beta. It’ll get better.</p>
+
+<h1 id="feeling-like-a-guinea-pig">Feeling like a guinea pig.</h1>
+
+<p>As a software engineer by day I fully understand the development process, and I also understand that bugs exist and even the world’s best programmer will still make bugs. But MPLABX just feels like it’s either written by one guy who is so overworked and underpaid (which if that’s the case I salute him/her for their efforts thus far and I take back my criticisms about it being buggy) that simple things are being missed. Or by a committee of marketing people with a big list with “Linux/OSX support” written on a whiteboard somewhere.</p>
+
+<p>My major gripe with MPLABX isn’t its bugs or it’s niggles. No, it’s why it was built/released before a decent set of command line tools were written/released for all platforms. MPLAB IDE was Windows only, sure, great move with the times and go multi-platform. But why is their first response to multi-platform to build an IDE? All their compilers have command line support. Why is it then that the official programmers/debuggers do not. Instead we’re bludgeoned with the bulk of a full IDE just to program a few bytes of HEX into a MCU. Look at the Arduino IDE. It uses a bunch of command line tools (avrdude, gcc, make etc) behind the scenes and nobody is the wiser. The hardcore guys can build their own environment the way the like it (vim, emacs, etc) as well and everyone is happy.</p>
+
+<p>Oh but no, not Microchip. The only way to program an MCU with an ICD3 under Linux/OSX is through the hulking mass that is MPLABX. What drives me absolutely crazy is ICD2 Linux support was being screamed about on their forums for almost ten years!</p>
+
+<p>I posted my list of gripes on <code><a href="http://dangerousprototypes.com/2011/12/20/mplab-x-v1-0-released/" target="_blank">dangerousprototypes.com</a></code>. and pretty solidly got support from the posters. Even a Microchip employee popped up and said they have a “mdb.sh” tool in their SDK that allows ICD3 command line programming, but support for it is “really soon now”. I’ve heard that throw away response some ten years ago on their forums about ICD2 support too.</p>
+
+<p>I downloaded the SDK (all 395MB of it) and indeed it can talk to the ICD3, but there is no documentation and it looks only half done. Which leads me back to my original point. Why on earth wasn’t this the first thing written?</p>
+
+<p>I posted a thread on their MPLABX forum about my list of issues. Some “guest” hijacked my thread and was dutifully answered by a Microchip employee, yet my questions were ignored. Talk about alienating a customer.</p>
+
+<h1 id="quit-your-bitching-and-just-use-the-thing-okay">Quit your bitching and just use the thing okay.</h1>
+
+<p>So for the past two weeks I decided I’d just use the IDE and get over it. I installed the C18 compiler (root and all), I set up MPLABX (again trusting Microchip with root), I create a fresh new project, I try to compile…. “Could not generate makefiles for configuration default”. WTF!</p>
+
+<p>I look in the forums, apparently if I confirm the C18 compiler was detected correctly and I press ‘Apply’ the default Makefile will be auto-generated. I’ve worn out the ‘Apply’ button on and off over the past two weeks.</p>
+
+<p>I installed PICC18 from HiTech (which doesn’t need root by the way) and that seems to work, but all my code is written using header files and pragma’s for C18 so I’m loathed to convert it over yet. I can’t create my own Makefile because Netbeans doesn’t like that, and so I’m just plain stuck. No support from the forums, no native support for my OS, and an ICD3 I’ve not been able to use without running a VM of WindowsXP and MPLAB IDE (yes I eventually relented and used Virtual Box and USB support).</p>
+
+<h1 id="conclusion">Conclusion?</h1>
+
+<p>I’m just so frustrated with Microchip now, I feel like my loyalty has been really put down and unnoticed. I’m so tempted to sell all my various parts on eBay for cheap, and become an anti-Microchip zealot.</p>
+
+<h1 id="update">Update!.</h1>
+
+<p>After being contacted via various means by Microchip some of my points have been answered.</p>
+
+<p>‘prj’ from Microchips forums answered two of my questions.</p>
+
+<h4 id="it-needs-root-to-install-even-if-youre-installing-it-in-your-home-dir">1. It needs root to install even if you’re installing it in your home dir.</h4>
+
+<blockquote>We currently use the Java call "loadLibrary" to access our low-level, USB support library. "loadLibrary" pulls the libraries from the default library path (as defined by java.library.path ) no matter on which OS it may be running. For Windows, this is either \Windows\system32 or \Windows\SysWOW64, and, usually, if not always, on Linux this includes /usr/libs (which is a common location for user libraries per our discussions with many a Linux user). On Linux, our library in turn loads a specific version of libusb using a uniquely named soft link that we create in /usr/local/libs (in this way we do not overwrite any versions of libusb which may be on the user's system).
+
+Both of these locations on Linux normally require root privileges to access. As such, even if MPLAB X itself is installed in your home directory, the low-level, USB support libraries and links are placed in known, system locations. We could, on Linux, per your suggestion, attempt to modify the java.library.path in the script that invokes MPLAB X, however, for multiple installs of different versions of MPLAB X on a single system (which some users may require), this will present a problem (the first entry in java.library.path always "wins").
+
+Admittedly, our current scheme may present some concerns (root access), but precludes some of the "where are you" handling that can become very messy very fast.</blockquote>
+
+<h4 id="the-please-reboot-for-the-changes-to-take-effect-msg-after-you-install-is-quaint-and-unneeded">2. The ‘please reboot for the changes to take effect’ msg after you install is quaint and unneeded.</h4>
+
+<blockquote>One other reason we need root access is that we place a udev rule file in place to provide USB hot plug support while using libusb (at the time we did this, libusb did not have hot plug support). Udev rules files are placed in /etc/udev/rules.d/, which, again, normally requires root privileges.
+
+As far as the reboot, this was also a sore point with me. Our intention was to install the rules file and then call the appropriate udev facility to "activate" it. However, we found that different distros of Linux use different or customised udev handling. What we found was that on some distros, a reboot is necessary (and required per some docs) for new udev script or rule files to be recognised (because the dynamic facility to load a rules file was not available or simply did not work). Other distros were fine.
+
+But in all distros, a reboot guaranteed that our udev rules file would be recognised (and hence our USB hot plug would work). Again, in Linux, when libusb supplies a solid and true hot plug functionality (including when our devices are cycled "electronically" on and off the bus for update purposes), we will investigate its use and then the udev file may not be necessary.</blockquote>
+
+<p>Both are understandable from a company that’s just entering into Linux support with their newly developed software, but in the long-bow view I still think requiring root to install is flawed. I’d rather see the installer allow me to install where I like (eg. my user dir) and have it populate a directory with a shell script that I can inspect/run to install all the root user requirements rather than have them hidden from me. The installer if run as root (for those users who don’t care) can install everything as before, but those sensitive to root usage can still install but will need to do a further step to complete the install them themselves. I think that would be a better solution rather than blankly denying install if you aren’t root</p>
+
+<p>Also there are ways around fiddling with the base OS. Dumping files into system directories works fine on Windows but I hate having random libraries clogging up my distro years on. I’d rather LD_LIBRARY_PATH or such was modified in a “start-up” script. Or statically compiled binaries, disks are cheap.</p>
+
+<p>The libUSB hot-plug problem I could see being a dicey one, and I fully appreciate the solution they are using is probably the best one at this time. However when libUSB does solidly support hot-plug I’d really like to see this requirement go away. There should hopefully be a point in the future where root is no longer needed at all.</p>
+
+  </div>
+
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">FromOrbit.com</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              FromOrbit.com
+            
+            </li>
+            
+            <li><a href="mailto:alan@fromorbit.com">alan@fromorbit.com</a></li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/alangarf"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">alangarf</span></a>
+
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/alangarf"><span class="icon icon--twitter"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/></svg>
+</span><span class="username">alangarf</span></a>
+
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Generic nerd who dabbles in programming, electronics, CNC and retro computing.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
