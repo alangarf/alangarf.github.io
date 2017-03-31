@@ -6,9 +6,100 @@
 </description>
     <link>http://fromorbit.com/</link>
     <atom:link href="http://fromorbit.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 31 Mar 2017 13:35:56 +1100</pubDate>
-    <lastBuildDate>Fri, 31 Mar 2017 13:35:56 +1100</lastBuildDate>
+    <pubDate>Fri, 31 Mar 2017 22:35:59 +1100</pubDate>
+    <lastBuildDate>Fri, 31 Mar 2017 22:35:59 +1100</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
+    
+      <item>
+        <title>Retro Challenge 2017/04</title>
+        <description>&lt;p&gt;After working with a friend on a Z80 based project I spoke about some SCC2691
+UARTs I had from an old board I had saved from a skip bin some 10 years ago. He
+asked questions about the board and I described it to him..&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Yeah it’s got a 68000 on it, with what looks like 64KBs of RAM and I don’t
+know 32KB or ROM. Looks like there is a clock chip, dual batteries probably
+for the clock maybe the RAM, and what looks like a standard RS232 port.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;He quickly said I’d be nuts to tear the board apart and it would make a good
+candidate for the RetroChallenge competition. So after very little thought I
+considered this as something that might be fun to do. So of course…&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/2017-03-31/amx_axc_master.png&quot;&gt;&lt;img src=&quot;/assets/images/2017-03-31/tmb_amx_axc_master.png&quot; alt=&quot;AMX AXC 68000
+Board&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;retrochallenge&quot;&gt;Retrochallenge&lt;/h2&gt;
+
+&lt;p&gt;My already busy life schedule has just gotten busier for the next month. I have
+successfully entered the 2017/04 challenge and intend to set to work on the 1st
+of April.&lt;/p&gt;
+
+&lt;p&gt;My goals for this project are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Reverse engineer the board.
+    &lt;ul&gt;
+      &lt;li&gt;Work out the memory map and the devices and peripherals on the board.&lt;/li&gt;
+      &lt;li&gt;Build enough schematic of the board to understand all the little trick it
+might hold.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Build a software simulator for the board using &lt;a href=&quot;https://github.com/kstenerud/Musashi&quot;&gt;a m68k simulator CPU&lt;/a&gt;.
+    &lt;ul&gt;
+      &lt;li&gt;This will include getting the boards own firmware running.&lt;/li&gt;
+      &lt;li&gt;Setup a ROM monitor.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Get a ROM monitor going on the board.
+    &lt;ul&gt;
+      &lt;li&gt;Get the onboard the devices working (calendar, UARTs, LED).&lt;/li&gt;
+      &lt;li&gt;Get either BASIC or a FORTH interpreter working.&lt;/li&gt;
+      &lt;li&gt;Write a Mandelbrot set program.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I’d like to see what can be done with the battery backed up RAM. Perhaps
+getting a small OS running would be interesting. Adding additional hardware
+will be difficult as there is no “bus expansion” onboard so any additional
+hardware would have to sit ontop of the board and replace the RAM or something
+to access the address and data lines. But that’s not really going to be part of
+the challenge. Just getting a ROM monitor etc will be hard enough. :)&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 31 Mar 2017 00:00:00 +1100</pubDate>
+        <link>http://fromorbit.com/2017/03/31/retro-computing-challenge-201704.html</link>
+        <guid isPermaLink="true">http://fromorbit.com/2017/03/31/retro-computing-challenge-201704.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Updating the website...</title>
+        <description>&lt;h1 id=&quot;wonders-of-wonders&quot;&gt;Wonders of wonders…&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2017-03-30/successkid.jpg&quot; alt=&quot;Success Kid&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Yes my website is being updated once again.&lt;/p&gt;
+
+&lt;p&gt;After about 5 aborted attempts to rebuild all my old content and get this site up and going again. I’ve finally decided to just start making new content, and if I find the time (and the will) I’ll periodically rebuild the old stuff. The mountain of work to convert (and fix) all the old content was always the largest hurdle to getting this site going again. But NO MORE! No more excuses.&lt;/p&gt;
+
+&lt;p&gt;I now can write content in vim, push it to github and it’s done. No wordpress, no VPS to admin, no image libraries to update (actually I still have that problem dang it).&lt;/p&gt;
+
+&lt;p&gt;Anyway, new year, new content. Who knows it might even stick!&lt;/p&gt;
+
+&lt;p&gt;Cheers,&lt;/p&gt;
+
+&lt;p&gt;-A.&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 30 Mar 2017 00:00:00 +1100</pubDate>
+        <link>http://fromorbit.com/2017/03/30/updating-website.html</link>
+        <guid isPermaLink="true">http://fromorbit.com/2017/03/30/updating-website.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Digital Foosball Two</title>
@@ -113,34 +204,6 @@
         <pubDate>Fri, 14 Dec 2012 00:00:00 +1100</pubDate>
         <link>http://fromorbit.com/2012/12/14/web-interface-for-motion-controller.html</link>
         <guid isPermaLink="true">http://fromorbit.com/2012/12/14/web-interface-for-motion-controller.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>10-turn Potentiometer Tear Down</title>
-        <description>&lt;style&gt;.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;
-&lt;div class=&quot;embed-container&quot;&gt;    &lt;iframe title=&quot;YouTube video player&quot; width=&quot;640&quot; height=&quot;390&quot; src=&quot;//www.youtube.com/embed/LzZHek-ANuA&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
-
-&lt;p&gt;I pull apart a 10-turn potentiometer to see what’s inside. Pretty cool.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 18 Sep 2012 00:00:00 +1000</pubDate>
-        <link>http://fromorbit.com/2012/09/18/10-turn-potentiometer-tear-down.html</link>
-        <guid isPermaLink="true">http://fromorbit.com/2012/09/18/10-turn-potentiometer-tear-down.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Wishbone FPGA Motion Controller</title>
-        <description>&lt;style&gt;.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;
-&lt;div class=&quot;embed-container&quot;&gt;    &lt;iframe title=&quot;YouTube video player&quot; width=&quot;640&quot; height=&quot;390&quot; src=&quot;//www.youtube.com/embed/Kl1pLNiXN6k&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
-
-&lt;p&gt;This is just showing off my little Wishbone motion controller I wrote for this little TS7500 SBC.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 05 Sep 2012 00:00:00 +1000</pubDate>
-        <link>http://fromorbit.com/2012/09/05/wishbone-fpga-motion-controller.html</link>
-        <guid isPermaLink="true">http://fromorbit.com/2012/09/05/wishbone-fpga-motion-controller.html</guid>
         
         
       </item>

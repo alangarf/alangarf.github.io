@@ -465,18 +465,30 @@ pre {
   .page-content .post-list li {
     overflow: auto;
     clear: both;
-    margin-bottom: 15px; }
+    border: 1px solid #E8E8E8;
+    margin-top: 25px;
+    padding: 5px; }
   .page-content .post-list .post-thumbnail {
     float: left;
     border-radius: 4px 4px 4px 4px;
     margin: 5px 15px 5px 0;
     width: 160;
     height: 90px; }
+  .page-content .post-list .readmore {
+    clear: left;
+    display: block;
+    text-align: right;
+    padding: 2px 15px;
+    background: #EEE;
+    margin-top: 3em;
+    color: #1D1DEC; }
   .page-content .post-content h1, .page-content .post-content h2, .page-content .post-content h3, .page-content .post-content h4, .page-content .post-content h5, .page-content .post-content h6 {
     font-family: "Jura", sans-serif;
     color: #AD864D; }
   .page-content .post-content .embed-container {
     margin-bottom: 2em; }
+  .page-content .post-content a {
+    color: #1d1dec; }
 
 .site-header {
   position: relative;
