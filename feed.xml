@@ -6,8 +6,8 @@
 </description>
     <link>http://fromorbit.com/</link>
     <atom:link href="http://fromorbit.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 03 Apr 2017 22:12:43 +1000</pubDate>
-    <lastBuildDate>Mon, 03 Apr 2017 22:12:43 +1000</lastBuildDate>
+    <pubDate>Mon, 03 Apr 2017 22:18:06 +1000</pubDate>
+    <lastBuildDate>Mon, 03 Apr 2017 22:18:06 +1000</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -117,7 +117,7 @@ see strings (even some funny stuff) and loops testing devices and memory etc.&lt
 
 &lt;h1 id=&quot;beep-beep-beeeeeeeeeep-&quot;&gt;Beep, beep, beeeeeeeeeep …&lt;/h1&gt;
 
-&lt;p&gt;After much looking through the code I had some good ideas were things where but I still didn’t fully understand the address map of the CPU and what devices were going where. So being all DIP packages and only a dual layer board I set out with my Fluke 87 and my pointest or pointy probes and started beeping out traces on the board to get a true account of where all the devices are and what they do.&lt;/p&gt;
+&lt;p&gt;After much looking through the code I had some good ideas where things were but I still didn’t fully understand the address map of the CPU and what devices were going where. So being all DIP packages and only a dual layer board I set out with my Fluke 87 and my pointest or pointy probes and started beeping out traces on the board to get a true account of where all the devices are and what they do.&lt;/p&gt;
 
 &lt;p&gt;I start building up a picture in KiCad of the schematic. Not taking values of components etc, but just the general connections so that many things can become much clearer. I first tackled the address decoding.&lt;/p&gt;
 
