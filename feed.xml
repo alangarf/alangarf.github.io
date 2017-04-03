@@ -6,9 +6,151 @@
 </description>
     <link>http://fromorbit.com/</link>
     <atom:link href="http://fromorbit.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 31 Mar 2017 22:35:59 +1100</pubDate>
-    <lastBuildDate>Fri, 31 Mar 2017 22:35:59 +1100</lastBuildDate>
+    <pubDate>Mon, 03 Apr 2017 22:12:43 +1000</pubDate>
+    <lastBuildDate>Mon, 03 Apr 2017 22:12:43 +1000</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
+    
+      <item>
+        <title>Beeping out the board - Retro Challenge 2017/04</title>
+        <description>&lt;p&gt;I first started with this board by pulling off the ROMs and dumping their contents. Being a m68k CPU generally the ROMs are split into odd and even byte streams, and in order to dissassemble them the two ROM images need to be interleaved again. I achieved this with a little bit of python:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/python3&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;argparse&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argparse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ArgumentParser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;odd_file&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;even_file&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;output&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parse_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'wb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;odd_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'rb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;odd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;even_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'rb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;even&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+
+      &lt;span class=&quot;n&quot;&gt;odd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SEEK_END&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;odd_size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;odd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tell&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+      &lt;span class=&quot;n&quot;&gt;even&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SEEK_END&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;even_size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;even&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tell&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;odd_size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;even_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ROM images aren't the same size!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+      &lt;span class=&quot;n&quot;&gt;odd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;even&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+      &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;odd_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;odd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;even&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;odd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;even&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;roming-around-like-its-1995&quot;&gt;ROMing around like it’s 1995&lt;/h1&gt;
+
+&lt;p&gt;I took the two ROM images I dumped and merged them back together using the following:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ merge.py rom_odd.bin rom_even.bin rom_out.bin
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;After verifying the &lt;code class=&quot;highlighter-rouge&quot;&gt;rom_out.bin&lt;/code&gt; using &lt;code class=&quot;highlighter-rouge&quot;&gt;objdump&lt;/code&gt; for the m86k I knew I was on my way.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ m68k-linux-gnu-objdump --disassemble-all --target=binary --architecture=m68k --start-address=0x00 rom_out.bin
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This gave me the disassembled output of the m68k ROM image:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rom_out.bin:     file format binary
+
+
+Disassembly of section .data:
+
+00000000 &amp;lt;.data&amp;gt;:
+       0:	0002 0ff0      	orib #-16,%d2
+       4:	0000 0400      	orib #0,%d0
+
+[SNIP]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The first value is the preset value the CPU uses for the SP (stack pointer). So
+it looks like it’s up in 0x20000 address space. That’s a good start, looks like
+some RAM is up around 0x20000.&lt;/p&gt;
+
+&lt;p&gt;The second address is the init jump point, so the first instruction the CPU
+will load is at location 0x400.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-stuff-you-see-in-rom-dumps-&quot;&gt;The stuff you see in ROM dumps …&lt;/h1&gt;
+
+&lt;p&gt;Further digging through the assembly and looking at hex dumps you can start to
+see strings (even some funny stuff) and loops testing devices and memory etc.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;00009140: 3131 2100 2a21 3132 2100 5041 5353 0053  11!.*!12!.PASS.S
+00009150: 454e 4420 434f 4d4d 414e 4400 5345 4e44  END COMMAND.SEND
+00009160: 2053 5452 494e 4700 5055 5348 0056 414c   STRING.PUSH.VAL
+00009170: 5545 204f 4600 4445 5649 4345 2053 5441  UE OF.DEVICE STA
+00009180: 5455 5300 5245 4345 4956 4520 5052 4f47  TUS.RECEIVE PROG
+00009190: 5241 4d00 4841 5645 2050 524f 4752 414d  RAM.HAVE PROGRAM
+000091a0: 0053 484f 5720 4445 5649 4345 0043 4f4d  .SHOW DEVICE.COM
+000091b0: 5041 5245 2044 4556 4943 4500 5348 4f57  PARE DEVICE.SHOW
+000091c0: 2049 4e50 5554 204f 4e00 5348 4f57 2049   INPUT ON.SHOW I
+000091d0: 4e50 5554 204f 4646 0041 4d58 2042 5547  NPUT OFF.AMX BUG
+000091e0: 003f 0048 454c 5000 4441 5445 0054 494d  .?.HELP.DATE.TIM
+000091f0: 4500 5345 5420 4441 5445 0053 4554 2054  E.SET DATE.SET T
+00009200: 494d 4500 5645 5253 494f 4e00 4d45 4d4f  IME.VERSION.MEMO
+00009210: 5259 0053 4c4f 5400 4841 5645 2043 4f4e  RY.SLOT.HAVE CON
+00009220: 5452 4f4c 0053 5953 5445 4d20 5245 5345  TROL.SYSTEM RESE
+00009230: 5400 4543 484f 204f 4e00 4543 484f 204f  T.ECHO ON.ECHO O
+00009240: 4646 0053 4849 5400 4655 434b 0048 454c  FF.SHIT.FUCK.HEL
+00009250: 4c4f 003e 004f 4b00 434f 4e4e 4543 5400  LO.&amp;gt;.OK.CONNECT.
+00009260: 5249 4e47 0043 4152 5249 4552 0045 5252  RING.CARRIER.ERR
+00009270: 4f52 0044 4941 4c54 4f4e 4500 4255 5359  OR.DIALTONE.BUSY
+00009280: 0000 4e56 fffe 422e ffff 4a39 0002 140b  ..NV..B...J9....
+00009290: 6712 7000 1039 0002 140b 41f9 0002 140c  g.p..9....A.....
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;beep-beep-beeeeeeeeeep-&quot;&gt;Beep, beep, beeeeeeeeeep …&lt;/h1&gt;
+
+&lt;p&gt;After much looking through the code I had some good ideas were things where but I still didn’t fully understand the address map of the CPU and what devices were going where. So being all DIP packages and only a dual layer board I set out with my Fluke 87 and my pointest or pointy probes and started beeping out traces on the board to get a true account of where all the devices are and what they do.&lt;/p&gt;
+
+&lt;p&gt;I start building up a picture in KiCad of the schematic. Not taking values of components etc, but just the general connections so that many things can become much clearer. I first tackled the address decoding.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/2017-04-03/address-decoding.png&quot;&gt;&lt;img src=&quot;/assets/images/2017-04-03/tmb_address-decoding.png&quot; alt=&quot;AMX AXC 68000 address decoding&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;So after a lot of beeping and probing I got the address map out:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;| 0x00000       | ROM                    |
+| 0x10000       | ROM (addr alias?)      |
+| 0x20000       | RAM BANK 1             |
+| 0x30000       | RAM BANK 2             |
+| 0x40000       | UARTs (2 x SCC2691)    |
+| 0x50000       | INPUTs via a 74LS373   |
+| 0x60000       | OUTPUTs via a 74LS259  |
+| 0x70000       | INPUT via a 74LS373    |
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The first INPUT and OUTPUT addresses are related to the OKI M5832 clock calendar chips 4 bit I/O bus and control lines, and the on-board green status LED. So that’s a good start.&lt;/p&gt;
+
+&lt;p&gt;Need to understand the UARTs a little better, one is standard RS232 the other is a weird RS485 like interface (called AXLink in AMX speak).&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/2017-04-03/axlink_bus.png&quot;&gt;&lt;img src=&quot;/assets/images/2017-04-03/tmb_axlink_bus.png&quot; alt=&quot;AXLink bus schematic&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Anyway, that’s all for today. I’ll crack on with more tomorrow!&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 03 Apr 2017 00:00:00 +1000</pubDate>
+        <link>http://fromorbit.com/2017/04/03/m68k-amx-board-rc201704.html</link>
+        <guid isPermaLink="true">http://fromorbit.com/2017/04/03/m68k-amx-board-rc201704.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Retro Challenge 2017/04</title>
@@ -190,20 +332,6 @@ the challenge. Just getting a ROM monitor etc will be hard enough. :)&lt;/p&gt;
         <pubDate>Sat, 29 Dec 2012 00:00:00 +1100</pubDate>
         <link>http://fromorbit.com/2012/12/29/tiny-matrix-hack.html</link>
         <guid isPermaLink="true">http://fromorbit.com/2012/12/29/tiny-matrix-hack.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Web interface for Motion controller</title>
-        <description>&lt;style&gt;.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;
-&lt;div class=&quot;embed-container&quot;&gt;    &lt;iframe title=&quot;YouTube video player&quot; width=&quot;640&quot; height=&quot;390&quot; src=&quot;//www.youtube.com/embed/WJNErsERFzM&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
-
-&lt;p&gt;This is a quick show-and-tell of the working of my motion controller.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 14 Dec 2012 00:00:00 +1100</pubDate>
-        <link>http://fromorbit.com/2012/12/14/web-interface-for-motion-controller.html</link>
-        <guid isPermaLink="true">http://fromorbit.com/2012/12/14/web-interface-for-motion-controller.html</guid>
         
         
       </item>
