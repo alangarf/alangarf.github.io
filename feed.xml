@@ -6,9 +6,74 @@
 </description>
     <link>http://fromorbit.com/</link>
     <atom:link href="http://fromorbit.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 04 Apr 2017 07:55:40 +1000</pubDate>
-    <lastBuildDate>Tue, 04 Apr 2017 07:55:40 +1000</lastBuildDate>
+    <pubDate>Wed, 05 Apr 2017 08:30:49 +1000</pubDate>
+    <lastBuildDate>Wed, 05 Apr 2017 08:30:49 +1000</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
+    
+      <item>
+        <title>Got together a schematic today - Retro Challenge 2017/04</title>
+        <description>&lt;p&gt;Quick one today, I worked on the schematic a little more. Still a few unknowns
+and a couple of holes I’ve not filled in yet, but the schematic is 80%
+complete. At least to a point where I can get a ROM monitor etc running and
+know where all the hardware is and have a good certainty I’m not talking in the
+breeze when I start trying to control the hardware.&lt;/p&gt;
+
+&lt;p&gt;I’ve also been working on a simulator for this board using the &lt;a href=&quot;https://github.com/kstenerud/Musashi&quot;&gt;Musashi 68000
+core&lt;/a&gt; in C. I’ve built up the address
+map, and started writting modules to simulate the hardware. This will help me
+greatly in development as I won’t need to be burning ROMs so often to try
+things out initially. A ROM monitor would help a lot too, so I’m weighing up
+options given the time I have for the competition and my already terrible
+work/life balance.&lt;/p&gt;
+
+&lt;p&gt;Here is a snippet of the UART core I’ve written for the simulator, it sets up the internal registers etc of the UART so the firmware can read and write state to configure the registers. The only bit I’ve not successfully worked out yet is the interrupt priorities, there is something wonky on this boards layout I’ve not figured out with the interrupt. But that’s another days problem.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;scc2691_core uarts[2];
+
+void scc2691_reset(void)
+{
+    for(int i = 0; i &amp;lt; 2; i++) {
+        uarts[i].id = i;
+
+        uarts[i].m1 = 0x0;
+        uarts[i].m1_flag = 0x0;
+        uarts[i].m2 = 0x0;
+
+        uarts[i].csr  = 0x0;
+        uarts[i].cr   = 0xA;
+        uarts[i].thr  = 0x0;
+        uarts[i].acr  = 0x0;
+        uarts[i].imr  = 0x0;
+        uarts[i].ctur = 0x0;
+        uarts[i].ctlr = 0x0;
+
+        uarts[i].sr  = 0x0;
+        uarts[i].rhr = 0x0;
+        uarts[i].isr = 0x0;
+        uarts[i].ctu = 0x0;
+        uarts[i].ctl = 0x0;
+
+        uarts[i].cnt_flag = 0;
+        uarts[i].cnt_value = 0;
+
+        uarts[i].tx = 0;
+        uarts[i].tx_last = time(NULL);
+        int_controller_clear(1);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;the-schematic-so-far-&quot;&gt;The schematic so far …&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/2017-04-05/schematic.png&quot;&gt;&lt;img src=&quot;/assets/images/2017-04-05/tmb_schematic.png&quot; alt=&quot;AMX board schematic&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 05 Apr 2017 00:00:00 +1000</pubDate>
+        <link>http://fromorbit.com/2017/04/05/m68k-schematic-rc201704.html</link>
+        <guid isPermaLink="true">http://fromorbit.com/2017/04/05/m68k-schematic-rc201704.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Beeping out the board - Retro Challenge 2017/04</title>
@@ -318,20 +383,6 @@ the challenge. Just getting a ROM monitor etc will be hard enough. :)&lt;/p&gt;
         <pubDate>Sat, 18 May 2013 00:00:00 +1000</pubDate>
         <link>http://fromorbit.com/2013/05/18/bluetooth-fun.html</link>
         <guid isPermaLink="true">http://fromorbit.com/2013/05/18/bluetooth-fun.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Tiny Matrix Hack</title>
-        <description>&lt;style&gt;.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;
-&lt;div class=&quot;embed-container&quot;&gt;    &lt;iframe title=&quot;YouTube video player&quot; width=&quot;640&quot; height=&quot;390&quot; src=&quot;//www.youtube.com/embed/ot5yzkOYYsQ&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
-
-&lt;p&gt;This is a PCB mounted version of the &lt;a href=&quot;https://sites.google.com/site/tinymatrix/&quot;&gt;TinyMatrix&lt;/a&gt;. I built it for my little nephew for Christmas. I opted to use AAA batteries as CR2032’s aren’t that common for a kids toy.&lt;/p&gt;
-</description>
-        <pubDate>Sat, 29 Dec 2012 00:00:00 +1100</pubDate>
-        <link>http://fromorbit.com/2012/12/29/tiny-matrix-hack.html</link>
-        <guid isPermaLink="true">http://fromorbit.com/2012/12/29/tiny-matrix-hack.html</guid>
         
         
       </item>
