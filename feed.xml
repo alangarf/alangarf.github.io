@@ -6,9 +6,187 @@
 </description>
     <link>http://fromorbit.com/</link>
     <atom:link href="http://fromorbit.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 05 Apr 2017 14:58:40 +1000</pubDate>
-    <lastBuildDate>Wed, 05 Apr 2017 14:58:40 +1000</lastBuildDate>
+    <pubDate>Thu, 06 Apr 2017 00:49:59 +1000</pubDate>
+    <lastBuildDate>Thu, 06 Apr 2017 00:49:59 +1000</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
+    
+      <item>
+        <title>Ugh! I need UV - Retro Challenge 2017/04</title>
+        <description>&lt;p&gt;So I set out to make the LED blink a merry blink tonight, but was finally thwarted when I came to the realisation I’d need UV light to erase the EPROMs to load my code in. Suffice to say this was mighty frustrating.&lt;/p&gt;
+
+&lt;p&gt;I’m getting ahead of the story, so let’s start from the beginning&lt;/p&gt;
+
+&lt;h1 id=&quot;the-beginning&quot;&gt;The beginning&lt;/h1&gt;
+
+&lt;p&gt;Starting tonight with a goal to have “something” running on this board before I went to bed I started sorting out my development environment. Setting up the required software and tools to get the job done so to speak.&lt;/p&gt;
+
+&lt;p&gt;I installed all the GNU m68k tools. I made a nice little Makefile to assemble my assembly…&lt;/p&gt;
+
+&lt;div class=&quot;language-make highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;M68K&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;m68k-linux-gnu
+&lt;span class=&quot;nv&quot;&gt;AS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$(M68K)&lt;/span&gt;-as
+&lt;span class=&quot;nv&quot;&gt;LD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$(M68K)&lt;/span&gt;-ld
+&lt;span class=&quot;nv&quot;&gt;DUMP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$(M68K)&lt;/span&gt;-objdump
+
+&lt;span class=&quot;nv&quot;&gt;START&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0x00
+&lt;span class=&quot;nv&quot;&gt;FMT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;binary
+&lt;span class=&quot;c&quot;&gt;#FMT=ihex
+&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CPU&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;-m68000
+
+&lt;span class=&quot;nv&quot;&gt;SRCS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;blink.s
+&lt;span class=&quot;nv&quot;&gt;OBJS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;SRCS:.s&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;.o&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;MAIN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;blink.bin
+
+&lt;span class=&quot;nl&quot;&gt;.PHONY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;dump clean&lt;/span&gt;
+
+&lt;span class=&quot;nl&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;    &lt;span class=&quot;nf&quot;&gt;$(MAIN)&lt;/span&gt;
+        &lt;span class=&quot;err&quot;&gt;@echo&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;Builds&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;blink.bin&lt;/span&gt;
+
+&lt;span class=&quot;nl&quot;&gt;$(MAIN)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;$(OBJS)&lt;/span&gt;
+        &lt;span class=&quot;err&quot;&gt;$(LD)&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(START)&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;--oformat&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(FMT)&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(MAIN)&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(OBJS)&lt;/span&gt;
+
+&lt;span class=&quot;nl&quot;&gt;.s.o&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;err&quot;&gt;$(AS)&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(CPU)&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$@&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&amp;lt;&lt;/span&gt;
+
+&lt;span class=&quot;nl&quot;&gt;clean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;err&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;*.o&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(MAIN)&lt;/span&gt;
+
+&lt;span class=&quot;nl&quot;&gt;dump&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;   &lt;span class=&quot;nf&quot;&gt;$(MAIN)&lt;/span&gt;
+        &lt;span class=&quot;err&quot;&gt;$(DUMP)&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(CPU)&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;--disassemble-all&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;--target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$(FMT)&lt;/span&gt; --start-address&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$(START)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(MAIN)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I even bashed together a little test program to twiddle the LED bit of the 74LS259…&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-asm&quot;&gt;/*
+ * Blink LED connected to 74LS259 output.
+ *
+ * ROM is at 0x00000-0x0FA00.
+ * RAM is at 0x20000-0x2FA00
+ * 74LS259 is at 0x60000.
+ */
+
+.equ PORT, 0x60000
+
+/* Iterations of delay loop before updating output value */
+.equ DELAY, 50000
+
+.org 0
+    /* set initial SSP (supervisor stack pointer) */
+    .byte 0, 0, 0, 0
+
+    /* set the program counter */
+    .byte 0, 0, 4, 0
+
+.org 0x400
+    move.l #PORT, %a0
+
+.top:
+    move.b #0x0E, %d0   /* set Q7 to low in the addressable latch mode */
+    move.b %d0, (%a0)   /* write to 'LS259 */
+
+    move.l #DELAY, %d1
+.delay1:
+    tst.l %d1
+    beq .delay1end
+    subq.l #1, %d1
+    jmp .delay1
+
+.delay1end:
+    move.b #0x0F, %d0   /* set Q7 to high in the addressable latch mode */
+    move.b %d0, (%a0)   /* write to 'LS259 */
+
+    move.l #DELAY, %d1
+.delay2:
+    tst.l %d1
+    beq .delay2end
+    subq.l #1, %d1
+    jmp .delay2
+
+.delay2end:
+    jmp .top
+
+.org 0xFFFA
+    jmp .top
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And like a late night TV shopping channel ad I’ll even throw in a &lt;del&gt;free set of steak knives&lt;/del&gt; tool to split the resulting binary into 32KB interleaved chunks so they’d work on the board.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/python3&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;argparse&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argparse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ArgumentParser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;src&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parse_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;even_fn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;even-{}&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;odd_fn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;odd-{}&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'rb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;even_fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'wb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;even&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;odd_fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'wb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;odd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+
+            &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SEEK_END&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;src_size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tell&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+            &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;src_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;odd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;even&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Also by one get one free; I upgraded the software for the Minipro TL866 on OSX. I even figured out the magic device type for my EPROMs.&lt;/p&gt;
+
+&lt;h1 id=&quot;then-it-happened&quot;&gt;Then it happened…&lt;/h1&gt;
+
+&lt;p&gt;I went and tried to write the first “even” binary to the EPROM…&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ minipro -p &quot;27C256 @DIP28 #2&quot; -w even-blink.bin
+Found Minipro TL866A v03.2.72
+Chip ID OK: 0x298c
+Writing Code... OK
+Reading Code... OK
+Verification failed at 0x200: 0x20 != 0x00
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;COMPUTER SAYS NO…&lt;/em&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;beware-losing-all-hope&quot;&gt;Beware, losing all hope…&lt;/h1&gt;
+
+&lt;p&gt;Damn it! I forgot I need to erase these things first.&lt;/p&gt;
+
+&lt;p&gt;Hunting around the garage for any source of UV I knew my search was futile. I even resorted to madness when I found a big bag of “UV” LEDs.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2017-04-06/uv_madness.png&quot; alt=&quot;UGH, my world for UV&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;so-now-what&quot;&gt;So, now what…&lt;/h1&gt;
+
+&lt;p&gt;Well I’ll need to figure out a source of UV. However I also figured I’d just buy some newer flash based EEPROMs in the mean time. Element14 have them in stock locally and I should see them before the weekend hopefully.&lt;/p&gt;
+
+&lt;p&gt;I ordered two &lt;a href=&quot;http://www.microchip.com/wwwproducts/en/AT28C256&quot;&gt;AT28C256&lt;/a&gt;s, which are 98% pin compatible and fast enough for this board. I need to hack a pin swap between pin 1 and 27, but that’s a small price to pay I guess.&lt;/p&gt;
+
+&lt;p&gt;Still very disappointed, and my wife is likely to kill me when I sneak into be at 1:00am. Wouldn’t be so bad if I had the taste of victory instead of the bitter pill of defeat.&lt;/p&gt;
+
+&lt;p&gt;I put up a good fight.&lt;/p&gt;
+
+&lt;p&gt;But UV got the better of me.&lt;/p&gt;
+
+&lt;p&gt;Here’s to tomorrow!&lt;/p&gt;
+</description>
+        <pubDate>Thu, 06 Apr 2017 00:00:00 +1000</pubDate>
+        <link>http://fromorbit.com/2017/04/06/m68k-why-no-uv-rc201704.html</link>
+        <guid isPermaLink="true">http://fromorbit.com/2017/04/06/m68k-why-no-uv-rc201704.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Got together a schematic today - Retro Challenge 2017/04</title>
@@ -369,20 +547,6 @@ the challenge. Just getting a ROM monitor etc will be hard enough. :)&lt;/p&gt;
         <pubDate>Sat, 25 May 2013 00:00:00 +1000</pubDate>
         <link>http://fromorbit.com/2013/05/25/initial-zpu-muck-about.html</link>
         <guid isPermaLink="true">http://fromorbit.com/2013/05/25/initial-zpu-muck-about.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Bluetooth fun</title>
-        <description>&lt;style&gt;.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;
-&lt;div class=&quot;embed-container&quot;&gt;    &lt;iframe title=&quot;YouTube video player&quot; width=&quot;640&quot; height=&quot;390&quot; src=&quot;//www.youtube.com/embed/G9KFBptf8qU&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
-
-&lt;p&gt;Mucking around on a Sunday with the excellent Bluegiga WT32 module.&lt;/p&gt;
-</description>
-        <pubDate>Sat, 18 May 2013 00:00:00 +1000</pubDate>
-        <link>http://fromorbit.com/2013/05/18/bluetooth-fun.html</link>
-        <guid isPermaLink="true">http://fromorbit.com/2013/05/18/bluetooth-fun.html</guid>
         
         
       </item>
