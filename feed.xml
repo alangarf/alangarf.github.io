@@ -6,8 +6,8 @@
 </description>
     <link>http://fromorbit.com/</link>
     <atom:link href="http://fromorbit.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 06 Apr 2017 00:49:59 +1000</pubDate>
-    <lastBuildDate>Thu, 06 Apr 2017 00:49:59 +1000</lastBuildDate>
+    <pubDate>Thu, 06 Apr 2017 01:00:29 +1000</pubDate>
+    <lastBuildDate>Thu, 06 Apr 2017 01:00:29 +1000</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
@@ -142,7 +142,7 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Also by one get one free; I upgraded the software for the Minipro TL866 on OSX. I even figured out the magic device type for my EPROMs.&lt;/p&gt;
+&lt;p&gt;Also buy one get one free; I upgraded the software for the Minipro TL866 on OSX. I even figured out the magic device type for my EPROMs.&lt;/p&gt;
 
 &lt;h1 id=&quot;then-it-happened&quot;&gt;Then it happened…&lt;/h1&gt;
 
@@ -173,7 +173,7 @@ Verification failed at 0x200: 0x20 != 0x00
 
 &lt;p&gt;I ordered two &lt;a href=&quot;http://www.microchip.com/wwwproducts/en/AT28C256&quot;&gt;AT28C256&lt;/a&gt;s, which are 98% pin compatible and fast enough for this board. I need to hack a pin swap between pin 1 and 27, but that’s a small price to pay I guess.&lt;/p&gt;
 
-&lt;p&gt;Still very disappointed, and my wife is likely to kill me when I sneak into be at 1:00am. Wouldn’t be so bad if I had the taste of victory instead of the bitter pill of defeat.&lt;/p&gt;
+&lt;p&gt;Still very disappointed, and my wife is likely to kill me when I sneak into bed at 1:00am. Wouldn’t be so bad if I had the taste of victory instead of the bitter pill of defeat.&lt;/p&gt;
 
 &lt;p&gt;I put up a good fight.&lt;/p&gt;
 
