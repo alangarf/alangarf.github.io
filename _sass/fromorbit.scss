@@ -5,6 +5,7 @@ $main: 'Spinnaker', sans-serif;
 
 .page-content {
 
+    background-image: url(/assets/images/background.png);
     background-color: $content-background-color;
 
     .wrapper {
@@ -29,6 +30,10 @@ $main: 'Spinnaker', sans-serif;
             padding: 5px;
 		}
 
+		.post-link {
+            margin: 0 0.5em;
+        }
+
 		.post-blurb {
 		}
 
@@ -40,14 +45,19 @@ $main: 'Spinnaker', sans-serif;
             height: 90px;
         }
 
+        .post-readmore {
+            clear: both;
+        }
+
         .readmore {
-            clear: left;
-            display: block;
-            text-align: right;
-            padding: 2px 15px;
-            background: #EEE;
-            margin-top: 3em;
-            color: #1D1DEC;
+            float: right;
+            cursor: pointer;
+            padding: 0 .5em;
+            color: #668;
+            font-size: .9em;
+            line-height: 2;
+            border: 1px solid #ddd;
+            border-radius: .25em;
         }
     }
 

@@ -20,7 +20,9 @@ layout: default
 				{% endif %}
         {% if post.meta_description %}{{ post.meta_description | strip_html | escape }}{% elsif post.teaser %}{{ post.teaser | strip_html | escape }}{% elsif post.excerpt %}{{ post.excerpt }}{% endif %}
 				</div>
-				<a href="{{ post.url }}" title="Read {{ post.title | escape_once }}" class="readmore"><strong>Read more...</strong></a>
+        <div class="post-readmore">
+          <a href="{{ post.url }}" title="Read {{ post.title | escape_once }}" class="readmore"><strong>Read more...</strong></a>
+        </div>
 
       </li>
     {% endfor %}
