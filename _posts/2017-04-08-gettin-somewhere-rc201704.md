@@ -159,7 +159,7 @@ it blinked perfectly, a nice solid consistent blink...
 # UGH, you're kidding me.
 
 It seems like the issue I had with the other 28C64s wasn't timing or bad code,
-it was a plan and simple dry joint somewhere on this board causing all the
+it was a plain and simple dry joint somewhere on this board causing all the
 issues. :(
 
 I mean expecting a 27 year old board that spent at least 10 years bouncing
