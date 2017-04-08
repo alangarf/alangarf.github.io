@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Now we're get'n somewhere! - Retro Challenge 2017/04
-thumbnail: "/assets/images/2017-04-08/blinking.gif"
+thumbnail: "/assets/images/2017-04-08/blinking1.gif"
 ---
 
 After the UV fiasco I've finally managed to get around the issue. I did that by
@@ -151,7 +151,7 @@ I powered up the board with the new EEPROMs and the updated code and **success**
 it blinked perfectly, a nice solid consistent blink...
 
 
-![Blink you good thing!](/assets/images/2017-04-08/blinking.gif)
+![Blink you good thing!](/assets/images/2017-04-08/blinking1.gif)
 
 ... until I lifted the board.
 
