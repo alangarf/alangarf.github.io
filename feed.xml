@@ -6,8 +6,8 @@
 </description>
     <link>http://fromorbit.com/</link>
     <atom:link href="http://fromorbit.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 08 Apr 2017 23:43:23 +1000</pubDate>
-    <lastBuildDate>Sat, 08 Apr 2017 23:43:23 +1000</lastBuildDate>
+    <pubDate>Sun, 09 Apr 2017 00:01:10 +1000</pubDate>
+    <lastBuildDate>Sun, 09 Apr 2017 00:01:10 +1000</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
@@ -158,14 +158,14 @@ position which now I know has A16 attached to it!&lt;/p&gt;
 &lt;p&gt;I powered up the board with the new EEPROMs and the updated code and &lt;strong&gt;success&lt;/strong&gt;
 it blinked perfectly, a nice solid consistent blink…&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/2017-04-08/blinking.gif&quot; alt=&quot;Blink you good thing!&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/2017-04-08/blinking1.gif&quot; alt=&quot;Blink you good thing!&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;… until I lifted the board.&lt;/p&gt;
 
 &lt;h1 id=&quot;ugh-youre-kidding-me&quot;&gt;UGH, you’re kidding me.&lt;/h1&gt;
 
 &lt;p&gt;It seems like the issue I had with the other 28C64s wasn’t timing or bad code,
-it was a plan and simple dry joint somewhere on this board causing all the
+it was a plain and simple dry joint somewhere on this board causing all the
 issues. :(&lt;/p&gt;
 
 &lt;p&gt;I mean expecting a 27 year old board that spent at least 10 years bouncing
