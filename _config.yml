@@ -34,3 +34,6 @@ disqus:
     shortname: fromorbit-com
 
 google_analytics: UA-1867259-2
+
+exclude: ['README.markdown', 'Gemfile.lock', 'Gemfile', 'Makefile']
+include: ['.nojekyll']
