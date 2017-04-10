@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: "Digital Foosball"
 teaser: "We digitized our foosball table for a hackday at work. It was a really fun task that has added a new dimension to our game play."
 thumbnail: "http://i3.ytimg.com/vi/GgZ3YftasWs/mqdefault.jpg"

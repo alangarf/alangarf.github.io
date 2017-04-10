@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: "The Mini H Quad v2.0 “The Hammer” frame"
 teaser: "This is a quick video of me cutting the main frame for a mini quadcopter."
 thumbnail: "http://i3.ytimg.com/vi/5xAXp1y1wPQ/mqdefault.jpg"
