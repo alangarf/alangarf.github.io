@@ -30,3 +30,5 @@ header:
     image: "/images/fromorbit_header.gif"
     height: 120
 
+disqus:
+    shortname: fromorbit-com
