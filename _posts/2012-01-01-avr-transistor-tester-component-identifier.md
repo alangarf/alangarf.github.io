@@ -2,7 +2,8 @@
 layout: post
 title:  "AVR Transistor Tester / Component Identifier"
 teaser: "Using a Single Board Computer running Linux to control a quadrature encoded servo motor."
-thumbnail: "http://i3.ytimg.com/vi/PRjM9Kkg-xM/mqdefault.jpg"
+thumbnail: "//i3.ytimg.com/vi/PRjM9Kkg-xM/mqdefault.jpg"
+
 ---
 
 # Ooh a gadget.

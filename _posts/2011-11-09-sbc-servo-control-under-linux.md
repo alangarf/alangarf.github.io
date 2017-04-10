@@ -2,7 +2,8 @@
 layout: post
 title:  "SBC servo control under Linux"
 teaser: "Using a Single Board Computer running Linux to control a quadrature encoded servo motor."
-thumbnail: "http://i3.ytimg.com/vi/tLVsa3-zMqc/mqdefault.jpg"
+thumbnail: "//i3.ytimg.com/vi/tLVsa3-zMqc/mqdefault.jpg"
+
 ---
 
 Here is a small update on a project I'm working on for a client.

@@ -2,6 +2,7 @@
 layout: post
 title: Now we're get'n somewhere! - Retro Challenge 2017/04
 thumbnail: "/assets/images/2017-04-08/blinking1.gif"
+
 ---
 
 After the UV fiasco I've finally managed to get around the issue. I did that by

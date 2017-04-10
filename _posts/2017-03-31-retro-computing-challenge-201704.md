@@ -2,6 +2,7 @@
 layout: post
 title: Retro Challenge 2017/04
 thumbnail: "/assets/images/2017-03-31/m68k.png"
+
 ---
 
 After working with a friend on a Z80 based project I spoke about some SCC2691

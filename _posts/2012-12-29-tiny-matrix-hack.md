@@ -2,7 +2,8 @@
 layout: post
 title:  "Tiny Matrix Hack"
 teaser: "I built this for my little nephew for Christmas."
-thumbnail: "http://i3.ytimg.com/vi/ot5yzkOYYsQ/mqdefault.jpg"
+thumbnail: "//i3.ytimg.com/vi/ot5yzkOYYsQ/mqdefault.jpg"
+
 ---
 
 {% youtube "https://www.youtube.com/watch?v=ot5yzkOYYsQ" %}
