@@ -27,5 +27,130 @@ $text-color:       #213E5C;
 $brand-color:      #8D4D2C;
 $brand-color-light: #ACB9C6;
  
+@import url('https://fonts.googleapis.com/css?family=Orbitron|Jura:300,600|Spinnaker');
+$title: 'Orbitron', sans-serif;
+$head: 'Jura', sans-serif;
+$main: 'Spinnaker', sans-serif;
+
 @import "minima";
-@import "fromorbit";
+
+.page-content {
+
+    background-image: url(/assets/images/background.png);
+    background-color: $content-background-color;
+
+    .wrapper {
+        background-color: #fdfdfd;
+        border: 2px solid $brand-color-light;
+    }
+
+    font-family: $main;
+
+    .post-header {
+        font-family: $head;
+        margin: 2em 0;
+        color: #8D662C;
+    }
+
+    .post-list {
+		li {
+			overflow: auto;
+			clear: both;
+            border: 1px solid #E8E8E8;
+            margin-top: 25px;
+            padding: 5px;
+		}
+
+		.post-link {
+            margin: 0 0.5em;
+        }
+
+		.post-blurb {
+		}
+
+        .post-thumbnail {
+			float: left;
+			border-radius: 4px 4px 4px 4px;
+            margin: 5px 15px 5px 0;
+            width: 160;
+            height: 90px;
+        }
+
+        .post-readmore {
+            clear: both;
+        }
+
+        .readmore {
+            float: right;
+            cursor: pointer;
+            padding: 0 .5em;
+            color: #668;
+            font-size: .9em;
+            line-height: 2;
+            border: 1px solid #ddd;
+            border-radius: .25em;
+        }
+    }
+
+    .post-content {
+        h1, h2, h3, h4, h5, h6 {
+            font-family: $head;
+            color: #AD864D;
+        }
+
+        .embed-container {
+            margin-bottom: 2em;
+        }
+
+        a {
+            color: #1d1dec;
+        }
+    }
+}
+
+.site-header {
+    // Positioning context for the mobile navigation icon
+    position: relative;
+
+    background: {
+        color: $header-color;
+        //image: url('/images/header_background.png');
+    }
+    min-height: 80px;
+
+    border-top: 0;
+    border-bottom: 1px solid $border-color;
+
+    .site-title {
+        font-family: $title;
+        text-shadow: 2px 2px $header-color-dark;
+        color: $header-text;
+        font-size: 36pt;
+        margin-top: 5px;
+        line-height: 100px;
+    }
+
+    .site-nav {
+        line-height: 100px;
+        .page-link {
+            font-family: $title;
+            color: $nav-text;
+            text-shadow: 2px 2px $nav-text-dark;
+        }
+    }
+}
+
+.site-footer {
+    border-top: 1px solid $border-color;
+    font-family: $title;
+}
+
+//@include media-query($on-palm) {
+//    .site-header {
+//        min-height: 60px;
+//        .site-title {
+//            font-size: 22pt;
+//            line-height: 60px;
+//        }
+//    }
+//}
