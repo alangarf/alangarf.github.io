@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Rinse Repeat. :( - Retro Challenge 2017/04</title>
+  <meta name="description" content="Apart from work and family commitments over Easter I’ve been stuck in a rinse repeat cycle with this board.">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://fromorbit.com/2017/04/18/rinse-repeat-rc201704.html">
+  <link rel="alternate" type="application/rss+xml" title="FromOrbit.com" href="/feed.xml">
+  
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1867259-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  
+
+  
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">FromOrbit.com</a>
+
+    <nav class="site-nav">
+      <span class="menu-icon">
+        <svg viewBox="0 0 18 15" width="18px" height="15px">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </span>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+          <a class="page-link" href="/contact/">Contact</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Rinse Repeat. :( - Retro Challenge 2017/04</h1>
+    <p class="post-meta"><time datetime="2017-04-18T00:00:00+10:00" itemprop="datePublished">Apr 18, 2017</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Apart from work and family commitments over Easter I’ve been stuck in a rinse
+repeat cycle with this board.</p>
+
+<p>I am still trying to iron the bugs out, and I’m having weird issues with the
+firmware. I started thinking about porting the TS2 “monitor” to this board, but
+was having weird issues trying to get the UART to output a string from ROM.</p>
+
+<h1 id="im-doing-something-wrong-">I’m doing something wrong …</h1>
+
+<p>I then set up a new project just to do a simple test of blinking the LED in a
+sequence stored in ROM. It was about this time I started to suspect there was
+something wrong with the CPU or the board. Reading a byte from RAM with <em>post
+decrement</em> addressing would work, but trying to do the same in ROM would crash
+the CPU. After much stuffing around I finally put out a cry on Twitter and
+@brouhaha mentioned that the CPU could be <em>double faulting</em> and asserting it’s
+HALT line. I hadn’t realized this CPU had bidirectional RESET and HALT lines!</p>
+
+<p>Looking at the schematic I made, I did wonder why the RESET and HALT lines had
+resistors in them. It now makes sense given they can drive the lines as well as
+take input. So anyway, I stuck my multimeter into the HALT pin when a crash
+happened and yes the CPU was double faulting.</p>
+
+<h1 id="the-7-stages-of-grief-">The 7 Stages of Grief …</h1>
+
+<p>At this point I doubted <em>everything</em> I spent a week or more trying to solve why
+this was happening. I questioned my understanding of m68k assembler, and kept
+breaking my testing program down till all I had was basically three
+instructions and the problem still existed. I questioned the assembler. I
+questioned the linker. I whinged on Twitter, I complained constantly to @trc_vm
+via Slack. I then questioned the new EEPROMs I had bought.</p>
+
+<p>Which this last one may or may not be a real issue, but the previous EPROMs
+were 90nS speed rated, and the RAM is 100nS speed rated. These new AT28C256
+EEPROMs are a fair bit slower at 150nS, so I desoldered the 12MHz crystal and
+under-clocked the CPU to 8MHz to see if that made any difference. In the end it
+did, in some small way in that at least now it would appear to fall into the
+exception handlers and not just double bus fault all the time. But I still had
+my problem with byte loading values from ROM.</p>
+
+<p>I then started to question “can the m68k actually address bytes, I’m sure it
+can” so I scoured all possible resources to confirm it. Then I altered my
+program to use words instead of bytes and the damn thing started working!</p>
+
+<h1 id="time-to-crack-out-the-logic-analyzer">Time to crack out the logic analyzer.</h1>
+
+<p>So now I’m to the point I’m questioning the board or the CPU. So I drag out the
+logic analyzer and since I can’t find more than 5 chip clip leads I’m forced to
+stuff around to get what I want. I set up my simple small test program to blink
+the LED in a sequence stored in the ROM. First blink the LED twice, pause, then
+blink the LED three times, pause, etc etc. Eventually up to 8 blinks.</p>
+
+<p>Run this, I get my two blinks then a locked up LED. I wanted to see what the
+ROMs were doing on the 8 bit address read. So I clipped up the RAM/ROM chip
+select lines, the even and odd enable lines and the LED output.</p>
+
+<p><a href="/assets/images/2017-04-18/even.jpg">
+   <img src="/assets/images/2017-04-18/tmb-even.jpg" />
+</a></p>
+
+<p><a href="/assets/images/2017-04-18/odd.jpg">
+   <img src="/assets/images/2017-04-18/tmb-odd.jpg" />
+</a></p>
+
+<p>You can easily see the ROM is doing an 8bit read on even, then an 8bit read on
+odd.</p>
+
+<h1 id="damn-it-this-looks-ok--">Damn it, this looks OK … :(</h1>
+
+<p>Suffice to say, I’m at a loss. I re-installed the original factory firmware to
+finally see if I wasn’t going bananas. It too failed and entered a double
+bus fault. So if the original firmware now fails I’ve somehow damaged the CPU
+or the board.</p>
+
+<p>I’ve found on eBay a few replacement CPU’s for every little money, but they
+won’t be here in time for the end of the Retro Challenge. But it does mean I
+will get this board going again. I’ve learnt so much playing with it, and my
+understanding of GNU binutils etc is so much richer because of it. So perhaps I
+can’t get anything going this year for the challenge…</p>
+
+<h1 id="-or-can-i">… or can I?</h1>
+
+<p>When I rescued this board from the dumpster I also recovered a few others with
+it. I picked this board for the Retro Challenge because it seemed the most
+approachable; generic MC68HC000; external UARTs and I/O. But it wasn’t the only
+board I recovered with a m68k processor on it.</p>
+
+<p>Enter the AMX AXC-EM with an MC68340RP16 on board!</p>
+
+<p><a href="/assets/images/2017-04-18/axc-em.jpg">
+   <img src="/assets/images/2017-04-18/tmb-axc-em.jpg" />
+</a></p>
+
+<p><a href="/assets/images/2017-04-18/mc68340.jpg">
+   <img src="/assets/images/2017-04-18/tmb-mc68340.jpg" />
+</a></p>
+
+<h1 id="why-didnt-you-use-this-one-first">Why didn’t you use this one first?</h1>
+
+<p>To be honest I wasn’t sure what I wanted, and I was familiar with the
+MC68HC000. I also thought having the UARTs and I/O all on chip was cheating.
+This board is basically the same thing functionally-wise to the other. It’s
+just newer and with an ‘020 based CPU. Basically all the same hardware is on
+board. Two UARTs, an LED, 8 DIP switches, battery backup RAM, clock/calendar,
+etc etc. It’s still from 1992 so it fits the Challenge. :)</p>
+
+<p>So yeah, now I start again basically. I have to figure out the memory map, the
+device layout and the differences with an ‘020 versus a vanilla 68000. Dear god
+I hope it can read bytes from ROM!</p>
+
+
+  </div>
+
+  
+    
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://fromorbit.com/2017/04/18/rinse-repeat-rc201704.html';
+      this.page.identifier = 'http://fromorbit.com/2017/04/18/rinse-repeat-rc201704.html';
+    };
+
+    (function() {
+      var d = document, s = d.createElement('script');
+
+      s.src = 'https://fromorbit-com.disqus.com/embed.js';
+
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">FromOrbit.com</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              FromOrbit.com
+            
+            </li>
+            
+            <li><a href="mailto:alan@fromorbit.com">alan@fromorbit.com</a></li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/alangarf"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">alangarf</span></a>
+
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/alangarf"><span class="icon icon--twitter"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/></svg>
+</span><span class="username">alangarf</span></a>
+
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Generic nerd who dabbles in programming, electronics, CNC and retro computing.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

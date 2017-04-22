@@ -6,9 +6,128 @@
 </description>
     <link>http://fromorbit.com/</link>
     <atom:link href="http://fromorbit.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 11 Apr 2017 21:47:30 +1000</pubDate>
-    <lastBuildDate>Tue, 11 Apr 2017 21:47:30 +1000</lastBuildDate>
+    <pubDate>Sat, 22 Apr 2017 22:01:36 +1000</pubDate>
+    <lastBuildDate>Sat, 22 Apr 2017 22:01:36 +1000</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
+    
+      <item>
+        <title>Rinse Repeat. :( - Retro Challenge 2017/04</title>
+        <description>&lt;p&gt;Apart from work and family commitments over Easter I’ve been stuck in a rinse
+repeat cycle with this board.&lt;/p&gt;
+
+&lt;p&gt;I am still trying to iron the bugs out, and I’m having weird issues with the
+firmware. I started thinking about porting the TS2 “monitor” to this board, but
+was having weird issues trying to get the UART to output a string from ROM.&lt;/p&gt;
+
+&lt;h1 id=&quot;im-doing-something-wrong-&quot;&gt;I’m doing something wrong …&lt;/h1&gt;
+
+&lt;p&gt;I then set up a new project just to do a simple test of blinking the LED in a
+sequence stored in ROM. It was about this time I started to suspect there was
+something wrong with the CPU or the board. Reading a byte from RAM with &lt;em&gt;post
+decrement&lt;/em&gt; addressing would work, but trying to do the same in ROM would crash
+the CPU. After much stuffing around I finally put out a cry on Twitter and
+@brouhaha mentioned that the CPU could be &lt;em&gt;double faulting&lt;/em&gt; and asserting it’s
+HALT line. I hadn’t realized this CPU had bidirectional RESET and HALT lines!&lt;/p&gt;
+
+&lt;p&gt;Looking at the schematic I made, I did wonder why the RESET and HALT lines had
+resistors in them. It now makes sense given they can drive the lines as well as
+take input. So anyway, I stuck my multimeter into the HALT pin when a crash
+happened and yes the CPU was double faulting.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-7-stages-of-grief-&quot;&gt;The 7 Stages of Grief …&lt;/h1&gt;
+
+&lt;p&gt;At this point I doubted &lt;em&gt;everything&lt;/em&gt; I spent a week or more trying to solve why
+this was happening. I questioned my understanding of m68k assembler, and kept
+breaking my testing program down till all I had was basically three
+instructions and the problem still existed. I questioned the assembler. I
+questioned the linker. I whinged on Twitter, I complained constantly to @trc_vm
+via Slack. I then questioned the new EEPROMs I had bought.&lt;/p&gt;
+
+&lt;p&gt;Which this last one may or may not be a real issue, but the previous EPROMs
+were 90nS speed rated, and the RAM is 100nS speed rated. These new AT28C256
+EEPROMs are a fair bit slower at 150nS, so I desoldered the 12MHz crystal and
+under-clocked the CPU to 8MHz to see if that made any difference. In the end it
+did, in some small way in that at least now it would appear to fall into the
+exception handlers and not just double bus fault all the time. But I still had
+my problem with byte loading values from ROM.&lt;/p&gt;
+
+&lt;p&gt;I then started to question “can the m68k actually address bytes, I’m sure it
+can” so I scoured all possible resources to confirm it. Then I altered my
+program to use words instead of bytes and the damn thing started working!&lt;/p&gt;
+
+&lt;h1 id=&quot;time-to-crack-out-the-logic-analyzer&quot;&gt;Time to crack out the logic analyzer.&lt;/h1&gt;
+
+&lt;p&gt;So now I’m to the point I’m questioning the board or the CPU. So I drag out the
+logic analyzer and since I can’t find more than 5 chip clip leads I’m forced to
+stuff around to get what I want. I set up my simple small test program to blink
+the LED in a sequence stored in the ROM. First blink the LED twice, pause, then
+blink the LED three times, pause, etc etc. Eventually up to 8 blinks.&lt;/p&gt;
+
+&lt;p&gt;Run this, I get my two blinks then a locked up LED. I wanted to see what the
+ROMs were doing on the 8 bit address read. So I clipped up the RAM/ROM chip
+select lines, the even and odd enable lines and the LED output.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/2017-04-18/even.jpg&quot;&gt;
+   &lt;img src=&quot;/assets/images/2017-04-18/tmb-even.jpg&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/2017-04-18/odd.jpg&quot;&gt;
+   &lt;img src=&quot;/assets/images/2017-04-18/tmb-odd.jpg&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;You can easily see the ROM is doing an 8bit read on even, then an 8bit read on
+odd.&lt;/p&gt;
+
+&lt;h1 id=&quot;damn-it-this-looks-ok--&quot;&gt;Damn it, this looks OK … :(&lt;/h1&gt;
+
+&lt;p&gt;Suffice to say, I’m at a loss. I re-installed the original factory firmware to
+finally see if I wasn’t going bananas. It too failed and entered a double
+bus fault. So if the original firmware now fails I’ve somehow damaged the CPU
+or the board.&lt;/p&gt;
+
+&lt;p&gt;I’ve found on eBay a few replacement CPU’s for every little money, but they
+won’t be here in time for the end of the Retro Challenge. But it does mean I
+will get this board going again. I’ve learnt so much playing with it, and my
+understanding of GNU binutils etc is so much richer because of it. So perhaps I
+can’t get anything going this year for the challenge…&lt;/p&gt;
+
+&lt;h1 id=&quot;-or-can-i&quot;&gt;… or can I?&lt;/h1&gt;
+
+&lt;p&gt;When I rescued this board from the dumpster I also recovered a few others with
+it. I picked this board for the Retro Challenge because it seemed the most
+approachable; generic MC68HC000; external UARTs and I/O. But it wasn’t the only
+board I recovered with a m68k processor on it.&lt;/p&gt;
+
+&lt;p&gt;Enter the AMX AXC-EM with an MC68340RP16 on board!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/2017-04-18/axc-em.jpg&quot;&gt;
+   &lt;img src=&quot;/assets/images/2017-04-18/tmb-axc-em.jpg&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/2017-04-18/mc68340.jpg&quot;&gt;
+   &lt;img src=&quot;/assets/images/2017-04-18/tmb-mc68340.jpg&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;why-didnt-you-use-this-one-first&quot;&gt;Why didn’t you use this one first?&lt;/h1&gt;
+
+&lt;p&gt;To be honest I wasn’t sure what I wanted, and I was familiar with the
+MC68HC000. I also thought having the UARTs and I/O all on chip was cheating.
+This board is basically the same thing functionally-wise to the other. It’s
+just newer and with an ‘020 based CPU. Basically all the same hardware is on
+board. Two UARTs, an LED, 8 DIP switches, battery backup RAM, clock/calendar,
+etc etc. It’s still from 1992 so it fits the Challenge. :)&lt;/p&gt;
+
+&lt;p&gt;So yeah, now I start again basically. I have to figure out the memory map, the
+device layout and the differences with an ‘020 versus a vanilla 68000. Dear god
+I hope it can read bytes from ROM!&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 18 Apr 2017 00:00:00 +1000</pubDate>
+        <link>http://fromorbit.com/2017/04/18/rinse-repeat-rc201704.html</link>
+        <guid isPermaLink="true">http://fromorbit.com/2017/04/18/rinse-repeat-rc201704.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Now we're get'n somewhere! - Retro Challenge 2017/04</title>
@@ -721,20 +840,6 @@ the challenge. Just getting a ROM monitor etc will be hard enough. :)&lt;/p&gt;
         <pubDate>Thu, 21 Nov 2013 00:00:00 +1100</pubDate>
         <link>http://fromorbit.com/2013/11/21/the-mini-h-quad-v2-0-the-hammer-frame.html</link>
         <guid isPermaLink="true">http://fromorbit.com/2013/11/21/the-mini-h-quad-v2-0-the-hammer-frame.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Papilio DX board</title>
-        <description>&lt;style&gt;.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;
-&lt;div class=&quot;embed-container&quot;&gt;    &lt;iframe title=&quot;YouTube video player&quot; width=&quot;640&quot; height=&quot;390&quot; src=&quot;//www.youtube.com/embed/A9hyPe9Ne60&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
-
-&lt;p&gt;I found a cool discovery while talking on the phone and fiddling with things on my bench. The cool little Papilio One FPGA board has a perfect fitting random development board from &lt;a href=&quot;http://dx.com&quot;&gt;Deal Extreme&lt;/a&gt; that I just happen to find. They still seem readily available and super useful!&lt;/p&gt;
-</description>
-        <pubDate>Sun, 27 Oct 2013 00:00:00 +1100</pubDate>
-        <link>http://fromorbit.com/2013/10/27/papilio-dx-board.html</link>
-        <guid isPermaLink="true">http://fromorbit.com/2013/10/27/papilio-dx-board.html</guid>
         
         
       </item>
