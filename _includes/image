@@ -1,3 +1,13 @@
-<a href="/assets/images/{{ page.date | date:"%Y-%m-%d"}}/{{ include.file }}">
-   <img src="/assets/images/{{ page.date | date:"%Y-%m-%d"}}/tmb-{{ include.file }}"/>
+{% if include.date %}
+    {% capture date %}{{ include.date }}{% endcapture %}
+{% else %}
+    {% capture date %}{{ page.date | date:"%Y-%m-%d" }}{% endcapture %}
+{% endif %}
+
+{% if include.no_tmb %}
+<img src="/assets/images/{{ date }}/{{ include.file }}" class="{{ include.class }}"/>
+{% else %}
+<a href="/assets/images/{{ date }}/{{ include.file }}">
+   <img src="/assets/images/{{ date }}/tmb-{{ include.file }}" class="{{ include.class }}"/>
 </a>
+{% endif %}
