@@ -6,9 +6,315 @@
 </description>
     <link>http://fromorbit.com/</link>
     <atom:link href="http://fromorbit.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 22 Apr 2017 22:01:36 +1000</pubDate>
-    <lastBuildDate>Sat, 22 Apr 2017 22:01:36 +1000</lastBuildDate>
+    <pubDate>Thu, 27 Apr 2017 00:25:51 +1000</pubDate>
+    <lastBuildDate>Thu, 27 Apr 2017 00:25:51 +1000</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
+    
+      <item>
+        <title>m68k Environment - Retro Challenge 2017/04</title>
+        <description>&lt;p&gt;So, for this post I want to talk about my development environment and where I’m
+up to as far as the Retro Challenge.&lt;/p&gt;
+
+&lt;p&gt;I’ve had a &lt;em&gt;lot&lt;/em&gt; of issues with this project. Initially I was cruising well and
+looking well on track to make something really cool, but then I damaged the
+board.&lt;/p&gt;
+
+&lt;p&gt;The board started to exhibit a fault with it’s ability to load bytes from ROM.
+This became apparent as I started porting the TS2 ROM Monitor. When the fault
+occurred I started to gradually break the application down to the point of just
+the minimal initialization stuff for the CPU and UART and printing a string
+from ROM to the UART.&lt;/p&gt;
+
+&lt;p&gt;As I was doing this testing, the CPU would appear to
+crash or not properly enter into any exception handler (even when forced too by
+using an illegal instruction!). After many, many days of trial and error and
+screaming at the board I finally broke it down to the point of it was either a
+faulty CPU or I’m a complete idiot and can’t write five m68k assembly
+instructions.&lt;/p&gt;
+
+&lt;p&gt;So, I cut my losses and switch to my fall back board that was a little newer
+and based on a MC68340 CPU. My main hesitation initially for not using this
+board to begin with was that it was a peripheral integrated CPU, which meant
+the board was basically ROM, RAM, CPU, and power related parts.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/2017-04-18/axc-em.jpg&quot;&gt;
+   &lt;img src=&quot;/assets/images/2017-04-18/tmb-axc-em.jpg&quot; class=&quot;center&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;As it stands I’ve had a much more enjoyable time working with this board and so
+have progressed much further with the software, rather than staring at a
+blinking LED and hoping it blinks &lt;em&gt;just right&lt;/em&gt; this time (if you follow me on
+Twitter you’ll know what I mean)..&lt;/p&gt;
+
+&lt;h1 id=&quot;the-software-environment&quot;&gt;The Software Environment.&lt;/h1&gt;
+
+&lt;p&gt;At the moment I’m writing everything in assembler for the m68k. I’m on a
+Macbook Pro and I run the m68k development environment in a Ubuntu Xenial VM
+using Vagrant. Rather than trying to setup the cross compiler in OSX, I just
+opted to use Linux and the Ubuntu m86k deb packages.&lt;/p&gt;
+
+&lt;p&gt;So, to edit the code I use a Vagrant share and access the files in OSX using
+Vim in iTerm, and in another panel I have an open SSH session into the VM to do
+the compilation.&lt;/p&gt;
+
+&lt;p&gt;To get the code onto the EEPROMs I use a &lt;a href=&quot;http://www.autoelectric.cn/en/tl866_main.html&quot;&gt;TL866a MiniPro
+programmer&lt;/a&gt;, which I’ve compiled
+the &lt;a href=&quot;https://github.com/vdudouyt/minipro&quot;&gt;open source command line tool&lt;/a&gt; for it
+in OSX. This means to program the EEPROMs I run the commands in OSX.&lt;/p&gt;
+
+&lt;p&gt;Sounds difficult but it’s really not. I have a Makefile which handles all the
+compiling and ROM images, plus outputting dump files. It also has the recipe
+for programming the even and odd ROM images to the EEPROMs via the MiniPro
+tool.&lt;/p&gt;
+
+&lt;p&gt;The flow sorta looks like this:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Makes changes to the source code in vim inside one iTerm pane.&lt;/li&gt;
+  &lt;li&gt;Switch to the VM pane that’s SSH’d into the VM. Run the make compile command.&lt;/li&gt;
+  &lt;li&gt;Switch back to the editor pane in iTerm.&lt;/li&gt;
+  &lt;li&gt;Put the even EEPROM in the programmer.&lt;/li&gt;
+  &lt;li&gt;From inside vim run the make commands to program the even EEPROM&lt;/li&gt;
+  &lt;li&gt;Rinse repeat for the odd ROM&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Here is the Makefile I’m using, you can see it &lt;a href=&quot;https://github.com/alangarf/amx_axc_m68k/blob/master/Makefile&quot;&gt;here on Github
+too.&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;M68K&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;m68k-linux-gnu
+&lt;span class=&quot;nv&quot;&gt;AS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$(M68K)&lt;/span&gt;-as
+&lt;span class=&quot;nv&quot;&gt;LD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$(M68K)&lt;/span&gt;-ld
+&lt;span class=&quot;nv&quot;&gt;COPY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$(M68K)&lt;/span&gt;-objcopy
+&lt;span class=&quot;nv&quot;&gt;DUMP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$(M68K)&lt;/span&gt;-objdump
+
+&lt;span class=&quot;nv&quot;&gt;ASFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;-m68340 --warn --fatal-warnings
+&lt;span class=&quot;nv&quot;&gt;LDFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;-T m68k.ld
+&lt;span class=&quot;nv&quot;&gt;DUMPFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;-m68020 -x -D
+
+&lt;span class=&quot;nv&quot;&gt;EEPROM&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;AT28C256
+&lt;span class=&quot;nv&quot;&gt;PREFIX&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;m68k-
+
+&lt;span class=&quot;nv&quot;&gt;FMT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;binary
+
+&lt;span class=&quot;nv&quot;&gt;SRCS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;loader.s
+&lt;span class=&quot;nv&quot;&gt;OBJS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;SRCS:.s&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;.o&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;MAIN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;loader
+
+&lt;span class=&quot;nl&quot;&gt;.PHONY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;dump clean&lt;/span&gt;
+
+&lt;span class=&quot;nl&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;	&lt;span class=&quot;nf&quot;&gt;$(MAIN)&lt;/span&gt;
+
+&lt;span class=&quot;nl&quot;&gt;.s.o&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;nv&quot;&gt;$(AS)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(ASFLAGS)&lt;/span&gt; -o &lt;span class=&quot;nv&quot;&gt;$@&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$&amp;lt;&lt;/span&gt;
+
+&lt;span class=&quot;nl&quot;&gt;$(MAIN)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;$(OBJS)&lt;/span&gt;
+	&lt;span class=&quot;nv&quot;&gt;$(LD)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(LDFLAGS)&lt;/span&gt; -o &lt;span class=&quot;nv&quot;&gt;$(MAIN)&lt;/span&gt;.a &lt;span class=&quot;nv&quot;&gt;$(OBJS)&lt;/span&gt;
+	&lt;span class=&quot;nv&quot;&gt;$(COPY)&lt;/span&gt; -b 0 -i 2 --interleave-width&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1 -O &lt;span class=&quot;nv&quot;&gt;$(FMT)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(MAIN)&lt;/span&gt;.a &lt;span class=&quot;nv&quot;&gt;$(PREFIX)$(MAIN)&lt;/span&gt;-even.bin
+	&lt;span class=&quot;nv&quot;&gt;$(COPY)&lt;/span&gt; -b 1 -i 2 --interleave-width&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1 -O &lt;span class=&quot;nv&quot;&gt;$(FMT)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(MAIN)&lt;/span&gt;.a &lt;span class=&quot;nv&quot;&gt;$(PREFIX)$(MAIN)&lt;/span&gt;-odd.bin
+
+&lt;span class=&quot;nl&quot;&gt;clean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+	rm -f &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.o &lt;span class=&quot;nv&quot;&gt;$(PREFIX)$(MAIN)&lt;/span&gt;-even.bin &lt;span class=&quot;nv&quot;&gt;$(PREFIX)$(MAIN)&lt;/span&gt;-odd.bin &lt;span class=&quot;nv&quot;&gt;$(PREFIX)$(MAIN)&lt;/span&gt;.bin &lt;span class=&quot;nv&quot;&gt;$(MAIN)&lt;/span&gt;.a
+
+&lt;span class=&quot;nl&quot;&gt;prog_even&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;Programming &lt;span class=&quot;nv&quot;&gt;$(MAIN)&lt;/span&gt;-even onto &lt;span class=&quot;nv&quot;&gt;$(EEPROM)&lt;/span&gt;
+	minipro -p &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$(EEPROM)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; -w &lt;span class=&quot;nv&quot;&gt;$(PREFIX)$(MAIN)&lt;/span&gt;-even.bin -s
+
+&lt;span class=&quot;nl&quot;&gt;prog_odd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;Programming &lt;span class=&quot;nv&quot;&gt;$(MAIN)&lt;/span&gt;-odd onto &lt;span class=&quot;nv&quot;&gt;$(EEPROM)&lt;/span&gt;
+	minipro -p &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$(EEPROM)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; -w &lt;span class=&quot;nv&quot;&gt;$(PREFIX)$(MAIN)&lt;/span&gt;-odd.bin -s
+
+&lt;span class=&quot;nl&quot;&gt;dump&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;	&lt;span class=&quot;nf&quot;&gt;$(MAIN)&lt;/span&gt;
+	&lt;span class=&quot;nv&quot;&gt;$(DUMP)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(DUMPFLAGS)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(MAIN)&lt;/span&gt;.a
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;compilation-and-linking&quot;&gt;Compilation and Linking&lt;/h1&gt;
+
+&lt;p&gt;As you can see from the Makefile above I’m using &lt;code class=&quot;highlighter-rouge&quot;&gt;m68k-linux-gnu-as&lt;/code&gt; to
+assemble the object files from the source files. I am then using
+&lt;code class=&quot;highlighter-rouge&quot;&gt;m68k-linux-gnu-ld&lt;/code&gt; to link the object file(s) into the &lt;code class=&quot;highlighter-rouge&quot;&gt;.a&lt;/code&gt; archive object
+file. Which is then split into the &lt;code class=&quot;highlighter-rouge&quot;&gt;even&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;odd&lt;/code&gt; ROM binary images needed
+for the two 8 bit EEPROMS to make the 16bit wide program data.&lt;/p&gt;
+
+&lt;p&gt;I have a small linker script to handle the vector mapping, the stack and RAM
+locations etc. This step makes moving the resources around &lt;em&gt;very&lt;/em&gt; easy, which
+I’m now thankful for because the two boards I have are vastly different in
+memory map to each other.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;MEMORY
+{
+    ROM (rx) : ORIGIN = 0x00000000, LENGTH = 0x10000
+    RAM (xrw) : ORIGIN = 0x00040000, LENGTH = 0x10000
+}
+
+/* stack location */
+stack_size = 1024;
+
+_stack_start = ORIGIN(RAM)+LENGTH(RAM)-0x10;
+_stack_end = _stack_start - stack_size;
+
+/* ram location */
+_ram_start = ORIGIN(RAM);
+_ram_end = ORIGIN(RAM)+LENGTH(RAM);
+
+/* system integration module */
+_sim40 = 0x80000;
+_timers = _sim40 + 0x600;
+_uarts = _sim40 + 0x700;
+_dma = _sim40 + 0x780;
+
+SECTIONS {
+  .vectors 0x00 :
+  {
+    . = ALIGN(4);
+    KEEP(*(.vectors))
+    . = ALIGN(4);
+  } &amp;gt; ROM
+
+  .text 0x400 : {
+    . = ALIGN(4);
+    *(.text)
+    . = ALIGN(4);
+  } &amp;gt; ROM
+
+  .data : { *(.data) } &amp;gt; RAM
+  .bss :  { *(.bss)  *(COMMON) } &amp;gt; RAM
+}
+
+OUTPUT_ARCH(m68k)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I’ve been trying to get an &lt;code class=&quot;highlighter-rouge&quot;&gt;.rodata&lt;/code&gt; section working, but for whatever reason
+my sections end up with the wrong alignment and any strings I put there are in
+the ROM image, but don’t appear to work. Maybe when I get some times I’ll
+figure out why that is, for now I’m happy to just put the strings at the end of
+the &lt;code class=&quot;highlighter-rouge&quot;&gt;.text&lt;/code&gt; section.&lt;/p&gt;
+
+&lt;h1 id=&quot;initializing-the-mc68340-cpu&quot;&gt;Initializing the MC68340 CPU&lt;/h1&gt;
+
+&lt;p&gt;The MC68430 is a great CPU, it has a lovely set of peripherals, and some very
+nice features. However getting it going can be a little trick as both the RAM
+and ROM positions are controlled completely by the System Integration Module.
+The “SIM40” is a peripheral module in the MC68340 that basically handles all
+the address decoding and glue logic the other board had in 74 series ICs. This
+allows cool things like loading the START and SP registers from the ROM, and
+then moving the ROM up high in the memory map and replacing where the ROM would
+be with RAM. All with just a few instructions. Done in hardware you’d need
+complex gating or a GAL to achieve something similar.&lt;/p&gt;
+
+&lt;p&gt;So to start with here is a chunk of code that configures the ROM and RAM
+locations in the memory map, and configures the CPU speed and interrupt maps.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;*************************************************************************
+*
+*  Init the CPU and System Integration Module - Configs module options
+*
+.init:
+            move.w      #0x2700, %sr                    | mask interrupts and set supervisor mode
+
+            moveq       #7, %d0
+            movec       %d0, %dfc
+            move.l      #_sim40 + 1, %d0
+            moves.l     %d0, 0x3ff00                    | move sim40 base address to 0x80000
+
+            /* setup ROM chip select CS0 */
+            move.l      #0x03fffd, _sm_csam0 + _sim40   | 16 bit port, three wait, mask FC bits, 256KB in size
+            move.l      #0x000001, _sm_csbar0 + _sim40  | starting at 0x00000
+
+            /* setup RAM chip select CS1 */
+            move.l      #0x03fff1, _sm_csam1 + _sim40   | 16 bit port, zero wait, mask FC bits, 256KB in size
+            move.l      #0x040001, _sm_csbar1 + _sim40  | starting at 0x40000
+
+            /* setup system protects and clock */
+            move.b      #0x06, _sm_sypcr + _sim40       | turn off watchdogs, bus fault, bus monitor
+            move.w      #0x7c00, _sm_syncr + _sim40     | set clock to 15.991 MHz
+            move.w      #0x420f, _sm_mcr + _sim40       | set MCR, no interrupts etc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;In this project I’ve just kept the memory map really simple.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;0x000000 is ROM&lt;/li&gt;
+  &lt;li&gt;0x040000 is RAM&lt;/li&gt;
+  &lt;li&gt;0x080000 is the SIM40 peripherals&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I may switch the RAM and ROM around later as this would allow me to dynamically
+change the interrupt and trap vectors. Otherwise I have to hard code jumps to
+RAM locations inside the ROM where the vectors are in order to make them
+dynamic. At the moment I’m not really using interrupts, but I can see myself
+wanting too in the near future (also breakpoints etc in my ROM Monitor).&lt;/p&gt;
+
+&lt;h1 id=&quot;initializing-the-mc68340&quot;&gt;Initializing the MC68340&lt;/h1&gt;
+
+&lt;p&gt;The MC68340 has a great suite of peripherals, from UARTs, Timers, System
+protection devices and DMA.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/2017-04-26/mc68340.png&quot;&gt;
+   &lt;img src=&quot;/assets/images/2017-04-26/tmb-mc68340.png&quot; class=&quot;&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The SIM40 modules can move the addresses of these devices where ever you
+choose, but the layout is:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/2017-04-26/sim40.png&quot;&gt;
+   &lt;img src=&quot;/assets/images/2017-04-26/tmb-sim40.png&quot; class=&quot;&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;As you can see in the code above I’ve set it to the address of &lt;code class=&quot;highlighter-rouge&quot;&gt;0x080000&lt;/code&gt;. For
+this project at the moment I’m turning more stuff &lt;code class=&quot;highlighter-rouge&quot;&gt;off&lt;/code&gt; than I’m turning &lt;code class=&quot;highlighter-rouge&quot;&gt;on&lt;/code&gt;.
+By default all these peripherals are available and running, you have to disable
+them if you’re not using them. Realistically this is more about power reduction
+than anything, but like unused logic gates, I feel they must be put into a
+known state. :)&lt;/p&gt;
+
+&lt;p&gt;So I turn off all watchdogs, and system protection peripherals (eg. double bus
+fault monitors, bus monitors, reset etc), the timers, and the DMA. Since I need
+a UART I configure one and disable the other.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-boot-loader&quot;&gt;The boot-loader&lt;/h1&gt;
+
+&lt;p&gt;Initially I was just going to port across an existing ROM monitor for the m68k,
+there are plenty of quality ones out there but given the time I lost on the
+faulty CPU/board I quickly realized I won’t be able to port the monitor quickly
+enough if I had to burn EEPROMs each time to make any &lt;em&gt;actual&lt;/em&gt; application with
+the board. I set out to make an Mandelbrot set with this board, so debugging a
+monitor wasn’t something I had time to do.&lt;/p&gt;
+
+&lt;p&gt;So speaking to my friend @trc_wm he suggested getting just something dumb that
+dumps binary into RAM and jumps to it, then write some python to push the
+binary at the serial port.&lt;/p&gt;
+
+&lt;p&gt;I started implementing that until I saw a few pieces of code that would load
+&lt;code class=&quot;highlighter-rouge&quot;&gt;srec&lt;/code&gt; format into RAM. I decoded the logic and wrote my own implementation in
+a few hours, I figured this would be all round simpler in the long run as I
+wouldn’t need to write the python. Instead I could just cut and paste the srec
+records straight into the terminal, or at the very least &lt;code class=&quot;highlighter-rouge&quot;&gt;cat&lt;/code&gt; them out to the
+serial port.&lt;/p&gt;
+
+&lt;p&gt;Here is an example showing altering the code, compiling, copying the srecord
+data and running it:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2017-04-26/hello_world.gif&quot; class=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;enough-for-today&quot;&gt;Enough for today&lt;/h1&gt;
+
+&lt;p&gt;That ought to do me for today. To achieve my goal of generating a Mandelbrot
+set with the board for the Retro Challenge, I’m going to work on either getting
+compiling C to run on the m68k, or port a BASIC/FORTH tomorrow and then write a
+Mandelbrot set generator in the chosen language.&lt;/p&gt;
+
+&lt;p&gt;We’ll see…&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 26 Apr 2017 00:00:00 +1000</pubDate>
+        <link>http://fromorbit.com/2017/04/26/m68k-environment-rc201704.html</link>
+        <guid isPermaLink="true">http://fromorbit.com/2017/04/26/m68k-environment-rc201704.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Rinse Repeat. :( - Retro Challenge 2017/04</title>
@@ -68,11 +374,11 @@ ROMs were doing on the 8 bit address read. So I clipped up the RAM/ROM chip
 select lines, the even and odd enable lines and the LED output.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/assets/images/2017-04-18/even.jpg&quot;&gt;
-   &lt;img src=&quot;/assets/images/2017-04-18/tmb-even.jpg&quot; /&gt;
+   &lt;img src=&quot;/assets/images/2017-04-18/tmb-even.jpg&quot; class=&quot;center&quot; /&gt;
 &lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/assets/images/2017-04-18/odd.jpg&quot;&gt;
-   &lt;img src=&quot;/assets/images/2017-04-18/tmb-odd.jpg&quot; /&gt;
+   &lt;img src=&quot;/assets/images/2017-04-18/tmb-odd.jpg&quot; class=&quot;center&quot; /&gt;
 &lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;You can easily see the ROM is doing an 8bit read on even, then an 8bit read on
@@ -101,11 +407,11 @@ board I recovered with a m68k processor on it.&lt;/p&gt;
 &lt;p&gt;Enter the AMX AXC-EM with an MC68340RP16 on board!&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/assets/images/2017-04-18/axc-em.jpg&quot;&gt;
-   &lt;img src=&quot;/assets/images/2017-04-18/tmb-axc-em.jpg&quot; /&gt;
+   &lt;img src=&quot;/assets/images/2017-04-18/tmb-axc-em.jpg&quot; class=&quot;center&quot; /&gt;
 &lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/assets/images/2017-04-18/mc68340.jpg&quot;&gt;
-   &lt;img src=&quot;/assets/images/2017-04-18/tmb-mc68340.jpg&quot; /&gt;
+   &lt;img src=&quot;/assets/images/2017-04-18/tmb-mc68340.jpg&quot; class=&quot;center&quot; /&gt;
 &lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;why-didnt-you-use-this-one-first&quot;&gt;Why didn’t you use this one first?&lt;/h1&gt;
@@ -822,24 +1128,6 @@ the challenge. Just getting a ROM monitor etc will be hard enough. :)&lt;/p&gt;
         <pubDate>Wed, 17 Sep 2014 00:00:00 +1000</pubDate>
         <link>http://fromorbit.com/2014/09/17/digital-foosball.html</link>
         <guid isPermaLink="true">http://fromorbit.com/2014/09/17/digital-foosball.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>The Mini H Quad v2.0 “The Hammer” frame</title>
-        <description>&lt;style&gt;.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;
-&lt;div class=&quot;embed-container&quot;&gt;    &lt;iframe title=&quot;YouTube video player&quot; width=&quot;640&quot; height=&quot;390&quot; src=&quot;//www.youtube.com/embed/5xAXp1y1wPQ&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
-
-&lt;p&gt;This frame is freely available from &lt;a href=&quot;http://untestedprototype.com/&quot;&gt;http://untestedprototype.com/&lt;/a&gt; and is feature packed for something that’s so small.&lt;/p&gt;
-
-&lt;p&gt;I fully intend to FPV this little quad and hopefully be buzzing around my local park.&lt;/p&gt;
-
-&lt;p&gt;Can’t wait! Damn international shipping!&lt;/p&gt;
-</description>
-        <pubDate>Thu, 21 Nov 2013 00:00:00 +1100</pubDate>
-        <link>http://fromorbit.com/2013/11/21/the-mini-h-quad-v2-0-the-hammer-frame.html</link>
-        <guid isPermaLink="true">http://fromorbit.com/2013/11/21/the-mini-h-quad-v2-0-the-hammer-frame.html</guid>
         
         
       </item>

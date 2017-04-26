@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>m68k Environment - Retro Challenge 2017/04</title>
+  <meta name="description" content="So, for this post I want to talk about my development environment and where I’m up to as far as the Retro Challenge.">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://fromorbit.com/2017/04/26/m68k-environment-rc201704.html">
+  <link rel="alternate" type="application/rss+xml" title="FromOrbit.com" href="/feed.xml">
+  
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1867259-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  
+
+  
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">FromOrbit.com</a>
+
+    <nav class="site-nav">
+      <span class="menu-icon">
+        <svg viewBox="0 0 18 15" width="18px" height="15px">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </span>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+          <a class="page-link" href="/contact/">Contact</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">m68k Environment - Retro Challenge 2017/04</h1>
+    <p class="post-meta"><time datetime="2017-04-26T00:00:00+10:00" itemprop="datePublished">Apr 26, 2017</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>So, for this post I want to talk about my development environment and where I’m
+up to as far as the Retro Challenge.</p>
+
+<p>I’ve had a <em>lot</em> of issues with this project. Initially I was cruising well and
+looking well on track to make something really cool, but then I damaged the
+board.</p>
+
+<p>The board started to exhibit a fault with it’s ability to load bytes from ROM.
+This became apparent as I started porting the TS2 ROM Monitor. When the fault
+occurred I started to gradually break the application down to the point of just
+the minimal initialization stuff for the CPU and UART and printing a string
+from ROM to the UART.</p>
+
+<p>As I was doing this testing, the CPU would appear to
+crash or not properly enter into any exception handler (even when forced too by
+using an illegal instruction!). After many, many days of trial and error and
+screaming at the board I finally broke it down to the point of it was either a
+faulty CPU or I’m a complete idiot and can’t write five m68k assembly
+instructions.</p>
+
+<p>So, I cut my losses and switch to my fall back board that was a little newer
+and based on a MC68340 CPU. My main hesitation initially for not using this
+board to begin with was that it was a peripheral integrated CPU, which meant
+the board was basically ROM, RAM, CPU, and power related parts.</p>
+
+<p><a href="/assets/images/2017-04-18/axc-em.jpg">
+   <img src="/assets/images/2017-04-18/tmb-axc-em.jpg" class="center" />
+</a></p>
+
+<p>As it stands I’ve had a much more enjoyable time working with this board and so
+have progressed much further with the software, rather than staring at a
+blinking LED and hoping it blinks <em>just right</em> this time (if you follow me on
+Twitter you’ll know what I mean)..</p>
+
+<h1 id="the-software-environment">The Software Environment.</h1>
+
+<p>At the moment I’m writing everything in assembler for the m68k. I’m on a
+Macbook Pro and I run the m68k development environment in a Ubuntu Xenial VM
+using Vagrant. Rather than trying to setup the cross compiler in OSX, I just
+opted to use Linux and the Ubuntu m86k deb packages.</p>
+
+<p>So, to edit the code I use a Vagrant share and access the files in OSX using
+Vim in iTerm, and in another panel I have an open SSH session into the VM to do
+the compilation.</p>
+
+<p>To get the code onto the EEPROMs I use a <a href="http://www.autoelectric.cn/en/tl866_main.html">TL866a MiniPro
+programmer</a>, which I’ve compiled
+the <a href="https://github.com/vdudouyt/minipro">open source command line tool</a> for it
+in OSX. This means to program the EEPROMs I run the commands in OSX.</p>
+
+<p>Sounds difficult but it’s really not. I have a Makefile which handles all the
+compiling and ROM images, plus outputting dump files. It also has the recipe
+for programming the even and odd ROM images to the EEPROMs via the MiniPro
+tool.</p>
+
+<p>The flow sorta looks like this:</p>
+
+<ul>
+  <li>Makes changes to the source code in vim inside one iTerm pane.</li>
+  <li>Switch to the VM pane that’s SSH’d into the VM. Run the make compile command.</li>
+  <li>Switch back to the editor pane in iTerm.</li>
+  <li>Put the even EEPROM in the programmer.</li>
+  <li>From inside vim run the make commands to program the even EEPROM</li>
+  <li>Rinse repeat for the odd ROM</li>
+</ul>
+
+<p>Here is the Makefile I’m using, you can see it <a href="https://github.com/alangarf/amx_axc_m68k/blob/master/Makefile">here on Github
+too.</a></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nv">M68K</span><span class="o">=</span>m68k-linux-gnu
+<span class="nv">AS</span><span class="o">=</span><span class="nv">$(M68K)</span>-as
+<span class="nv">LD</span><span class="o">=</span><span class="nv">$(M68K)</span>-ld
+<span class="nv">COPY</span><span class="o">=</span><span class="nv">$(M68K)</span>-objcopy
+<span class="nv">DUMP</span><span class="o">=</span><span class="nv">$(M68K)</span>-objdump
+
+<span class="nv">ASFLAGS</span><span class="o">=</span>-m68340 --warn --fatal-warnings
+<span class="nv">LDFLAGS</span><span class="o">=</span>-T m68k.ld
+<span class="nv">DUMPFLAGS</span><span class="o">=</span>-m68020 -x -D
+
+<span class="nv">EEPROM</span><span class="o">=</span>AT28C256
+<span class="nv">PREFIX</span><span class="o">=</span>m68k-
+
+<span class="nv">FMT</span><span class="o">=</span>binary
+
+<span class="nv">SRCS</span><span class="o">=</span>loader.s
+<span class="nv">OBJS</span><span class="o">=</span><span class="err">$</span><span class="o">(</span>SRCS:.s<span class="o">=</span>.o<span class="o">)</span>
+<span class="nv">MAIN</span><span class="o">=</span>loader
+
+<span class="nl">.PHONY</span><span class="o">:</span> <span class="nf">dump clean</span>
+
+<span class="nl">all</span><span class="o">:</span>	<span class="nf">$(MAIN)</span>
+
+<span class="nl">.s.o</span><span class="o">:</span>
+	<span class="nv">$(AS)</span> <span class="nv">$(ASFLAGS)</span> -o <span class="nv">$@</span> <span class="nv">$&lt;</span>
+
+<span class="nl">$(MAIN)</span><span class="o">:</span> <span class="nf">$(OBJS)</span>
+	<span class="nv">$(LD)</span> <span class="nv">$(LDFLAGS)</span> -o <span class="nv">$(MAIN)</span>.a <span class="nv">$(OBJS)</span>
+	<span class="nv">$(COPY)</span> -b 0 -i 2 --interleave-width<span class="o">=</span>1 -O <span class="nv">$(FMT)</span> <span class="nv">$(MAIN)</span>.a <span class="nv">$(PREFIX)$(MAIN)</span>-even.bin
+	<span class="nv">$(COPY)</span> -b 1 -i 2 --interleave-width<span class="o">=</span>1 -O <span class="nv">$(FMT)</span> <span class="nv">$(MAIN)</span>.a <span class="nv">$(PREFIX)$(MAIN)</span>-odd.bin
+
+<span class="nl">clean</span><span class="o">:</span>
+	rm -f <span class="k">*</span>.o <span class="nv">$(PREFIX)$(MAIN)</span>-even.bin <span class="nv">$(PREFIX)$(MAIN)</span>-odd.bin <span class="nv">$(PREFIX)$(MAIN)</span>.bin <span class="nv">$(MAIN)</span>.a
+
+<span class="nl">prog_even</span><span class="o">:</span>
+	<span class="p">@</span><span class="nb">echo </span>Programming <span class="nv">$(MAIN)</span>-even onto <span class="nv">$(EEPROM)</span>
+	minipro -p <span class="s2">"</span><span class="nv">$(EEPROM)</span><span class="s2">"</span> -w <span class="nv">$(PREFIX)$(MAIN)</span>-even.bin -s
+
+<span class="nl">prog_odd</span><span class="o">:</span>
+	<span class="p">@</span><span class="nb">echo </span>Programming <span class="nv">$(MAIN)</span>-odd onto <span class="nv">$(EEPROM)</span>
+	minipro -p <span class="s2">"</span><span class="nv">$(EEPROM)</span><span class="s2">"</span> -w <span class="nv">$(PREFIX)$(MAIN)</span>-odd.bin -s
+
+<span class="nl">dump</span><span class="o">:</span>	<span class="nf">$(MAIN)</span>
+	<span class="nv">$(DUMP)</span> <span class="nv">$(DUMPFLAGS)</span> <span class="nv">$(MAIN)</span>.a
+</code></pre>
+</div>
+
+<h1 id="compilation-and-linking">Compilation and Linking</h1>
+
+<p>As you can see from the Makefile above I’m using <code class="highlighter-rouge">m68k-linux-gnu-as</code> to
+assemble the object files from the source files. I am then using
+<code class="highlighter-rouge">m68k-linux-gnu-ld</code> to link the object file(s) into the <code class="highlighter-rouge">.a</code> archive object
+file. Which is then split into the <code class="highlighter-rouge">even</code> and <code class="highlighter-rouge">odd</code> ROM binary images needed
+for the two 8 bit EEPROMS to make the 16bit wide program data.</p>
+
+<p>I have a small linker script to handle the vector mapping, the stack and RAM
+locations etc. This step makes moving the resources around <em>very</em> easy, which
+I’m now thankful for because the two boards I have are vastly different in
+memory map to each other.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>MEMORY
+{
+    ROM (rx) : ORIGIN = 0x00000000, LENGTH = 0x10000
+    RAM (xrw) : ORIGIN = 0x00040000, LENGTH = 0x10000
+}
+
+/* stack location */
+stack_size = 1024;
+
+_stack_start = ORIGIN(RAM)+LENGTH(RAM)-0x10;
+_stack_end = _stack_start - stack_size;
+
+/* ram location */
+_ram_start = ORIGIN(RAM);
+_ram_end = ORIGIN(RAM)+LENGTH(RAM);
+
+/* system integration module */
+_sim40 = 0x80000;
+_timers = _sim40 + 0x600;
+_uarts = _sim40 + 0x700;
+_dma = _sim40 + 0x780;
+
+SECTIONS {
+  .vectors 0x00 :
+  {
+    . = ALIGN(4);
+    KEEP(*(.vectors))
+    . = ALIGN(4);
+  } &gt; ROM
+
+  .text 0x400 : {
+    . = ALIGN(4);
+    *(.text)
+    . = ALIGN(4);
+  } &gt; ROM
+
+  .data : { *(.data) } &gt; RAM
+  .bss :  { *(.bss)  *(COMMON) } &gt; RAM
+}
+
+OUTPUT_ARCH(m68k)
+</code></pre>
+</div>
+
+<p>I’ve been trying to get an <code class="highlighter-rouge">.rodata</code> section working, but for whatever reason
+my sections end up with the wrong alignment and any strings I put there are in
+the ROM image, but don’t appear to work. Maybe when I get some times I’ll
+figure out why that is, for now I’m happy to just put the strings at the end of
+the <code class="highlighter-rouge">.text</code> section.</p>
+
+<h1 id="initializing-the-mc68340-cpu">Initializing the MC68340 CPU</h1>
+
+<p>The MC68430 is a great CPU, it has a lovely set of peripherals, and some very
+nice features. However getting it going can be a little trick as both the RAM
+and ROM positions are controlled completely by the System Integration Module.
+The “SIM40” is a peripheral module in the MC68340 that basically handles all
+the address decoding and glue logic the other board had in 74 series ICs. This
+allows cool things like loading the START and SP registers from the ROM, and
+then moving the ROM up high in the memory map and replacing where the ROM would
+be with RAM. All with just a few instructions. Done in hardware you’d need
+complex gating or a GAL to achieve something similar.</p>
+
+<p>So to start with here is a chunk of code that configures the ROM and RAM
+locations in the memory map, and configures the CPU speed and interrupt maps.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>*************************************************************************
+*
+*  Init the CPU and System Integration Module - Configs module options
+*
+.init:
+            move.w      #0x2700, %sr                    | mask interrupts and set supervisor mode
+
+            moveq       #7, %d0
+            movec       %d0, %dfc
+            move.l      #_sim40 + 1, %d0
+            moves.l     %d0, 0x3ff00                    | move sim40 base address to 0x80000
+
+            /* setup ROM chip select CS0 */
+            move.l      #0x03fffd, _sm_csam0 + _sim40   | 16 bit port, three wait, mask FC bits, 256KB in size
+            move.l      #0x000001, _sm_csbar0 + _sim40  | starting at 0x00000
+
+            /* setup RAM chip select CS1 */
+            move.l      #0x03fff1, _sm_csam1 + _sim40   | 16 bit port, zero wait, mask FC bits, 256KB in size
+            move.l      #0x040001, _sm_csbar1 + _sim40  | starting at 0x40000
+
+            /* setup system protects and clock */
+            move.b      #0x06, _sm_sypcr + _sim40       | turn off watchdogs, bus fault, bus monitor
+            move.w      #0x7c00, _sm_syncr + _sim40     | set clock to 15.991 MHz
+            move.w      #0x420f, _sm_mcr + _sim40       | set MCR, no interrupts etc
+</code></pre>
+</div>
+
+<p>In this project I’ve just kept the memory map really simple.</p>
+
+<ul>
+  <li>0x000000 is ROM</li>
+  <li>0x040000 is RAM</li>
+  <li>0x080000 is the SIM40 peripherals</li>
+</ul>
+
+<p>I may switch the RAM and ROM around later as this would allow me to dynamically
+change the interrupt and trap vectors. Otherwise I have to hard code jumps to
+RAM locations inside the ROM where the vectors are in order to make them
+dynamic. At the moment I’m not really using interrupts, but I can see myself
+wanting too in the near future (also breakpoints etc in my ROM Monitor).</p>
+
+<h1 id="initializing-the-mc68340">Initializing the MC68340</h1>
+
+<p>The MC68340 has a great suite of peripherals, from UARTs, Timers, System
+protection devices and DMA.</p>
+
+<p><a href="/assets/images/2017-04-26/mc68340.png">
+   <img src="/assets/images/2017-04-26/tmb-mc68340.png" class="" />
+</a></p>
+
+<p>The SIM40 modules can move the addresses of these devices where ever you
+choose, but the layout is:</p>
+
+<p><a href="/assets/images/2017-04-26/sim40.png">
+   <img src="/assets/images/2017-04-26/tmb-sim40.png" class="" />
+</a></p>
+
+<p>As you can see in the code above I’ve set it to the address of <code class="highlighter-rouge">0x080000</code>. For
+this project at the moment I’m turning more stuff <code class="highlighter-rouge">off</code> than I’m turning <code class="highlighter-rouge">on</code>.
+By default all these peripherals are available and running, you have to disable
+them if you’re not using them. Realistically this is more about power reduction
+than anything, but like unused logic gates, I feel they must be put into a
+known state. :)</p>
+
+<p>So I turn off all watchdogs, and system protection peripherals (eg. double bus
+fault monitors, bus monitors, reset etc), the timers, and the DMA. Since I need
+a UART I configure one and disable the other.</p>
+
+<h1 id="the-boot-loader">The boot-loader</h1>
+
+<p>Initially I was just going to port across an existing ROM monitor for the m68k,
+there are plenty of quality ones out there but given the time I lost on the
+faulty CPU/board I quickly realized I won’t be able to port the monitor quickly
+enough if I had to burn EEPROMs each time to make any <em>actual</em> application with
+the board. I set out to make an Mandelbrot set with this board, so debugging a
+monitor wasn’t something I had time to do.</p>
+
+<p>So speaking to my friend @trc_wm he suggested getting just something dumb that
+dumps binary into RAM and jumps to it, then write some python to push the
+binary at the serial port.</p>
+
+<p>I started implementing that until I saw a few pieces of code that would load
+<code class="highlighter-rouge">srec</code> format into RAM. I decoded the logic and wrote my own implementation in
+a few hours, I figured this would be all round simpler in the long run as I
+wouldn’t need to write the python. Instead I could just cut and paste the srec
+records straight into the terminal, or at the very least <code class="highlighter-rouge">cat</code> them out to the
+serial port.</p>
+
+<p>Here is an example showing altering the code, compiling, copying the srecord
+data and running it:</p>
+
+<p><img src="/assets/images/2017-04-26/hello_world.gif" class="" /></p>
+
+<h1 id="enough-for-today">Enough for today</h1>
+
+<p>That ought to do me for today. To achieve my goal of generating a Mandelbrot
+set with the board for the Retro Challenge, I’m going to work on either getting
+compiling C to run on the m68k, or port a BASIC/FORTH tomorrow and then write a
+Mandelbrot set generator in the chosen language.</p>
+
+<p>We’ll see…</p>
+
+
+  </div>
+
+  
+    
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://fromorbit.com/2017/04/26/m68k-environment-rc201704.html';
+      this.page.identifier = 'http://fromorbit.com/2017/04/26/m68k-environment-rc201704.html';
+    };
+
+    (function() {
+      var d = document, s = d.createElement('script');
+
+      s.src = 'https://fromorbit-com.disqus.com/embed.js';
+
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">FromOrbit.com</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              FromOrbit.com
+            
+            </li>
+            
+            <li><a href="mailto:alan@fromorbit.com">alan@fromorbit.com</a></li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/alangarf"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">alangarf</span></a>
+
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/alangarf"><span class="icon icon--twitter"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/></svg>
+</span><span class="username">alangarf</span></a>
+
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Generic nerd who dabbles in programming, electronics, CNC and retro computing.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

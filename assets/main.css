@@ -519,3 +519,8 @@ pre {
 .site-footer {
   border-top: 1px solid #789CA0;
   font-family: "Orbitron", sans-serif; }
+
+img.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
