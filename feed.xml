@@ -4,10 +4,10 @@
     <title>FromOrbit.com</title>
     <description>Generic nerd who dabbles in programming, electronics, CNC and retro computing.
 </description>
-    <link>http://fromorbit.com/</link>
-    <atom:link href="http://fromorbit.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 27 Apr 2017 00:25:51 +1000</pubDate>
-    <lastBuildDate>Thu, 27 Apr 2017 00:25:51 +1000</lastBuildDate>
+    <link>https://fromorbit.com/</link>
+    <atom:link href="https://fromorbit.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 03 May 2017 23:35:02 +1000</pubDate>
+    <lastBuildDate>Wed, 03 May 2017 23:35:02 +1000</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
@@ -37,9 +37,13 @@ and based on a MC68340 CPU. My main hesitation initially for not using this
 board to begin with was that it was a peripheral integrated CPU, which meant
 the board was basically ROM, RAM, CPU, and power related parts.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/images/2017-04-18/axc-em.jpg&quot;&gt;
-   &lt;img src=&quot;/assets/images/2017-04-18/tmb-axc-em.jpg&quot; class=&quot;center&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-18/axc-em.jpg&quot; alt=&quot;AMX AXC-EM board.&quot; /&gt;
+  
+    &lt;figcaption&gt;The AMX AXC-EM board.
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
 
 &lt;p&gt;As it stands I’ve had a much more enjoyable time working with this board and so
 have progressed much further with the software, rather than staring at a
@@ -252,16 +256,24 @@ wanting too in the near future (also breakpoints etc in my ROM Monitor).&lt;/p&g
 &lt;p&gt;The MC68340 has a great suite of peripherals, from UARTs, Timers, System
 protection devices and DMA.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/images/2017-04-26/mc68340.png&quot;&gt;
-   &lt;img src=&quot;/assets/images/2017-04-26/tmb-mc68340.png&quot; class=&quot;&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-26/mc68340.png&quot; alt=&quot;The internals of the MC68340&quot; /&gt;
+  
+    &lt;figcaption&gt;The internals of the MC68340
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
 
 &lt;p&gt;The SIM40 modules can move the addresses of these devices where ever you
 choose, but the layout is:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/images/2017-04-26/sim40.png&quot;&gt;
-   &lt;img src=&quot;/assets/images/2017-04-26/tmb-sim40.png&quot; class=&quot;&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-26/sim40.png&quot; alt=&quot;The SIM40 address structure&quot; /&gt;
+  
+    &lt;figcaption&gt;The SIM40 address structure
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
 
 &lt;p&gt;As you can see in the code above I’ve set it to the address of &lt;code class=&quot;highlighter-rouge&quot;&gt;0x080000&lt;/code&gt;. For
 this project at the moment I’m turning more stuff &lt;code class=&quot;highlighter-rouge&quot;&gt;off&lt;/code&gt; than I’m turning &lt;code class=&quot;highlighter-rouge&quot;&gt;on&lt;/code&gt;.
@@ -297,7 +309,13 @@ serial port.&lt;/p&gt;
 &lt;p&gt;Here is an example showing altering the code, compiling, copying the srecord
 data and running it:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/2017-04-26/hello_world.gif&quot; class=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-26/hello_world.gif&quot; alt=&quot;GIF showing the boot-loader in action&quot; /&gt;
+  
+    &lt;figcaption&gt;Demo showing updating code and pushing it to the bootloader
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
 
 &lt;h1 id=&quot;enough-for-today&quot;&gt;Enough for today&lt;/h1&gt;
 
@@ -310,8 +328,8 @@ Mandelbrot set generator in the chosen language.&lt;/p&gt;
 
 </description>
         <pubDate>Wed, 26 Apr 2017 00:00:00 +1000</pubDate>
-        <link>http://fromorbit.com/2017/04/26/m68k-environment-rc201704.html</link>
-        <guid isPermaLink="true">http://fromorbit.com/2017/04/26/m68k-environment-rc201704.html</guid>
+        <link>https://fromorbit.com/2017/04/26/m68k-environment-rc201704.html</link>
+        <guid isPermaLink="true">https://fromorbit.com/2017/04/26/m68k-environment-rc201704.html</guid>
         
         
       </item>
@@ -373,13 +391,25 @@ blink the LED three times, pause, etc etc. Eventually up to 8 blinks.&lt;/p&gt;
 ROMs were doing on the 8 bit address read. So I clipped up the RAM/ROM chip
 select lines, the even and odd enable lines and the LED output.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/images/2017-04-18/even.jpg&quot;&gt;
-   &lt;img src=&quot;/assets/images/2017-04-18/tmb-even.jpg&quot; class=&quot;center&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/assets/images/2017-04-18/odd.jpg&quot;&gt;
-   &lt;img src=&quot;/assets/images/2017-04-18/tmb-odd.jpg&quot; class=&quot;center&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;half &quot;&gt;
+  
+    
+      &lt;a href=&quot;https://fromorbit.com/assets/images/2017-04-18/even.jpg&quot; title=&quot;The even read&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-18/even.jpg&quot; alt=&quot;The even read&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+    
+      &lt;a href=&quot;https://fromorbit.com/assets/images/2017-04-18/odd.jpg&quot; title=&quot;The odd read&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-18/odd.jpg&quot; alt=&quot;The odd read&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;What the logic analyser saw…
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
 
 &lt;p&gt;You can easily see the ROM is doing an 8bit read on even, then an 8bit read on
 odd.&lt;/p&gt;
@@ -406,13 +436,22 @@ board I recovered with a m68k processor on it.&lt;/p&gt;
 
 &lt;p&gt;Enter the AMX AXC-EM with an MC68340RP16 on board!&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/images/2017-04-18/axc-em.jpg&quot;&gt;
-   &lt;img src=&quot;/assets/images/2017-04-18/tmb-axc-em.jpg&quot; class=&quot;center&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/assets/images/2017-04-18/mc68340.jpg&quot;&gt;
-   &lt;img src=&quot;/assets/images/2017-04-18/tmb-mc68340.jpg&quot; class=&quot;center&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;half &quot;&gt;
+  
+    
+      &lt;a href=&quot;https://fromorbit.com/assets/images/2017-04-18/axc-em.jpg&quot; title=&quot;AMX AXC-EM board&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-18/axc-em.jpg&quot; alt=&quot;AMX AXC-EM board&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+    
+      &lt;a href=&quot;https://fromorbit.com/assets/images/2017-04-18/mc68340.jpg&quot; title=&quot;MC68340 cpu&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-18/mc68340.jpg&quot; alt=&quot;MC68340 cpu&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+&lt;/figure&gt;
 
 &lt;h1 id=&quot;why-didnt-you-use-this-one-first&quot;&gt;Why didn’t you use this one first?&lt;/h1&gt;
 
@@ -429,8 +468,8 @@ I hope it can read bytes from ROM!&lt;/p&gt;
 
 </description>
         <pubDate>Tue, 18 Apr 2017 00:00:00 +1000</pubDate>
-        <link>http://fromorbit.com/2017/04/18/rinse-repeat-rc201704.html</link>
-        <guid isPermaLink="true">http://fromorbit.com/2017/04/18/rinse-repeat-rc201704.html</guid>
+        <link>https://fromorbit.com/2017/04/18/rinse-repeat-rc201704.html</link>
+        <guid isPermaLink="true">https://fromorbit.com/2017/04/18/rinse-repeat-rc201704.html</guid>
         
         
       </item>
@@ -461,7 +500,7 @@ try.&lt;/p&gt;
 &lt;p&gt;The 28C64s are basically almost pin compatible with the 27C256s (obviously
 missing the two additional address lines.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/2017-04-08/eeprom_vs_eprom1.png&quot; alt=&quot;Pin outs of a 28C64 and a 27C256&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/2017-04-08/eeprom_vs_eprom1.png&quot; alt=&quot;Pin outs of a 28C64 and a 27C256&quot; class=&quot;align-center&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;So apart from A14, A13 and the VPP signal these would plug straight in. Woo hoo
 I was thinking, this’ll be easy!&lt;/p&gt;
@@ -473,7 +512,13 @@ things of this vintage start to do. I figured it would be safer if I just did
 one set at a time. So I carefully desoldered the two sockets and replaced them
 with machine pin sockets…&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/images/2017-04-08/sockets_gone.jpg&quot;&gt;&lt;img src=&quot;/assets/images/2017-04-08/tmb_sockets_gone.jpg&quot; alt=&quot;No more sockets on the board&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-08/sockets_gone.jpg&quot; alt=&quot;Removed the sockets&quot; /&gt;
+  
+    &lt;figcaption&gt;Old sockets be gone!
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
 
 &lt;p&gt;It was at this time that I noticed pin 1 on these sockets had traces. Given
 these are the VPP lines I thought that was strange. It turns out they’re
@@ -484,7 +529,13 @@ high voltage to do anything.&lt;/p&gt;
 line being connected to A14 was to add another layer of machine pins with the
 sockets missing.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/images/2017-04-08/adapters_in_place.jpg&quot;&gt;&lt;img src=&quot;/assets/images/2017-04-08/tmb_adapters_in_place.jpg&quot; alt=&quot;Adapters in place&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-08/adapters_in_place.jpg&quot; alt=&quot;Adapters in place&quot; /&gt;
+  
+    &lt;figcaption&gt;Adapters in place
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
 
 &lt;p&gt;I opted to pull out the VPP, A13 and A14 pins just to make sure. I then
 programmed my blink routine into the two mismatched 28C64s and expected great
@@ -565,7 +616,13 @@ I can get parts from them.&lt;/p&gt;
 for these new chips. I figured I’d just use only the first 8KB of them and drop
 them into the existing sockets I had for the 28C64s.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/images/2017-04-08/at28c256s_in_place.jpg&quot;&gt;&lt;img src=&quot;/assets/images/2017-04-08/tmb_at28c256s_in_place.jpg&quot; alt=&quot;AT28C256s in place&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-08/at28c256s_in_place.jpg&quot; alt=&quot;AT28C256s in place&quot; /&gt;
+  
+    &lt;figcaption&gt;AT28C256s in place
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
 
 &lt;p&gt;I realized after plugging them in that had I not removed the VPP lines from
 these sockets that I would’ve connected A16 to the A14 pin on these EEPROMs,
@@ -583,7 +640,13 @@ position which now I know has A16 attached to it!&lt;/p&gt;
 &lt;p&gt;I powered up the board with the new EEPROMs and the updated code and &lt;strong&gt;success&lt;/strong&gt;
 it blinked perfectly, a nice solid consistent blink…&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/2017-04-08/blinking1.gif&quot; alt=&quot;Blink you good thing!&quot; /&gt;&lt;/p&gt;
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-08/blinking1.gif&quot; alt=&quot;Blink you good thing!&quot; /&gt;
+  
+    &lt;figcaption&gt;Blink you good thing!
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
 
 &lt;p&gt;… until I lifted the board.&lt;/p&gt;
 
@@ -616,7 +679,7 @@ So that’s a win in my book!&lt;/p&gt;
 the RS232 port I’ve got the entire schematic done now. You can get the KiCAD
 files from: &lt;a href=&quot;https://github.com/alangarf/amx_axc_kicad&quot;&gt;https://github.com/alangarf/amx_axc_kicad&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/images/2017-04-08/schematic.png&quot;&gt;&lt;img src=&quot;/assets/images/2017-04-08/tmb_schematic.png&quot; alt=&quot;The schematic&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/2017-04-08/schematic.png&quot; class=&quot;align-center&quot;&gt;&lt;img src=&quot;/assets/images/2017-04-08/schematic.png&quot; alt=&quot;The schematic&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;is-that-all&quot;&gt;Is that all?&lt;/h1&gt;
 
@@ -624,8 +687,8 @@ files from: &lt;a href=&quot;https://github.com/alangarf/amx_axc_kicad&quot;&gt;
 
 </description>
         <pubDate>Sat, 08 Apr 2017 00:00:00 +1000</pubDate>
-        <link>http://fromorbit.com/2017/04/08/gettin-somewhere-rc201704.html</link>
-        <guid isPermaLink="true">http://fromorbit.com/2017/04/08/gettin-somewhere-rc201704.html</guid>
+        <link>https://fromorbit.com/2017/04/08/gettin-somewhere-rc201704.html</link>
+        <guid isPermaLink="true">https://fromorbit.com/2017/04/08/gettin-somewhere-rc201704.html</guid>
         
         
       </item>
@@ -677,7 +740,7 @@ files from: &lt;a href=&quot;https://github.com/alangarf/amx_axc_kicad&quot;&gt;
 
 &lt;p&gt;I even bashed together a little test program to twiddle the LED bit of the 74LS259…&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-asm&quot;&gt;/*
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/*
  * Blink LED connected to 74LS259 output.
  *
  * ROM is at 0x00000-0x0FA00.
@@ -728,6 +791,7 @@ files from: &lt;a href=&quot;https://github.com/alangarf/amx_axc_kicad&quot;&gt;
 .org 0xFFFA
     jmp .top
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;And like a late night TV shopping channel ad I’ll even throw in a &lt;del&gt;free set of steak knives&lt;/del&gt; tool to split the resulting binary into 32KB interleaved chunks so they’d work on the board.&lt;/p&gt;
 
@@ -777,7 +841,7 @@ Verification failed at 0x200: 0x20 != 0x00
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;&lt;em&gt;COMPUTER SAYS NO…&lt;/em&gt;&lt;/p&gt;
+&lt;p class=&quot;notice--danger&quot;&gt;COMPUTER SAYS NO...&lt;/p&gt;
 
 &lt;h1 id=&quot;beware-losing-all-hope&quot;&gt;Beware, losing all hope…&lt;/h1&gt;
 
@@ -785,7 +849,13 @@ Verification failed at 0x200: 0x20 != 0x00
 
 &lt;p&gt;Hunting around the garage for any source of UV I knew my search was futile. I even resorted to madness when I found a big bag of “UV” LEDs.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/2017-04-06/uv_madness.png&quot; alt=&quot;UGH, my world for UV&quot; /&gt;&lt;/p&gt;
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-06/uv_madness.png&quot; alt=&quot;Silly pic of UV LED trying to erase EPROM&quot; /&gt;
+  
+    &lt;figcaption&gt;UGH, my world for some UV
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
 
 &lt;h1 id=&quot;so-now-what&quot;&gt;So, now what…&lt;/h1&gt;
 
@@ -802,8 +872,8 @@ Verification failed at 0x200: 0x20 != 0x00
 &lt;p&gt;Here’s to tomorrow!&lt;/p&gt;
 </description>
         <pubDate>Thu, 06 Apr 2017 00:00:00 +1000</pubDate>
-        <link>http://fromorbit.com/2017/04/06/m68k-why-no-uv-rc201704.html</link>
-        <guid isPermaLink="true">http://fromorbit.com/2017/04/06/m68k-why-no-uv-rc201704.html</guid>
+        <link>https://fromorbit.com/2017/04/06/m68k-why-no-uv-rc201704.html</link>
+        <guid isPermaLink="true">https://fromorbit.com/2017/04/06/m68k-why-no-uv-rc201704.html</guid>
         
         
       </item>
@@ -864,11 +934,11 @@ void scc2691_reset(void)
 
 &lt;h1 id=&quot;the-schematic-so-far-&quot;&gt;The schematic so far …&lt;/h1&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/images/2017-04-05/schematic.png&quot;&gt;&lt;img src=&quot;/assets/images/2017-04-05/tmb_schematic.png&quot; alt=&quot;AMX board schematic&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/2017-04-05/schematic.png&quot; class=&quot;align-center&quot;&gt;&lt;img src=&quot;/assets/images/2017-04-05/schematic.png&quot; alt=&quot;AMX board schematic&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 05 Apr 2017 00:00:00 +1000</pubDate>
-        <link>http://fromorbit.com/2017/04/05/m68k-schematic-rc201704.html</link>
-        <guid isPermaLink="true">http://fromorbit.com/2017/04/05/m68k-schematic-rc201704.html</guid>
+        <link>https://fromorbit.com/2017/04/05/m68k-schematic-rc201704.html</link>
+        <guid isPermaLink="true">https://fromorbit.com/2017/04/05/m68k-schematic-rc201704.html</guid>
         
         
       </item>
@@ -1009,8 +1079,8 @@ see strings (even some funny stuff) and loops testing devices and memory etc.&lt
 
 </description>
         <pubDate>Mon, 03 Apr 2017 00:00:00 +1000</pubDate>
-        <link>http://fromorbit.com/2017/04/03/m68k-amx-board-rc201704.html</link>
-        <guid isPermaLink="true">http://fromorbit.com/2017/04/03/m68k-amx-board-rc201704.html</guid>
+        <link>https://fromorbit.com/2017/04/03/m68k-amx-board-rc201704.html</link>
+        <guid isPermaLink="true">https://fromorbit.com/2017/04/03/m68k-amx-board-rc201704.html</guid>
         
         
       </item>
@@ -1074,8 +1144,8 @@ the challenge. Just getting a ROM monitor etc will be hard enough. :)&lt;/p&gt;
 
 </description>
         <pubDate>Fri, 31 Mar 2017 00:00:00 +1100</pubDate>
-        <link>http://fromorbit.com/2017/03/31/retro-computing-challenge-201704.html</link>
-        <guid isPermaLink="true">http://fromorbit.com/2017/03/31/retro-computing-challenge-201704.html</guid>
+        <link>https://fromorbit.com/2017/03/31/retro-computing-challenge-201704.html</link>
+        <guid isPermaLink="true">https://fromorbit.com/2017/03/31/retro-computing-challenge-201704.html</guid>
         
         
       </item>
@@ -1100,8 +1170,8 @@ the challenge. Just getting a ROM monitor etc will be hard enough. :)&lt;/p&gt;
 
 </description>
         <pubDate>Thu, 30 Mar 2017 00:00:00 +1100</pubDate>
-        <link>http://fromorbit.com/2017/03/30/updating-website.html</link>
-        <guid isPermaLink="true">http://fromorbit.com/2017/03/30/updating-website.html</guid>
+        <link>https://fromorbit.com/2017/03/30/updating-website.html</link>
+        <guid isPermaLink="true">https://fromorbit.com/2017/03/30/updating-website.html</guid>
         
         
       </item>
@@ -1112,8 +1182,8 @@ the challenge. Just getting a ROM monitor etc will be hard enough. :)&lt;/p&gt;
 &lt;div class=&quot;embed-container&quot;&gt;    &lt;iframe title=&quot;YouTube video player&quot; width=&quot;640&quot; height=&quot;390&quot; src=&quot;//www.youtube.com/embed/ukuO2XofROc&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
 </description>
         <pubDate>Sun, 21 Sep 2014 00:00:00 +1000</pubDate>
-        <link>http://fromorbit.com/2014/09/21/digital-foosball-two.html</link>
-        <guid isPermaLink="true">http://fromorbit.com/2014/09/21/digital-foosball-two.html</guid>
+        <link>https://fromorbit.com/2014/09/21/digital-foosball-two.html</link>
+        <guid isPermaLink="true">https://fromorbit.com/2014/09/21/digital-foosball-two.html</guid>
         
         
       </item>
@@ -1126,8 +1196,8 @@ the challenge. Just getting a ROM monitor etc will be hard enough. :)&lt;/p&gt;
 &lt;p&gt;We digitized our foosball table for a hackday at work. It was a really fun task that has added a new dimension to our game play.&lt;/p&gt;
 </description>
         <pubDate>Wed, 17 Sep 2014 00:00:00 +1000</pubDate>
-        <link>http://fromorbit.com/2014/09/17/digital-foosball.html</link>
-        <guid isPermaLink="true">http://fromorbit.com/2014/09/17/digital-foosball.html</guid>
+        <link>https://fromorbit.com/2014/09/17/digital-foosball.html</link>
+        <guid isPermaLink="true">https://fromorbit.com/2014/09/17/digital-foosball.html</guid>
         
         
       </item>
