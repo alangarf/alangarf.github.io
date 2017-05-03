@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  "Why Microchip with MPLABX has put the cart before the horse."
 teaser: "I had been a long time user of Microchip parts, and a fan for over ten years. I've owned and built several PIC programmers. An ICD2, an ICU-U64 and all the CCS compilers, several dsPIC devel boards, I even bought an ICD3 just recently because I ..."
 thumbnail: "/assets/images/2012-01-06/tmb_MicrochipTechnology_Logo.png"

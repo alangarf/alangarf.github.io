@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Simple Hartley Oscillator
 thumbnail: "//i3.ytimg.com/vi/W9PvUnAsTzU/mqdefault.jpg"
 

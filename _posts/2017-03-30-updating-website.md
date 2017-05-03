@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Updating the website...
 teaser: "Yes my website has been updated once again!"
 thumbnail: "/assets/images/2017-03-30/successkid.jpg"

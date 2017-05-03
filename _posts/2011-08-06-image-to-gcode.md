@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Image to Gcode
 thumbnail: "/assets/images/2011-08-06/IMAG0838.jpg"
 

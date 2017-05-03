@@ -1,5 +1,4 @@
 ---
-layout: post
 title: CNC drilling lots and lots of holes!
 thumbnail: "//i3.ytimg.com/vi/qITJVGJzvEM/mqdefault.jpg"
 

@@ -5,9 +5,7 @@
 {% endif %}
 
 {% if include.no_tmb %}
-<img src="/assets/images/{{ date }}/{{ include.file }}" class="{{ include.class }}"/>
+![{{ include.alt }}](/assets/images/{{ date }}/{{ include.file }}){: .{{ include.class }}}
 {% else %}
-<a href="/assets/images/{{ date }}/{{ include.file }}">
-   <img src="/assets/images/{{ date }}/tmb-{{ include.file }}" class="{{ include.class }}"/>
-</a>
+[![{{ include.alt }}](/assets/images/{{ date }}/tmb-{{ include.file }}){: .{{ include.class }}}](/assets/images/{{ date }}/{{ include.file }})
 {% endif %}

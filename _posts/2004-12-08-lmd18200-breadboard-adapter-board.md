@@ -1,5 +1,4 @@
 ---
-layout: post
 
 subheadline: "Handy Breadboard Adapter"
 title: "LMD18200 Breadboard Adapter Board"

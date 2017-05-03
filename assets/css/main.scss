@@ -1,0 +1,35 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@import url('https://fonts.googleapis.com/css?family=Orbitron|Jura:300,600|Spinnaker');
+$title: 'Orbitron', sans-serif;
+$head: 'Jura', sans-serif;
+$main: 'Spinnaker', sans-serif;
+
+$global-font-family : 'Spinnaker', sans-serif;
+$header-font-family : 'Jura', sans-serif;
+
+@charset "utf-8";
+
+@import "minimal-mistakes";
+
+.masthead {
+    background-color: #546B83;
+    .site-title {
+        font-family: $title;
+        color: #C8DCF0;
+        text-shadow: 2px 2px #213E5C;
+    }
+}
+
+.greedy-nav {
+    background-color: inherit;
+}
+
+.author__avatar {
+    img {
+        border-radius: 10%;
+    }
+}
+

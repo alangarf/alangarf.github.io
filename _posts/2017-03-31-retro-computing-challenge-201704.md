@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Retro Challenge 2017/04
 thumbnail: "/assets/images/2017-03-31/m68k.png"
 

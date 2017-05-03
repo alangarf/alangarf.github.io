@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  "Tiny Matrix Hack"
 teaser: "I built this for my little nephew for Christmas."
 thumbnail: "//i3.ytimg.com/vi/ot5yzkOYYsQ/mqdefault.jpg"

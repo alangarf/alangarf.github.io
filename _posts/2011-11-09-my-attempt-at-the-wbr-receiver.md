@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  "My attempt at the WBR Receiver"
 teaser: "An attempt at building the \"WBR reciever\". Fun project and worth the effort."
 thumbnail: "//i3.ytimg.com/vi/l3HF4Nmlc5I/mqdefault.jpg"

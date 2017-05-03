@@ -14,26 +14,73 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: FromOrbit.com
-email: alan@fromorbit.com
-description: > # this means to ignore newlines until "baseurl:"
+title_separator: "|"
+name: "Alan Garfield"
+description: >
     Generic nerd who dabbles in programming, electronics, CNC and retro computing.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://fromorbit.com" # the base hostname & protocol for your site
-twitter_username: alangarf
-github_username:  alangarf
+url: "https://fromorbit.com"
+baseurl: ""
+timezone: Australia/Sydney
 
-# Build settings
+teaser: /assets/images/500x300.png
+
+locale: "en"
 markdown: kramdown
-theme: minima
 
-header:
-    image: "/images/fromorbit_header.gif"
-    height: 120
+theme: minimal-mistakes-jekyll
 
-disqus:
-    shortname: fromorbit-com
+paginate: 5 # amount of posts to show
+paginate_path: /page:num/
 
-google_analytics: UA-1867259-2
+author:
+  name   : "Alan Garfield"
+  avatar : "/assets/bio.jpg"
+  bio    : "Generic nerd who dabbles in programming, electronics, CNC and retro computing."
+  email  : "alan@fromorbit.com"
+  twitter: "alangarf"
+  github:  "alangarf"
+  youtube:  "randomgarfield"
+
+compress_html:
+  clippings: all
+
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      read_time: true
+      comments: true
+      share: true
+      related: true
+      author_profile: true
+
+twitter:
+  username: "alangarf"      
+
+comments:
+  provider: "disqus"
+  disqus:
+    shortname: "fromorbit-com"      
+
+analytics:
+  provider: "google-universal"
+  google:
+    tracking_id: "UA-1867259-2"    
+
+#header:
+#    image: "/images/fromorbit_header.gif"
+#    height: 120
+
+#disqus:
+#    shortname: fromorbit-com
+
+#google_analytics: UA-1867259-2
 
 exclude: ['README.markdown', 'Gemfile.lock', 'Gemfile', 'Makefile']
 include: ['.nojekyll']
+
+gems:
+  - jekyll-paginate    

@@ -1,7 +1,10 @@
 ---
-layout: post
 title: Now we're get'n somewhere! - Retro Challenge 2017/04
-thumbnail: "/assets/images/2017-04-08/blinking1.gif"
+excerpt: Things are starting to be coming up Milhouse!
+header:
+  overlay_image: "/assets/images/2017-04-08/adapters_in_place.jpg"
+  overlay_filter: rgba(140, 102, 47, 0.8)
+  teaser: "/assets/images/2017-04-08/adapters_in_place.jpg"
 
 ---
 
@@ -29,7 +32,7 @@ try.
 The 28C64s are basically almost pin compatible with the 27C256s (obviously
 missing the two additional address lines.
 
-![Pin outs of a 28C64 and a 27C256](/assets/images/2017-04-08/eeprom_vs_eprom1.png)
+![Pin outs of a 28C64 and a 27C256](/assets/images/2017-04-08/eeprom_vs_eprom1.png){:.align-center}
 
 So apart from A14, A13 and the VPP signal these would plug straight in. Woo hoo
 I was thinking, this'll be easy!
@@ -41,7 +44,7 @@ things of this vintage start to do. I figured it would be safer if I just did
 one set at a time. So I carefully desoldered the two sockets and replaced them
 with machine pin sockets...
 
-[![No more sockets on the board](/assets/images/2017-04-08/tmb_sockets_gone.jpg)](/assets/images/2017-04-08/sockets_gone.jpg)
+{% include figure image_path="/assets/images/2017-04-08/sockets_gone.jpg" alt="Removed the sockets" caption="Old sockets be gone!" %}
 
 It was at this time that I noticed pin 1 on these sockets had traces. Given
 these are the VPP lines I thought that was strange. It turns out they're
@@ -52,7 +55,7 @@ The solution I came up with to make the 28C64s work without their write enable
 line being connected to A14 was to add another layer of machine pins with the
 sockets missing.
 
-[![Adapters in place](/assets/images/2017-04-08/tmb_adapters_in_place.jpg)](/assets/images/2017-04-08/adapters_in_place.jpg)
+{% include figure image_path="/assets/images/2017-04-08/adapters_in_place.jpg" alt="Adapters in place" caption="Adapters in place" %}
 
 I opted to pull out the VPP, A13 and A14 pins just to make sure. I then
 programmed my blink routine into the two mismatched 28C64s and expected great
@@ -133,7 +136,7 @@ Anyway, deciding for a quick win I didn't bother creating a pin swapping socket
 for these new chips. I figured I'd just use only the first 8KB of them and drop
 them into the existing sockets I had for the 28C64s.
 
-[![AT28C256s in place](/assets/images/2017-04-08/tmb_at28c256s_in_place.jpg)](/assets/images/2017-04-08/at28c256s_in_place.jpg)
+{% include figure image_path="/assets/images/2017-04-08/at28c256s_in_place.jpg" alt="AT28C256s in place" caption="AT28C256s in place" %}
 
 I realized after plugging them in that had I not removed the VPP lines from
 these sockets that I would've connected A16 to the A14 pin on these EEPROMs,
@@ -151,8 +154,7 @@ This could've had **all sorts** of weird consequences had I not known that now!
 I powered up the board with the new EEPROMs and the updated code and **success**
 it blinked perfectly, a nice solid consistent blink...
 
-
-![Blink you good thing!](/assets/images/2017-04-08/blinking1.gif)
+{% include figure image_path="/assets/images/2017-04-08/blinking1.gif" alt="Blink you good thing!" caption="Blink you good thing!" %}
 
 ... until I lifted the board.
 
@@ -186,7 +188,7 @@ Yeah I've updated the schematic some more, apart from the level conversion of
 the RS232 port I've got the entire schematic done now. You can get the KiCAD
 files from: [https://github.com/alangarf/amx_axc_kicad](https://github.com/alangarf/amx_axc_kicad).
 
-[![The schematic](/assets/images/2017-04-08/tmb_schematic.png)](/assets/images/2017-04-08/schematic.png)
+[![The schematic](/assets/images/2017-04-08/schematic.png)](/assets/images/2017-04-08/schematic.png){: .align-center }
 
 # Is that all?
 

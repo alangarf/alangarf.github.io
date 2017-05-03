@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  "WBR receiver fiddling"
 teaser: "More fiddling with the WBR receiver. Heaps of fun!"
 thumbnail: "//i3.ytimg.com/vi/eoEMn-h8-ac/mqdefault.jpg"
