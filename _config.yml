@@ -29,14 +29,13 @@ markdown: kramdown
 
 theme: minimal-mistakes-jekyll
 
-paginate: 5 # amount of posts to show
+paginate: 15 # amount of posts to show
 paginate_path: /page:num/
 
 author:
   name   : "Alan Garfield"
   avatar : "/assets/bio.jpg"
   bio    : "Generic nerd who dabbles in programming, electronics, CNC and retro computing."
-  email  : "alan@fromorbit.com"
   twitter: "alangarf"
   github:  "alangarf"
   youtube:  "randomgarfield"
