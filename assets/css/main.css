@@ -6118,3 +6118,6 @@ a.reversefootnote {
 
 .author__avatar img {
   border-radius: 10%; }
+
+.page__content p, .page__content li, .page__content dl {
+  font-size: 0.8em; }

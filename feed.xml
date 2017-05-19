@@ -6,9 +6,213 @@
 </description>
     <link>https://fromorbit.com/</link>
     <atom:link href="https://fromorbit.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 03 May 2017 23:35:02 +1000</pubDate>
-    <lastBuildDate>Wed, 03 May 2017 23:35:02 +1000</lastBuildDate>
+    <pubDate>Fri, 19 May 2017 17:47:12 +1000</pubDate>
+    <lastBuildDate>Fri, 19 May 2017 17:47:12 +1000</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
+    
+      <item>
+        <title>More fun with the m68k</title>
+        <description>&lt;h1 id=&quot;the-last-days-of-the-retro-challenge&quot;&gt;The last days of the Retro Challenge&lt;/h1&gt;
+
+&lt;p&gt;The Retro Challenge behind me, and not actually achieving my goal I was pretty
+disappointed that work/life commitments stacked against me in getting there.
+That didn’t stop me from completing my goal, just wasn’t in the time frame of
+the competition.&lt;/p&gt;
+
+&lt;p&gt;Where I left off lasted I had my bootloader working and a basic assembler
+environment working, but I wanted a high level language to create my Mandelbrot
+set. I didn’t want to write it in assembler.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-first-steps&quot;&gt;The first steps&lt;/h1&gt;
+
+&lt;p&gt;I got the idea that since I had a linker script, etc setup it wouldn’t be a
+long stretch to get GCC and libc working. So I set out to do just that.&lt;/p&gt;
+
+&lt;p&gt;After a few nights fiddling around and hitting a bug in the version of GCC and
+libc where the compiler would crash because I was missing a linker directive,
+but even when fixed the compiler would still bomb. After much research it
+seemed to be a bug that I really wasn’t in the mood to research and fix, or to
+update the environment. Also the output I got was really large and inefficient,
+so I started looking for an alternative.&lt;/p&gt;
+
+&lt;h1 id=&quot;enter-crosstool-ng&quot;&gt;Enter crosstool-ng&lt;/h1&gt;
+
+&lt;p&gt;Not looking forward to the prospect of compiling GCC and all the rest manually
+I started looking for tool-chains I could get that wouldn’t require a lot of
+fiddly setup, another thing is that a lot of m68k is getting long in the tooth
+and the tool-chains and tools are deteriorating at an alarming rate. After a few
+nights looking around I stumbled upon
+(crosstool-ng)[http://crosstool-ng.github.io/].&lt;/p&gt;
+
+&lt;p&gt;An unassuming utility that builds tool-chains for various processors and setups,
+one of which is m68k based systems. During my search for a new tool-chain I also
+stumbled upon Newlib, a libc alternative that is much lighter than standard
+libc and has abstracted I/O functions out to basically eight system calls.&lt;/p&gt;
+
+&lt;p&gt;After about 20 minutes with crosstool-ng I had a new Newlib based tool-chain
+ready. Here are the basic steps I took to build the tool-chain:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Get the latest crosstool-ng&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git clone https://github.com/crosstool-ng/crosstool-ng
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;crosstool-ng
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;./bootstrap
+
+&lt;span class=&quot;c&quot;&gt;# Build the crosstool-ng&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;./configure --prefix&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/opt/crosstool-ng
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;make
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;make install
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:/opt/crosstool-ng/bin&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Make a working dir&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;mkdir work-dir
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;work-dir
+
+&lt;span class=&quot;c&quot;&gt;# I used the m68k-unknown-elf &quot;sample&quot; as it had all I needed&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;ct-ng m68k-unknown-elf
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;ct-ng menuconfig
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;ct-ng build
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;After a little while you’ll end up with a &lt;code class=&quot;highlighter-rouge&quot;&gt;x-tools&lt;/code&gt; directory with all the
+tools you need!&lt;/p&gt;
+
+&lt;h1 id=&quot;time-to-test-the-compiler&quot;&gt;Time to test the compiler&lt;/h1&gt;
+
+&lt;p&gt;I made a simple project that simply setup the UART and output “Hello world”,
+the linker was setup to operate purely from RAM so the &lt;code class=&quot;highlighter-rouge&quot;&gt;.data&lt;/code&gt; didn’t need to
+be copied and the &lt;code class=&quot;highlighter-rouge&quot;&gt;.bss&lt;/code&gt; was already cleared. I needed to implement the basic
+functions that Newlib mandates :&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;close&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fstat&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getpid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;isatty&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kill&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;off_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lseek&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;off_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;offset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;whence&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;open&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;putnum&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sbrk&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nbytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stat&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unlink&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;write&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nbytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You don’t need to implement all these functions, initially I just implemented
+each one I needed as the compiler complained. I found for a simple UART output
+I only needed four.&lt;/p&gt;
+
+&lt;p&gt;It compiled just fine and when I copy and pasted the srec data into my bootload
+I was happily presented with a “Hello world!”&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;F%^&amp;amp; YEAH! gcc and Newlib work! This is a `printf()` compiled with GCC output as srecord data and pasted into my bootloader. WORKED! YAY! &lt;a href=&quot;https://t.co/PpjcL73qq1&quot;&gt;pic.twitter.com/PpjcL73qq1&lt;/a&gt;&lt;/p&gt;&amp;mdash; Alan Garfield (@alangarf) &lt;a href=&quot;https://twitter.com/alangarf/status/861920638922924032&quot;&gt;May 9, 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Suffice to say I was pretty damn happy&lt;/p&gt;
+
+&lt;h1 id=&quot;mandelbrot-now&quot;&gt;Mandelbrot now?&lt;/h1&gt;
+
+&lt;p&gt;Even though I now was ready to build a Mandelbrot set I was still unhappy with the
+fact my init code and the required Newlib system calls weren’t implemented that
+well. Plus I had a bug I noticed where the CPU would crash if I called too many
+subroutines. This last one was pretty easy to fix but it did require me to
+clean up my linker script and create something more complete. The issue with
+the crash was my heap space and stack space was colliding. I was artificially
+reducing the heap space to make the upload to the board smaller. I was having
+race conditions in the silly terminal I was using that was causing my
+bootloader to miss characters etc.&lt;/p&gt;
+
+&lt;p&gt;So, rather than make a Mandelbrot I set about to build a “BSP” (Board Support
+Package) for this board.&lt;/p&gt;
+
+&lt;h1 id=&quot;an-amx-axc-em-bsp&quot;&gt;An AMX AXC-EM BSP&lt;/h1&gt;
+
+&lt;p&gt;To start with this seemed like it would be much harder until I found the source
+for Newlib itself, and the &lt;code class=&quot;highlighter-rouge&quot;&gt;libgloss&lt;/code&gt; library. Inside the source for the &lt;code class=&quot;highlighter-rouge&quot;&gt;m68k&lt;/code&gt;
+in &lt;code class=&quot;highlighter-rouge&quot;&gt;libgloss&lt;/code&gt; it had implementations of BSPs for other m68k based boards.&lt;/p&gt;
+
+&lt;p&gt;Using the details of a few of these boards I was able to piece together what
+was required to make a BSP for this board. With a little bit of testing and
+poking around I managed to make a support library that made compiling things
+for this board almost trivial!&lt;/p&gt;
+
+&lt;p&gt;I’ve pushed this BSP to github: (AMX AXC-EM BSP)[https://github.com/alangarf/axc-em-bsp]&lt;/p&gt;
+
+&lt;p&gt;To use it all you need to do is point the linker of your project to  the
+resulting &lt;code class=&quot;highlighter-rouge&quot;&gt;libamx.a&lt;/code&gt; and use the linker script for linking and you project
+should just work.&lt;/p&gt;
+
+&lt;p&gt;I’m slowly adding more details for the peripherals of the MC68340 as I go, but
+so far it has what is needed for the UART.&lt;/p&gt;
+
+&lt;h1 id=&quot;now-a-mandelbrot&quot;&gt;Now a Mandelbrot?&lt;/h1&gt;
+
+&lt;p&gt;You bet. Being lazy I looked around on github.com for a C-based ASCII
+Mandelbrot routine. The first one I found seemed simple, but turned out to be
+extremely inefficient. I build and tested it on the board, but initially I
+thought the board crashed. Just luckily I left it running and after a few
+minutes a single line of a Mandelbrot had been output.&lt;/p&gt;
+
+&lt;p&gt;Leaving it for another 20 minutes only another 5 lines where added. Thinking
+that the CPU had slipped out of it’s 16MHz clock mode I reconfirmed that the
+clock was at the right speed. It was just very inefficient code.&lt;/p&gt;
+
+&lt;p&gt;Looking for another source of laziness I found
+&lt;a href=&quot;https://github.com/vain/asciibrot/blob/master/asciibrot.c&quot;&gt;asciibrot&lt;/a&gt;. It was
+designed to do animation etc, but really all I wanted was a single rendering of
+a Mandelbrot. So I tore the routines apart and finally got myself this output:&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Yay I finally achieved my &lt;a href=&quot;https://twitter.com/retrochallenge&quot;&gt;@retrochallenge&lt;/a&gt; goal. I can render a mandelbrot set written in C on this m68k board! Better late than never. :D &lt;a href=&quot;https://t.co/wDoZAdDz2H&quot;&gt;pic.twitter.com/wDoZAdDz2H&lt;/a&gt;&lt;/p&gt;&amp;mdash; Alan Garfield (@alangarf) &lt;a href=&quot;https://twitter.com/alangarf/status/864813565282205696&quot;&gt;May 17, 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Gosh I was so happy when I finally saw that. Over a month on and off mucking
+around with this and finally achieved my goal, plus along the way I learned so
+much more (and relearned a bunch of stuff I’d long forgotten). It was an awesome
+challenge and also the biggest possible reward of entering the Retro Challenge
+itself.&lt;/p&gt;
+
+&lt;h1 id=&quot;any-more-examples&quot;&gt;Any more examples?&lt;/h1&gt;
+
+&lt;p&gt;Here is a real-time display of the board rendering a larger Mandelbrot set.&lt;/p&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+    
+    
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2017-05-19/mandelbrot.gif&quot; alt=&quot;&quot; /&gt;
+    
+    
+
+&lt;/figure&gt;
+
+&lt;p&gt;An here is a better example showing the actual CPU speed by character. I
+removed the line buffering so each character can be seen as it is rendered.&lt;/p&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+    
+    
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2017-05-19/mandelbrot-2.gif&quot; alt=&quot;&quot; /&gt;
+    
+    
+
+&lt;/figure&gt;
+
+&lt;p&gt;So now I have a really good tool-chain, a working linker script and can
+basically compile anything I like. I think the next test is to get the on board
+I/O devices sorted out (eg. the clock/calendar, the DIP switches and the I/O
+pins I’ve found) and make it do something more fun. A clock? A vector display
+controller with some ADCs? You’ll have to wait and see.&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 19 May 2017 00:00:00 +1000</pubDate>
+        <link>https://fromorbit.com/2017/05/19/m68k-crosstool-ng.html</link>
+        <guid isPermaLink="true">https://fromorbit.com/2017/05/19/m68k-crosstool-ng.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>m68k Environment - Retro Challenge 2017/04</title>
@@ -257,22 +461,28 @@ wanting too in the near future (also breakpoints etc in my ROM Monitor).&lt;/p&g
 protection devices and DMA.&lt;/p&gt;
 
 &lt;figure class=&quot;&quot;&gt;
-  &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-26/mc68340.png&quot; alt=&quot;The internals of the MC68340&quot; /&gt;
-  
-    &lt;figcaption&gt;The internals of the MC68340
-&lt;/figcaption&gt;
-  
+    
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2017-04-26/mc68340.png&quot;&gt;
+    
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-26/mc68340.png&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2017-04-26/320-mc68340.png 320w,https://fromorbit.com/assets/images/2017-04-26/640-mc68340.png 640w,https://fromorbit.com/assets/images/2017-04-26/1280-mc68340.png 1280w&quot; alt=&quot;The internals of the MC68340&quot; /&gt;
+    
+    &lt;/a&gt;
+    
+
 &lt;/figure&gt;
 
 &lt;p&gt;The SIM40 modules can move the addresses of these devices where ever you
 choose, but the layout is:&lt;/p&gt;
 
 &lt;figure class=&quot;&quot;&gt;
-  &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-26/sim40.png&quot; alt=&quot;The SIM40 address structure&quot; /&gt;
-  
-    &lt;figcaption&gt;The SIM40 address structure
-&lt;/figcaption&gt;
-  
+    
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2017-04-26/sim40.png&quot;&gt;
+    
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-26/sim40.png&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2017-04-26/320-sim40.png 320w,https://fromorbit.com/assets/images/2017-04-26/640-sim40.png 640w,https://fromorbit.com/assets/images/2017-04-26/1280-sim40.png 1280w&quot; alt=&quot;The SIM40 address structure&quot; /&gt;
+    
+    &lt;/a&gt;
+    
+
 &lt;/figure&gt;
 
 &lt;p&gt;As you can see in the code above I’ve set it to the address of &lt;code class=&quot;highlighter-rouge&quot;&gt;0x080000&lt;/code&gt;. For
@@ -394,16 +604,16 @@ select lines, the even and odd enable lines and the LED output.&lt;/p&gt;
 &lt;figure class=&quot;half &quot;&gt;
   
     
-      &lt;a href=&quot;https://fromorbit.com/assets/images/2017-04-18/even.jpg&quot; title=&quot;The even read&quot;&gt;
-        &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-18/even.jpg&quot; alt=&quot;The even read&quot; /&gt;
-      &lt;/a&gt;
     
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2017-04-18/even.jpg&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-18/even.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2017-04-18/320-even.jpg 320w,https://fromorbit.com/assets/images/2017-04-18/640-even.jpg 640w,https://fromorbit.com/assets/images/2017-04-18/1280-even.jpg 1280w&quot; alt=&quot;The even read&quot; /&gt;
+    &lt;/a&gt;
   
     
-      &lt;a href=&quot;https://fromorbit.com/assets/images/2017-04-18/odd.jpg&quot; title=&quot;The odd read&quot;&gt;
-        &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-18/odd.jpg&quot; alt=&quot;The odd read&quot; /&gt;
-      &lt;/a&gt;
     
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2017-04-18/odd.jpg&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-18/odd.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2017-04-18/320-odd.jpg 320w,https://fromorbit.com/assets/images/2017-04-18/640-odd.jpg 640w,https://fromorbit.com/assets/images/2017-04-18/1280-odd.jpg 1280w&quot; alt=&quot;The odd read&quot; /&gt;
+    &lt;/a&gt;
   
   
     &lt;figcaption&gt;What the logic analyser saw…
@@ -439,16 +649,16 @@ board I recovered with a m68k processor on it.&lt;/p&gt;
 &lt;figure class=&quot;half &quot;&gt;
   
     
-      &lt;a href=&quot;https://fromorbit.com/assets/images/2017-04-18/axc-em.jpg&quot; title=&quot;AMX AXC-EM board&quot;&gt;
-        &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-18/axc-em.jpg&quot; alt=&quot;AMX AXC-EM board&quot; /&gt;
-      &lt;/a&gt;
     
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2017-04-18/axc-em.jpg&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-18/axc-em.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2017-04-18/320-axc-em.jpg 320w,https://fromorbit.com/assets/images/2017-04-18/640-axc-em.jpg 640w,https://fromorbit.com/assets/images/2017-04-18/1280-axc-em.jpg 1280w&quot; alt=&quot;AMX AXC-EM board&quot; /&gt;
+    &lt;/a&gt;
   
     
-      &lt;a href=&quot;https://fromorbit.com/assets/images/2017-04-18/mc68340.jpg&quot; title=&quot;MC68340 cpu&quot;&gt;
-        &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-18/mc68340.jpg&quot; alt=&quot;MC68340 cpu&quot; /&gt;
-      &lt;/a&gt;
     
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2017-04-18/mc68340.jpg&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-18/mc68340.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2017-04-18/320-mc68340.jpg 320w,https://fromorbit.com/assets/images/2017-04-18/640-mc68340.jpg 640w,https://fromorbit.com/assets/images/2017-04-18/1280-mc68340.jpg 1280w&quot; alt=&quot;MC68340 cpu&quot; /&gt;
+    &lt;/a&gt;
   
   
 &lt;/figure&gt;
@@ -1184,20 +1394,6 @@ the challenge. Just getting a ROM monitor etc will be hard enough. :)&lt;/p&gt;
         <pubDate>Sun, 21 Sep 2014 00:00:00 +1000</pubDate>
         <link>https://fromorbit.com/2014/09/21/digital-foosball-two.html</link>
         <guid isPermaLink="true">https://fromorbit.com/2014/09/21/digital-foosball-two.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Digital Foosball</title>
-        <description>&lt;style&gt;.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;
-&lt;div class=&quot;embed-container&quot;&gt;    &lt;iframe title=&quot;YouTube video player&quot; width=&quot;640&quot; height=&quot;390&quot; src=&quot;//www.youtube.com/embed/d/GgZ3YftasWs&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
-
-&lt;p&gt;We digitized our foosball table for a hackday at work. It was a really fun task that has added a new dimension to our game play.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 17 Sep 2014 00:00:00 +1000</pubDate>
-        <link>https://fromorbit.com/2014/09/17/digital-foosball.html</link>
-        <guid isPermaLink="true">https://fromorbit.com/2014/09/17/digital-foosball.html</guid>
         
         
       </item>
