@@ -1,0 +1,26 @@
+{% if include.date %}
+    {% capture date %}{{ include.date }}{% endcapture %}
+{% else %}
+    {% capture date %}{{ page.date | date:"%Y-%m-%d" }}{% endcapture %}
+{% endif %}
+
+{% capture img %}{{ site.image_url }}/{{ date }}/{{ include.src }}{% endcapture %}
+
+<figure class="{{ include.class }}">
+    {% if include.nolink %}
+    {% else %}
+    <a href="{{ img | absolute_url }}">
+    {% endif %}
+        <img
+          src="{{ img | absolute_url }}"
+          sizes="{{ site.sizes }}"
+          srcset="{% for width in site.srcset %}{% capture img_url %}{{ site.image_url }}/{{ date }}/{{ width }}-{{ include.src }}{% endcapture %}{{ img_url | absolute_url }} {{ width }}w{% if forloop.last == false %},{% endif %}{% endfor %}"
+          alt="{{ include.alt }}">
+    {% if include.nolink %}
+    {% else %}
+    </a>
+    {% endif %}
+{% if include.caption %}
+    <figcaption>{{ include.caption | markdownify | remove: "<p>" | remove: "</p>" }}</figcaption>
+{% endif %}
+</figure>

@@ -1,5 +1,5 @@
 build:
-	JEKYLL_ENV=production jekyll build
+	JEKYLL_ENV=production bundle exec jekyll build
 
 serve:
-	jekyll serve
+	bundle exec jekyll serve

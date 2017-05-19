@@ -4,9 +4,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Orbitron|Jura:300,600|Spinnaker');
 $title: 'Orbitron', sans-serif;
-$head: 'Jura', sans-serif;
-$main: 'Spinnaker', sans-serif;
-
 $global-font-family : 'Spinnaker', sans-serif;
 $header-font-family : 'Jura', sans-serif;
 
@@ -33,3 +30,9 @@ $header-font-family : 'Jura', sans-serif;
     }
 }
 
+
+.page__content {
+    p, li, dl {
+        font-size: 0.8em;
+    }
+}
