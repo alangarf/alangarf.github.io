@@ -1,0 +1,55 @@
+==================================================================
+https://keybase.io/alangarf
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://fromorbit.com
+  * I am alangarf (https://keybase.io/alangarf) on keybase.
+  * I have a public key ASCUneDEm8yIbtpClAgmd8Lk1mSuGPtXeMzTNz9SgU104wo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120949de0c49bcc886eda4294082677c2e4d664ae18fb5778ccd3373f52814d74e30a",
+      "host": "keybase.io",
+      "kid": "0120949de0c49bcc886eda4294082677c2e4d664ae18fb5778ccd3373f52814d74e30a",
+      "uid": "efaa7131d01e524677228bd7df402e19",
+      "username": "alangarf"
+    },
+    "merkle_root": {
+      "ctime": 1521507813,
+      "hash": "e4b5eecafa3e770a6b90fe75b3f14b4ee93dfa53fc958bb82fcb088369bb6858c3eb16562ded91b41d63618f23099c8b362542b5ad26b22af6c1ee6f7ccd317b",
+      "hash_meta": "822d0ee87f4c152ff5084333f9cd9503e468ae643c389b46b5ed6379870bd285",
+      "seqno": 2258716
+    },
+    "service": {
+      "hostname": "fromorbit.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "1.0.45"
+  },
+  "ctime": 1521507858,
+  "expire_in": 504576000,
+  "prev": "da0f325b77754887c78e1a9b94617381dd6d405de714dbea60cab1c9d870efe7",
+  "seqno": 7,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEglJ3gxJvMiG7aQpQIJnfC5NZkrhj7V3jM0zc/UoFNdOMKp3BheWxvYWTFA0V7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwOTQ5ZGUwYzQ5YmNjODg2ZWRhNDI5NDA4MjY3N2MyZTRkNjY0YWUxOGZiNTc3OGNjZDMzNzNmNTI4MTRkNzRlMzBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwOTQ5ZGUwYzQ5YmNjODg2ZWRhNDI5NDA4MjY3N2MyZTRkNjY0YWUxOGZiNTc3OGNjZDMzNzNmNTI4MTRkNzRlMzBhIiwidWlkIjoiZWZhYTcxMzFkMDFlNTI0Njc3MjI4YmQ3ZGY0MDJlMTkiLCJ1c2VybmFtZSI6ImFsYW5nYXJmIn0sIm1lcmtsZV9yb290Ijp7ImN0aW1lIjoxNTIxNTA3ODEzLCJoYXNoIjoiZTRiNWVlY2FmYTNlNzcwYTZiOTBmZTc1YjNmMTRiNGVlOTNkZmE1M2ZjOTU4YmI4MmZjYjA4ODM2OWJiNjg1OGMzZWIxNjU2MmRlZDkxYjQxZDYzNjE4ZjIzMDk5YzhiMzYyNTQyYjVhZDI2YjIyYWY2YzFlZTZmN2NjZDMxN2IiLCJoYXNoX21ldGEiOiI4MjJkMGVlODdmNGMxNTJmZjUwODQzMzNmOWNkOTUwM2U0NjhhZTY0M2MzODliNDZiNWVkNjM3OTg3MGJkMjg1Iiwic2Vxbm8iOjIyNTg3MTZ9LCJzZXJ2aWNlIjp7Imhvc3RuYW1lIjoiZnJvbW9yYml0LmNvbSIsInByb3RvY29sIjoiaHR0cHM6In0sInR5cGUiOiJ3ZWJfc2VydmljZV9iaW5kaW5nIiwidmVyc2lvbiI6MX0sImNsaWVudCI6eyJuYW1lIjoia2V5YmFzZS5pbyBnbyBjbGllbnQiLCJ2ZXJzaW9uIjoiMS4wLjQ1In0sImN0aW1lIjoxNTIxNTA3ODU4LCJleHBpcmVfaW4iOjUwNDU3NjAwMCwicHJldiI6ImRhMGYzMjViNzc3NTQ4ODdjNzhlMWE5Yjk0NjE3MzgxZGQ2ZDQwNWRlNzE0ZGJlYTYwY2FiMWM5ZDg3MGVmZTciLCJzZXFubyI6NywidGFnIjoic2lnbmF0dXJlIn2jc2lnxEBis7H++ipZXqExP0ViYF9JoMR42tPIK/noGwR8IPjn7lHOUJkIfEbgV5LguzrUhr5v8XvEvO5giBPtgdkhUAABqHNpZ190eXBlIKRoYXNogqR0eXBlCKV2YWx1ZcQgoytjh3rxd1X+Zaqfu6atLBSx4RJVEJCZwyRZSNMT3AijdGFnzQICp3ZlcnNpb24B
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/alangarf
+
+==================================================================
