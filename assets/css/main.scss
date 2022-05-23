@@ -9,6 +9,7 @@ $header-font-family : 'Jura', sans-serif;
 
 @charset "utf-8";
 
+@import "minimal-mistakes/skins/dark";
 @import "minimal-mistakes";
 
 .masthead {
@@ -30,9 +31,8 @@ $header-font-family : 'Jura', sans-serif;
     }
 }
 
-
-.page__content {
-    p, li, dl {
-        font-size: 0.8em;
-    }
-}
+// .page__content {
+//     p, li, dl {
+//         font-size: 0.8em;
+//     }
+// }

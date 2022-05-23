@@ -35,6 +35,8 @@ locale: "en"
 markdown: kramdown
 
 theme: minimal-mistakes-jekyll
+minimal_mistakes_skin: "dark" #"default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+
 
 paginate: 15 # amount of posts to show
 paginate_path: /page:num/
