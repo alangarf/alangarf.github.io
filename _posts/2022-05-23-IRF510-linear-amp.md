@@ -83,8 +83,8 @@ updating and there is always a wealth of ideas and projects on the internet for
 it.
 
 With it's mighty 5W output and using my home-brew EFHW antenna I would make
-countless "CQ" calls hoping someone would hear me. I went on for week if not
-month tweaking this, and tuning that but nobody seemed to ever hear me. So I
+countless "CQ" calls hoping someone would hear me. I went on for weeks if not
+months tweaking this, and tuning that but nobody seemed to ever hear me. So I
 set about creating my first linear amplifier. Inspired by a design in
 "Experimental Methods in RF Design" EMRFD I set about building myself a linear
 amplifier to get above the noise.
