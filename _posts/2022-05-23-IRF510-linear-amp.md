@@ -2,9 +2,9 @@
 title: 45W IRF510 HF Linear Amp
 excerpt: "The little amp that could!"
 header:
-  overlay_image: "/assets/images/2022-05-23/linear8.jpg"
+  overlay_image: "/assets/images/2022-05-23/linear16.jpg"
   overlay_filter: rgba(12, 62, 51, 0.8)
-  teaser: "/assets/images/2022-05-23/linear8.jpg"
+  teaser: "/assets/images/2022-05-23/linear16.jpg"
 gallery1:
   - src: linear2.jpg
     alt: "picture two"
