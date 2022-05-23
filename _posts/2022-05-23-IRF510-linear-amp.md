@@ -146,8 +146,6 @@ Worked perfectly. Pushing the input power up to 30V @ 3A the amp will easily
 get to 50W into 50 ohms, but I limit the supply to 28V and that seems to keep
 it around 45W output.
 
-{% include mg id="gallery7" %}
-
 ## Time for an TX/RX switcher
 
 {% include mg id="gallery8" %}
