@@ -164,9 +164,10 @@ An old ATX PSU steel case was used to house the amplifier. It was handy because
 it had a 80mm fan already in the box and it was steel, so provided good
 shielding. Not much to look at though.
 
-## So, how's it going? After using it on air for a while and having finally
-breaking through the noise I have had many successful QSOs from all over
-Australia, NZ and the USA.
+## So, how's it going?
+
+After using it on air for a while and having finally breaking through the noise
+I have had many successful QSOs from all over Australia, NZ and the USA.
 
 {% include mg id="gallery10" %}
 
