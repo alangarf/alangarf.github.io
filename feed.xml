@@ -6,9 +6,303 @@
 </description>
     <link>https://fromorbit.com/</link>
     <atom:link href="https://fromorbit.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 19 May 2017 17:47:12 +1000</pubDate>
-    <lastBuildDate>Fri, 19 May 2017 17:47:12 +1000</lastBuildDate>
-    <generator>Jekyll v3.4.3</generator>
+    <pubDate>Tue, 24 May 2022 07:42:46 +1000</pubDate>
+    <lastBuildDate>Tue, 24 May 2022 07:42:46 +1000</lastBuildDate>
+    <generator>Jekyll v4.2.2</generator>
+    
+      <item>
+        <title>45W IRF510 HF Linear Amp</title>
+        <description>&lt;h1 id=&quot;45w-irf510-hf-linear-amp&quot;&gt;45W IRF510 HF Linear Amp&lt;/h1&gt;
+
+&lt;p&gt;Boy it’s been a long time between posts. Sorry about that. I got real lazy and
+just starting pumping my content into twitter and really just never took the
+time to document things.&lt;/p&gt;
+
+&lt;p&gt;Anyway, here is a project I built to get me out of QRP land and being heard my
+frequently on the 20M and 40M bands.&lt;/p&gt;
+
+&lt;h2 id=&quot;cq-cq-cq&quot;&gt;“CQ CQ CQ”&lt;/h2&gt;
+
+&lt;p&gt;Finally getting around to sitting for my HAM license I started off with my
+first HF radio, the very useful uBitX v6. It’s a great radio to start with for
+a tinker like me. It’s open sourced schematic and firmware allows fiddling and
+updating and there is always a wealth of ideas and projects on the internet for
+it.&lt;/p&gt;
+
+&lt;p&gt;With it’s mighty 5W output and using my homebrew EFHW antenna I would make
+countless “CQ” calls hoping someone would hear me. I went on for week if not
+month tweaking this, and tuning that but nobody seemed to ever hear me. So I
+set about creating my first linear amplifier. Inspired by a design in
+“Experimental Methods in RF Design” EMRFD I set about building myself a linear
+amplifier to get above the noise.&lt;/p&gt;
+
+&lt;h2 id=&quot;oh-the-things-you-learn&quot;&gt;“Oh the things you learn”&lt;/h2&gt;
+
+&lt;p&gt;So, I at first figured I’d bash together a prototype on some copper clad and see how it would go…&lt;/p&gt;
+
+&lt;figure class=&quot;third &quot;&gt;
+  
+    
+    
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2022-05-23/linear2.jpg&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2022-05-23/linear2.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2022-05-23/320-linear2.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear2.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear2.jpg 1280w&quot; alt=&quot;picture two&quot; /&gt;
+    &lt;/a&gt;
+  
+    
+    
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2022-05-23/linear3.jpg&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2022-05-23/linear3.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2022-05-23/320-linear3.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear3.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear3.jpg 1280w&quot; alt=&quot;picture three&quot; /&gt;
+    &lt;/a&gt;
+  
+    
+    
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2022-05-23/linear4.jpg&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2022-05-23/linear4.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2022-05-23/320-linear4.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear4.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear4.jpg 1280w&quot; alt=&quot;picture one&quot; /&gt;
+    &lt;/a&gt;
+  
+  
+&lt;/figure&gt;
+
+&lt;p&gt;I got some output! 4dBm (2.5mW) input netted me 31dBm (1.2W) output from 12V!&lt;/p&gt;
+
+&lt;p&gt;Suffice to say I was stoked…. then it started oscillating.&lt;/p&gt;
+
+&lt;p&gt;Speaking with my Elmer he suggested my crappy hacked together layout wasn’t
+condusive to a high power amplifier with fairly high gain, and that perhaps I
+should do a cleaner layout. So I cracked out my CNC mill and Kicad and made a
+prototype.&lt;/p&gt;
+
+&lt;h2 id=&quot;there-aint-no-thang-like-a-cnc&quot;&gt;“There ain’t no thang like a CNC”&lt;/h2&gt;
+
+&lt;figure class=&quot;half &quot;&gt;
+  
+    
+    
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2022-05-23/linear5.jpg&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2022-05-23/linear5.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2022-05-23/320-linear5.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear5.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear5.jpg 1280w&quot; alt=&quot;picture two&quot; /&gt;
+    &lt;/a&gt;
+  
+    
+    
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2022-05-23/linear6.jpg&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2022-05-23/linear6.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2022-05-23/320-linear6.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear6.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear6.jpg 1280w&quot; alt=&quot;picture three&quot; /&gt;
+    &lt;/a&gt;
+  
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Layout done, board turned out nice. Time to build it.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+    
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2022-05-23/linear7.jpg&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2022-05-23/linear7.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2022-05-23/320-linear7.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear7.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear7.jpg 1280w&quot; alt=&quot;picture three&quot; /&gt;
+    &lt;/a&gt;
+  
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Using a large chunk of heatsink I cutdown from an old stage lighting dimmer, I
+mounted the MOSFETs with insulators onto the heatsink. The PCB was then mounted
+on top and the board mounted on stand-offs.&lt;/p&gt;
+
+&lt;figure class=&quot;third &quot;&gt;
+  
+    
+    
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2022-05-23/linear8.jpg&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2022-05-23/linear8.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2022-05-23/320-linear8.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear8.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear8.jpg 1280w&quot; alt=&quot;picture three&quot; /&gt;
+    &lt;/a&gt;
+  
+    
+    
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2022-05-23/linear10.jpg&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2022-05-23/linear10.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2022-05-23/320-linear10.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear10.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear10.jpg 1280w&quot; alt=&quot;picture one&quot; /&gt;
+    &lt;/a&gt;
+  
+    
+    
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2022-05-23/linear11.jpg&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2022-05-23/linear11.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2022-05-23/320-linear11.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear11.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear11.jpg 1280w&quot; alt=&quot;picture two&quot; /&gt;
+    &lt;/a&gt;
+  
+  
+&lt;/figure&gt;
+
+&lt;p&gt;It was about this time I realised I screwed up the schematic and had the gate
+and drain on one MOSFET arse about. Dutifully I hacked in a modification and
+continued.&lt;/p&gt;
+
+&lt;p&gt;All the components and coils were wound, and the moment of truth&lt;/p&gt;
+
+&lt;h2 id=&quot;power-up-time&quot;&gt;Power up time!&lt;/h2&gt;
+
+&lt;figure class=&quot;half &quot;&gt;
+  
+    
+    
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2022-05-23/linear13.jpg&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2022-05-23/linear13.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2022-05-23/320-linear13.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear13.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear13.jpg 1280w&quot; alt=&quot;picture three&quot; /&gt;
+    &lt;/a&gt;
+  
+    
+    
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2022-05-23/linear12.jpg&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2022-05-23/linear12.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2022-05-23/320-linear12.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear12.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear12.jpg 1280w&quot; alt=&quot;picture three&quot; /&gt;
+    &lt;/a&gt;
+  
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Powered it up, connected it to my uBitX and whistled into the mic and received 46dBm (39.8W) of output from 24dBm (250mW) of input!
+I was very very pleased. No oscillations, nice clear output and all looked very good and pleasing.&lt;/p&gt;
+
+&lt;h2 id=&quot;now-lets-make-a-proper-version-this-time&quot;&gt;Now let’s make a proper version this time&lt;/h2&gt;
+
+&lt;figure class=&quot;half &quot;&gt;
+  
+    
+    
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2022-05-23/linear14.jpg&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2022-05-23/linear14.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2022-05-23/320-linear14.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear14.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear14.jpg 1280w&quot; alt=&quot;picture three&quot; /&gt;
+    &lt;/a&gt;
+  
+    
+    
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2022-05-23/linear15.jpg&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2022-05-23/linear15.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2022-05-23/320-linear15.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear15.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear15.jpg 1280w&quot; alt=&quot;picture three&quot; /&gt;
+    &lt;/a&gt;
+  
+  
+&lt;/figure&gt;
+
+&lt;p&gt;A new layout was made, a new board was milled on the CNC and the components transfered across to the new board&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+    
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2022-05-23/linear16.jpg&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2022-05-23/linear16.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2022-05-23/320-linear16.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear16.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear16.jpg 1280w&quot; alt=&quot;picture one&quot; /&gt;
+    &lt;/a&gt;
+  
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Worked perfectly. Pushing the input power up to 30V @ 3A the amp will easily
+get to 50W into 50 ohms, but I limit the supply to 28V and that seems to keep
+it around 45W output.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+    
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2022-05-23/linear16.jpg&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2022-05-23/linear16.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2022-05-23/320-linear16.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear16.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear16.jpg 1280w&quot; alt=&quot;picture one&quot; /&gt;
+    &lt;/a&gt;
+  
+  
+&lt;/figure&gt;
+
+&lt;h2 id=&quot;time-for-an-txrx-switcher&quot;&gt;Time for an TX/RX switcher&lt;/h2&gt;
+
+&lt;figure class=&quot;third &quot;&gt;
+  
+    
+    
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2022-05-23/linear17.jpg&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2022-05-23/linear17.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2022-05-23/320-linear17.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear17.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear17.jpg 1280w&quot; alt=&quot;picture two&quot; /&gt;
+    &lt;/a&gt;
+  
+    
+    
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2022-05-23/linear18.jpg&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2022-05-23/linear18.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2022-05-23/320-linear18.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear18.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear18.jpg 1280w&quot; alt=&quot;picture three&quot; /&gt;
+    &lt;/a&gt;
+  
+    
+    
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2022-05-23/linear19.jpg&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2022-05-23/linear19.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2022-05-23/320-linear19.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear19.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear19.jpg 1280w&quot; alt=&quot;picture three&quot; /&gt;
+    &lt;/a&gt;
+  
+  
+&lt;/figure&gt;
+
+&lt;p&gt;I needed a way to interface the linear with the uBitX. I pulled 12V from the
+TX/RX relay inside the uBitX and brought it outside to control a relay block I
+made for the linear. I really should just create a TX sensor on the input of
+the linear and have it handle the switching itself (future project) but for now
+this works.&lt;/p&gt;
+
+&lt;h2 id=&quot;put-it-in-a-box&quot;&gt;Put it in a box!&lt;/h2&gt;
+
+&lt;figure class=&quot;third &quot;&gt;
+  
+    
+    
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2022-05-23/linear20.jpg&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2022-05-23/linear20.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2022-05-23/320-linear20.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear20.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear20.jpg 1280w&quot; alt=&quot;picture three&quot; /&gt;
+    &lt;/a&gt;
+  
+    
+    
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2022-05-23/linear21.jpg&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2022-05-23/linear21.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2022-05-23/320-linear21.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear21.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear21.jpg 1280w&quot; alt=&quot;picture three&quot; /&gt;
+    &lt;/a&gt;
+  
+    
+    
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2022-05-23/linear23.jpg&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2022-05-23/linear23.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2022-05-23/320-linear23.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear23.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear23.jpg 1280w&quot; alt=&quot;picture two&quot; /&gt;
+    &lt;/a&gt;
+  
+    
+    
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2022-05-23/linear24.jpg&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2022-05-23/linear24.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2022-05-23/320-linear24.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear24.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear24.jpg 1280w&quot; alt=&quot;picture three&quot; /&gt;
+    &lt;/a&gt;
+  
+    
+    
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2022-05-23/linear25.jpg&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2022-05-23/linear25.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2022-05-23/320-linear25.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear25.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear25.jpg 1280w&quot; alt=&quot;picture three&quot; /&gt;
+    &lt;/a&gt;
+  
+    
+    
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2022-05-23/linear26.jpg&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2022-05-23/linear26.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2022-05-23/320-linear26.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear26.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear26.jpg 1280w&quot; alt=&quot;picture three&quot; /&gt;
+    &lt;/a&gt;
+  
+  
+&lt;/figure&gt;
+
+&lt;h2 id=&quot;so-hows-it-going&quot;&gt;So, how’s it going?&lt;/h2&gt;
+&lt;p&gt;After using it on air for a while and having finally breaking through the noise
+I have had many successful QSOs from all over Australia, NZ and the USA.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+    
+    &lt;a href=&quot;https://fromorbit.com/assets/images/2022-05-23/linear27.jpg&quot;&gt;
+        &lt;img src=&quot;https://fromorbit.com/assets/images/2022-05-23/linear27.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2022-05-23/320-linear27.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear27.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear27.jpg 1280w&quot; alt=&quot;picture three&quot; /&gt;
+    &lt;/a&gt;
+  
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Suffice to say I’m really very very happy with it.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 23 May 2022 00:00:00 +1000</pubDate>
+        <link>https://fromorbit.com/2022/05/23/IRF510-linear-amp.html</link>
+        <guid isPermaLink="true">https://fromorbit.com/2022/05/23/IRF510-linear-amp.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>More fun with the m68k</title>
@@ -52,55 +346,52 @@ libc and has abstracted I/O functions out to basically eight system calls.&lt;/p
 &lt;p&gt;After about 20 minutes with crosstool-ng I had a new Newlib based tool-chain
 ready. Here are the basic steps I took to build the tool-chain:&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Get the latest crosstool-ng&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git clone https://github.com/crosstool-ng/crosstool-ng
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;crosstool-ng
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;./bootstrap
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Get the latest crosstool-ng&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone https://github.com/crosstool-ng/crosstool-ng
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;crosstool-ng
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./bootstrap
 
 &lt;span class=&quot;c&quot;&gt;# Build the crosstool-ng&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;./configure --prefix&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/opt/crosstool-ng
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;make
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;make install
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:/opt/crosstool-ng/bin&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./configure &lt;span class=&quot;nt&quot;&gt;--prefix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/opt/crosstool-ng
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;make
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;make &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:/opt/crosstool-ng/bin&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Make a working dir&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;mkdir work-dir
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;work-dir
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Make a working dir&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;work-dir
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;work-dir
 
 &lt;span class=&quot;c&quot;&gt;# I used the m68k-unknown-elf &quot;sample&quot; as it had all I needed&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;ct-ng m68k-unknown-elf
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;ct-ng menuconfig
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;ct-ng build
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ct-ng m68k-unknown-elf
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ct-ng menuconfig
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ct-ng build
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;After a little while you’ll end up with a &lt;code class=&quot;highlighter-rouge&quot;&gt;x-tools&lt;/code&gt; directory with all the
+&lt;p&gt;After a little while you’ll end up with a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x-tools&lt;/code&gt; directory with all the
 tools you need!&lt;/p&gt;
 
 &lt;h1 id=&quot;time-to-test-the-compiler&quot;&gt;Time to test the compiler&lt;/h1&gt;
 
 &lt;p&gt;I made a simple project that simply setup the UART and output “Hello world”,
-the linker was setup to operate purely from RAM so the &lt;code class=&quot;highlighter-rouge&quot;&gt;.data&lt;/code&gt; didn’t need to
-be copied and the &lt;code class=&quot;highlighter-rouge&quot;&gt;.bss&lt;/code&gt; was already cleared. I needed to implement the basic
+the linker was setup to operate purely from RAM so the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.data&lt;/code&gt; didn’t need to
+be copied and the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.bss&lt;/code&gt; was already cleared. I needed to implement the basic
 functions that Newlib mandates :&lt;/p&gt;
 
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;close&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fstat&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getpid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;isatty&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kill&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;off_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lseek&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;off_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;offset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;whence&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;open&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;putnum&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sbrk&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nbytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stat&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unlink&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;write&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nbytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;close&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fstat&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getpid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;isatty&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;kill&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;off_t&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;lseek&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;off_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;offset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;whence&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;open&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;putnum&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;sbrk&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nbytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;stat&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;unlink&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;write&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nbytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;You don’t need to implement all these functions, initially I just implemented
 each one I needed as the compiler complained. I found for a simple UART output
@@ -132,8 +423,8 @@ Package) for this board.&lt;/p&gt;
 &lt;h1 id=&quot;an-amx-axc-em-bsp&quot;&gt;An AMX AXC-EM BSP&lt;/h1&gt;
 
 &lt;p&gt;To start with this seemed like it would be much harder until I found the source
-for Newlib itself, and the &lt;code class=&quot;highlighter-rouge&quot;&gt;libgloss&lt;/code&gt; library. Inside the source for the &lt;code class=&quot;highlighter-rouge&quot;&gt;m68k&lt;/code&gt;
-in &lt;code class=&quot;highlighter-rouge&quot;&gt;libgloss&lt;/code&gt; it had implementations of BSPs for other m68k based boards.&lt;/p&gt;
+for Newlib itself, and the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;libgloss&lt;/code&gt; library. Inside the source for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;m68k&lt;/code&gt;
+in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;libgloss&lt;/code&gt; it had implementations of BSPs for other m68k based boards.&lt;/p&gt;
 
 &lt;p&gt;Using the details of a few of these boards I was able to piece together what
 was required to make a BSP for this board. With a little bit of testing and
@@ -143,7 +434,7 @@ for this board almost trivial!&lt;/p&gt;
 &lt;p&gt;I’ve pushed this BSP to github: (AMX AXC-EM BSP)[https://github.com/alangarf/axc-em-bsp]&lt;/p&gt;
 
 &lt;p&gt;To use it all you need to do is point the linker of your project to  the
-resulting &lt;code class=&quot;highlighter-rouge&quot;&gt;libamx.a&lt;/code&gt; and use the linker script for linking and you project
+resulting &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;libamx.a&lt;/code&gt; and use the linker script for linking and you project
 should just work.&lt;/p&gt;
 
 &lt;p&gt;I’m slowly adding more details for the peripherals of the MC68340 as I go, but
@@ -242,12 +533,10 @@ board to begin with was that it was a peripheral integrated CPU, which meant
 the board was basically ROM, RAM, CPU, and power related parts.&lt;/p&gt;
 
 &lt;figure class=&quot;&quot;&gt;
-  &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-18/axc-em.jpg&quot; alt=&quot;AMX AXC-EM board.&quot; /&gt;
-  
-    &lt;figcaption&gt;The AMX AXC-EM board.
-&lt;/figcaption&gt;
-  
-&lt;/figure&gt;
+  &lt;img src=&quot;/assets/images/2017-04-18/axc-em.jpg&quot; alt=&quot;AMX AXC-EM board.&quot; /&gt;&lt;figcaption&gt;
+      The AMX AXC-EM board.
+
+    &lt;/figcaption&gt;&lt;/figure&gt;
 
 &lt;p&gt;As it stands I’ve had a much more enjoyable time working with this board and so
 have progressed much further with the software, rather than staring at a
@@ -289,59 +578,58 @@ tool.&lt;/p&gt;
 &lt;p&gt;Here is the Makefile I’m using, you can see it &lt;a href=&quot;https://github.com/alangarf/amx_axc_m68k/blob/master/Makefile&quot;&gt;here on Github
 too.&lt;/a&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;M68K&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;m68k-linux-gnu
-&lt;span class=&quot;nv&quot;&gt;AS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$(M68K)&lt;/span&gt;-as
-&lt;span class=&quot;nv&quot;&gt;LD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$(M68K)&lt;/span&gt;-ld
-&lt;span class=&quot;nv&quot;&gt;COPY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$(M68K)&lt;/span&gt;-objcopy
-&lt;span class=&quot;nv&quot;&gt;DUMP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$(M68K)&lt;/span&gt;-objdump
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;M68K=m68k-linux-gnu
+AS=$(M68K)-as
+LD=$(M68K)-ld
+COPY=$(M68K)-objcopy
+DUMP=$(M68K)-objdump
 
-&lt;span class=&quot;nv&quot;&gt;ASFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;-m68340 --warn --fatal-warnings
-&lt;span class=&quot;nv&quot;&gt;LDFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;-T m68k.ld
-&lt;span class=&quot;nv&quot;&gt;DUMPFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;-m68020 -x -D
+ASFLAGS=-m68340 --warn --fatal-warnings
+LDFLAGS=-T m68k.ld
+DUMPFLAGS=-m68020 -x -D
 
-&lt;span class=&quot;nv&quot;&gt;EEPROM&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;AT28C256
-&lt;span class=&quot;nv&quot;&gt;PREFIX&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;m68k-
+EEPROM=AT28C256
+PREFIX=m68k-
 
-&lt;span class=&quot;nv&quot;&gt;FMT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;binary
+FMT=binary
 
-&lt;span class=&quot;nv&quot;&gt;SRCS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;loader.s
-&lt;span class=&quot;nv&quot;&gt;OBJS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;SRCS:.s&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;.o&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;MAIN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;loader
+SRCS=loader.s
+OBJS=$(SRCS:.s=.o)
+MAIN=loader
 
-&lt;span class=&quot;nl&quot;&gt;.PHONY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;dump clean&lt;/span&gt;
+.PHONY: dump clean
 
-&lt;span class=&quot;nl&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;	&lt;span class=&quot;nf&quot;&gt;$(MAIN)&lt;/span&gt;
+all:	$(MAIN)
 
-&lt;span class=&quot;nl&quot;&gt;.s.o&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-	&lt;span class=&quot;nv&quot;&gt;$(AS)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(ASFLAGS)&lt;/span&gt; -o &lt;span class=&quot;nv&quot;&gt;$@&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$&amp;lt;&lt;/span&gt;
+.s.o:
+	$(AS) $(ASFLAGS) -o $@ $&amp;lt;
 
-&lt;span class=&quot;nl&quot;&gt;$(MAIN)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;$(OBJS)&lt;/span&gt;
-	&lt;span class=&quot;nv&quot;&gt;$(LD)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(LDFLAGS)&lt;/span&gt; -o &lt;span class=&quot;nv&quot;&gt;$(MAIN)&lt;/span&gt;.a &lt;span class=&quot;nv&quot;&gt;$(OBJS)&lt;/span&gt;
-	&lt;span class=&quot;nv&quot;&gt;$(COPY)&lt;/span&gt; -b 0 -i 2 --interleave-width&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1 -O &lt;span class=&quot;nv&quot;&gt;$(FMT)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(MAIN)&lt;/span&gt;.a &lt;span class=&quot;nv&quot;&gt;$(PREFIX)$(MAIN)&lt;/span&gt;-even.bin
-	&lt;span class=&quot;nv&quot;&gt;$(COPY)&lt;/span&gt; -b 1 -i 2 --interleave-width&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1 -O &lt;span class=&quot;nv&quot;&gt;$(FMT)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(MAIN)&lt;/span&gt;.a &lt;span class=&quot;nv&quot;&gt;$(PREFIX)$(MAIN)&lt;/span&gt;-odd.bin
+$(MAIN): $(OBJS)
+	$(LD) $(LDFLAGS) -o $(MAIN).a $(OBJS)
+	$(COPY) -b 0 -i 2 --interleave-width=1 -O $(FMT) $(MAIN).a $(PREFIX)$(MAIN)-even.bin
+	$(COPY) -b 1 -i 2 --interleave-width=1 -O $(FMT) $(MAIN).a $(PREFIX)$(MAIN)-odd.bin
 
-&lt;span class=&quot;nl&quot;&gt;clean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-	rm -f &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.o &lt;span class=&quot;nv&quot;&gt;$(PREFIX)$(MAIN)&lt;/span&gt;-even.bin &lt;span class=&quot;nv&quot;&gt;$(PREFIX)$(MAIN)&lt;/span&gt;-odd.bin &lt;span class=&quot;nv&quot;&gt;$(PREFIX)$(MAIN)&lt;/span&gt;.bin &lt;span class=&quot;nv&quot;&gt;$(MAIN)&lt;/span&gt;.a
+clean:
+	rm -f *.o $(PREFIX)$(MAIN)-even.bin $(PREFIX)$(MAIN)-odd.bin $(PREFIX)$(MAIN).bin $(MAIN).a
 
-&lt;span class=&quot;nl&quot;&gt;prog_even&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;Programming &lt;span class=&quot;nv&quot;&gt;$(MAIN)&lt;/span&gt;-even onto &lt;span class=&quot;nv&quot;&gt;$(EEPROM)&lt;/span&gt;
-	minipro -p &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$(EEPROM)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; -w &lt;span class=&quot;nv&quot;&gt;$(PREFIX)$(MAIN)&lt;/span&gt;-even.bin -s
+prog_even:
+	@echo Programming $(MAIN)-even onto $(EEPROM)
+	minipro -p &quot;$(EEPROM)&quot; -w $(PREFIX)$(MAIN)-even.bin -s
 
-&lt;span class=&quot;nl&quot;&gt;prog_odd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;Programming &lt;span class=&quot;nv&quot;&gt;$(MAIN)&lt;/span&gt;-odd onto &lt;span class=&quot;nv&quot;&gt;$(EEPROM)&lt;/span&gt;
-	minipro -p &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$(EEPROM)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; -w &lt;span class=&quot;nv&quot;&gt;$(PREFIX)$(MAIN)&lt;/span&gt;-odd.bin -s
+prog_odd:
+	@echo Programming $(MAIN)-odd onto $(EEPROM)
+	minipro -p &quot;$(EEPROM)&quot; -w $(PREFIX)$(MAIN)-odd.bin -s
 
-&lt;span class=&quot;nl&quot;&gt;dump&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;	&lt;span class=&quot;nf&quot;&gt;$(MAIN)&lt;/span&gt;
-	&lt;span class=&quot;nv&quot;&gt;$(DUMP)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(DUMPFLAGS)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(MAIN)&lt;/span&gt;.a
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+dump:	$(MAIN)
+	$(DUMP) $(DUMPFLAGS) $(MAIN).a
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h1 id=&quot;compilation-and-linking&quot;&gt;Compilation and Linking&lt;/h1&gt;
 
-&lt;p&gt;As you can see from the Makefile above I’m using &lt;code class=&quot;highlighter-rouge&quot;&gt;m68k-linux-gnu-as&lt;/code&gt; to
+&lt;p&gt;As you can see from the Makefile above I’m using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;m68k-linux-gnu-as&lt;/code&gt; to
 assemble the object files from the source files. I am then using
-&lt;code class=&quot;highlighter-rouge&quot;&gt;m68k-linux-gnu-ld&lt;/code&gt; to link the object file(s) into the &lt;code class=&quot;highlighter-rouge&quot;&gt;.a&lt;/code&gt; archive object
-file. Which is then split into the &lt;code class=&quot;highlighter-rouge&quot;&gt;even&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;odd&lt;/code&gt; ROM binary images needed
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;m68k-linux-gnu-ld&lt;/code&gt; to link the object file(s) into the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.a&lt;/code&gt; archive object
+file. Which is then split into the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;even&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;odd&lt;/code&gt; ROM binary images needed
 for the two 8 bit EEPROMS to make the 16bit wide program data.&lt;/p&gt;
 
 &lt;p&gt;I have a small linker script to handle the vector mapping, the stack and RAM
@@ -349,7 +637,7 @@ locations etc. This step makes moving the resources around &lt;em&gt;very&lt;/em
 I’m now thankful for because the two boards I have are vastly different in
 memory map to each other.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;MEMORY
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;MEMORY
 {
     ROM (rx) : ORIGIN = 0x00000000, LENGTH = 0x10000
     RAM (xrw) : ORIGIN = 0x00040000, LENGTH = 0x10000
@@ -390,14 +678,13 @@ SECTIONS {
 }
 
 OUTPUT_ARCH(m68k)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;I’ve been trying to get an &lt;code class=&quot;highlighter-rouge&quot;&gt;.rodata&lt;/code&gt; section working, but for whatever reason
+&lt;p&gt;I’ve been trying to get an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.rodata&lt;/code&gt; section working, but for whatever reason
 my sections end up with the wrong alignment and any strings I put there are in
 the ROM image, but don’t appear to work. Maybe when I get some times I’ll
 figure out why that is, for now I’m happy to just put the strings at the end of
-the &lt;code class=&quot;highlighter-rouge&quot;&gt;.text&lt;/code&gt; section.&lt;/p&gt;
+the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.text&lt;/code&gt; section.&lt;/p&gt;
 
 &lt;h1 id=&quot;initializing-the-mc68340-cpu&quot;&gt;Initializing the MC68340 CPU&lt;/h1&gt;
 
@@ -414,7 +701,7 @@ complex gating or a GAL to achieve something similar.&lt;/p&gt;
 &lt;p&gt;So to start with here is a chunk of code that configures the ROM and RAM
 locations in the memory map, and configures the CPU speed and interrupt maps.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;*************************************************************************
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;*************************************************************************
 *
 *  Init the CPU and System Integration Module - Configs module options
 *
@@ -438,8 +725,7 @@ locations in the memory map, and configures the CPU speed and interrupt maps.&lt
             move.b      #0x06, _sm_sypcr + _sim40       | turn off watchdogs, bus fault, bus monitor
             move.w      #0x7c00, _sm_syncr + _sim40     | set clock to 15.991 MHz
             move.w      #0x420f, _sm_mcr + _sim40       | set MCR, no interrupts etc
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;In this project I’ve just kept the memory map really simple.&lt;/p&gt;
 
@@ -485,8 +771,8 @@ choose, but the layout is:&lt;/p&gt;
 
 &lt;/figure&gt;
 
-&lt;p&gt;As you can see in the code above I’ve set it to the address of &lt;code class=&quot;highlighter-rouge&quot;&gt;0x080000&lt;/code&gt;. For
-this project at the moment I’m turning more stuff &lt;code class=&quot;highlighter-rouge&quot;&gt;off&lt;/code&gt; than I’m turning &lt;code class=&quot;highlighter-rouge&quot;&gt;on&lt;/code&gt;.
+&lt;p&gt;As you can see in the code above I’ve set it to the address of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0x080000&lt;/code&gt;. For
+this project at the moment I’m turning more stuff &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;off&lt;/code&gt; than I’m turning &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;on&lt;/code&gt;.
 By default all these peripherals are available and running, you have to disable
 them if you’re not using them. Realistically this is more about power reduction
 than anything, but like unused logic gates, I feel they must be put into a
@@ -510,22 +796,20 @@ dumps binary into RAM and jumps to it, then write some python to push the
 binary at the serial port.&lt;/p&gt;
 
 &lt;p&gt;I started implementing that until I saw a few pieces of code that would load
-&lt;code class=&quot;highlighter-rouge&quot;&gt;srec&lt;/code&gt; format into RAM. I decoded the logic and wrote my own implementation in
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;srec&lt;/code&gt; format into RAM. I decoded the logic and wrote my own implementation in
 a few hours, I figured this would be all round simpler in the long run as I
 wouldn’t need to write the python. Instead I could just cut and paste the srec
-records straight into the terminal, or at the very least &lt;code class=&quot;highlighter-rouge&quot;&gt;cat&lt;/code&gt; them out to the
+records straight into the terminal, or at the very least &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cat&lt;/code&gt; them out to the
 serial port.&lt;/p&gt;
 
 &lt;p&gt;Here is an example showing altering the code, compiling, copying the srecord
 data and running it:&lt;/p&gt;
 
 &lt;figure class=&quot;&quot;&gt;
-  &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-26/hello_world.gif&quot; alt=&quot;GIF showing the boot-loader in action&quot; /&gt;
-  
-    &lt;figcaption&gt;Demo showing updating code and pushing it to the bootloader
-&lt;/figcaption&gt;
-  
-&lt;/figure&gt;
+  &lt;img src=&quot;/assets/images/2017-04-26/hello_world.gif&quot; alt=&quot;GIF showing the boot-loader in action&quot; /&gt;&lt;figcaption&gt;
+      Demo showing updating code and pushing it to the bootloader
+
+    &lt;/figcaption&gt;&lt;/figure&gt;
 
 &lt;h1 id=&quot;enough-for-today&quot;&gt;Enough for today&lt;/h1&gt;
 
@@ -723,12 +1007,10 @@ one set at a time. So I carefully desoldered the two sockets and replaced them
 with machine pin sockets…&lt;/p&gt;
 
 &lt;figure class=&quot;&quot;&gt;
-  &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-08/sockets_gone.jpg&quot; alt=&quot;Removed the sockets&quot; /&gt;
-  
-    &lt;figcaption&gt;Old sockets be gone!
-&lt;/figcaption&gt;
-  
-&lt;/figure&gt;
+  &lt;img src=&quot;/assets/images/2017-04-08/sockets_gone.jpg&quot; alt=&quot;Removed the sockets&quot; /&gt;&lt;figcaption&gt;
+      Old sockets be gone!
+
+    &lt;/figcaption&gt;&lt;/figure&gt;
 
 &lt;p&gt;It was at this time that I noticed pin 1 on these sockets had traces. Given
 these are the VPP lines I thought that was strange. It turns out they’re
@@ -740,12 +1022,10 @@ line being connected to A14 was to add another layer of machine pins with the
 sockets missing.&lt;/p&gt;
 
 &lt;figure class=&quot;&quot;&gt;
-  &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-08/adapters_in_place.jpg&quot; alt=&quot;Adapters in place&quot; /&gt;
-  
-    &lt;figcaption&gt;Adapters in place
-&lt;/figcaption&gt;
-  
-&lt;/figure&gt;
+  &lt;img src=&quot;/assets/images/2017-04-08/adapters_in_place.jpg&quot; alt=&quot;Adapters in place&quot; /&gt;&lt;figcaption&gt;
+      Adapters in place
+
+    &lt;/figcaption&gt;&lt;/figure&gt;
 
 &lt;p&gt;I opted to pull out the VPP, A13 and A14 pins just to make sure. I then
 programmed my blink routine into the two mismatched 28C64s and expected great
@@ -795,21 +1075,21 @@ deal.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/alangarf/amx_axc_m68k&quot;&gt;https://github.com/alangarf/amx_axc_m68k&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;After much frustration trying to figure out why &lt;code class=&quot;highlighter-rouge&quot;&gt;ld&lt;/code&gt; was overwriting my new
-&lt;code class=&quot;highlighter-rouge&quot;&gt;.vector&lt;/code&gt; section and my general lack of understanding of a lot of what the
+&lt;p&gt;After much frustration trying to figure out why &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ld&lt;/code&gt; was overwriting my new
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.vector&lt;/code&gt; section and my general lack of understanding of a lot of what the
 linker does I enlisted the help of my dear friend
 &lt;a href=&quot;https://twitter.com/trc_wm&quot;&gt;Niels&lt;/a&gt; to help point me in the right direction.&lt;/p&gt;
 
-&lt;p&gt;Together we figured out my &lt;code class=&quot;highlighter-rouge&quot;&gt;.section&lt;/code&gt; in my assembly code didn’t have the right
-flags set so &lt;code class=&quot;highlighter-rouge&quot;&gt;ld&lt;/code&gt; wasn’t loading the &lt;code class=&quot;highlighter-rouge&quot;&gt;.vector&lt;/code&gt; section into the output. Rightly
+&lt;p&gt;Together we figured out my &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.section&lt;/code&gt; in my assembly code didn’t have the right
+flags set so &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ld&lt;/code&gt; wasn’t loading the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.vector&lt;/code&gt; section into the output. Rightly
 so because it thought it didn’t have to.  After we figured that out the vectors
 where properly being set, and I had a workable development setup to continue on
 with.&lt;/p&gt;
 
-&lt;p&gt;I later discovered that &lt;code class=&quot;highlighter-rouge&quot;&gt;objcopy&lt;/code&gt; also can generate interleaved binary files
+&lt;p&gt;I later discovered that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;objcopy&lt;/code&gt; also can generate interleaved binary files
 just for the purpose of creating ROM files for systems like this one. So rather
 than using some dodgy python I wrote quickly to split the resulting binary ROM
-image in half, I simply made &lt;code class=&quot;highlighter-rouge&quot;&gt;objcopy&lt;/code&gt; create an &lt;em&gt;even&lt;/em&gt; and an &lt;em&gt;odd&lt;/em&gt; ROM
+image in half, I simply made &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;objcopy&lt;/code&gt; create an &lt;em&gt;even&lt;/em&gt; and an &lt;em&gt;odd&lt;/em&gt; ROM
 image!&lt;/p&gt;
 
 &lt;p&gt;Suitably chuffed with myself at this point.&lt;/p&gt;
@@ -827,12 +1107,10 @@ for these new chips. I figured I’d just use only the first 8KB of them and dro
 them into the existing sockets I had for the 28C64s.&lt;/p&gt;
 
 &lt;figure class=&quot;&quot;&gt;
-  &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-08/at28c256s_in_place.jpg&quot; alt=&quot;AT28C256s in place&quot; /&gt;
-  
-    &lt;figcaption&gt;AT28C256s in place
-&lt;/figcaption&gt;
-  
-&lt;/figure&gt;
+  &lt;img src=&quot;/assets/images/2017-04-08/at28c256s_in_place.jpg&quot; alt=&quot;AT28C256s in place&quot; /&gt;&lt;figcaption&gt;
+      AT28C256s in place
+
+    &lt;/figcaption&gt;&lt;/figure&gt;
 
 &lt;p&gt;I realized after plugging them in that had I not removed the VPP lines from
 these sockets that I would’ve connected A16 to the A14 pin on these EEPROMs,
@@ -851,12 +1129,10 @@ position which now I know has A16 attached to it!&lt;/p&gt;
 it blinked perfectly, a nice solid consistent blink…&lt;/p&gt;
 
 &lt;figure class=&quot;&quot;&gt;
-  &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-08/blinking1.gif&quot; alt=&quot;Blink you good thing!&quot; /&gt;
-  
-    &lt;figcaption&gt;Blink you good thing!
-&lt;/figcaption&gt;
-  
-&lt;/figure&gt;
+  &lt;img src=&quot;/assets/images/2017-04-08/blinking1.gif&quot; alt=&quot;Blink you good thing!&quot; /&gt;&lt;figcaption&gt;
+      Blink you good thing!
+
+    &lt;/figcaption&gt;&lt;/figure&gt;
 
 &lt;p&gt;… until I lifted the board.&lt;/p&gt;
 
@@ -915,18 +1191,18 @@ files from: &lt;a href=&quot;https://github.com/alangarf/amx_axc_kicad&quot;&gt;
 
 &lt;p&gt;I installed all the GNU m68k tools. I made a nice little Makefile to assemble my assembly…&lt;/p&gt;
 
-&lt;div class=&quot;language-make highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;M68K&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;m68k-linux-gnu
-&lt;span class=&quot;nv&quot;&gt;AS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$(M68K)&lt;/span&gt;-as
-&lt;span class=&quot;nv&quot;&gt;LD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$(M68K)&lt;/span&gt;-ld
-&lt;span class=&quot;nv&quot;&gt;DUMP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$(M68K)&lt;/span&gt;-objdump
+&lt;div class=&quot;language-make highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;M68K&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;m68k-linux-gnu
+&lt;span class=&quot;nv&quot;&gt;AS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$(M68K)&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-as&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;LD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$(M68K)&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-ld&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;DUMP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$(M68K)&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-objdump&lt;/span&gt;
 
 &lt;span class=&quot;nv&quot;&gt;START&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0x00
 &lt;span class=&quot;nv&quot;&gt;FMT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;binary
 &lt;span class=&quot;c&quot;&gt;#FMT=ihex
-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CPU&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;-m68000
+&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CPU&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-m68000&lt;/span&gt;
 
 &lt;span class=&quot;nv&quot;&gt;SRCS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;blink.s
-&lt;span class=&quot;nv&quot;&gt;OBJS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;SRCS:.s&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;.o&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;OBJS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$(SRCS:.s=.o)&lt;/span&gt;
 &lt;span class=&quot;nv&quot;&gt;MAIN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;blink.bin
 
 &lt;span class=&quot;nl&quot;&gt;.PHONY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;dump clean&lt;/span&gt;
@@ -944,13 +1220,12 @@ files from: &lt;a href=&quot;https://github.com/alangarf/amx_axc_kicad&quot;&gt;
         &lt;span class=&quot;err&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;*.o&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(MAIN)&lt;/span&gt;
 
 &lt;span class=&quot;nl&quot;&gt;dump&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;   &lt;span class=&quot;nf&quot;&gt;$(MAIN)&lt;/span&gt;
-        &lt;span class=&quot;err&quot;&gt;$(DUMP)&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(CPU)&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;--disassemble-all&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;--target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$(FMT)&lt;/span&gt; --start-address&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$(START)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(MAIN)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+        &lt;span class=&quot;err&quot;&gt;$(DUMP)&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(CPU)&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;--disassemble-all&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;--target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$(FMT)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--start-address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$(START)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(MAIN)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;I even bashed together a little test program to twiddle the LED bit of the 74LS259…&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/*
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/*
  * Blink LED connected to 74LS259 output.
  *
  * ROM is at 0x00000-0x0FA00.
@@ -1000,41 +1275,39 @@ files from: &lt;a href=&quot;https://github.com/alangarf/amx_axc_kicad&quot;&gt;
 
 .org 0xFFFA
     jmp .top
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;And like a late night TV shopping channel ad I’ll even throw in a &lt;del&gt;free set of steak knives&lt;/del&gt; tool to split the resulting binary into 32KB interleaved chunks so they’d work on the board.&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/python3&lt;/span&gt;
-
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#!/usr/bin/python3
+&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;argparse&lt;/span&gt;
 
-&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argparse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ArgumentParser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;src&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parse_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argparse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ArgumentParser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;src&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parse_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 
-&lt;span class=&quot;n&quot;&gt;even_fn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;even-{}&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;odd_fn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;odd-{}&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;even_fn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;even-{}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;odd_fn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;odd-{}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'rb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'rb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;even_fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'wb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;even&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;odd_fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'wb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;odd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
 
-            &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SEEK_END&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;src_size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tell&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SEEK_END&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;src_size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tell&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 
-            &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
             &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;src_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
                 &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-                    &lt;span class=&quot;n&quot;&gt;odd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;odd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
                 &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-                    &lt;span class=&quot;n&quot;&gt;even&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+                    &lt;span class=&quot;n&quot;&gt;even&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Also buy one get one free; I upgraded the software for the Minipro TL866 on OSX. I even figured out the magic device type for my EPROMs.&lt;/p&gt;
 
@@ -1042,14 +1315,13 @@ files from: &lt;a href=&quot;https://github.com/alangarf/amx_axc_kicad&quot;&gt;
 
 &lt;p&gt;I went and tried to write the first “even” binary to the EPROM…&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ minipro -p &quot;27C256 @DIP28 #2&quot; -w even-blink.bin
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ minipro -p &quot;27C256 @DIP28 #2&quot; -w even-blink.bin
 Found Minipro TL866A v03.2.72
 Chip ID OK: 0x298c
 Writing Code... OK
 Reading Code... OK
 Verification failed at 0x200: 0x20 != 0x00
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p class=&quot;notice--danger&quot;&gt;COMPUTER SAYS NO...&lt;/p&gt;
 
@@ -1060,12 +1332,10 @@ Verification failed at 0x200: 0x20 != 0x00
 &lt;p&gt;Hunting around the garage for any source of UV I knew my search was futile. I even resorted to madness when I found a big bag of “UV” LEDs.&lt;/p&gt;
 
 &lt;figure class=&quot;&quot;&gt;
-  &lt;img src=&quot;https://fromorbit.com/assets/images/2017-04-06/uv_madness.png&quot; alt=&quot;Silly pic of UV LED trying to erase EPROM&quot; /&gt;
-  
-    &lt;figcaption&gt;UGH, my world for some UV
-&lt;/figcaption&gt;
-  
-&lt;/figure&gt;
+  &lt;img src=&quot;/assets/images/2017-04-06/uv_madness.png&quot; alt=&quot;Silly pic of UV LED trying to erase EPROM&quot; /&gt;&lt;figcaption&gt;
+      UGH, my world for some UV
+
+    &lt;/figcaption&gt;&lt;/figure&gt;
 
 &lt;h1 id=&quot;so-now-what&quot;&gt;So, now what…&lt;/h1&gt;
 
@@ -1106,7 +1376,7 @@ work/life balance.&lt;/p&gt;
 
 &lt;p&gt;Here is a snippet of the UART core I’ve written for the simulator, it sets up the internal registers etc of the UART so the firmware can read and write state to configure the registers. The only bit I’ve not successfully worked out yet is the interrupt priorities, there is something wonky on this boards layout I’ve not figured out with the interrupt. But that’s another days problem.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;scc2691_core uarts[2];
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;scc2691_core uarts[2];
 
 void scc2691_reset(void)
 {
@@ -1139,8 +1409,7 @@ void scc2691_reset(void)
         int_controller_clear(1);
     }
 }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h1 id=&quot;the-schematic-so-far-&quot;&gt;The schematic so far …&lt;/h1&gt;
 
@@ -1157,59 +1426,56 @@ void scc2691_reset(void)
         <title>Beeping out the board - Retro Challenge 2017/04</title>
         <description>&lt;p&gt;I first started with this board by pulling off the ROMs and dumping their contents. Being a m68k CPU generally the ROMs are split into odd and even byte streams, and in order to dissassemble them the two ROM images need to be interleaved again. I achieved this with a little bit of python:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/python3&lt;/span&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#!/usr/bin/python3
 
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;argparse&lt;/span&gt;
+import os
+import argparse
 
-&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argparse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ArgumentParser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;odd_file&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;even_file&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;output&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parse_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+parser = argparse.ArgumentParser()
+parser.add_argument(&quot;odd_file&quot;)
+parser.add_argument(&quot;even_file&quot;)
+parser.add_argument(&quot;output&quot;)
+args = parser.parse_args()
 
-&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'wb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;odd_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'rb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;odd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;even_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'rb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;even&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+with open(args.output, 'wb') as out:
+  with open(args.odd_file, 'rb') as odd:
+    with open(args.even_file, 'rb') as even:
 
-      &lt;span class=&quot;n&quot;&gt;odd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SEEK_END&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;odd_size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;odd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tell&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+      odd.seek(0, os.SEEK_END)
+      odd_size = odd.tell()
 
-      &lt;span class=&quot;n&quot;&gt;even&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SEEK_END&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;even_size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;even&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tell&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+      even.seek(0, os.SEEK_END)
+      even_size = even.tell()
 
-      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;odd_size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;even_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ROM images aren't the same size!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      if (odd_size != even_size):
+        exit(&quot;ROM images aren't the same size!&quot;)
 
-      &lt;span class=&quot;n&quot;&gt;odd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;even&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      odd.seek(0)
+      even.seek(0)
 
-      &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;odd_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;odd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;even&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      for c in range(0, odd_size):
+        odd.seek(c)
+        even.seek(c)
 
-        &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;odd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;even&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+        out.write(odd.read(1))
+        out.write(even.read(1))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h1 id=&quot;roming-around-like-its-1995&quot;&gt;ROMing around like it’s 1995&lt;/h1&gt;
 
 &lt;p&gt;I took the two ROM images I dumped and merged them back together using the following:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ merge.py rom_odd.bin rom_even.bin rom_out.bin
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ merge.py rom_odd.bin rom_even.bin rom_out.bin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;After verifying the &lt;code class=&quot;highlighter-rouge&quot;&gt;rom_out.bin&lt;/code&gt; using &lt;code class=&quot;highlighter-rouge&quot;&gt;objdump&lt;/code&gt; for the m86k I knew I was on my way.&lt;/p&gt;
+&lt;p&gt;After verifying the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rom_out.bin&lt;/code&gt; using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;objdump&lt;/code&gt; for the m86k I knew I was on my way.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ m68k-linux-gnu-objdump --disassemble-all --target=binary --architecture=m68k --start-address=0x00 rom_out.bin
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ m68k-linux-gnu-objdump --disassemble-all --target=binary --architecture=m68k --start-address=0x00 rom_out.bin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;This gave me the disassembled output of the m68k ROM image:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rom_out.bin:     file format binary
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rom_out.bin:     file format binary
 
 
 Disassembly of section .data:
@@ -1219,8 +1485,7 @@ Disassembly of section .data:
        4:	0000 0400      	orib #0,%d0
 
 [SNIP]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;The first value is the preset value the CPU uses for the SP (stack pointer). So
 it looks like it’s up in 0x20000 address space. That’s a good start, looks like
@@ -1233,7 +1498,7 @@ will load is at location 0x400.&lt;/p&gt;
 
 &lt;p&gt;Further digging through the assembly and looking at hex dumps you can start to
 see strings (even some funny stuff) and loops testing devices and memory etc.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;00009140: 3131 2100 2a21 3132 2100 5041 5353 0053  11!.*!12!.PASS.S
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;00009140: 3131 2100 2a21 3132 2100 5041 5353 0053  11!.*!12!.PASS.S
 00009150: 454e 4420 434f 4d4d 414e 4400 5345 4e44  END COMMAND.SEND
 00009160: 2053 5452 494e 4700 5055 5348 0056 414c   STRING.PUSH.VAL
 00009170: 5545 204f 4600 4445 5649 4345 2053 5441  UE OF.DEVICE STA
@@ -1255,8 +1520,7 @@ see strings (even some funny stuff) and loops testing devices and memory etc.&lt
 00009270: 4f52 0044 4941 4c54 4f4e 4500 4255 5359  OR.DIALTONE.BUSY
 00009280: 0000 4e56 fffe 422e ffff 4a39 0002 140b  ..NV..B...J9....
 00009290: 6712 7000 1039 0002 140b 41f9 0002 140c  g.p..9....A.....
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h1 id=&quot;beep-beep-beeeeeeeeeep-&quot;&gt;Beep, beep, beeeeeeeeeep …&lt;/h1&gt;
 
@@ -1268,7 +1532,7 @@ see strings (even some funny stuff) and loops testing devices and memory etc.&lt
 
 &lt;p&gt;So after a lot of beeping and probing I got the address map out:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;| 0x00000       | ROM                    |
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;| 0x00000       | ROM                    |
 | 0x10000       | ROM (addr alias?)      |
 | 0x20000       | RAM BANK 1             |
 | 0x30000       | RAM BANK 2             |
@@ -1276,8 +1540,7 @@ see strings (even some funny stuff) and loops testing devices and memory etc.&lt
 | 0x50000       | INPUTs via a 74LS373   |
 | 0x60000       | OUTPUTs via a 74LS259  |
 | 0x70000       | INPUT via a 74LS373    |
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;The first INPUT and OUTPUT addresses are related to the OKI M5832 clock calendar chips 4 bit I/O bus and control lines, and the on-board green status LED. So that’s a good start.&lt;/p&gt;
 
@@ -1382,18 +1645,6 @@ the challenge. Just getting a ROM monitor etc will be hard enough. :)&lt;/p&gt;
         <pubDate>Thu, 30 Mar 2017 00:00:00 +1100</pubDate>
         <link>https://fromorbit.com/2017/03/30/updating-website.html</link>
         <guid isPermaLink="true">https://fromorbit.com/2017/03/30/updating-website.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Digital Foosball Two</title>
-        <description>&lt;style&gt;.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;
-&lt;div class=&quot;embed-container&quot;&gt;    &lt;iframe title=&quot;YouTube video player&quot; width=&quot;640&quot; height=&quot;390&quot; src=&quot;//www.youtube.com/embed/ukuO2XofROc&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
-</description>
-        <pubDate>Sun, 21 Sep 2014 00:00:00 +1000</pubDate>
-        <link>https://fromorbit.com/2014/09/21/digital-foosball-two.html</link>
-        <guid isPermaLink="true">https://fromorbit.com/2014/09/21/digital-foosball-two.html</guid>
         
         
       </item>

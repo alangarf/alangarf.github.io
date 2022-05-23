@@ -1,43 +1,30 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.4.1 by Michael Rose
-  Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
-  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
 -->
 <html lang="en" class="no-js">
   <head>
     <meta charset="utf-8">
 
-<!-- begin SEO -->
-
-
-
-
-
-
-
-
-
-<title>FromOrbit.com</title>
-
-
-
-
+<!-- begin _includes/seo.html --><title>FromOrbit.com</title>
 <meta name="description" content="Generic nerd who dabbles in programming, electronics, CNC and retro computing.">
 
 
+  <meta name="author" content="Alan Garfield">
+  
 
 
-<meta name="author" content="Alan Garfield">
-
+<meta property="og:type" content="website">
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="FromOrbit.com">
 <meta property="og:title" content="FromOrbit.com">
+<meta property="og:url" content="https://fromorbit.com/">
 
 
-  <link rel="canonical" href="https://fromorbit.com/">
-  <meta property="og:url" content="https://fromorbit.com/">
+  <meta property="og:description" content="Generic nerd who dabbles in programming, electronics, CNC and retro computing.">
 
 
 
@@ -54,7 +41,7 @@
   
 
   
-    <meta name="twitter:creator" content="@Alan Garfield">
+    <meta name="twitter:creator" content="@alangarf">
   
 
 
@@ -64,11 +51,23 @@
 
 
 
+<link rel="canonical" href="https://fromorbit.com/">
+
 
 
   <link rel="next" href="https://fromorbit.com/page2/">
 
 
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Alan Garfield",
+      "url": "https://fromorbit.com/"
+    
+  }
+</script>
 
 
 
@@ -76,15 +75,14 @@
 
 
 
+<!-- end _includes/seo.html -->
 
-<!-- end SEO -->
 
 
-<link href="https://fromorbit.com/feed.xml" type="application/atom+xml" rel="alternate" title="FromOrbit.com Feed">
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="FromOrbit.com Feed">
 
-<!-- http://t.co/dKP3o1e -->
-<meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
+
+<!-- https://t.co/dKP3o1e -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script>
@@ -92,52 +90,59 @@
 </script>
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="https://fromorbit.com/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
 
-<!--[if lte IE 9]>
-  <style>
-    /* old IE unsupported flexbox fixes */
-    .greedy-nav .site-title {
-      padding-right: 3em;
-    }
-    .greedy-nav button {
-      position: absolute;
-      top: 0;
-      right: 0;
-      height: 100%;
-    }
-  </style>
-<![endif]-->
 
-<meta http-equiv="cleartype" content="on">
+
     <!-- start custom head snippets -->
 
-<!-- insert favicons. use http://realfavicongenerator.net/ -->
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
 
 <!-- end custom head snippets -->
+
   </head>
 
   <body class="layout--home">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
 
     <!--[if lt IE 9]>
-<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
 <![endif]-->
-    <div class="masthead">
+
+    
+
+<div class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
-        <a class="site-title" href="https://fromorbit.com/">FromOrbit.com</a>
-        <ul class="visible-links">
+        
+        <a class="site-title" href="/">
+          FromOrbit.com
           
-        </ul>
-        <button><div class="navicon"></div></button>
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
         <ul class="hidden-links hidden"></ul>
       </nav>
     </div>
   </div>
 </div>
 
-    
+
+    <div class="initial-content">
+      
 
 
 
@@ -146,22 +151,26 @@
   <div class="sidebar sticky">
   
 
-<div itemscope itemtype="http://schema.org/Person">
+
+<div itemscope itemtype="https://schema.org/Person">
 
   
     <div class="author__avatar">
       
-        <img src="https://fromorbit.com/assets/bio.jpg" class="author__avatar" alt="Alan Garfield" itemprop="image">
+        <img src="/assets/bio.jpg" alt="Alan Garfield" itemprop="image">
       
     </div>
   
 
   <div class="author__content">
-    <h3 class="author__name" itemprop="name">Alan Garfield</h3>
     
-      <p class="author__bio" itemprop="description">
-        Generic nerd who dabbles in programming, electronics, CNC and retro computing.
-      </p>
+      <h3 class="author__name" itemprop="name">Alan Garfield</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Generic nerd who dabbles in programming, electronics, CNC and retro computing.</p>
+
+      </div>
     
   </div>
 
@@ -177,9 +186,11 @@
       
 
       
+
+      
         <li>
-          <a href="https://twitter.com/alangarf" itemprop="sameAs">
-            <i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter
+          <a href="https://twitter.com/alangarf" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span>
           </a>
         </li>
       
@@ -197,13 +208,13 @@
       
 
       
-
-      
         <li>
-          <a href="https://github.com/alangarf" itemprop="sameAs">
-            <i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub
+          <a href="https://github.com/alangarf" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span>
           </a>
         </li>
+      
+
       
 
       
@@ -221,8 +232,8 @@
       
         
           <li>
-            <a href="https://www.youtube.com/user/randomgarfield" itemprop="sameAs">
-              <i class="fa fa-fw fa-youtube-square" aria-hidden="true"></i> YouTube
+            <a href="https://www.youtube.com/user/randomgarfield" itemprop="sameAs" rel="nofollow noopener noreferrer">
+              <i class="fab fa-fw fa-youtube" aria-hidden="true"></i><span class="label">YouTube</span>
             </a>
           </li>
         
@@ -240,8 +251,8 @@
 
       <!--
   <li>
-    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
-      <i class="fa fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
     </a>
   </li>
 -->
@@ -253,278 +264,453 @@
   </div>
 
 
+
   <div class="archive">
     
-      <h1 class="page__title"></h1>
+      <h1 id="page-title" class="page__title"></h1>
     
-    <h3 class="archive__subtitle">Recent Posts</h3>
+    
+
+<h3 class="archive__subtitle">Recent Posts</h3>
 
 
+
+
+<div class="entries-list">
   
+    
 
 
 
 <div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title" itemprop="headline">
+    <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="https://fromorbit.com/2017/05/19/m68k-crosstool-ng.html" rel="permalink">More fun with the m68k
+        <a href="/2022/05/23/IRF510-linear-amp.html" rel="permalink">45W IRF510 HF Linear Amp
 </a>
       
     </h2>
     
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
-
-
-
-  6 minute read
-</p>
+  <p class="page__meta">
     
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">The little amp that could!
+</p>
+  </article>
+</div>
+
+  
+    
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2017/05/19/m68k-crosstool-ng.html" rel="permalink">More fun with the m68k
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          6 minute read
+        
+      </span>
+    
+  </p>
+
+
     <p class="archive__item-excerpt" itemprop="description">Finally I achieved my goal of getting a Mandelbrot routine running on this m68k board and I learned a lot along the way
 </p>
   </article>
 </div>
 
   
+    
 
 
 
 <div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title" itemprop="headline">
+    <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="https://fromorbit.com/2017/04/26/m68k-environment-rc201704.html" rel="permalink">m68k Environment - Retro Challenge 2017/04
+        <a href="/2017/04/26/m68k-environment-rc201704.html" rel="permalink">m68k Environment - Retro Challenge 2017/04
 </a>
       
     </h2>
     
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
-
-
-
-  8 minute read
-</p>
+  <p class="page__meta">
     
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          8 minute read
+        
+      </span>
+    
+  </p>
+
+
     <p class="archive__item-excerpt" itemprop="description">Getting down and dirty with make and gcc.
 </p>
   </article>
 </div>
 
   
+    
 
 
 
 <div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title" itemprop="headline">
+    <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="https://fromorbit.com/2017/04/18/rinse-repeat-rc201704.html" rel="permalink">Rinse Repeat. :( - Retro Challenge 2017/04
+        <a href="/2017/04/18/rinse-repeat-rc201704.html" rel="permalink">Rinse Repeat. :( - Retro Challenge 2017/04
 </a>
       
     </h2>
     
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
-
-
-
-  4 minute read
-</p>
+  <p class="page__meta">
     
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
     <p class="archive__item-excerpt" itemprop="description">Over, and over, and over, and over, and over, and over again.
 </p>
   </article>
 </div>
 
   
+    
 
 
 
 <div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title" itemprop="headline">
+    <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="https://fromorbit.com/2017/04/08/gettin-somewhere-rc201704.html" rel="permalink">Now we’re get’n somewhere! - Retro Challenge 2017/04
+        <a href="/2017/04/08/gettin-somewhere-rc201704.html" rel="permalink">Now we’re get’n somewhere! - Retro Challenge 2017/04
 </a>
       
     </h2>
     
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
-
-
-
-  7 minute read
-</p>
+  <p class="page__meta">
     
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          7 minute read
+        
+      </span>
+    
+  </p>
+
+
     <p class="archive__item-excerpt" itemprop="description">Things are starting to be coming up Milhouse!
 </p>
   </article>
 </div>
 
   
+    
 
 
 
 <div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title" itemprop="headline">
+    <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="https://fromorbit.com/2017/04/06/m68k-why-no-uv-rc201704.html" rel="permalink">Ugh! I need UV - Retro Challenge 2017/04
+        <a href="/2017/04/06/m68k-why-no-uv-rc201704.html" rel="permalink">Ugh! I need UV - Retro Challenge 2017/04
 </a>
       
     </h2>
     
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
-
-
-
-  3 minute read
-</p>
+  <p class="page__meta">
     
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+    
+  </p>
+
+
     <p class="archive__item-excerpt" itemprop="description">Who knew you’d need UV to erase EPROMs! Derp.
 </p>
   </article>
 </div>
 
   
+    
 
 
 
 <div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title" itemprop="headline">
+    <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="https://fromorbit.com/2017/04/05/m68k-schematic-rc201704.html" rel="permalink">Got together a schematic today - Retro Challenge 2017/04
+        <a href="/2017/04/05/m68k-schematic-rc201704.html" rel="permalink">Got together a schematic today - Retro Challenge 2017/04
 </a>
       
     </h2>
     
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
-
-
-
-  1 minute read
-</p>
+  <p class="page__meta">
     
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
     <p class="archive__item-excerpt" itemprop="description">Beeping and clicking things into KiCAD like a mad man
 </p>
   </article>
 </div>
 
   
+    
 
 
 
 <div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title" itemprop="headline">
+    <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="https://fromorbit.com/2017/04/03/m68k-amx-board-rc201704.html" rel="permalink">Beeping out the board - Retro Challenge 2017/04
+        <a href="/2017/04/03/m68k-amx-board-rc201704.html" rel="permalink">Beeping out the board - Retro Challenge 2017/04
 </a>
       
     </h2>
     
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
-
-
-
-  3 minute read
-</p>
+  <p class="page__meta">
     
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+    
+  </p>
+
+
     <p class="archive__item-excerpt" itemprop="description">I first started with this board by pulling off the ROMs and dumping their contents. Being a m68k CPU generally the ROMs are split into odd and even byte stre...</p>
   </article>
 </div>
 
   
+    
 
 
 
 <div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title" itemprop="headline">
+    <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="https://fromorbit.com/2017/03/31/retro-computing-challenge-201704.html" rel="permalink">Retro Challenge 2017/04
+        <a href="/2017/03/31/retro-computing-challenge-201704.html" rel="permalink">Retro Challenge 2017/04
 </a>
       
     </h2>
     
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
-
-
-
-  1 minute read
-</p>
+  <p class="page__meta">
     
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
     <p class="archive__item-excerpt" itemprop="description">After working with a friend on a Z80 based project I spoke about some SCC2691
 UARTs I had from an old board I had saved from a skip bin some 10 years ago. He...</p>
   </article>
 </div>
 
   
+    
 
 
 
 <div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title" itemprop="headline">
+    <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="https://fromorbit.com/2017/03/30/updating-website.html" rel="permalink">Updating the website…
+        <a href="/2017/03/30/updating-website.html" rel="permalink">Updating the website…
 </a>
       
     </h2>
     
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
-
-
-
-  less than 1 minute read
-</p>
+  <p class="page__meta">
     
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
     <p class="archive__item-excerpt" itemprop="description">Wonders of wonders…
-
 </p>
   </article>
 </div>
 
   
+    
 
 
 
 <div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title" itemprop="headline">
+    <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="https://fromorbit.com/2014/09/21/digital-foosball-two.html" rel="permalink">Digital Foosball Two
+        <a href="/2014/09/21/digital-foosball-two.html" rel="permalink">Digital Foosball Two
 </a>
       
     </h2>
     
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
-
-
-
-  less than 1 minute read
-</p>
+  <p class="page__meta">
     
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
     <p class="archive__item-excerpt" itemprop="description">
 
     
@@ -533,155 +719,175 @@ UARTs I had from an old board I had saved from a skip bin some 10 years ago. He.
 </div>
 
   
+    
 
 
 
 <div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title" itemprop="headline">
+    <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="https://fromorbit.com/2014/09/17/digital-foosball.html" rel="permalink">Digital Foosball
+        <a href="/2014/09/17/digital-foosball.html" rel="permalink">Digital Foosball
 </a>
       
     </h2>
     
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
-
-
-
-  less than 1 minute read
-</p>
+  <p class="page__meta">
     
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
     <p class="archive__item-excerpt" itemprop="description">
 
     
-
 </p>
   </article>
 </div>
 
   
+    
 
 
 
 <div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title" itemprop="headline">
+    <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="https://fromorbit.com/2013/11/21/the-mini-h-quad-v2-0-the-hammer-frame.html" rel="permalink">The Mini H Quad v2.0 “The Hammer” frame
+        <a href="/2013/11/21/the-mini-h-quad-v2-0-the-hammer-frame.html" rel="permalink">The Mini H Quad v2.0 “The Hammer” frame
 </a>
       
     </h2>
     
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
-
-
-
-  less than 1 minute read
-</p>
+  <p class="page__meta">
     
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
     <p class="archive__item-excerpt" itemprop="description">
 
     
-
 </p>
   </article>
 </div>
 
   
+    
 
 
 
 <div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title" itemprop="headline">
+    <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="https://fromorbit.com/2013/10/27/papilio-dx-board.html" rel="permalink">Papilio DX board
+        <a href="/2013/10/27/papilio-dx-board.html" rel="permalink">Papilio DX board
 </a>
       
     </h2>
     
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
-
-
-
-  less than 1 minute read
-</p>
+  <p class="page__meta">
     
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
     <p class="archive__item-excerpt" itemprop="description">
 
     
-
 </p>
   </article>
 </div>
 
   
+    
 
 
 
 <div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title" itemprop="headline">
+    <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="https://fromorbit.com/2013/05/25/initial-zpu-muck-about.html" rel="permalink">Initial ZPU muck-about
+        <a href="/2013/05/25/initial-zpu-muck-about.html" rel="permalink">Initial ZPU muck-about
 </a>
       
     </h2>
     
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
-
-
-
-  less than 1 minute read
-</p>
+  <p class="page__meta">
     
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
     <p class="archive__item-excerpt" itemprop="description">
 
     
-
 </p>
   </article>
 </div>
 
   
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="https://fromorbit.com/2013/05/18/bluetooth-fun.html" rel="permalink">Bluetooth fun
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-
-
-  less than 1 minute read
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">
-
-    
-
-</p>
-  </article>
 </div>
-
 
 
 <nav class="pagination">
@@ -710,12 +916,12 @@ UARTs I had from an old board I had saved from a skip bin some 10 years ago. He.
     
 
     
-      <li><a href="https://fromorbit.com/page2/">2</a></li>
+      <li><a href="/page2/">2</a></li>
     
 
     
     
-      <li><a href="https://fromorbit.com/page2/">Next</a></li></a></li>
+      <li><a href="/page2/">Next</a></li>
     
   </ul>
 </nav>
@@ -724,8 +930,11 @@ UARTs I had from an old board I had saved from a skip bin some 10 years ago. He.
 
   </div>
 </div>
+    </div>
 
-    <div class="page__footer">
+    
+
+    <div id="footer" class="page__footer">
       <footer>
         <!-- start custom footer snippets -->
 
@@ -733,36 +942,25 @@ UARTs I had from an old board I had saved from a skip bin some 10 years ago. He.
         <div class="page__footer-follow">
   <ul class="social-icons">
     
+
     
-      <li><a href="https://twitter.com/alangarf"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+
     
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
     
-    
-      <li><a href="http://github.com/alangarf"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
-    
-    
-    <li><a href="https://fromorbit.com/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2017 Alan Garfield. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2022 Alan Garfield. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
       </footer>
     </div>
 
-    <script src="https://fromorbit.com/assets/js/main.min.js"></script>
+    
+  <script src="/assets/js/main.min.js"></script>
 
 
 
-
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-1867259-2', 'auto');
-  ga('send', 'pageview');
-</script>
 
 
 
