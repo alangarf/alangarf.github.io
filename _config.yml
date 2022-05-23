@@ -14,11 +14,11 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: FromOrbit.com
-title_separator: "|"
-name: "Alan Garfield"
+title_separator: |
+name: Alan Garfield
 description: >
     Generic nerd who dabbles in programming, electronics, CNC and retro computing.
-url: "https://fromorbit.com"
+url: https://fromorbit.com
 baseurl: ""
 timezone: Australia/Sydney
 
@@ -36,7 +36,6 @@ markdown: kramdown
 
 theme: minimal-mistakes-jekyll
 minimal_mistakes_skin: "dark" #"default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
-
 
 paginate: 15 # amount of posts to show
 paginate_path: /page:num/
@@ -73,22 +72,9 @@ comments:
   disqus:
     shortname: "fromorbit-com"      
 
-analytics:
-  provider: "google-universal"
-  google:
-    tracking_id: "UA-1867259-2"    
-
-#header:
-#    image: "/images/fromorbit_header.gif"
-#    height: 120
-
-#disqus:
-#    shortname: fromorbit-com
-
-#google_analytics: UA-1867259-2
-
 exclude: ['README.markdown', 'Gemfile.lock', 'Gemfile', 'Makefile']
 include: ['.nojekyll']
 
-gems:
+plugins:
+  - jekyll-feed
   - jekyll-paginate    
