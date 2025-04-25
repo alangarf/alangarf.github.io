@@ -43,7 +43,7 @@ nights looking around I stumbled upon
 An unassuming utility that builds tool-chains for various processors and setups,
 one of which is m68k based systems. During my search for a new tool-chain I also
 stumbled upon Newlib, a libc alternative that is much lighter than standard
-libc and has abstracted I/O functions out to basically eight system calls.  
+libc and has abstracted I/O functions out to basically eight system calls.
 
 After about 20 minutes with crosstool-ng I had a new Newlib based tool-chain
 ready. Here are the basic steps I took to build the tool-chain:
