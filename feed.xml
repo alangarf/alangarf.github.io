@@ -6,9 +6,26 @@
 </description>
     <link>https://fromorbit.com/</link>
     <atom:link href="https://fromorbit.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 24 May 2022 07:42:46 +1000</pubDate>
-    <lastBuildDate>Tue, 24 May 2022 07:42:46 +1000</lastBuildDate>
+    <pubDate>Fri, 25 Apr 2025 12:26:07 +1000</pubDate>
+    <lastBuildDate>Fri, 25 Apr 2025 12:26:07 +1000</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
+    
+      <item>
+        <title>Alan&apos;s Wishlist</title>
+        <description>&lt;h1 id=&quot;wish-list&quot;&gt;Wish List&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://sydneytools.com.au/product/chicago-air-hush70h-silenced-70l-air-compressor&quot;&gt;Chicago Air HUSH70-H Silenced 70L Air Compressor&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gasrep.com.au/shop/welders/tig-welders/ac-dc-tig-welders/duralloy-da201mweld-multiweld-201-pfc-4in1-mig-welder/&quot;&gt;Duralloy Multiweld 201 PFC 4in1 MIG Welder&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Fri, 25 Apr 2025 00:00:00 +1000</pubDate>
+        <link>https://fromorbit.com/2025/04/25/Alan-wishlist-or-stuff-he-wants-to-remember.html</link>
+        <guid isPermaLink="true">https://fromorbit.com/2025/04/25/Alan-wishlist-or-stuff-he-wants-to-remember.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>45W IRF510 HF Linear Amp</title>
@@ -29,16 +46,17 @@ a tinker like me. It’s open sourced schematic and firmware allows fiddling and
 updating and there is always a wealth of ideas and projects on the internet for
 it.&lt;/p&gt;
 
-&lt;p&gt;With it’s mighty 5W output and using my homebrew EFHW antenna I would make
-countless “CQ” calls hoping someone would hear me. I went on for week if not
-month tweaking this, and tuning that but nobody seemed to ever hear me. So I
+&lt;p&gt;With it’s mighty 5W output and using my home-brew EFHW antenna I would make
+countless “CQ” calls hoping someone would hear me. I went on for weeks if not
+months tweaking this, and tuning that but nobody seemed to ever hear me. So I
 set about creating my first linear amplifier. Inspired by a design in
 “Experimental Methods in RF Design” EMRFD I set about building myself a linear
 amplifier to get above the noise.&lt;/p&gt;
 
 &lt;h2 id=&quot;oh-the-things-you-learn&quot;&gt;“Oh the things you learn”&lt;/h2&gt;
 
-&lt;p&gt;So, I at first figured I’d bash together a prototype on some copper clad and see how it would go…&lt;/p&gt;
+&lt;p&gt;So, I at first figured I’d bash together a prototype on some copper clad and
+see how it would go…&lt;/p&gt;
 
 &lt;figure class=&quot;third &quot;&gt;
   
@@ -68,7 +86,7 @@ amplifier to get above the noise.&lt;/p&gt;
 &lt;p&gt;Suffice to say I was stoked…. then it started oscillating.&lt;/p&gt;
 
 &lt;p&gt;Speaking with my Elmer he suggested my crappy hacked together layout wasn’t
-condusive to a high power amplifier with fairly high gain, and that perhaps I
+conducive to a high power amplifier with fairly high gain, and that perhaps I
 should do a cleaner layout. So I cracked out my CNC mill and Kicad and made a
 prototype.&lt;/p&gt;
 
@@ -104,9 +122,9 @@ prototype.&lt;/p&gt;
   
 &lt;/figure&gt;
 
-&lt;p&gt;Using a large chunk of heatsink I cutdown from an old stage lighting dimmer, I
-mounted the MOSFETs with insulators onto the heatsink. The PCB was then mounted
-on top and the board mounted on stand-offs.&lt;/p&gt;
+&lt;p&gt;Using a large chunk of heat-sink I cut down from an old stage lighting dimmer,
+I mounted the MOSFETs with insulators onto the heat-sink. The PCB was then
+mounted on top and the board mounted on stand-offs.&lt;/p&gt;
 
 &lt;figure class=&quot;third &quot;&gt;
   
@@ -156,8 +174,9 @@ continued.&lt;/p&gt;
   
 &lt;/figure&gt;
 
-&lt;p&gt;Powered it up, connected it to my uBitX and whistled into the mic and received 46dBm (39.8W) of output from 24dBm (250mW) of input!
-I was very very pleased. No oscillations, nice clear output and all looked very good and pleasing.&lt;/p&gt;
+&lt;p&gt;Powered it up, connected it to my uBitX and whistled into the mic and received
+46dBm (39.8W) of output from 24dBm (250mW) of input! I was very very pleased.
+No oscillations, nice clear output and all looked very good and pleasing.&lt;/p&gt;
 
 &lt;h2 id=&quot;now-lets-make-a-proper-version-this-time&quot;&gt;Now let’s make a proper version this time&lt;/h2&gt;
 
@@ -178,7 +197,8 @@ I was very very pleased. No oscillations, nice clear output and all looked very 
   
 &lt;/figure&gt;
 
-&lt;p&gt;A new layout was made, a new board was milled on the CNC and the components transfered across to the new board&lt;/p&gt;
+&lt;p&gt;A new layout was made, a new board was milled on the CNC and the components
+transferred across to the new board&lt;/p&gt;
 
 &lt;figure class=&quot; &quot;&gt;
   
@@ -194,17 +214,6 @@ I was very very pleased. No oscillations, nice clear output and all looked very 
 &lt;p&gt;Worked perfectly. Pushing the input power up to 30V @ 3A the amp will easily
 get to 50W into 50 ohms, but I limit the supply to 28V and that seems to keep
 it around 45W output.&lt;/p&gt;
-
-&lt;figure class=&quot; &quot;&gt;
-  
-    
-    
-    &lt;a href=&quot;https://fromorbit.com/assets/images/2022-05-23/linear16.jpg&quot;&gt;
-        &lt;img src=&quot;https://fromorbit.com/assets/images/2022-05-23/linear16.jpg&quot; sizes=&quot;(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px&quot; srcset=&quot;https://fromorbit.com/assets/images/2022-05-23/320-linear16.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear16.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear16.jpg 1280w&quot; alt=&quot;picture one&quot; /&gt;
-    &lt;/a&gt;
-  
-  
-&lt;/figure&gt;
 
 &lt;h2 id=&quot;time-for-an-txrx-switcher&quot;&gt;Time for an TX/RX switcher&lt;/h2&gt;
 
@@ -280,7 +289,12 @@ this works.&lt;/p&gt;
   
 &lt;/figure&gt;
 
+&lt;p&gt;An old ATX PSU steel case was used to house the amplifier. It was handy because
+it had a 80mm fan already in the box and it was steel, so provided good
+shielding. Not much to look at though.&lt;/p&gt;
+
 &lt;h2 id=&quot;so-hows-it-going&quot;&gt;So, how’s it going?&lt;/h2&gt;
+
 &lt;p&gt;After using it on air for a while and having finally breaking through the noise
 I have had many successful QSOs from all over Australia, NZ and the USA.&lt;/p&gt;
 
@@ -532,8 +546,7 @@ and based on a MC68340 CPU. My main hesitation initially for not using this
 board to begin with was that it was a peripheral integrated CPU, which meant
 the board was basically ROM, RAM, CPU, and power related parts.&lt;/p&gt;
 
-&lt;figure class=&quot;&quot;&gt;
-  &lt;img src=&quot;/assets/images/2017-04-18/axc-em.jpg&quot; alt=&quot;AMX AXC-EM board.&quot; /&gt;&lt;figcaption&gt;
+&lt;figure class=&quot;&quot;&gt;&lt;img src=&quot;/assets/images/2017-04-18/axc-em.jpg&quot; alt=&quot;AMX AXC-EM board.&quot; /&gt;&lt;figcaption&gt;
       The AMX AXC-EM board.
 
     &lt;/figcaption&gt;&lt;/figure&gt;
@@ -805,8 +818,7 @@ serial port.&lt;/p&gt;
 &lt;p&gt;Here is an example showing altering the code, compiling, copying the srecord
 data and running it:&lt;/p&gt;
 
-&lt;figure class=&quot;&quot;&gt;
-  &lt;img src=&quot;/assets/images/2017-04-26/hello_world.gif&quot; alt=&quot;GIF showing the boot-loader in action&quot; /&gt;&lt;figcaption&gt;
+&lt;figure class=&quot;&quot;&gt;&lt;img src=&quot;/assets/images/2017-04-26/hello_world.gif&quot; alt=&quot;GIF showing the boot-loader in action&quot; /&gt;&lt;figcaption&gt;
       Demo showing updating code and pushing it to the bootloader
 
     &lt;/figcaption&gt;&lt;/figure&gt;
@@ -969,7 +981,7 @@ I hope it can read bytes from ROM!&lt;/p&gt;
       </item>
     
       <item>
-        <title>Now we're get'n somewhere! - Retro Challenge 2017/04</title>
+        <title>Now we&apos;re get&apos;n somewhere! - Retro Challenge 2017/04</title>
         <description>&lt;p&gt;After the UV fiasco I’ve finally managed to get around the issue. I did that by
 ditching EPROMs and instead replaced them with EEPROMs!&lt;/p&gt;
 
@@ -1006,8 +1018,7 @@ things of this vintage start to do. I figured it would be safer if I just did
 one set at a time. So I carefully desoldered the two sockets and replaced them
 with machine pin sockets…&lt;/p&gt;
 
-&lt;figure class=&quot;&quot;&gt;
-  &lt;img src=&quot;/assets/images/2017-04-08/sockets_gone.jpg&quot; alt=&quot;Removed the sockets&quot; /&gt;&lt;figcaption&gt;
+&lt;figure class=&quot;&quot;&gt;&lt;img src=&quot;/assets/images/2017-04-08/sockets_gone.jpg&quot; alt=&quot;Removed the sockets&quot; /&gt;&lt;figcaption&gt;
       Old sockets be gone!
 
     &lt;/figcaption&gt;&lt;/figure&gt;
@@ -1021,8 +1032,7 @@ high voltage to do anything.&lt;/p&gt;
 line being connected to A14 was to add another layer of machine pins with the
 sockets missing.&lt;/p&gt;
 
-&lt;figure class=&quot;&quot;&gt;
-  &lt;img src=&quot;/assets/images/2017-04-08/adapters_in_place.jpg&quot; alt=&quot;Adapters in place&quot; /&gt;&lt;figcaption&gt;
+&lt;figure class=&quot;&quot;&gt;&lt;img src=&quot;/assets/images/2017-04-08/adapters_in_place.jpg&quot; alt=&quot;Adapters in place&quot; /&gt;&lt;figcaption&gt;
       Adapters in place
 
     &lt;/figcaption&gt;&lt;/figure&gt;
@@ -1106,8 +1116,7 @@ I can get parts from them.&lt;/p&gt;
 for these new chips. I figured I’d just use only the first 8KB of them and drop
 them into the existing sockets I had for the 28C64s.&lt;/p&gt;
 
-&lt;figure class=&quot;&quot;&gt;
-  &lt;img src=&quot;/assets/images/2017-04-08/at28c256s_in_place.jpg&quot; alt=&quot;AT28C256s in place&quot; /&gt;&lt;figcaption&gt;
+&lt;figure class=&quot;&quot;&gt;&lt;img src=&quot;/assets/images/2017-04-08/at28c256s_in_place.jpg&quot; alt=&quot;AT28C256s in place&quot; /&gt;&lt;figcaption&gt;
       AT28C256s in place
 
     &lt;/figcaption&gt;&lt;/figure&gt;
@@ -1128,8 +1137,7 @@ position which now I know has A16 attached to it!&lt;/p&gt;
 &lt;p&gt;I powered up the board with the new EEPROMs and the updated code and &lt;strong&gt;success&lt;/strong&gt;
 it blinked perfectly, a nice solid consistent blink…&lt;/p&gt;
 
-&lt;figure class=&quot;&quot;&gt;
-  &lt;img src=&quot;/assets/images/2017-04-08/blinking1.gif&quot; alt=&quot;Blink you good thing!&quot; /&gt;&lt;figcaption&gt;
+&lt;figure class=&quot;&quot;&gt;&lt;img src=&quot;/assets/images/2017-04-08/blinking1.gif&quot; alt=&quot;Blink you good thing!&quot; /&gt;&lt;figcaption&gt;
       Blink you good thing!
 
     &lt;/figcaption&gt;&lt;/figure&gt;
@@ -1250,7 +1258,7 @@ files from: &lt;a href=&quot;https://github.com/alangarf/amx_axc_kicad&quot;&gt;
 
 .top:
     move.b #0x0E, %d0   /* set Q7 to low in the addressable latch mode */
-    move.b %d0, (%a0)   /* write to 'LS259 */
+    move.b %d0, (%a0)   /* write to &apos;LS259 */
 
     move.l #DELAY, %d1
 .delay1:
@@ -1261,7 +1269,7 @@ files from: &lt;a href=&quot;https://github.com/alangarf/amx_axc_kicad&quot;&gt;
 
 .delay1end:
     move.b #0x0F, %d0   /* set Q7 to high in the addressable latch mode */
-    move.b %d0, (%a0)   /* write to 'LS259 */
+    move.b %d0, (%a0)   /* write to &apos;LS259 */
 
     move.l #DELAY, %d1
 .delay2:
@@ -1291,9 +1299,9 @@ files from: &lt;a href=&quot;https://github.com/alangarf/amx_axc_kicad&quot;&gt;
 &lt;span class=&quot;n&quot;&gt;even_fn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;even-{}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;odd_fn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;odd-{}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'rb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;even_fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'wb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;even&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;odd_fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'wb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;odd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;rb&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;even_fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;wb&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;even&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;odd_fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;wb&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;odd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
 
             &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SEEK_END&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
             &lt;span class=&quot;n&quot;&gt;src_size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tell&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
@@ -1331,8 +1339,7 @@ Verification failed at 0x200: 0x20 != 0x00
 
 &lt;p&gt;Hunting around the garage for any source of UV I knew my search was futile. I even resorted to madness when I found a big bag of “UV” LEDs.&lt;/p&gt;
 
-&lt;figure class=&quot;&quot;&gt;
-  &lt;img src=&quot;/assets/images/2017-04-06/uv_madness.png&quot; alt=&quot;Silly pic of UV LED trying to erase EPROM&quot; /&gt;&lt;figcaption&gt;
+&lt;figure class=&quot;&quot;&gt;&lt;img src=&quot;/assets/images/2017-04-06/uv_madness.png&quot; alt=&quot;Silly pic of UV LED trying to erase EPROM&quot; /&gt;&lt;figcaption&gt;
       UGH, my world for some UV
 
     &lt;/figcaption&gt;&lt;/figure&gt;
@@ -1437,9 +1444,9 @@ parser.add_argument(&quot;even_file&quot;)
 parser.add_argument(&quot;output&quot;)
 args = parser.parse_args()
 
-with open(args.output, 'wb') as out:
-  with open(args.odd_file, 'rb') as odd:
-    with open(args.even_file, 'rb') as even:
+with open(args.output, &apos;wb&apos;) as out:
+  with open(args.odd_file, &apos;rb&apos;) as odd:
+    with open(args.even_file, &apos;rb&apos;) as even:
 
       odd.seek(0, os.SEEK_END)
       odd_size = odd.tell()
@@ -1448,7 +1455,7 @@ with open(args.output, 'wb') as out:
       even_size = even.tell()
 
       if (odd_size != even_size):
-        exit(&quot;ROM images aren't the same size!&quot;)
+        exit(&quot;ROM images aren&apos;t the same size!&quot;)
 
       odd.seek(0)
       even.seek(0)
@@ -1619,32 +1626,6 @@ the challenge. Just getting a ROM monitor etc will be hard enough. :)&lt;/p&gt;
         <pubDate>Fri, 31 Mar 2017 00:00:00 +1100</pubDate>
         <link>https://fromorbit.com/2017/03/31/retro-computing-challenge-201704.html</link>
         <guid isPermaLink="true">https://fromorbit.com/2017/03/31/retro-computing-challenge-201704.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Updating the website...</title>
-        <description>&lt;h1 id=&quot;wonders-of-wonders&quot;&gt;Wonders of wonders…&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2017-03-30/successkid.jpg&quot; alt=&quot;Success Kid&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Yes my website is being updated once again.&lt;/p&gt;
-
-&lt;p&gt;After about 5 aborted attempts to rebuild all my old content and get this site up and going again. I’ve finally decided to just start making new content, and if I find the time (and the will) I’ll periodically rebuild the old stuff. The mountain of work to convert (and fix) all the old content was always the largest hurdle to getting this site going again. But NO MORE! No more excuses.&lt;/p&gt;
-
-&lt;p&gt;I now can write content in vim, push it to github and it’s done. No wordpress, no VPS to admin, no image libraries to update (actually I still have that problem dang it).&lt;/p&gt;
-
-&lt;p&gt;Anyway, new year, new content. Who knows it might even stick!&lt;/p&gt;
-
-&lt;p&gt;Cheers,&lt;/p&gt;
-
-&lt;p&gt;-A.&lt;/p&gt;
-
-</description>
-        <pubDate>Thu, 30 Mar 2017 00:00:00 +1100</pubDate>
-        <link>https://fromorbit.com/2017/03/30/updating-website.html</link>
-        <guid isPermaLink="true">https://fromorbit.com/2017/03/30/updating-website.html</guid>
         
         
       </item>

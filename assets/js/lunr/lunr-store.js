@@ -172,4 +172,10 @@ var store = [{
         "tags": [],
         "url": "/2022/05/23/IRF510-linear-amp.html",
         "teaser": "/assets/images/2022-05-23/linear16.jpg"
+      },{
+        "title": "Alan's Wishlist",
+        "excerpt":"Wish List      Chicago Air HUSH70-H Silenced 70L Air Compressor   Duralloy Multiweld 201 PFC 4in1 MIG Welder   ","categories": [],
+        "tags": [],
+        "url": "/2025/04/25/Alan-wishlist-or-stuff-he-wants-to-remember.html",
+        "teaser": "/assets/images/500x300.png"
       }]

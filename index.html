@@ -1,10 +1,11 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
-  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Minimal Mistakes Jekyll Theme 4.27.0 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
 -->
+
 <html lang="en" class="no-js">
   <head>
     <meta charset="utf-8">
@@ -58,16 +59,17 @@
   <link rel="next" href="https://fromorbit.com/page2/">
 
 
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    
-      "@type": "Person",
-      "name": "Alan Garfield",
-      "url": "https://fromorbit.com/"
-    
-  }
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+    "name": "Alan Garfield",
+    "url": "https://fromorbit.com/"
+}
 </script>
+
+
 
 
 
@@ -80,19 +82,17 @@
 
 
   <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="FromOrbit.com Feed">
-
-
-<!-- https://t.co/dKP3o1e -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script>
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
 </script>
 
 <!-- For all browsers -->
 <link rel="stylesheet" href="/assets/css/main.css">
-<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
 
 
 
@@ -104,7 +104,7 @@
 
   </head>
 
-  <body class="layout--home">
+  <body class="layout--home" dir="ltr">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -112,10 +112,6 @@
     <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
   </ul>
 </nav>
-
-    <!--[if lt IE 9]>
-<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
-<![endif]-->
 
     
 
@@ -152,22 +148,22 @@
   
 
 
-<div itemscope itemtype="https://schema.org/Person">
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
 
   
     <div class="author__avatar">
-      
-        <img src="/assets/bio.jpg" alt="Alan Garfield" itemprop="image">
-      
+      <a href="https://fromorbit.com/">
+        <img src="/assets/bio.jpg" alt="Alan Garfield" itemprop="image" class="u-photo">
+      </a>
     </div>
   
 
   <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://fromorbit.com/" itemprop="url">Alan Garfield</a>
+    </h3>
     
-      <h3 class="author__name" itemprop="name">Alan Garfield</h3>
-    
-    
-      <div class="author__bio" itemprop="description">
+      <div class="author__bio p-note" itemprop="description">
         <p>Generic nerd who dabbles in programming, electronics, CNC and retro computing.</p>
 
       </div>
@@ -189,7 +185,7 @@
 
       
         <li>
-          <a href="https://twitter.com/alangarf" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://twitter.com/alangarf" itemprop="sameAs" rel="nofollow noopener noreferrer me">
             <i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span>
           </a>
         </li>
@@ -209,7 +205,7 @@
 
       
         <li>
-          <a href="https://github.com/alangarf" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://github.com/alangarf" itemprop="sameAs" rel="nofollow noopener noreferrer me">
             <i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span>
           </a>
         </li>
@@ -232,7 +228,7 @@
       
         
           <li>
-            <a href="https://www.youtube.com/user/randomgarfield" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <a href="https://www.youtube.com/user/randomgarfield" itemprop="sameAs" rel="nofollow noopener noreferrer me">
               <i class="fab fa-fw fa-youtube" aria-hidden="true"></i><span class="label">YouTube</span>
             </a>
           </li>
@@ -251,7 +247,7 @@
 
       <!--
   <li>
-    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
       <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
     </a>
   </li>
@@ -278,7 +274,48 @@
 
 <div class="entries-list">
   
+
+
+
+
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2025/04/25/Alan-wishlist-or-stuff-he-wants-to-remember.html" rel="permalink">Alan’s Wishlist
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">MOAR STUFF
+</p>
+  </article>
+</div>
+
 
 
 
@@ -317,8 +354,6 @@
   </article>
 </div>
 
-  
-    
 
 
 
@@ -357,8 +392,6 @@
   </article>
 </div>
 
-  
-    
 
 
 
@@ -397,8 +430,6 @@
   </article>
 </div>
 
-  
-    
 
 
 
@@ -437,8 +468,6 @@
   </article>
 </div>
 
-  
-    
 
 
 
@@ -477,8 +506,6 @@
   </article>
 </div>
 
-  
-    
 
 
 
@@ -517,8 +544,6 @@
   </article>
 </div>
 
-  
-    
 
 
 
@@ -557,8 +582,6 @@
   </article>
 </div>
 
-  
-    
 
 
 
@@ -596,8 +619,6 @@
   </article>
 </div>
 
-  
-    
 
 
 
@@ -636,8 +657,6 @@ UARTs I had from an old board I had saved from a skip bin some 10 years ago. He.
   </article>
 </div>
 
-  
-    
 
 
 
@@ -676,8 +695,6 @@ UARTs I had from an old board I had saved from a skip bin some 10 years ago. He.
   </article>
 </div>
 
-  
-    
 
 
 
@@ -718,8 +735,6 @@ UARTs I had from an old board I had saved from a skip bin some 10 years ago. He.
   </article>
 </div>
 
-  
-    
 
 
 
@@ -760,8 +775,6 @@ UARTs I had from an old board I had saved from a skip bin some 10 years ago. He.
   </article>
 </div>
 
-  
-    
 
 
 
@@ -802,8 +815,6 @@ UARTs I had from an old board I had saved from a skip bin some 10 years ago. He.
   </article>
 </div>
 
-  
-    
 
 
 
@@ -844,53 +855,13 @@ UARTs I had from an old board I had saved from a skip bin some 10 years ago. He.
   </article>
 </div>
 
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/2013/05/25/initial-zpu-muck-about.html" rel="permalink">Initial ZPU muck-about
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-
-    
-</p>
-  </article>
-</div>
-
-  
 </div>
 
 
+  
+    
 <nav class="pagination">
+  
   
   <ul>
     
@@ -927,9 +898,14 @@ UARTs I had from an old board I had saved from a skip bin some 10 years ago. He.
 </nav>
 
 
+  
+
+
 
   </div>
 </div>
+
+      
     </div>
 
     
@@ -951,14 +927,13 @@ UARTs I had from an old board I had saved from a skip bin some 10 years ago. He.
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2022 Alan Garfield. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2025 <a href="https://fromorbit.com">FromOrbit.com</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>
 
     
   <script src="/assets/js/main.min.js"></script>
-
 
 
 

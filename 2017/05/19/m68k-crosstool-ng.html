@@ -1,47 +1,37 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.4.1 by Michael Rose
-  Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
+  Minimal Mistakes Jekyll Theme 4.27.0 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
-  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
 -->
+
 <html lang="en" class="no-js">
   <head>
     <meta charset="utf-8">
 
-<!-- begin SEO -->
-
-
-
-
-
-
-
-
-
-<title>            More fun with the m68k      FromOrbit.com      </title>
-
-
-
-
+<!-- begin _includes/seo.html --><title>More fun with the m68k - FromOrbit.com</title>
 <meta name="description" content="Finally I achieved my goal of getting a Mandelbrot routine running on this m68k board and I learned a lot along the way">
 
 
+  <meta name="author" content="Alan Garfield">
+  
+  <meta property="article:author" content="Alan Garfield">
+  
 
 
-<meta name="author" content="Alan Garfield">
-
+<meta property="og:type" content="article">
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="FromOrbit.com">
 <meta property="og:title" content="More fun with the m68k">
-
-
-  <link rel="canonical" href="https://fromorbit.com/2017/05/19/m68k-crosstool-ng.html">
-  <meta property="og:url" content="https://fromorbit.com/2017/05/19/m68k-crosstool-ng.html">
-
+<meta property="og:url" content="https://fromorbit.com/2017/05/19/m68k-crosstool-ng.html">
 
 
   <meta property="og:description" content="Finally I achieved my goal of getting a Mandelbrot routine running on this m68k board and I learned a lot along the way">
+
+
+
+  <meta property="og:image" content="https://fromorbit.com/assets/images/2017-04-18/mc68340.jpg">
 
 
 
@@ -51,25 +41,16 @@
   <meta name="twitter:url" content="https://fromorbit.com/2017/05/19/m68k-crosstool-ng.html">
 
   
-    <meta name="twitter:card" content="summary">
-    
-      <meta name="twitter:image" content="https://fromorbit.com/assets/images/2017-04-18/mc68340.jpg">
-    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://fromorbit.com/assets/images/2017-04-18/mc68340.jpg">
   
 
   
-    <meta name="twitter:creator" content="@Alan Garfield">
+    <meta name="twitter:creator" content="@alangarf">
   
 
 
 
-
-
-  <meta property="og:image" content="https://fromorbit.com/assets/images/2017-04-18/mc68340.jpg">
-
-
-
-  <meta property="og:type" content="article">
   <meta property="article:published_time" content="2017-05-19T00:00:00+10:00">
 
 
@@ -77,6 +58,7 @@
 
 
 
+<link rel="canonical" href="https://fromorbit.com/2017/05/19/m68k-crosstool-ng.html">
 
 
 
@@ -84,67 +66,73 @@
 
 
 
-<!-- end SEO -->
 
 
-<link href="https://fromorbit.com/feed.xml" type="application/atom+xml" rel="alternate" title="FromOrbit.com Feed">
 
-<!-- http://t.co/dKP3o1e -->
-<meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="FromOrbit.com Feed">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script>
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
 </script>
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="https://fromorbit.com/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
 
-<!--[if lte IE 9]>
-  <style>
-    /* old IE unsupported flexbox fixes */
-    .greedy-nav .site-title {
-      padding-right: 3em;
-    }
-    .greedy-nav button {
-      position: absolute;
-      top: 0;
-      right: 0;
-      height: 100%;
-    }
-  </style>
-<![endif]-->
 
-<meta http-equiv="cleartype" content="on">
+
     <!-- start custom head snippets -->
 
-<!-- insert favicons. use http://realfavicongenerator.net/ -->
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
 
 <!-- end custom head snippets -->
+
   </head>
 
-  <body class="layout--single">
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
 
-    <!--[if lt IE 9]>
-<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
-<![endif]-->
-    <div class="masthead">
+    
+
+<div class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
-        <a class="site-title" href="https://fromorbit.com/">FromOrbit.com</a>
-        <ul class="visible-links">
+        
+        <a class="site-title" href="/">
+          FromOrbit.com
           
-        </ul>
-        <button><div class="navicon"></div></button>
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
         <ul class="hidden-links hidden"></ul>
       </nav>
     </div>
   </div>
 </div>
 
-    
+
+    <div class="initial-content">
+      
   
 
 
@@ -154,11 +142,11 @@
 
 
 <div class="page__hero--overlay"
-  style=" background-image: linear-gradient(rgba(32, 62, 91, 0.8), rgba(32, 62, 91, 0.8)), url('https://fromorbit.com/assets/images/2017-04-18/mc68340.jpg');"
+  style=" background-image: linear-gradient(rgba(32, 62, 91, 0.8), rgba(32, 62, 91, 0.8)), url('/assets/images/2017-04-18/mc68340.jpg');"
 >
   
     <div class="wrapper">
-      <h1 class="page__title" itemprop="headline">
+      <h1 id="page-title" class="page__title" itemprop="headline">
         
           More fun with the m68k
 
@@ -169,6 +157,26 @@
 </p>
       
       
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          6 minute read
+        
+      </span>
+    
+  </p>
+
+
       
     </div>
   
@@ -179,27 +187,33 @@
 
 
 
+
+
 <div id="main" role="main">
   
   <div class="sidebar sticky">
   
 
-<div itemscope itemtype="http://schema.org/Person">
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
 
   
     <div class="author__avatar">
-      
-        <img src="https://fromorbit.com/assets/bio.jpg" class="author__avatar" alt="Alan Garfield" itemprop="image">
-      
+      <a href="https://fromorbit.com/">
+        <img src="/assets/bio.jpg" alt="Alan Garfield" itemprop="image" class="u-photo">
+      </a>
     </div>
   
 
   <div class="author__content">
-    <h3 class="author__name" itemprop="name">Alan Garfield</h3>
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://fromorbit.com/" itemprop="url">Alan Garfield</a>
+    </h3>
     
-      <p class="author__bio" itemprop="description">
-        Generic nerd who dabbles in programming, electronics, CNC and retro computing.
-      </p>
+      <div class="author__bio p-note" itemprop="description">
+        <p>Generic nerd who dabbles in programming, electronics, CNC and retro computing.</p>
+
+      </div>
     
   </div>
 
@@ -215,9 +229,11 @@
       
 
       
+
+      
         <li>
-          <a href="https://twitter.com/alangarf" itemprop="sameAs">
-            <i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter
+          <a href="https://twitter.com/alangarf" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+            <i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span>
           </a>
         </li>
       
@@ -235,13 +251,13 @@
       
 
       
-
-      
         <li>
-          <a href="https://github.com/alangarf" itemprop="sameAs">
-            <i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub
+          <a href="https://github.com/alangarf" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+            <i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span>
           </a>
         </li>
+      
+
       
 
       
@@ -259,8 +275,8 @@
       
         
           <li>
-            <a href="https://www.youtube.com/user/randomgarfield" itemprop="sameAs">
-              <i class="fa fa-fw fa-youtube-square" aria-hidden="true"></i> YouTube
+            <a href="https://www.youtube.com/user/randomgarfield" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+              <i class="fab fa-fw fa-youtube" aria-hidden="true"></i><span class="label">YouTube</span>
             </a>
           </li>
         
@@ -278,8 +294,8 @@
 
       <!--
   <li>
-    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
-      <i class="fa fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
     </a>
   </li>
 -->
@@ -291,16 +307,18 @@
   </div>
 
 
-  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="More fun with the m68k">
     <meta itemprop="description" content="Finally I achieved my goal of getting a Mandelbrot routine running on this m68k board and I learned a lot along the way">
-    <meta itemprop="datePublished" content="May 19, 2017">
+    <meta itemprop="datePublished" content="2017-05-19T00:00:00+10:00">
     
 
     <div class="page__inner-wrap">
       
 
       <section class="page__content" itemprop="text">
+        
         <h1 id="the-last-days-of-the-retro-challenge">The last days of the Retro Challenge</h1>
 
 <p>The Retro Challenge behind me, and not actually achieving my goal I was pretty
@@ -341,55 +359,52 @@ libc and has abstracted I/O functions out to basically eight system calls.</p>
 <p>After about 20 minutes with crosstool-ng I had a new Newlib based tool-chain
 ready. Here are the basic steps I took to build the tool-chain:</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c"># Get the latest crosstool-ng</span>
-<span class="gp">$ </span>git clone https://github.com/crosstool-ng/crosstool-ng
-<span class="gp">$ </span><span class="nb">cd </span>crosstool-ng
-<span class="gp">$ </span>./bootstrap
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Get the latest crosstool-ng</span>
+<span class="nv">$ </span>git clone https://github.com/crosstool-ng/crosstool-ng
+<span class="nv">$ </span><span class="nb">cd </span>crosstool-ng
+<span class="nv">$ </span>./bootstrap
 
 <span class="c"># Build the crosstool-ng</span>
-<span class="gp">$ </span>./configure --prefix<span class="o">=</span>/opt/crosstool-ng
-<span class="gp">$ </span>make
-<span class="gp">$ </span>make install
-<span class="gp">$ </span><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">PATH</span><span class="k">}</span><span class="s2">:/opt/crosstool-ng/bin"</span>
-</code></pre>
-</div>
+<span class="nv">$ </span>./configure <span class="nt">--prefix</span><span class="o">=</span>/opt/crosstool-ng
+<span class="nv">$ </span>make
+<span class="nv">$ </span>make <span class="nb">install</span>
+<span class="nv">$ </span><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">PATH</span><span class="k">}</span><span class="s2">:/opt/crosstool-ng/bin"</span>
+</code></pre></div></div>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c"># Make a working dir</span>
-<span class="gp">$ </span>mkdir work-dir
-<span class="gp">$ </span><span class="nb">cd </span>work-dir
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Make a working dir</span>
+<span class="nv">$ </span><span class="nb">mkdir </span>work-dir
+<span class="nv">$ </span><span class="nb">cd </span>work-dir
 
 <span class="c"># I used the m68k-unknown-elf "sample" as it had all I needed</span>
-<span class="gp">$ </span>ct-ng m68k-unknown-elf
-<span class="gp">$ </span>ct-ng menuconfig
-<span class="gp">$ </span>ct-ng build
-</code></pre>
-</div>
+<span class="nv">$ </span>ct-ng m68k-unknown-elf
+<span class="nv">$ </span>ct-ng menuconfig
+<span class="nv">$ </span>ct-ng build
+</code></pre></div></div>
 
-<p>After a little while you’ll end up with a <code class="highlighter-rouge">x-tools</code> directory with all the
+<p>After a little while you’ll end up with a <code class="language-plaintext highlighter-rouge">x-tools</code> directory with all the
 tools you need!</p>
 
 <h1 id="time-to-test-the-compiler">Time to test the compiler</h1>
 
 <p>I made a simple project that simply setup the UART and output “Hello world”,
-the linker was setup to operate purely from RAM so the <code class="highlighter-rouge">.data</code> didn’t need to
-be copied and the <code class="highlighter-rouge">.bss</code> was already cleared. I needed to implement the basic
+the linker was setup to operate purely from RAM so the <code class="language-plaintext highlighter-rouge">.data</code> didn’t need to
+be copied and the <code class="language-plaintext highlighter-rouge">.bss</code> was already cleared. I needed to implement the basic
 functions that Newlib mandates :</p>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">close</span> <span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">);</span>
-<span class="kt">int</span> <span class="n">fstat</span> <span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">,</span> <span class="k">struct</span> <span class="n">stat</span> <span class="o">*</span><span class="n">buf</span><span class="p">);</span>
-<span class="kt">int</span> <span class="n">getpid</span><span class="p">();</span>
-<span class="kt">int</span> <span class="n">isatty</span> <span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">);</span>
-<span class="kt">int</span> <span class="n">kill</span> <span class="p">(</span><span class="kt">int</span> <span class="n">pid</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sig</span><span class="p">);</span>
-<span class="kt">off_t</span> <span class="n">lseek</span> <span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">,</span> <span class="kt">off_t</span> <span class="n">offset</span><span class="p">,</span> <span class="kt">int</span> <span class="n">whence</span><span class="p">);</span>
-<span class="kt">int</span> <span class="n">open</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mode</span><span class="p">);</span>
-<span class="kt">void</span> <span class="n">print</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">ptr</span><span class="p">);</span>
-<span class="kt">void</span> <span class="n">putnum</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">num</span><span class="p">);</span>
-<span class="kt">void</span> <span class="o">*</span><span class="n">sbrk</span> <span class="p">(</span><span class="kt">int</span> <span class="n">nbytes</span><span class="p">);</span>
-<span class="kt">int</span> <span class="n">stat</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">path</span><span class="p">,</span> <span class="k">struct</span> <span class="n">stat</span> <span class="o">*</span><span class="n">buf</span><span class="p">);</span>
-<span class="kt">int</span> <span class="n">unlink</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span> <span class="n">path</span><span class="p">);</span>
-<span class="kt">int</span> <span class="n">write</span> <span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nbytes</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">close</span> <span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">fstat</span> <span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">,</span> <span class="k">struct</span> <span class="n">stat</span> <span class="o">*</span><span class="n">buf</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">getpid</span><span class="p">();</span>
+<span class="kt">int</span> <span class="nf">isatty</span> <span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">kill</span> <span class="p">(</span><span class="kt">int</span> <span class="n">pid</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sig</span><span class="p">);</span>
+<span class="kt">off_t</span> <span class="nf">lseek</span> <span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">,</span> <span class="kt">off_t</span> <span class="n">offset</span><span class="p">,</span> <span class="kt">int</span> <span class="n">whence</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">open</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mode</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">print</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">ptr</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">putnum</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">num</span><span class="p">);</span>
+<span class="kt">void</span> <span class="o">*</span><span class="nf">sbrk</span> <span class="p">(</span><span class="kt">int</span> <span class="n">nbytes</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">stat</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">path</span><span class="p">,</span> <span class="k">struct</span> <span class="n">stat</span> <span class="o">*</span><span class="n">buf</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">unlink</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span> <span class="n">path</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">write</span> <span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nbytes</span><span class="p">);</span>
+</code></pre></div></div>
 
 <p>You don’t need to implement all these functions, initially I just implemented
 each one I needed as the compiler complained. I found for a simple UART output
@@ -421,8 +436,8 @@ Package) for this board.</p>
 <h1 id="an-amx-axc-em-bsp">An AMX AXC-EM BSP</h1>
 
 <p>To start with this seemed like it would be much harder until I found the source
-for Newlib itself, and the <code class="highlighter-rouge">libgloss</code> library. Inside the source for the <code class="highlighter-rouge">m68k</code>
-in <code class="highlighter-rouge">libgloss</code> it had implementations of BSPs for other m68k based boards.</p>
+for Newlib itself, and the <code class="language-plaintext highlighter-rouge">libgloss</code> library. Inside the source for the <code class="language-plaintext highlighter-rouge">m68k</code>
+in <code class="language-plaintext highlighter-rouge">libgloss</code> it had implementations of BSPs for other m68k based boards.</p>
 
 <p>Using the details of a few of these boards I was able to piece together what
 was required to make a BSP for this board. With a little bit of testing and
@@ -432,7 +447,7 @@ for this board almost trivial!</p>
 <p>I’ve pushed this BSP to github: (AMX AXC-EM BSP)[https://github.com/alangarf/axc-em-bsp]</p>
 
 <p>To use it all you need to do is point the linker of your project to  the
-resulting <code class="highlighter-rouge">libamx.a</code> and use the linker script for linking and you project
+resulting <code class="language-plaintext highlighter-rouge">libamx.a</code> and use the linker script for linking and you project
 should just work.</p>
 
 <p>I’m slowly adding more details for the peripherals of the MC68340 as I go, but
@@ -505,201 +520,256 @@ controller with some ADCs? You’ll have to wait and see.</p>
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-05-19T00:00:00+10:00">May 19, 2017</time></p>
-        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2017-05-19T00:00:00+10:00">May 19, 2017</time></p>
+
       </footer>
 
       <section class="page__share">
-  
+  <h4 class="page__share-title">Share on</h4>
 
-  <a href="https://twitter.com/intent/tweet?via=alangarf&text=More fun with the m68k https://fromorbit.com/2017/05/19/m68k-crosstool-ng.html" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://x.com/intent/tweet?via=alangarf&text=More+fun+with+the+m68k%20https%3A%2F%2Ffromorbit.com%2F2017%2F05%2F19%2Fm68k-crosstool-ng.html" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
+    <i class="fas fa-fw fa-share-alt" aria-hidden="true"></i><span> X</span>
+  </a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https://fromorbit.com/2017/05/19/m68k-crosstool-ng.html" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ffromorbit.com%2F2017%2F05%2F19%2Fm68k-crosstool-ng.html" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
+    <i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span>
+  </a>
 
-  <a href="https://plus.google.com/share?url=https://fromorbit.com/2017/05/19/m68k-crosstool-ng.html" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
-
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://fromorbit.com/2017/05/19/m68k-crosstool-ng.html" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://fromorbit.com/2017/05/19/m68k-crosstool-ng.html" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
+    <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span>
+  </a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="https://fromorbit.com/2017/04/26/m68k-environment-rc201704.html" class="pagination--pager" title="m68k Environment - Retro Challenge 2017/04
-">Previous</a>
+      <a href="/2017/04/26/m68k-environment-rc201704.html" class="pagination--pager" title="m68k Environment - Retro Challenge 2017/04">Previous</a>
     
     
-      <a href="#" class="pagination--pager disabled">Next</a>
+      <a href="/2022/05/23/IRF510-linear-amp.html" class="pagination--pager" title="45W IRF510 HF Linear Amp">Next</a>
     
   </nav>
+
 
     </div>
 
     
-      <div class="page__comments">
+      
+        <div class="page__comments">
   
   
-    <h4 class="page__comments-title">Comments</h4>
-    <section id="disqus_thread"></section>
-  
+      <h4 class="page__comments-title">Comments</h4>
+      <section id="disqus_thread"></section>
+    
 </div>
 
+      
     
   </article>
 
   
   
-    <div class="page__related">
-      <h4 class="page__related-title">You May Also Enjoy</h4>
-      <div class="grid__wrapper">
-        
-          
+    
+<div class="page__related">
+  
+  <h2 class="page__related-title">You May Also Enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
 
 
 
 <div class="grid__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
       <div class="archive__item-teaser">
-        <img src=
-          
-            "https://fromorbit.com/assets/images/2017-04-18/mc68340.jpg"
-          
-          alt="">
+        <img src="/assets/images/500x300.png" alt="">
       </div>
     
-    <h2 class="archive__item-title" itemprop="headline">
+    <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="https://fromorbit.com/2017/04/26/m68k-environment-rc201704.html" rel="permalink">m68k Environment - Retro Challenge 2017/04
+        <a href="/2025/04/25/Alan-wishlist-or-stuff-he-wants-to-remember.html" rel="permalink">Alan’s Wishlist
 </a>
       
     </h2>
     
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
-
-
-
-  8 minute read
-</p>
+  <p class="page__meta">
     
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">MOAR STUFF
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/2022-05-23/linear16.jpg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2022/05/23/IRF510-linear-amp.html" rel="permalink">45W IRF510 HF Linear Amp
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">The little amp that could!
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/2017-04-18/mc68340.jpg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2017/04/26/m68k-environment-rc201704.html" rel="permalink">m68k Environment - Retro Challenge 2017/04
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          8 minute read
+        
+      </span>
+    
+  </p>
+
+
     <p class="archive__item-excerpt" itemprop="description">Getting down and dirty with make and gcc.
 </p>
   </article>
 </div>
-        
-          
+
+    
+      
+      
 
 
 
 <div class="grid__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
       <div class="archive__item-teaser">
-        <img src=
-          
-            "https://fromorbit.com/assets/images/2017-04-18/axc-em.jpg"
-          
-          alt="">
+        <img src="/assets/images/2017-04-18/axc-em.jpg" alt="">
       </div>
     
-    <h2 class="archive__item-title" itemprop="headline">
+    <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="https://fromorbit.com/2017/04/18/rinse-repeat-rc201704.html" rel="permalink">Rinse Repeat. :( - Retro Challenge 2017/04
+        <a href="/2017/04/18/rinse-repeat-rc201704.html" rel="permalink">Rinse Repeat. :( - Retro Challenge 2017/04
 </a>
       
     </h2>
     
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
-
-
-
-  4 minute read
-</p>
+  <p class="page__meta">
     
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
     <p class="archive__item-excerpt" itemprop="description">Over, and over, and over, and over, and over, and over again.
 </p>
   </article>
 </div>
-        
-          
 
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     
-      <div class="archive__item-teaser">
-        <img src=
-          
-            "https://fromorbit.com/assets/images/2017-04-08/adapters_in_place.jpg"
-          
-          alt="">
-      </div>
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="https://fromorbit.com/2017/04/08/gettin-somewhere-rc201704.html" rel="permalink">Now we’re get’n somewhere! - Retro Challenge 2017/04
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-
-
-  7 minute read
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">Things are starting to be coming up Milhouse!
-</p>
-  </article>
+  </div>
 </div>
-        
-          
 
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    
-      <div class="archive__item-teaser">
-        <img src=
-          
-            "https://fromorbit.com/assets/images/2017-03-31/m68k.png"
-          
-          alt="">
-      </div>
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="https://fromorbit.com/2017/04/06/m68k-why-no-uv-rc201704.html" rel="permalink">Ugh! I need UV - Retro Challenge 2017/04
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-
-
-  3 minute read
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">Who knew you’d need UV to erase EPROMs! Derp.
-</p>
-  </article>
-</div>
-        
-      </div>
-    </div>
+  
   
 </div>
 
+      
+    </div>
 
-    <div class="page__footer">
+    
+
+    <div id="footer" class="page__footer">
       <footer>
         <!-- start custom footer snippets -->
 
@@ -707,66 +777,46 @@ controller with some ADCs? You’ll have to wait and see.</p>
         <div class="page__footer-follow">
   <ul class="social-icons">
     
+
     
-      <li><a href="https://twitter.com/alangarf"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+
     
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
     
-    
-      <li><a href="http://github.com/alangarf"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
-    
-    
-    <li><a href="https://fromorbit.com/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2017 Alan Garfield. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2025 <a href="https://fromorbit.com">FromOrbit.com</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
       </footer>
     </div>
 
-    <script src="https://fromorbit.com/assets/js/main.min.js"></script>
+    
+  <script src="/assets/js/main.min.js"></script>
 
 
 
 
+
+
+
+    
   <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-1867259-2', 'auto');
-  ga('send', 'pageview');
-</script>
-
-
-
-
-
+    var disqus_config = function () {
+      this.page.url = "https://fromorbit.com/2017/05/19/m68k-crosstool-ng.html";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/2017/05/19/m68k-crosstool-ng"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://fromorbit-com.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 
   
-  <script type="text/javascript">
-  	/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-  	var disqus_shortname = 'fromorbit-com';
-
-  	/* * * DON'T EDIT BELOW THIS LINE * * */
-  	(function() {
-  		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-  		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-  		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  	})();
-
-  	/* * * DON'T EDIT BELOW THIS LINE * * */
-  	(function () {
-  		var s = document.createElement('script'); s.async = true;
-  		s.type = 'text/javascript';
-  		s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-  		(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-  	}());
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-
 
 
 
