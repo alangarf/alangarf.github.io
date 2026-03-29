@@ -43,7 +43,6 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 Check with probe-rs:
 
 ```
-```
 ❯ probe-rs list
 The following debug probes were found:
 [0]: Debug Probe (CMSIS-DAP) -- 2e8a:000c-0:E663AC91D3480E30 (CMSIS-DAP)

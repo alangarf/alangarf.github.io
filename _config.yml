@@ -22,6 +22,9 @@ url: https://fromorbit.com
 baseurl: ""
 timezone: Australia/Sydney
 
+site:
+  navigation: "main"
+
 image_url: /assets/images
 sizes: '(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px'
 srcset:
@@ -48,6 +51,9 @@ author:
   github:  "alangarf"
   youtube:  "randomgarfield"
 
+sass:
+  quiet_deps: true
+
 compress_html:
   clippings: all
 
@@ -65,16 +71,16 @@ defaults:
       author_profile: true
 
 twitter:
-  username: "alangarf"      
+  username: "alangarf"
 
 comments:
   provider: "disqus"
   disqus:
-    shortname: "fromorbit-com"      
+    shortname: "fromorbit-com"
 
 exclude: ['README.markdown', 'Gemfile.lock', 'Gemfile', 'Makefile']
 include: ['.nojekyll']
 
 plugins:
   - jekyll-feed
-  - jekyll-paginate    
+  - jekyll-paginate
