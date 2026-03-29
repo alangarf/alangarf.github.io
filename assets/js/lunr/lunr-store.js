@@ -184,4 +184,10 @@ var store = [{
         "tags": [],
         "url": "/2026/03/29/StlinkV3-PicoDebug-Arch.html",
         "teaser": "/assets/images/500x300.png"
+      },{
+        "title": "Using git subtree to send `_site` to `master` branch",
+        "excerpt":"What? If you use github pages and you want to generate your static files yourself you can use a repo with a master branch that is your public static rendered files, and another branch in my case sources that is the raw source files that I render with Jeykll locally....","categories": [],
+        "tags": [],
+        "url": "/2026/03/30/Static-Jekyll-to-github-pages.html",
+        "teaser": "/assets/images/500x300.png"
       }]
