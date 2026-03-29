@@ -1,14 +1,19 @@
+
+
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.27.0 by Michael Rose
-  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
 -->
 
 <html lang="en" class="no-js">
   <head>
-    <meta charset="utf-8">
+    
+<meta charset="utf-8">
+
 
 <!-- begin _includes/seo.html --><title>Ugh! I need UV - Retro Challenge 2017/04 - FromOrbit.com</title>
 <meta name="description" content="Who knew you’d need UV to erase EPROMs! Derp.">
@@ -32,6 +37,7 @@
 
 
   <meta property="og:image" content="https://fromorbit.com/assets/images/2017-03-31/m68k.png">
+  
 
 
 
@@ -43,11 +49,14 @@
   
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://fromorbit.com/assets/images/2017-03-31/m68k.png">
+    
   
 
   
     <meta name="twitter:creator" content="@alangarf">
   
+
+
 
 
 
@@ -99,7 +108,8 @@
   </head>
 
   <body class="layout--single" dir="ltr">
-    <nav class="skip-links">
+    
+<nav class="skip-links" aria-label="Skip links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
     <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
@@ -109,16 +119,29 @@
 
     
 
+
 <div class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
         
         <a class="site-title" href="/">
           FromOrbit.com
           
         </a>
-        <ul class="visible-links"></ul>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li></ul>
         
         <button class="greedy-nav__toggle hidden" type="button">
           <span class="visually-hidden">Toggle menu</span>
@@ -133,7 +156,10 @@
 
     <div class="initial-content">
       
+
+
   
+
 
 
 
@@ -157,6 +183,7 @@
 </p>
       
       
+
 
   <p class="page__meta">
     
@@ -191,8 +218,10 @@
 
 <div id="main" role="main">
   
+
   <div class="sidebar sticky">
   
+
 
 
 <div itemscope itemtype="https://schema.org/Person" class="h-card">
@@ -233,7 +262,7 @@
       
         <li>
           <a href="https://twitter.com/alangarf" itemprop="sameAs" rel="nofollow noopener noreferrer me">
-            <i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span>
+            <i class="fab fa-fw fa-square-x-twitter" aria-hidden="true"></i><span class="label">Twitter</span>
           </a>
         </li>
       
@@ -304,11 +333,12 @@
 </div>
 
   
+  
   </div>
 
 
 
-  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Ugh! I need UV - Retro Challenge 2017/04">
     <meta itemprop="description" content="Who knew you’d need UV to erase EPROMs! Derp.">
     <meta itemprop="datePublished" content="2017-04-06T00:00:00+10:00">
@@ -317,7 +347,7 @@
     <div class="page__inner-wrap">
       
 
-      <section class="page__content" itemprop="text">
+      <section class="page__content e-content" itemprop="text">
         
         <p>So I set out to make the LED blink a merry blink tonight, but was finally thwarted when I came to the realisation I’d need UV light to erase the EPROMs to load my code in. Suffice to say this was mighty frustrating.</p>
 
@@ -330,9 +360,9 @@
 <p>I installed all the GNU m68k tools. I made a nice little Makefile to assemble my assembly…</p>
 
 <div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">M68K</span><span class="o">=</span>m68k-linux-gnu
-<span class="nv">AS</span><span class="o">=</span><span class="nv">$(M68K)</span><span class="nt">-as</span>
-<span class="nv">LD</span><span class="o">=</span><span class="nv">$(M68K)</span><span class="nt">-ld</span>
-<span class="nv">DUMP</span><span class="o">=</span><span class="nv">$(M68K)</span><span class="nt">-objdump</span>
+<span class="nv">AS</span><span class="o">=</span><span class="p">$(</span>M68K<span class="p">)</span><span class="nt">-as</span>
+<span class="nv">LD</span><span class="o">=</span><span class="p">$(</span>M68K<span class="p">)</span><span class="nt">-ld</span>
+<span class="nv">DUMP</span><span class="o">=</span><span class="p">$(</span>M68K<span class="p">)</span><span class="nt">-objdump</span>
 
 <span class="nv">START</span><span class="o">=</span>0x00
 <span class="nv">FMT</span><span class="o">=</span>binary
@@ -340,7 +370,7 @@
 </span><span class="nv">CPU</span><span class="o">=</span><span class="nt">-m68000</span>
 
 <span class="nv">SRCS</span><span class="o">=</span>blink.s
-<span class="nv">OBJS</span><span class="o">=</span><span class="nv">$(SRCS:.s=.o)</span>
+<span class="nv">OBJS</span><span class="o">=</span><span class="p">$(</span>SRCS:.s<span class="o">=</span>.o<span class="p">)</span>
 <span class="nv">MAIN</span><span class="o">=</span>blink.bin
 
 <span class="nl">.PHONY</span><span class="o">:</span> <span class="nf">dump clean</span>
@@ -358,7 +388,7 @@
         <span class="err">rm</span> <span class="err">*.o</span> <span class="err">$(MAIN)</span>
 
 <span class="nl">dump</span><span class="o">:</span>   <span class="nf">$(MAIN)</span>
-        <span class="err">$(DUMP)</span> <span class="err">$(CPU)</span> <span class="err">--disassemble-all</span> <span class="nv">--target</span><span class="o">=</span><span class="nv">$(FMT)</span> <span class="nt">--start-address</span><span class="o">=</span><span class="nv">$(START)</span> <span class="nv">$(MAIN)</span>
+        <span class="err">$(DUMP)</span> <span class="err">$(CPU)</span> <span class="err">--disassemble-all</span> <span class="nv">--target</span><span class="o">=</span><span class="p">$(</span>FMT<span class="p">)</span> <span class="nt">--start-address</span><span class="o">=</span><span class="p">$(</span>START<span class="p">)</span> <span class="p">$(</span>MAIN<span class="p">)</span>
 </code></pre></div></div>
 
 <p>I even bashed together a little test program to twiddle the LED bit of the 74LS259…</p>
@@ -419,32 +449,32 @@
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/python3
 </span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="n">os</span>
+<span class="kn">import</span> <span class="n">argparse</span>
 
-<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="p">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
-<span class="n">parser</span><span class="p">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"src"</span><span class="p">)</span>
-<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="p">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="p">.</span><span class="nc">ArgumentParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="p">.</span><span class="nf">add_argument</span><span class="p">(</span><span class="sh">"</span><span class="s">src</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="p">.</span><span class="nf">parse_args</span><span class="p">()</span>
 
-<span class="n">even_fn</span> <span class="o">=</span> <span class="s">"even-{}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">src</span><span class="p">)</span>
-<span class="n">odd_fn</span> <span class="o">=</span> <span class="s">"odd-{}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">src</span><span class="p">)</span>
+<span class="n">even_fn</span> <span class="o">=</span> <span class="sh">"</span><span class="s">even-{}</span><span class="sh">"</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">src</span><span class="p">)</span>
+<span class="n">odd_fn</span> <span class="o">=</span> <span class="sh">"</span><span class="s">odd-{}</span><span class="sh">"</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">src</span><span class="p">)</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">src</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">even_fn</span><span class="p">,</span> <span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">even</span><span class="p">:</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">odd_fn</span><span class="p">,</span> <span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">odd</span><span class="p">:</span>
+<span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">src</span><span class="p">,</span> <span class="sh">'</span><span class="s">rb</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">even_fn</span><span class="p">,</span> <span class="sh">'</span><span class="s">wb</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">even</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">odd_fn</span><span class="p">,</span> <span class="sh">'</span><span class="s">wb</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">odd</span><span class="p">:</span>
 
-            <span class="n">src</span><span class="p">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="p">.</span><span class="n">SEEK_END</span><span class="p">)</span>
-            <span class="n">src_size</span> <span class="o">=</span> <span class="n">src</span><span class="p">.</span><span class="n">tell</span><span class="p">()</span>
+            <span class="n">src</span><span class="p">.</span><span class="nf">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="p">.</span><span class="n">SEEK_END</span><span class="p">)</span>
+            <span class="n">src_size</span> <span class="o">=</span> <span class="n">src</span><span class="p">.</span><span class="nf">tell</span><span class="p">()</span>
 
-            <span class="n">src</span><span class="p">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">src</span><span class="p">.</span><span class="nf">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
-            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">src_size</span><span class="p">):</span>
-                <span class="n">src</span><span class="p">.</span><span class="n">seek</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">src_size</span><span class="p">):</span>
+                <span class="n">src</span><span class="p">.</span><span class="nf">seek</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 
                 <span class="k">if</span> <span class="n">c</span> <span class="o">%</span> <span class="mi">2</span><span class="p">:</span>
-                    <span class="n">odd</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+                    <span class="n">odd</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="nf">read</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">even</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+                    <span class="n">even</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="nf">read</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 </code></pre></div></div>
 
 <p>Also buy one get one free; I upgraded the software for the Minipro TL866 on OSX. I even figured out the magic device type for my EPROMs.</p>
@@ -495,18 +525,25 @@ Verification failed at 0x200: 0x20 != 0x00
         
         
 
+  
+
+  
+
 
         
 
+
   <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2017-04-06T00:00:00+10:00">April 6, 2017</time></p>
+
 
       </footer>
 
-      <section class="page__share">
+      
+<section class="page__share">
   <h4 class="page__share-title">Share on</h4>
 
   <a href="https://x.com/intent/tweet?via=alangarf&text=Ugh%21+I+need+UV+-+Retro+Challenge+2017%2F04%20https%3A%2F%2Ffromorbit.com%2F2017%2F04%2F06%2Fm68k-why-no-uv-rc201704.html" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
-    <i class="fas fa-fw fa-share-alt" aria-hidden="true"></i><span> X</span>
+    <i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i><span> X</span>
   </a>
 
   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ffromorbit.com%2F2017%2F04%2F06%2Fm68k-why-no-uv-rc201704.html" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
@@ -516,11 +553,16 @@ Verification failed at 0x200: 0x20 != 0x00
   <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://fromorbit.com/2017/04/06/m68k-why-no-uv-rc201704.html" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
     <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span>
   </a>
+
+  <a href="https://bsky.app/intent/compose?text=Ugh%21+I+need+UV+-+Retro+Challenge+2017%2F04%20https%3A%2F%2Ffromorbit.com%2F2017%2F04%2F06%2Fm68k-why-no-uv-rc201704.html" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
+    <i class="fab fa-fw fa-bluesky" aria-hidden="true"></i><span> Bluesky</span>
+  </a>
 </section>
 
 
       
-  <nav class="pagination">
+
+  <nav class="pagination" aria-label="Post pagination">
     
       <a href="/2017/04/05/m68k-schematic-rc201704.html" class="pagination--pager" title="Got together a schematic today - Retro Challenge 2017/04">Previous</a>
     
@@ -534,10 +576,11 @@ Verification failed at 0x200: 0x20 != 0x00
 
     
       
-        <div class="page__comments">
+        
+<div class="page__comments">
   
   
-      <h4 class="page__comments-title">Comments</h4>
+      <h4 class="page__comments-title">Leave a comment</h4>
       <section id="disqus_thread"></section>
     
 </div>
@@ -549,13 +592,15 @@ Verification failed at 0x200: 0x20 != 0x00
   
   
     
+
 <div class="page__related">
   
-  <h2 class="page__related-title">You May Also Enjoy</h2>
+  <h2 class="page__related-title">You may also enjoy</h2>
   <div class="grid__wrapper">
     
       
       
+
 
 
 
@@ -566,13 +611,14 @@ Verification failed at 0x200: 0x20 != 0x00
         <img src="/assets/images/500x300.png" alt="">
       </div>
     
-    <h2 class="archive__item-title no_toc" itemprop="headline">
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a href="/2025/04/25/Alan-wishlist-or-stuff-he-wants-to-remember.html" rel="permalink">Alan’s Wishlist
+        <a class="u-url" href="/2026/03/29/StlinkV3-PicoDebug-Arch.html" rel="permalink">Getting STLink-V3 and Pico Probe working in Arch Linux
 </a>
       
     </h2>
     
+
 
   <p class="page__meta">
     
@@ -593,7 +639,7 @@ Verification failed at 0x200: 0x20 != 0x00
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">MOAR STUFF
+    <p class="archive__item-excerpt p-summary" itemprop="description">for the brain file
 </p>
   </article>
 </div>
@@ -604,6 +650,54 @@ Verification failed at 0x200: 0x20 != 0x00
 
 
 
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/500x300.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
+      
+        <a class="u-url" href="/2025/04/25/Alan-wishlist-or-stuff-he-wants-to-remember.html" rel="permalink">Alan’s Wishlist
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">MOAR STUFF
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+
 <div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
@@ -611,13 +705,14 @@ Verification failed at 0x200: 0x20 != 0x00
         <img src="/assets/images/2022-05-23/linear16.jpg" alt="">
       </div>
     
-    <h2 class="archive__item-title no_toc" itemprop="headline">
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a href="/2022/05/23/IRF510-linear-amp.html" rel="permalink">45W IRF510 HF Linear Amp
+        <a class="u-url" href="/2022/05/23/IRF510-linear-amp.html" rel="permalink">45W IRF510 HF Linear Amp
 </a>
       
     </h2>
     
+
 
   <p class="page__meta">
     
@@ -638,7 +733,7 @@ Verification failed at 0x200: 0x20 != 0x00
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">The little amp that could!
+    <p class="archive__item-excerpt p-summary" itemprop="description">The little amp that could!
 </p>
   </article>
 </div>
@@ -649,6 +744,7 @@ Verification failed at 0x200: 0x20 != 0x00
 
 
 
+
 <div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
@@ -656,13 +752,14 @@ Verification failed at 0x200: 0x20 != 0x00
         <img src="/assets/images/2017-04-18/mc68340.jpg" alt="">
       </div>
     
-    <h2 class="archive__item-title no_toc" itemprop="headline">
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a href="/2017/05/19/m68k-crosstool-ng.html" rel="permalink">More fun with the m68k
+        <a class="u-url" href="/2017/05/19/m68k-crosstool-ng.html" rel="permalink">More fun with the m68k
 </a>
       
     </h2>
     
+
 
   <p class="page__meta">
     
@@ -683,52 +780,7 @@ Verification failed at 0x200: 0x20 != 0x00
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">Finally I achieved my goal of getting a Mandelbrot routine running on this m68k board and I learned a lot along the way
-</p>
-  </article>
-</div>
-
-    
-      
-      
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-      <div class="archive__item-teaser">
-        <img src="/assets/images/2017-04-18/mc68340.jpg" alt="">
-      </div>
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/2017/04/26/m68k-environment-rc201704.html" rel="permalink">m68k Environment - Retro Challenge 2017/04
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          7 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Getting down and dirty with make and gcc.
+    <p class="archive__item-excerpt p-summary" itemprop="description">Finally I achieved my goal of getting a Mandelbrot routine running on this m68k board and I learned a lot along the way
 </p>
   </article>
 </div>
@@ -751,25 +803,33 @@ Verification failed at 0x200: 0x20 != 0x00
         <!-- start custom footer snippets -->
 
 <!-- end custom footer snippets -->
-        <div class="page__footer-follow">
+        
+
+
+<div class="page__footer-follow">
   <ul class="social-icons">
     
-
+      <li><strong>Follow:</strong></li>
     
 
     
-      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
     
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2025 <a href="https://fromorbit.com">FromOrbit.com</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+<div class="page__footer-copyright">&copy; 2026 <a href="https://fromorbit.com">FromOrbit.com</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>
 
     
+
   <script src="/assets/js/main.min.js"></script>
+
 
 
 

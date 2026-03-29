@@ -1,14 +1,19 @@
+
+
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.27.0 by Michael Rose
-  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
 -->
 
 <html lang="en" class="no-js">
   <head>
-    <meta charset="utf-8">
+    
+<meta charset="utf-8">
+
 
 <!-- begin _includes/seo.html --><title>m68k Environment - Retro Challenge 2017/04 - FromOrbit.com</title>
 <meta name="description" content="Getting down and dirty with make and gcc.">
@@ -32,6 +37,7 @@
 
 
   <meta property="og:image" content="https://fromorbit.com/assets/images/2017-04-18/mc68340.jpg">
+  
 
 
 
@@ -43,11 +49,14 @@
   
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://fromorbit.com/assets/images/2017-04-18/mc68340.jpg">
+    
   
 
   
     <meta name="twitter:creator" content="@alangarf">
   
+
+
 
 
 
@@ -99,7 +108,8 @@
   </head>
 
   <body class="layout--single" dir="ltr">
-    <nav class="skip-links">
+    
+<nav class="skip-links" aria-label="Skip links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
     <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
@@ -109,16 +119,29 @@
 
     
 
+
 <div class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
         
         <a class="site-title" href="/">
           FromOrbit.com
           
         </a>
-        <ul class="visible-links"></ul>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li></ul>
         
         <button class="greedy-nav__toggle hidden" type="button">
           <span class="visually-hidden">Toggle menu</span>
@@ -133,7 +156,10 @@
 
     <div class="initial-content">
       
+
+
   
+
 
 
 
@@ -157,6 +183,7 @@
 </p>
       
       
+
 
   <p class="page__meta">
     
@@ -191,8 +218,10 @@
 
 <div id="main" role="main">
   
+
   <div class="sidebar sticky">
   
+
 
 
 <div itemscope itemtype="https://schema.org/Person" class="h-card">
@@ -233,7 +262,7 @@
       
         <li>
           <a href="https://twitter.com/alangarf" itemprop="sameAs" rel="nofollow noopener noreferrer me">
-            <i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span>
+            <i class="fab fa-fw fa-square-x-twitter" aria-hidden="true"></i><span class="label">Twitter</span>
           </a>
         </li>
       
@@ -304,11 +333,12 @@
 </div>
 
   
+  
   </div>
 
 
 
-  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="m68k Environment - Retro Challenge 2017/04">
     <meta itemprop="description" content="Getting down and dirty with make and gcc.">
     <meta itemprop="datePublished" content="2017-04-26T00:00:00+10:00">
@@ -317,7 +347,7 @@
     <div class="page__inner-wrap">
       
 
-      <section class="page__content" itemprop="text">
+      <section class="page__content e-content" itemprop="text">
         
         <p>So, for this post I want to talk about my development environment and where I’m
 up to as far as the Retro Challenge.</p>
@@ -638,18 +668,25 @@ Mandelbrot set generator in the chosen language.</p>
         
         
 
+  
+
+  
+
 
         
 
+
   <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2017-04-26T00:00:00+10:00">April 26, 2017</time></p>
+
 
       </footer>
 
-      <section class="page__share">
+      
+<section class="page__share">
   <h4 class="page__share-title">Share on</h4>
 
   <a href="https://x.com/intent/tweet?via=alangarf&text=m68k+Environment+-+Retro+Challenge+2017%2F04%20https%3A%2F%2Ffromorbit.com%2F2017%2F04%2F26%2Fm68k-environment-rc201704.html" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
-    <i class="fas fa-fw fa-share-alt" aria-hidden="true"></i><span> X</span>
+    <i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i><span> X</span>
   </a>
 
   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ffromorbit.com%2F2017%2F04%2F26%2Fm68k-environment-rc201704.html" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
@@ -659,11 +696,16 @@ Mandelbrot set generator in the chosen language.</p>
   <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://fromorbit.com/2017/04/26/m68k-environment-rc201704.html" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
     <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span>
   </a>
+
+  <a href="https://bsky.app/intent/compose?text=m68k+Environment+-+Retro+Challenge+2017%2F04%20https%3A%2F%2Ffromorbit.com%2F2017%2F04%2F26%2Fm68k-environment-rc201704.html" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
+    <i class="fab fa-fw fa-bluesky" aria-hidden="true"></i><span> Bluesky</span>
+  </a>
 </section>
 
 
       
-  <nav class="pagination">
+
+  <nav class="pagination" aria-label="Post pagination">
     
       <a href="/2017/04/18/rinse-repeat-rc201704.html" class="pagination--pager" title="Rinse Repeat. :( - Retro Challenge 2017/04">Previous</a>
     
@@ -677,10 +719,11 @@ Mandelbrot set generator in the chosen language.</p>
 
     
       
-        <div class="page__comments">
+        
+<div class="page__comments">
   
   
-      <h4 class="page__comments-title">Comments</h4>
+      <h4 class="page__comments-title">Leave a comment</h4>
       <section id="disqus_thread"></section>
     
 </div>
@@ -692,13 +735,15 @@ Mandelbrot set generator in the chosen language.</p>
   
   
     
+
 <div class="page__related">
   
-  <h2 class="page__related-title">You May Also Enjoy</h2>
+  <h2 class="page__related-title">You may also enjoy</h2>
   <div class="grid__wrapper">
     
       
       
+
 
 
 
@@ -709,13 +754,14 @@ Mandelbrot set generator in the chosen language.</p>
         <img src="/assets/images/500x300.png" alt="">
       </div>
     
-    <h2 class="archive__item-title no_toc" itemprop="headline">
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a href="/2025/04/25/Alan-wishlist-or-stuff-he-wants-to-remember.html" rel="permalink">Alan’s Wishlist
+        <a class="u-url" href="/2026/03/29/StlinkV3-PicoDebug-Arch.html" rel="permalink">Getting STLink-V3 and Pico Probe working in Arch Linux
 </a>
       
     </h2>
     
+
 
   <p class="page__meta">
     
@@ -736,7 +782,7 @@ Mandelbrot set generator in the chosen language.</p>
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">MOAR STUFF
+    <p class="archive__item-excerpt p-summary" itemprop="description">for the brain file
 </p>
   </article>
 </div>
@@ -747,6 +793,54 @@ Mandelbrot set generator in the chosen language.</p>
 
 
 
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/500x300.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
+      
+        <a class="u-url" href="/2025/04/25/Alan-wishlist-or-stuff-he-wants-to-remember.html" rel="permalink">Alan’s Wishlist
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">MOAR STUFF
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+
 <div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
@@ -754,13 +848,14 @@ Mandelbrot set generator in the chosen language.</p>
         <img src="/assets/images/2022-05-23/linear16.jpg" alt="">
       </div>
     
-    <h2 class="archive__item-title no_toc" itemprop="headline">
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a href="/2022/05/23/IRF510-linear-amp.html" rel="permalink">45W IRF510 HF Linear Amp
+        <a class="u-url" href="/2022/05/23/IRF510-linear-amp.html" rel="permalink">45W IRF510 HF Linear Amp
 </a>
       
     </h2>
     
+
 
   <p class="page__meta">
     
@@ -781,7 +876,7 @@ Mandelbrot set generator in the chosen language.</p>
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">The little amp that could!
+    <p class="archive__item-excerpt p-summary" itemprop="description">The little amp that could!
 </p>
   </article>
 </div>
@@ -792,6 +887,7 @@ Mandelbrot set generator in the chosen language.</p>
 
 
 
+
 <div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
@@ -799,13 +895,14 @@ Mandelbrot set generator in the chosen language.</p>
         <img src="/assets/images/2017-04-18/mc68340.jpg" alt="">
       </div>
     
-    <h2 class="archive__item-title no_toc" itemprop="headline">
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a href="/2017/05/19/m68k-crosstool-ng.html" rel="permalink">More fun with the m68k
+        <a class="u-url" href="/2017/05/19/m68k-crosstool-ng.html" rel="permalink">More fun with the m68k
 </a>
       
     </h2>
     
+
 
   <p class="page__meta">
     
@@ -826,52 +923,7 @@ Mandelbrot set generator in the chosen language.</p>
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">Finally I achieved my goal of getting a Mandelbrot routine running on this m68k board and I learned a lot along the way
-</p>
-  </article>
-</div>
-
-    
-      
-      
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-      <div class="archive__item-teaser">
-        <img src="/assets/images/2017-04-18/axc-em.jpg" alt="">
-      </div>
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/2017/04/18/rinse-repeat-rc201704.html" rel="permalink">Rinse Repeat. :( - Retro Challenge 2017/04
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          4 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Over, and over, and over, and over, and over, and over again.
+    <p class="archive__item-excerpt p-summary" itemprop="description">Finally I achieved my goal of getting a Mandelbrot routine running on this m68k board and I learned a lot along the way
 </p>
   </article>
 </div>
@@ -894,25 +946,33 @@ Mandelbrot set generator in the chosen language.</p>
         <!-- start custom footer snippets -->
 
 <!-- end custom footer snippets -->
-        <div class="page__footer-follow">
+        
+
+
+<div class="page__footer-follow">
   <ul class="social-icons">
     
-
+      <li><strong>Follow:</strong></li>
     
 
     
-      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
     
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2025 <a href="https://fromorbit.com">FromOrbit.com</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+<div class="page__footer-copyright">&copy; 2026 <a href="https://fromorbit.com">FromOrbit.com</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>
 
     
+
   <script src="/assets/js/main.min.js"></script>
+
 
 
 

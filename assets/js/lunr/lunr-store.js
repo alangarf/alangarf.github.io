@@ -178,4 +178,10 @@ var store = [{
         "tags": [],
         "url": "/2025/04/25/Alan-wishlist-or-stuff-he-wants-to-remember.html",
         "teaser": "/assets/images/500x300.png"
+      },{
+        "title": "Getting STLink-V3 and Pico Probe working in Arch Linux",
+        "excerpt":"How? Two rules, one for STLink-V3 and one for Pico Probe. # STLink V3 (0483:3753) - Main Serial Port (VCP Data) SUBSYSTEM==\"tty\", ATTRS{idVendor}==\"0483\", ATTRS{idProduct}==\"3753\", ENV{ID_USB_INTERFACE_NUM}==\"01\", SYMLINK+=\"stlink_v3_main\", TAG+=\"uaccess\" # STLink V3 (0483:3753) - Bridge Serial Port (VCP2 Data) SUBSYSTEM==\"tty\", ATTRS{idVendor}==\"0483\", ATTRS{idProduct}==\"3753\", ENV{ID_USB_INTERFACE_NUM}==\"04\", SYMLINK+=\"stlink_v3_bridge\", TAG+=\"uaccess\" # STLink V3 (0483:3753) - Debug Interface...","categories": [],
+        "tags": [],
+        "url": "/2026/03/29/StlinkV3-PicoDebug-Arch.html",
+        "teaser": "/assets/images/500x300.png"
       }]
