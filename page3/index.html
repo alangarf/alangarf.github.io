@@ -9,13 +9,13 @@
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
 -->
 
-<html lang="en" class="no-js">
+<html lang="en-AU" class="no-js">
   <head>
     
 <meta charset="utf-8">
 
 
-<!-- begin _includes/seo.html --><title>FromOrbit.com - Page 3</title>
+<!-- begin _includes/seo.html --><title>FromOrbit.com | Page 3</title>
 <meta name="description" content="Generic nerd who dabbles in programming, electronics, CNC and retro computing.">
 
 
@@ -24,7 +24,7 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:locale" content="en">
+<meta property="og:locale" content="en_AU">
 <meta property="og:site_name" content="FromOrbit.com">
 <meta property="og:title" content="FromOrbit.com">
 <meta property="og:url" content="https://fromorbit.com/page3/">
@@ -47,16 +47,18 @@
   
 
   
-    <meta name="twitter:creator" content="@alangarf">
+
+
+
+
+
+
+
+
+
   
 
-
-
-
-
-
-
-
+  
 
 
 <link rel="canonical" href="https://fromorbit.com/page3/">
@@ -64,6 +66,8 @@
 
   <link rel="prev" href="https://fromorbit.com/page2/">
 
+
+  <link rel="next" href="https://fromorbit.com/page4/">
 
 
 
@@ -93,11 +97,7 @@
 
 
 
-    <!-- start custom head snippets -->
-
-<!-- insert favicons. use https://realfavicongenerator.net/ -->
-
-<!-- end custom head snippets -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/logo_bg.svg">
 
   </head>
 
@@ -118,6 +118,8 @@
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo_blue.svg" alt="FromOrbit.com"></a>
         
         <a class="site-title" href="/">
           FromOrbit.com
@@ -168,7 +170,7 @@
   
     <div class="author__avatar">
       <a href="https://fromorbit.com/">
-        <img src="/assets/bio.jpg" alt="Alan Garfield" itemprop="image" class="u-photo">
+        <img src="/assets/images/bio.jpg" alt="Alan Garfield" itemprop="image" class="u-photo">
       </a>
     </div>
   
@@ -189,65 +191,63 @@
     <button class="btn btn--inverse">Follow</button>
     <ul class="author__urls social-icons">
       
-
-      
-
-      
-
-      
-
-      
-
-      
-        <li>
-          <a href="https://twitter.com/alangarf" itemprop="sameAs" rel="nofollow noopener noreferrer me">
-            <i class="fab fa-fw fa-square-x-twitter" aria-hidden="true"></i><span class="label">Twitter</span>
-          </a>
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-location-dot" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Australia</span>
         </li>
       
 
       
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-        <li>
-          <a href="https://github.com/alangarf" itemprop="sameAs" rel="nofollow noopener noreferrer me">
-            <i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span>
-          </a>
-        </li>
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
         
-          <li>
-            <a href="https://www.youtube.com/user/randomgarfield" itemprop="sameAs" rel="nofollow noopener noreferrer me">
-              <i class="fab fa-fw fa-youtube" aria-hidden="true"></i><span class="label">YouTube</span>
-            </a>
-          </li>
+          
+            <li><a href="https://youtube.com/randomgarfield" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-youtube" aria-hidden="true"></i><span class="label">YouTube</span></a></li>
+          
         
+          
+            <li><a href="https://twitter.com/alangarf" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-square-x-twitter" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/alangarf" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
       
 
       
@@ -285,7 +285,7 @@
 
 
 
-<h3 class="archive__subtitle">Recent posts</h3>
+<h3 class="archive__subtitle">Recent Posts</h3>
 
 
 
@@ -306,7 +306,7 @@
     
     <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a class="u-url" href="/2011/08/06/image-to-gcode.html" rel="permalink">Image to Gcode
+        <a class="u-url" href="/web-interface-for-motion-controller/" rel="permalink">Web interface for Motion controller
 </a>
       
     </h2>
@@ -315,8 +315,15 @@
 
   <p class="page__meta">
     
-
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2012-12-14T00:00:00+11:00">December 14, 2012</time>
+      </span>
     
+
+    <span class="page__meta-sep"></span>
 
     
       
@@ -332,7 +339,10 @@
   </p>
 
 
-    <p class="archive__item-excerpt p-summary" itemprop="description">Been playing with some code to convert images to GCode.
+    <p class="archive__item-excerpt p-summary" itemprop="description">
+
+    
+
 </p>
   </article>
 </div>
@@ -346,7 +356,7 @@
     
     <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a class="u-url" href="/2004/12/08/lmd18200-breadboard-adapter-board.html" rel="permalink">LMD18200 Breadboard Adapter Board
+        <a class="u-url" href="/10-turn-potentiometer-tear-down/" rel="permalink">10-turn Potentiometer Tear Down
 </a>
       
     </h2>
@@ -355,8 +365,15 @@
 
   <p class="page__meta">
     
-
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2012-09-18T00:00:00+10:00">September 18, 2012</time>
+      </span>
     
+
+    <span class="page__meta-sep"></span>
 
     
       
@@ -372,9 +389,399 @@
   </p>
 
 
-    <p class="archive__item-excerpt p-summary" itemprop="description">I designed this board out of necessity. I needed a decent H-bridge to
-test my new servo motor controller design without having to commit the
-entire design to...</p>
+    <p class="archive__item-excerpt p-summary" itemprop="description">
+
+    
+
+</p>
+  </article>
+</div>
+
+
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
+      
+        <a class="u-url" href="/wishbone-fpga-motion-controller/" rel="permalink">Wishbone FPGA Motion Controller
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2012-09-05T00:00:00+10:00">September 5, 2012</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">
+
+    
+
+</p>
+  </article>
+</div>
+
+
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
+      
+        <a class="u-url" href="/why-microchip-with-mplabx-has-put-the-cart-before-the-horse/" rel="permalink">Why Microchip with MPLABX has put the cart before the horse.
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2012-01-06T00:00:00+11:00">January 6, 2012</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          9 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">
+Update: I received a response from Microchip; see the end.
+
+</p>
+  </article>
+</div>
+
+
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
+      
+        <a class="u-url" href="/avr-transistor-tester-component-identifier/" rel="permalink">AVR Transistor Tester / Component Identifier
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2012-01-01T00:00:00+11:00">January 1, 2012</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          6 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">Ooh a gadget.
+
+</p>
+  </article>
+</div>
+
+
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
+      
+        <a class="u-url" href="/wbr-receiver-fiddling/" rel="permalink">WBR receiver fiddling
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2011-11-10T00:00:00+11:00">November 10, 2011</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">
+
+    
+
+</p>
+  </article>
+</div>
+
+
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
+      
+        <a class="u-url" href="/sbc-servo-control-under-linux/" rel="permalink">SBC servo control under Linux
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2011-11-09T00:00:00+11:00">November 9, 2011</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">Here is a small update on a project I’m working on for a client.
+
+</p>
+  </article>
+</div>
+
+
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
+      
+        <a class="u-url" href="/my-attempt-at-the-wbr-receiver/" rel="permalink">My attempt at the WBR Receiver
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2011-11-09T00:00:00+11:00">November 9, 2011</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">What got me started on wanting to increase my RF knowledge was this article by Dave Richards. I was originally looking for interesting ways to make project c...</p>
+  </article>
+</div>
+
+
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
+      
+        <a class="u-url" href="/cnc-drilling-lots-and-lots-of-holes/" rel="permalink">CNC drilling lots and lots of holes!
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2011-11-09T00:00:00+11:00">November 9, 2011</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">My friend Alan Yates is currently working through all
+manner or particle detectors. His latest one is a Gas Electron
+Multiplier. It’s
+basically a very two ve...</p>
+  </article>
+</div>
+
+
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
+      
+        <a class="u-url" href="/simple-hartley-oscillator/" rel="permalink">Simple Hartley Oscillator
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2011-11-08T00:00:00+11:00">November 8, 2011</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">I decided recently that RF was a field I had very little practical knowledge
+of. I know the basics, the methods and the general ideas, but I’ve never
+actuall...</p>
   </article>
 </div>
 
@@ -416,17 +823,21 @@ entire design to...</p>
         <li><a href="/page2/">2</a></li>
       
     
-
-    
-    
-
-    
-      <li><a href="#" class="disabled current">3</a></li>
+      
+        <li><a href="/page3/" class="disabled current">3</a></li>
+      
     
 
     
     
-      <li><a href="#" class="disabled"><span aria-hidden="true">Next</span></a></li>
+
+    
+      <li><a href="/page4/">4</a></li>
+    
+
+    
+    
+      <li><a href="/page4/">Next</a></li>
     
   </ul>
 </nav>
@@ -455,9 +866,21 @@ entire design to...</p>
 <div class="page__footer-follow">
   <ul class="social-icons">
     
-      <li><strong>Follow:</strong></li>
-    
 
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
 
     
@@ -467,7 +890,7 @@ entire design to...</p>
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="https://fromorbit.com">FromOrbit.com</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2013 - 2026 <a href="https://fromorbit.com">FromOrbit.com</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>

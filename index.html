@@ -9,7 +9,7 @@
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
 -->
 
-<html lang="en" class="no-js">
+<html lang="en-AU" class="no-js">
   <head>
     
 <meta charset="utf-8">
@@ -24,7 +24,7 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:locale" content="en">
+<meta property="og:locale" content="en_AU">
 <meta property="og:site_name" content="FromOrbit.com">
 <meta property="og:title" content="FromOrbit.com">
 <meta property="og:url" content="https://fromorbit.com/">
@@ -47,16 +47,18 @@
   
 
   
-    <meta name="twitter:creator" content="@alangarf">
+
+
+
+
+
+
+
+
+
   
 
-
-
-
-
-
-
-
+  
 
 
 <link rel="canonical" href="https://fromorbit.com/">
@@ -103,11 +105,7 @@
 
 
 
-    <!-- start custom head snippets -->
-
-<!-- insert favicons. use https://realfavicongenerator.net/ -->
-
-<!-- end custom head snippets -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/logo_bg.svg">
 
   </head>
 
@@ -128,6 +126,8 @@
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo_blue.svg" alt="FromOrbit.com"></a>
         
         <a class="site-title" href="/">
           FromOrbit.com
@@ -178,7 +178,7 @@
   
     <div class="author__avatar">
       <a href="https://fromorbit.com/">
-        <img src="/assets/bio.jpg" alt="Alan Garfield" itemprop="image" class="u-photo">
+        <img src="/assets/images/bio.jpg" alt="Alan Garfield" itemprop="image" class="u-photo">
       </a>
     </div>
   
@@ -199,65 +199,63 @@
     <button class="btn btn--inverse">Follow</button>
     <ul class="author__urls social-icons">
       
-
-      
-
-      
-
-      
-
-      
-
-      
-        <li>
-          <a href="https://twitter.com/alangarf" itemprop="sameAs" rel="nofollow noopener noreferrer me">
-            <i class="fab fa-fw fa-square-x-twitter" aria-hidden="true"></i><span class="label">Twitter</span>
-          </a>
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-location-dot" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Australia</span>
         </li>
       
 
       
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-        <li>
-          <a href="https://github.com/alangarf" itemprop="sameAs" rel="nofollow noopener noreferrer me">
-            <i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span>
-          </a>
-        </li>
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
         
-          <li>
-            <a href="https://www.youtube.com/user/randomgarfield" itemprop="sameAs" rel="nofollow noopener noreferrer me">
-              <i class="fab fa-fw fa-youtube" aria-hidden="true"></i><span class="label">YouTube</span>
-            </a>
-          </li>
+          
+            <li><a href="https://youtube.com/randomgarfield" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-youtube" aria-hidden="true"></i><span class="label">YouTube</span></a></li>
+          
         
+          
+            <li><a href="https://twitter.com/alangarf" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-square-x-twitter" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/alangarf" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
       
 
       
@@ -295,7 +293,7 @@
 
 
 
-<h3 class="archive__subtitle">Recent posts</h3>
+<h3 class="archive__subtitle">Recent Posts</h3>
 
 
 
@@ -316,7 +314,7 @@
     
     <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a class="u-url" href="/2026/03/30/Static-Jekyll-to-github-pages.html" rel="permalink">Using git subtree to send <code class="language-plaintext highlighter-rouge">_site</code> to <code class="language-plaintext highlighter-rouge">master</code> branch
+        <a class="u-url" href="/Static-Jekyll-to-github-pages/" rel="permalink">Using git subtree to send <code class="language-plaintext highlighter-rouge">_site</code> to <code class="language-plaintext highlighter-rouge">master</code> branch
 </a>
       
     </h2>
@@ -325,8 +323,15 @@
 
   <p class="page__meta">
     
-
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2026-03-30T00:00:00+11:00">March 30, 2026</time>
+      </span>
     
+
+    <span class="page__meta-sep"></span>
 
     
       
@@ -356,7 +361,7 @@
     
     <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a class="u-url" href="/2026/03/29/StlinkV3-PicoDebug-Arch.html" rel="permalink">Getting STLink-V3 and Pico Probe working in Arch Linux
+        <a class="u-url" href="/StlinkV3-PicoDebug-Arch/" rel="permalink">Getting STLink-V3 and Pico Probe working in Arch Linux
 </a>
       
     </h2>
@@ -365,8 +370,15 @@
 
   <p class="page__meta">
     
-
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2026-03-29T00:00:00+11:00">March 29, 2026</time>
+      </span>
     
+
+    <span class="page__meta-sep"></span>
 
     
       
@@ -396,7 +408,7 @@
     
     <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a class="u-url" href="/2025/04/25/Alan-wishlist-or-stuff-he-wants-to-remember.html" rel="permalink">Alan’s Wishlist
+        <a class="u-url" href="/Alan-wishlist-or-stuff-he-wants-to-remember/" rel="permalink">Alan’s Wishlist
 </a>
       
     </h2>
@@ -405,8 +417,15 @@
 
   <p class="page__meta">
     
-
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2025-04-25T00:00:00+10:00">April 25, 2025</time>
+      </span>
     
+
+    <span class="page__meta-sep"></span>
 
     
       
@@ -436,7 +455,7 @@
     
     <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a class="u-url" href="/2022/05/23/IRF510-linear-amp.html" rel="permalink">45W IRF510 HF Linear Amp
+        <a class="u-url" href="/IRF510-linear-amp/" rel="permalink">45W IRF510 HF Linear Amp
 </a>
       
     </h2>
@@ -445,8 +464,15 @@
 
   <p class="page__meta">
     
-
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-05-23T00:00:00+10:00">May 23, 2022</time>
+      </span>
     
+
+    <span class="page__meta-sep"></span>
 
     
       
@@ -476,7 +502,7 @@
     
     <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a class="u-url" href="/2017/05/19/m68k-crosstool-ng.html" rel="permalink">More fun with the m68k
+        <a class="u-url" href="/m68k-crosstool-ng/" rel="permalink">More fun with the m68k
 </a>
       
     </h2>
@@ -485,8 +511,15 @@
 
   <p class="page__meta">
     
-
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2017-05-19T00:00:00+10:00">May 19, 2017</time>
+      </span>
     
+
+    <span class="page__meta-sep"></span>
 
     
       
@@ -516,7 +549,7 @@
     
     <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a class="u-url" href="/2017/04/26/m68k-environment-rc201704.html" rel="permalink">m68k Environment - Retro Challenge 2017/04
+        <a class="u-url" href="/m68k-environment-rc201704/" rel="permalink">m68k Environment - Retro Challenge 2017/04
 </a>
       
     </h2>
@@ -525,8 +558,15 @@
 
   <p class="page__meta">
     
-
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2017-04-26T00:00:00+10:00">April 26, 2017</time>
+      </span>
     
+
+    <span class="page__meta-sep"></span>
 
     
       
@@ -556,7 +596,7 @@
     
     <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a class="u-url" href="/2017/04/18/rinse-repeat-rc201704.html" rel="permalink">Rinse Repeat. :( - Retro Challenge 2017/04
+        <a class="u-url" href="/rinse-repeat-rc201704/" rel="permalink">Rinse Repeat. :( - Retro Challenge 2017/04
 </a>
       
     </h2>
@@ -565,8 +605,15 @@
 
   <p class="page__meta">
     
-
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2017-04-18T00:00:00+10:00">April 18, 2017</time>
+      </span>
     
+
+    <span class="page__meta-sep"></span>
 
     
       
@@ -596,7 +643,7 @@
     
     <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a class="u-url" href="/2017/04/08/gettin-somewhere-rc201704.html" rel="permalink">Now we’re get’n somewhere! - Retro Challenge 2017/04
+        <a class="u-url" href="/gettin-somewhere-rc201704/" rel="permalink">Now we’re get’n somewhere! - Retro Challenge 2017/04
 </a>
       
     </h2>
@@ -605,8 +652,15 @@
 
   <p class="page__meta">
     
-
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2017-04-08T00:00:00+10:00">April 8, 2017</time>
+      </span>
     
+
+    <span class="page__meta-sep"></span>
 
     
       
@@ -636,7 +690,7 @@
     
     <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a class="u-url" href="/2017/04/06/m68k-why-no-uv-rc201704.html" rel="permalink">Ugh! I need UV - Retro Challenge 2017/04
+        <a class="u-url" href="/m68k-why-no-uv-rc201704/" rel="permalink">Ugh! I need UV - Retro Challenge 2017/04
 </a>
       
     </h2>
@@ -645,8 +699,15 @@
 
   <p class="page__meta">
     
-
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2017-04-06T00:00:00+10:00">April 6, 2017</time>
+      </span>
     
+
+    <span class="page__meta-sep"></span>
 
     
       
@@ -676,7 +737,7 @@
     
     <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a class="u-url" href="/2017/04/05/m68k-schematic-rc201704.html" rel="permalink">Got together a schematic today - Retro Challenge 2017/04
+        <a class="u-url" href="/m68k-schematic-rc201704/" rel="permalink">Got together a schematic today - Retro Challenge 2017/04
 </a>
       
     </h2>
@@ -685,8 +746,15 @@
 
   <p class="page__meta">
     
-
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2017-04-05T00:00:00+10:00">April 5, 2017</time>
+      </span>
     
+
+    <span class="page__meta-sep"></span>
 
     
       
@@ -703,209 +771,6 @@
 
 
     <p class="archive__item-excerpt p-summary" itemprop="description">Beeping and clicking things into KiCAD like a mad man
-</p>
-  </article>
-</div>
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
-      
-        <a class="u-url" href="/2017/04/03/m68k-amx-board-rc201704.html" rel="permalink">Beeping out the board - Retro Challenge 2017/04
-</a>
-      
-    </h2>
-    
-
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          3 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt p-summary" itemprop="description">I first started with this board by pulling off the ROMs and dumping their contents. Being a m68k CPU generally the ROMs are split into odd and even byte stre...</p>
-  </article>
-</div>
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
-      
-        <a class="u-url" href="/2017/03/31/retro-computing-challenge-201704.html" rel="permalink">Retro Challenge 2017/04
-</a>
-      
-    </h2>
-    
-
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt p-summary" itemprop="description">After working with a friend on a Z80 based project I spoke about some SCC2691
-UARTs I had from an old board I had saved from a skip bin some 10 years ago. He...</p>
-  </article>
-</div>
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
-      
-        <a class="u-url" href="/2017/03/30/updating-website.html" rel="permalink">Updating the website…
-</a>
-      
-    </h2>
-    
-
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt p-summary" itemprop="description">Wonders of wonders…
-</p>
-  </article>
-</div>
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
-      
-        <a class="u-url" href="/2014/09/21/digital-foosball-two.html" rel="permalink">Digital Foosball Two
-</a>
-      
-    </h2>
-    
-
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt p-summary" itemprop="description">
-
-    
-</p>
-  </article>
-</div>
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
-      
-        <a class="u-url" href="/2014/09/17/digital-foosball.html" rel="permalink">Digital Foosball
-</a>
-      
-    </h2>
-    
-
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt p-summary" itemprop="description">
-
-    
 </p>
   </article>
 </div>
@@ -946,12 +811,19 @@ UARTs I had from an old board I had saved from a skip bin some 10 years ago. He.
         <li><a href="/page2/">2</a></li>
       
     
+      
+        
+        
+        
+        <li><a href="/page3/">3</a></li>
+      
+    
 
     
     
 
     
-      <li><a href="/page3/">3</a></li>
+      <li><a href="/page4/">4</a></li>
     
 
     
@@ -985,9 +857,21 @@ UARTs I had from an old board I had saved from a skip bin some 10 years ago. He.
 <div class="page__footer-follow">
   <ul class="social-icons">
     
-      <li><strong>Follow:</strong></li>
-    
 
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
 
     
@@ -997,7 +881,7 @@ UARTs I had from an old board I had saved from a skip bin some 10 years ago. He.
 </div>
 
 
-<div class="page__footer-copyright">&copy; 2026 <a href="https://fromorbit.com">FromOrbit.com</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2013 - 2026 <a href="https://fromorbit.com">FromOrbit.com</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>
