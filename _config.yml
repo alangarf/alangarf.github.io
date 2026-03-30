@@ -126,6 +126,8 @@ footer:
 include:
   - .htaccess
   - _pages
+  - .nojekyll
+  - CNAME
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
