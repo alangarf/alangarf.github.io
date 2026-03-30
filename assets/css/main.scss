@@ -39,3 +39,17 @@ $header-font-family : 'Jura', sans-serif;
     font-size: 0.8em;
   }
 }
+
+.archive__item-title {
+  font-family: 'Jura', sans-serif;
+  text-shadow: 2px 2px #011E3C;
+  font-size: 1.12em;
+
+  .u-url {
+    text-decoration: none;
+  }
+}
+
+.archive__item-teaser {
+  background-color: #A4BBD3;
+}
