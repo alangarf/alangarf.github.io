@@ -17,7 +17,7 @@ deploy:
 
 	git add .
 	git commit -m "Manual deploy: $$(date)"
-	# git push origin master
+	git push origin master
 
-	# git checkout sources
-	# rm -rf /tmp/_site_build
+	git checkout sources
+	rm -rf /tmp/_site_build
