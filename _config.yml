@@ -81,7 +81,7 @@ analytics:
 # Site Author
 author:
   name             : "Alan Garfield"
-  avatar           : "/assets/bio.jpg"
+  avatar           : "/assets/images/bio.jpg"
   bio              : "Generic nerd who dabbles in programming, electronics, CNC and retro computing."
   location         : "Australia"
   email            :
