@@ -7,17 +7,9 @@ serve:
 deploy:
 	JEKYLL_ENV=production bundle exec jekyll build
 
-	rm -rf /tmp/_site_build
-	cp -r _site /tmp/_site_build
+	git -C _site add .
+	git -C _site commit -m "Deploy update: $$(date)"
+	git -C _site push origin master
 
-	git checkout master
-
-	find . -maxdepth 1 ! -name '.git' ! -name '.' -exec rm -rf {} +
-	cp -r /tmp/_site_build/* .
-
-	git add .
-	git commit -m "Manual deploy: $$(date)"
-	git push origin master
-
-	git checkout sources
-	rm -rf /tmp/_site_build
+	@echo "------------------------------------------------"
+	@echo "✅ Deployment complete! Sources and Master stayed separated."
