@@ -1,4 +1,10 @@
 var store = [{
+        "title": "First post!",
+        "excerpt":"First post!                                    ","categories": [],
+        "tags": [],
+        "url": "/first-post/",
+        "teaser": "/assets/images/logo_blue.svg"
+      },{
         "title": "LMD18200 Breadboard Adapter Board",
         "excerpt":"I designed this board out of necessity. I needed a decent H-bridge to test my new servo motor controller design without having to commit the entire design to PCB before I could test it. The adapter board uses a single LMD18200 which is a very capable H-Bridge driver. The LMD18200...","categories": [],
         "tags": [],
