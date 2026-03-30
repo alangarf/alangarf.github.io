@@ -10,8 +10,6 @@ name                     : "Alan Garfield"
 description              : >
     Generic nerd who dabbles in programming, electronics, CNC and retro computing.
 url                      : https://fromorbit.com
-baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : "/assets/images/logo_blue.svg" # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : "/assets/images/logo_blue.svg" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
