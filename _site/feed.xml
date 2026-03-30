@@ -1,0 +1,1398 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://fromorbit.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fromorbit.com/" rel="alternate" type="text/html" /><updated>2026-03-30T22:41:01+11:00</updated><id>https://fromorbit.com/feed.xml</id><title type="html">FromOrbit.com</title><subtitle>Generic nerd who dabbles in programming, electronics, CNC and retro computing.
+</subtitle><author><name>Alan Garfield</name></author><entry><title type="html">Using git subtree to send `_site` to `master` branch</title><link href="https://fromorbit.com/Static-Jekyll-to-github-pages/" rel="alternate" type="text/html" title="Using git subtree to send `_site` to `master` branch" /><published>2026-03-30T00:00:00+11:00</published><updated>2026-03-30T00:00:00+11:00</updated><id>https://fromorbit.com/Static-Jekyll-to-github-pages</id><content type="html" xml:base="https://fromorbit.com/Static-Jekyll-to-github-pages/"><![CDATA[<h1 id="what">What?</h1>
+
+<p>If you use github pages and you want to generate your static files yourself you can use a repo with a <code class="language-plaintext highlighter-rouge">master</code> branch that is your public static rendered files, and another branch in my case <code class="language-plaintext highlighter-rouge">sources</code> that is the raw source files that I render with Jeykll locally.</p>
+
+<h1 id="why">Why?</h1>
+
+<p>Because I want to add my own modules and plugins and have the rendered locally and not be forced to use the supported ones for github to render for me.</p>
+
+<h1 id="how">How?</h1>
+
+<p>It’s pretty neat I think:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rm -rf _site
+git worktree add _site master
+</code></pre></div></div>
+
+<p>Then add the following to your <code class="language-plaintext highlighter-rouge">Makefile</code> if you use make, alter to adjust to your use case.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deploy:
+	JEKYLL_ENV=production bundle exec jekyll build
+	cd _site &amp;&amp; git add . &amp;&amp; git commit -m "Deploy: $(shell date)" &amp;&amp; git push origin master
+</code></pre></div></div>
+
+<p>Which will commit the <code class="language-plaintext highlighter-rouge">_site</code> into the <code class="language-plaintext highlighter-rouge">master</code> branch and push it to github.</p>
+
+<p>Which you simply do by:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make deploy
+</code></pre></div></div>
+
+<p>And 30 seconds later your github pages is updated and live!</p>]]></content><author><name>Alan Garfield</name></author><summary type="html"><![CDATA[More for the brain file]]></summary></entry><entry><title type="html">Getting STLink-V3 and Pico Probe working in Arch Linux</title><link href="https://fromorbit.com/StlinkV3-PicoDebug-Arch/" rel="alternate" type="text/html" title="Getting STLink-V3 and Pico Probe working in Arch Linux" /><published>2026-03-29T00:00:00+11:00</published><updated>2026-03-29T00:00:00+11:00</updated><id>https://fromorbit.com/StlinkV3-PicoDebug-Arch</id><content type="html" xml:base="https://fromorbit.com/StlinkV3-PicoDebug-Arch/"><![CDATA[<h1 id="how">How?</h1>
+
+<p>Two rules, one for STLink-V3 and one for Pico Probe.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># STLink V3 (0483:3753) - Main Serial Port (VCP Data)
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3753", ENV{ID_USB_INTERFACE_NUM}=="01", SYMLINK+="stlink_v3_main", TAG+="uaccess"
+
+# STLink V3 (0483:3753) - Bridge Serial Port (VCP2 Data)
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3753", ENV{ID_USB_INTERFACE_NUM}=="04", SYMLINK+="stlink_v3_bridge", TAG+="uaccess"
+
+# STLink V3 (0483:3753) - Debug Interface (For probe-rs / OpenOCD)
+SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3753", ENV{ID_USB_INTERFACE_NUM}=="00", TAG+="uaccess"
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Raspberry Pi Pico (RP2040) BOOTSEL
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="2e8a", ATTRS{idProduct}=="0003", TAG+="uaccess"
+
+# Raspberry Pi Pico 2 (RP2350) BOOTSEL
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="2e8a", ATTRS{idProduct}=="000f", TAG+="uaccess"
+
+# Raspberry Pi Pico (RP2040) USB Serial
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="2e8a", ATTRS{idProduct}=="000a", TAG+="uaccess"
+
+# Raspberry Pi Debug Probe - UART Serial Port
+KERNEL=="ttyACM*", ATTRS{idVendor}=="2e8a", ATTRS{idProduct}=="000c", ATTRS{serial}=="E663AC91D3480E30", ENV{ID_USB_INTERFACE_NUM}=="01", SYMLINK+="pico_debug_uart", TAG+="uaccess"
+</code></pre></div></div>
+
+<p>Install in <code class="language-plaintext highlighter-rouge">/etc/udev/rules.d/</code>, call em whatever.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo udevadm control --reload-rules &amp;&amp; sudo udevadm trigger
+</code></pre></div></div>
+
+<p>Check with probe-rs:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>❯ probe-rs list
+The following debug probes were found:
+[0]: Debug Probe (CMSIS-DAP) -- 2e8a:000c-0:E663AC91D3480E30 (CMSIS-DAP)
+[1]: STLink V3 -- 0483:3753:0027003C3038511834333935 (ST-LINK)
+</code></pre></div></div>
+
+<p>Happy happy days!</p>]]></content><author><name>Alan Garfield</name></author><summary type="html"><![CDATA[for the brain file]]></summary></entry><entry><title type="html">Alan’s Wishlist</title><link href="https://fromorbit.com/Alan-wishlist-or-stuff-he-wants-to-remember/" rel="alternate" type="text/html" title="Alan’s Wishlist" /><published>2025-04-25T00:00:00+10:00</published><updated>2025-04-25T00:00:00+10:00</updated><id>https://fromorbit.com/Alan-wishlist-or-stuff-he-wants-to-remember</id><content type="html" xml:base="https://fromorbit.com/Alan-wishlist-or-stuff-he-wants-to-remember/"><![CDATA[<h1 id="wish-list">Wish List</h1>
+
+<ul>
+  <li><a href="https://sydneytools.com.au/product/chicago-air-hush70h-silenced-70l-air-compressor">Chicago Air HUSH70-H Silenced 70L Air Compressor</a></li>
+  <li><a href="https://gasrep.com.au/shop/welders/tig-welders/ac-dc-tig-welders/duralloy-da201mweld-multiweld-201-pfc-4in1-mig-welder/">Duralloy Multiweld 201 PFC 4in1 MIG Welder</a></li>
+</ul>]]></content><author><name>Alan Garfield</name></author><summary type="html"><![CDATA[MOAR STUFF]]></summary></entry><entry><title type="html">45W IRF510 HF Linear Amp</title><link href="https://fromorbit.com/IRF510-linear-amp/" rel="alternate" type="text/html" title="45W IRF510 HF Linear Amp" /><published>2022-05-23T00:00:00+10:00</published><updated>2022-05-23T00:00:00+10:00</updated><id>https://fromorbit.com/IRF510-linear-amp</id><content type="html" xml:base="https://fromorbit.com/IRF510-linear-amp/"><![CDATA[<h1 id="45w-irf510-hf-linear-amp">45W IRF510 HF Linear Amp</h1>
+
+<p>Boy it’s been a long time between posts. Sorry about that. I got real lazy and
+just starting pumping my content into twitter and really just never took the
+time to document things.</p>
+
+<p>Anyway, here is a project I built to get me out of QRP land and being heard my
+frequently on the 20M and 40M bands.</p>
+
+<h2 id="cq-cq-cq">“CQ CQ CQ”</h2>
+
+<p>Finally getting around to sitting for my HAM license I started off with my
+first HF radio, the very useful uBitX v6. It’s a great radio to start with for
+a tinker like me. It’s open sourced schematic and firmware allows fiddling and
+updating and there is always a wealth of ideas and projects on the internet for
+it.</p>
+
+<p>With it’s mighty 5W output and using my home-brew EFHW antenna I would make
+countless “CQ” calls hoping someone would hear me. I went on for weeks if not
+months tweaking this, and tuning that but nobody seemed to ever hear me. So I
+set about creating my first linear amplifier. Inspired by a design in
+“Experimental Methods in RF Design” EMRFD I set about building myself a linear
+amplifier to get above the noise.</p>
+
+<h2 id="oh-the-things-you-learn">“Oh the things you learn”</h2>
+
+<p>So, I at first figured I’d bash together a prototype on some copper clad and
+see how it would go…</p>
+
+<figure class="third ">
+  
+    
+    
+    <a href="https://fromorbit.com/assets/images/2022-05-23/linear2.jpg">
+        <img src="https://fromorbit.com/assets/images/2022-05-23/linear2.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear2.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear2.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear2.jpg 1280w" alt="picture two" />
+    </a>
+  
+    
+    
+    <a href="https://fromorbit.com/assets/images/2022-05-23/linear3.jpg">
+        <img src="https://fromorbit.com/assets/images/2022-05-23/linear3.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear3.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear3.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear3.jpg 1280w" alt="picture three" />
+    </a>
+  
+    
+    
+    <a href="https://fromorbit.com/assets/images/2022-05-23/linear4.jpg">
+        <img src="https://fromorbit.com/assets/images/2022-05-23/linear4.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear4.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear4.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear4.jpg 1280w" alt="picture one" />
+    </a>
+  
+  
+</figure>
+
+<p>I got some output! 4dBm (2.5mW) input netted me 31dBm (1.2W) output from 12V!</p>
+
+<p>Suffice to say I was stoked…. then it started oscillating.</p>
+
+<p>Speaking with my Elmer he suggested my crappy hacked together layout wasn’t
+conducive to a high power amplifier with fairly high gain, and that perhaps I
+should do a cleaner layout. So I cracked out my CNC mill and Kicad and made a
+prototype.</p>
+
+<h2 id="there-aint-no-thang-like-a-cnc">“There ain’t no thang like a CNC”</h2>
+
+<figure class="half ">
+  
+    
+    
+    <a href="https://fromorbit.com/assets/images/2022-05-23/linear5.jpg">
+        <img src="https://fromorbit.com/assets/images/2022-05-23/linear5.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear5.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear5.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear5.jpg 1280w" alt="picture two" />
+    </a>
+  
+    
+    
+    <a href="https://fromorbit.com/assets/images/2022-05-23/linear6.jpg">
+        <img src="https://fromorbit.com/assets/images/2022-05-23/linear6.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear6.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear6.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear6.jpg 1280w" alt="picture three" />
+    </a>
+  
+  
+</figure>
+
+<p>Layout done, board turned out nice. Time to build it.</p>
+
+<figure class=" ">
+  
+    
+    
+    <a href="https://fromorbit.com/assets/images/2022-05-23/linear7.jpg">
+        <img src="https://fromorbit.com/assets/images/2022-05-23/linear7.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear7.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear7.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear7.jpg 1280w" alt="picture three" />
+    </a>
+  
+  
+</figure>
+
+<p>Using a large chunk of heat-sink I cut down from an old stage lighting dimmer,
+I mounted the MOSFETs with insulators onto the heat-sink. The PCB was then
+mounted on top and the board mounted on stand-offs.</p>
+
+<figure class="third ">
+  
+    
+    
+    <a href="https://fromorbit.com/assets/images/2022-05-23/linear8.jpg">
+        <img src="https://fromorbit.com/assets/images/2022-05-23/linear8.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear8.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear8.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear8.jpg 1280w" alt="picture three" />
+    </a>
+  
+    
+    
+    <a href="https://fromorbit.com/assets/images/2022-05-23/linear10.jpg">
+        <img src="https://fromorbit.com/assets/images/2022-05-23/linear10.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear10.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear10.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear10.jpg 1280w" alt="picture one" />
+    </a>
+  
+    
+    
+    <a href="https://fromorbit.com/assets/images/2022-05-23/linear11.jpg">
+        <img src="https://fromorbit.com/assets/images/2022-05-23/linear11.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear11.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear11.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear11.jpg 1280w" alt="picture two" />
+    </a>
+  
+  
+</figure>
+
+<p>It was about this time I realised I screwed up the schematic and had the gate
+and drain on one MOSFET arse about. Dutifully I hacked in a modification and
+continued.</p>
+
+<p>All the components and coils were wound, and the moment of truth</p>
+
+<h2 id="power-up-time">Power up time!</h2>
+
+<figure class="half ">
+  
+    
+    
+    <a href="https://fromorbit.com/assets/images/2022-05-23/linear13.jpg">
+        <img src="https://fromorbit.com/assets/images/2022-05-23/linear13.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear13.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear13.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear13.jpg 1280w" alt="picture three" />
+    </a>
+  
+    
+    
+    <a href="https://fromorbit.com/assets/images/2022-05-23/linear12.jpg">
+        <img src="https://fromorbit.com/assets/images/2022-05-23/linear12.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear12.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear12.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear12.jpg 1280w" alt="picture three" />
+    </a>
+  
+  
+</figure>
+
+<p>Powered it up, connected it to my uBitX and whistled into the mic and received
+46dBm (39.8W) of output from 24dBm (250mW) of input! I was very very pleased.
+No oscillations, nice clear output and all looked very good and pleasing.</p>
+
+<h2 id="now-lets-make-a-proper-version-this-time">Now let’s make a proper version this time</h2>
+
+<figure class="half ">
+  
+    
+    
+    <a href="https://fromorbit.com/assets/images/2022-05-23/linear14.jpg">
+        <img src="https://fromorbit.com/assets/images/2022-05-23/linear14.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear14.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear14.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear14.jpg 1280w" alt="picture three" />
+    </a>
+  
+    
+    
+    <a href="https://fromorbit.com/assets/images/2022-05-23/linear15.jpg">
+        <img src="https://fromorbit.com/assets/images/2022-05-23/linear15.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear15.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear15.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear15.jpg 1280w" alt="picture three" />
+    </a>
+  
+  
+</figure>
+
+<p>A new layout was made, a new board was milled on the CNC and the components
+transferred across to the new board</p>
+
+<figure class=" ">
+  
+    
+    
+    <a href="https://fromorbit.com/assets/images/2022-05-23/linear16.jpg">
+        <img src="https://fromorbit.com/assets/images/2022-05-23/linear16.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear16.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear16.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear16.jpg 1280w" alt="picture one" />
+    </a>
+  
+  
+</figure>
+
+<p>Worked perfectly. Pushing the input power up to 30V @ 3A the amp will easily
+get to 50W into 50 ohms, but I limit the supply to 28V and that seems to keep
+it around 45W output.</p>
+
+<h2 id="time-for-an-txrx-switcher">Time for an TX/RX switcher</h2>
+
+<figure class="third ">
+  
+    
+    
+    <a href="https://fromorbit.com/assets/images/2022-05-23/linear17.jpg">
+        <img src="https://fromorbit.com/assets/images/2022-05-23/linear17.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear17.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear17.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear17.jpg 1280w" alt="picture two" />
+    </a>
+  
+    
+    
+    <a href="https://fromorbit.com/assets/images/2022-05-23/linear18.jpg">
+        <img src="https://fromorbit.com/assets/images/2022-05-23/linear18.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear18.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear18.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear18.jpg 1280w" alt="picture three" />
+    </a>
+  
+    
+    
+    <a href="https://fromorbit.com/assets/images/2022-05-23/linear19.jpg">
+        <img src="https://fromorbit.com/assets/images/2022-05-23/linear19.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear19.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear19.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear19.jpg 1280w" alt="picture three" />
+    </a>
+  
+  
+</figure>
+
+<p>I needed a way to interface the linear with the uBitX. I pulled 12V from the
+TX/RX relay inside the uBitX and brought it outside to control a relay block I
+made for the linear. I really should just create a TX sensor on the input of
+the linear and have it handle the switching itself (future project) but for now
+this works.</p>
+
+<h2 id="put-it-in-a-box">Put it in a box!</h2>
+
+<figure class="third ">
+  
+    
+    
+    <a href="https://fromorbit.com/assets/images/2022-05-23/linear20.jpg">
+        <img src="https://fromorbit.com/assets/images/2022-05-23/linear20.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear20.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear20.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear20.jpg 1280w" alt="picture three" />
+    </a>
+  
+    
+    
+    <a href="https://fromorbit.com/assets/images/2022-05-23/linear21.jpg">
+        <img src="https://fromorbit.com/assets/images/2022-05-23/linear21.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear21.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear21.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear21.jpg 1280w" alt="picture three" />
+    </a>
+  
+    
+    
+    <a href="https://fromorbit.com/assets/images/2022-05-23/linear23.jpg">
+        <img src="https://fromorbit.com/assets/images/2022-05-23/linear23.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear23.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear23.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear23.jpg 1280w" alt="picture two" />
+    </a>
+  
+    
+    
+    <a href="https://fromorbit.com/assets/images/2022-05-23/linear24.jpg">
+        <img src="https://fromorbit.com/assets/images/2022-05-23/linear24.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear24.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear24.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear24.jpg 1280w" alt="picture three" />
+    </a>
+  
+    
+    
+    <a href="https://fromorbit.com/assets/images/2022-05-23/linear25.jpg">
+        <img src="https://fromorbit.com/assets/images/2022-05-23/linear25.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear25.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear25.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear25.jpg 1280w" alt="picture three" />
+    </a>
+  
+    
+    
+    <a href="https://fromorbit.com/assets/images/2022-05-23/linear26.jpg">
+        <img src="https://fromorbit.com/assets/images/2022-05-23/linear26.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear26.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear26.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear26.jpg 1280w" alt="picture three" />
+    </a>
+  
+  
+</figure>
+
+<p>An old ATX PSU steel case was used to house the amplifier. It was handy because
+it had a 80mm fan already in the box and it was steel, so provided good
+shielding. Not much to look at though.</p>
+
+<h2 id="so-hows-it-going">So, how’s it going?</h2>
+
+<p>After using it on air for a while and having finally breaking through the noise
+I have had many successful QSOs from all over Australia, NZ and the USA.</p>
+
+<figure class=" ">
+  
+    
+    
+    <a href="https://fromorbit.com/assets/images/2022-05-23/linear27.jpg">
+        <img src="https://fromorbit.com/assets/images/2022-05-23/linear27.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear27.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear27.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear27.jpg 1280w" alt="picture three" />
+    </a>
+  
+  
+</figure>
+
+<p>Suffice to say I’m really very very happy with it.</p>]]></content><author><name>Alan Garfield</name></author><summary type="html"><![CDATA[The little amp that could!]]></summary></entry><entry><title type="html">More fun with the m68k</title><link href="https://fromorbit.com/m68k-crosstool-ng/" rel="alternate" type="text/html" title="More fun with the m68k" /><published>2017-05-19T00:00:00+10:00</published><updated>2017-05-19T00:00:00+10:00</updated><id>https://fromorbit.com/m68k-crosstool-ng</id><content type="html" xml:base="https://fromorbit.com/m68k-crosstool-ng/"><![CDATA[<h1 id="the-last-days-of-the-retro-challenge">The last days of the Retro Challenge</h1>
+
+<p>The Retro Challenge behind me, and not actually achieving my goal I was pretty
+disappointed that work/life commitments stacked against me in getting there.
+That didn’t stop me from completing my goal, just wasn’t in the time frame of
+the competition.</p>
+
+<p>Where I left off lasted I had my bootloader working and a basic assembler
+environment working, but I wanted a high level language to create my Mandelbrot
+set. I didn’t want to write it in assembler.</p>
+
+<h1 id="the-first-steps">The first steps</h1>
+
+<p>I got the idea that since I had a linker script, etc setup it wouldn’t be a
+long stretch to get GCC and libc working. So I set out to do just that.</p>
+
+<p>After a few nights fiddling around and hitting a bug in the version of GCC and
+libc where the compiler would crash because I was missing a linker directive,
+but even when fixed the compiler would still bomb. After much research it
+seemed to be a bug that I really wasn’t in the mood to research and fix, or to
+update the environment. Also the output I got was really large and inefficient,
+so I started looking for an alternative.</p>
+
+<h1 id="enter-crosstool-ng">Enter crosstool-ng</h1>
+
+<p>Not looking forward to the prospect of compiling GCC and all the rest manually
+I started looking for tool-chains I could get that wouldn’t require a lot of
+fiddly setup, another thing is that a lot of m68k is getting long in the tooth
+and the tool-chains and tools are deteriorating at an alarming rate. After a few
+nights looking around I stumbled upon
+(crosstool-ng)[http://crosstool-ng.github.io/].</p>
+
+<p>An unassuming utility that builds tool-chains for various processors and setups,
+one of which is m68k based systems. During my search for a new tool-chain I also
+stumbled upon Newlib, a libc alternative that is much lighter than standard
+libc and has abstracted I/O functions out to basically eight system calls.</p>
+
+<p>After about 20 minutes with crosstool-ng I had a new Newlib based tool-chain
+ready. Here are the basic steps I took to build the tool-chain:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Get the latest crosstool-ng</span>
+<span class="nv">$ </span>git clone https://github.com/crosstool-ng/crosstool-ng
+<span class="nv">$ </span><span class="nb">cd </span>crosstool-ng
+<span class="nv">$ </span>./bootstrap
+
+<span class="c"># Build the crosstool-ng</span>
+<span class="nv">$ </span>./configure <span class="nt">--prefix</span><span class="o">=</span>/opt/crosstool-ng
+<span class="nv">$ </span>make
+<span class="nv">$ </span>make <span class="nb">install</span>
+<span class="nv">$ </span><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">PATH</span><span class="k">}</span><span class="s2">:/opt/crosstool-ng/bin"</span>
+</code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Make a working dir</span>
+<span class="nv">$ </span><span class="nb">mkdir </span>work-dir
+<span class="nv">$ </span><span class="nb">cd </span>work-dir
+
+<span class="c"># I used the m68k-unknown-elf "sample" as it had all I needed</span>
+<span class="nv">$ </span>ct-ng m68k-unknown-elf
+<span class="nv">$ </span>ct-ng menuconfig
+<span class="nv">$ </span>ct-ng build
+</code></pre></div></div>
+
+<p>After a little while you’ll end up with a <code class="language-plaintext highlighter-rouge">x-tools</code> directory with all the
+tools you need!</p>
+
+<h1 id="time-to-test-the-compiler">Time to test the compiler</h1>
+
+<p>I made a simple project that simply setup the UART and output “Hello world”,
+the linker was setup to operate purely from RAM so the <code class="language-plaintext highlighter-rouge">.data</code> didn’t need to
+be copied and the <code class="language-plaintext highlighter-rouge">.bss</code> was already cleared. I needed to implement the basic
+functions that Newlib mandates :</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">close</span> <span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">fstat</span> <span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">,</span> <span class="k">struct</span> <span class="n">stat</span> <span class="o">*</span><span class="n">buf</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">getpid</span><span class="p">();</span>
+<span class="kt">int</span> <span class="nf">isatty</span> <span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">kill</span> <span class="p">(</span><span class="kt">int</span> <span class="n">pid</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sig</span><span class="p">);</span>
+<span class="kt">off_t</span> <span class="nf">lseek</span> <span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">,</span> <span class="kt">off_t</span> <span class="n">offset</span><span class="p">,</span> <span class="kt">int</span> <span class="n">whence</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">open</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mode</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">print</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">ptr</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">putnum</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">num</span><span class="p">);</span>
+<span class="kt">void</span> <span class="o">*</span><span class="nf">sbrk</span> <span class="p">(</span><span class="kt">int</span> <span class="n">nbytes</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">stat</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">path</span><span class="p">,</span> <span class="k">struct</span> <span class="n">stat</span> <span class="o">*</span><span class="n">buf</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">unlink</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span> <span class="n">path</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">write</span> <span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nbytes</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>You don’t need to implement all these functions, initially I just implemented
+each one I needed as the compiler complained. I found for a simple UART output
+I only needed four.</p>
+
+<p>It compiled just fine and when I copy and pasted the srec data into my bootload
+I was happily presented with a “Hello world!”</p>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">F%^&amp; YEAH! gcc and Newlib work! This is a `printf()` compiled with GCC output as srecord data and pasted into my bootloader. WORKED! YAY! <a href="https://t.co/PpjcL73qq1">pic.twitter.com/PpjcL73qq1</a></p>&mdash; Alan Garfield (@alangarf) <a href="https://twitter.com/alangarf/status/861920638922924032">May 9, 2017</a></blockquote>
+<script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>Suffice to say I was pretty damn happy</p>
+
+<h1 id="mandelbrot-now">Mandelbrot now?</h1>
+
+<p>Even though I now was ready to build a Mandelbrot set I was still unhappy with the
+fact my init code and the required Newlib system calls weren’t implemented that
+well. Plus I had a bug I noticed where the CPU would crash if I called too many
+subroutines. This last one was pretty easy to fix but it did require me to
+clean up my linker script and create something more complete. The issue with
+the crash was my heap space and stack space was colliding. I was artificially
+reducing the heap space to make the upload to the board smaller. I was having
+race conditions in the silly terminal I was using that was causing my
+bootloader to miss characters etc.</p>
+
+<p>So, rather than make a Mandelbrot I set about to build a “BSP” (Board Support
+Package) for this board.</p>
+
+<h1 id="an-amx-axc-em-bsp">An AMX AXC-EM BSP</h1>
+
+<p>To start with this seemed like it would be much harder until I found the source
+for Newlib itself, and the <code class="language-plaintext highlighter-rouge">libgloss</code> library. Inside the source for the <code class="language-plaintext highlighter-rouge">m68k</code>
+in <code class="language-plaintext highlighter-rouge">libgloss</code> it had implementations of BSPs for other m68k based boards.</p>
+
+<p>Using the details of a few of these boards I was able to piece together what
+was required to make a BSP for this board. With a little bit of testing and
+poking around I managed to make a support library that made compiling things
+for this board almost trivial!</p>
+
+<p>I’ve pushed this BSP to github: (AMX AXC-EM BSP)[https://github.com/alangarf/axc-em-bsp]</p>
+
+<p>To use it all you need to do is point the linker of your project to  the
+resulting <code class="language-plaintext highlighter-rouge">libamx.a</code> and use the linker script for linking and you project
+should just work.</p>
+
+<p>I’m slowly adding more details for the peripherals of the MC68340 as I go, but
+so far it has what is needed for the UART.</p>
+
+<h1 id="now-a-mandelbrot">Now a Mandelbrot?</h1>
+
+<p>You bet. Being lazy I looked around on github.com for a C-based ASCII
+Mandelbrot routine. The first one I found seemed simple, but turned out to be
+extremely inefficient. I build and tested it on the board, but initially I
+thought the board crashed. Just luckily I left it running and after a few
+minutes a single line of a Mandelbrot had been output.</p>
+
+<p>Leaving it for another 20 minutes only another 5 lines where added. Thinking
+that the CPU had slipped out of it’s 16MHz clock mode I reconfirmed that the
+clock was at the right speed. It was just very inefficient code.</p>
+
+<p>Looking for another source of laziness I found
+<a href="https://github.com/vain/asciibrot/blob/master/asciibrot.c">asciibrot</a>. It was
+designed to do animation etc, but really all I wanted was a single rendering of
+a Mandelbrot. So I tore the routines apart and finally got myself this output:</p>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Yay I finally achieved my <a href="https://twitter.com/retrochallenge">@retrochallenge</a> goal. I can render a mandelbrot set written in C on this m68k board! Better late than never. :D <a href="https://t.co/wDoZAdDz2H">pic.twitter.com/wDoZAdDz2H</a></p>&mdash; Alan Garfield (@alangarf) <a href="https://twitter.com/alangarf/status/864813565282205696">May 17, 2017</a></blockquote>
+<script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>Gosh I was so happy when I finally saw that. Over a month on and off mucking
+around with this and finally achieved my goal, plus along the way I learned so
+much more (and relearned a bunch of stuff I’d long forgotten). It was an awesome
+challenge and also the biggest possible reward of entering the Retro Challenge
+itself.</p>
+
+<h1 id="any-more-examples">Any more examples?</h1>
+
+<p>Here is a real-time display of the board rendering a larger Mandelbrot set.</p>
+
+<figure class="">
+    
+    
+        <img src="https://fromorbit.com/assets/images/2017-05-19/mandelbrot.gif" alt="" />
+    
+    
+
+</figure>
+
+<p>An here is a better example showing the actual CPU speed by character. I
+removed the line buffering so each character can be seen as it is rendered.</p>
+
+<figure class="">
+    
+    
+        <img src="https://fromorbit.com/assets/images/2017-05-19/mandelbrot-2.gif" alt="" />
+    
+    
+
+</figure>
+
+<p>So now I have a really good tool-chain, a working linker script and can
+basically compile anything I like. I think the next test is to get the on board
+I/O devices sorted out (eg. the clock/calendar, the DIP switches and the I/O
+pins I’ve found) and make it do something more fun. A clock? A vector display
+controller with some ADCs? You’ll have to wait and see.</p>]]></content><author><name>Alan Garfield</name></author><summary type="html"><![CDATA[Finally I achieved my goal of getting a Mandelbrot routine running on this m68k board and I learned a lot along the way]]></summary></entry><entry><title type="html">m68k Environment - Retro Challenge 2017/04</title><link href="https://fromorbit.com/m68k-environment-rc201704/" rel="alternate" type="text/html" title="m68k Environment - Retro Challenge 2017/04" /><published>2017-04-26T00:00:00+10:00</published><updated>2017-04-26T00:00:00+10:00</updated><id>https://fromorbit.com/m68k-environment-rc201704</id><content type="html" xml:base="https://fromorbit.com/m68k-environment-rc201704/"><![CDATA[<p>So, for this post I want to talk about my development environment and where I’m
+up to as far as the Retro Challenge.</p>
+
+<p>I’ve had a <em>lot</em> of issues with this project. Initially I was cruising well and
+looking well on track to make something really cool, but then I damaged the
+board.</p>
+
+<p>The board started to exhibit a fault with it’s ability to load bytes from ROM.
+This became apparent as I started porting the TS2 ROM Monitor. When the fault
+occurred I started to gradually break the application down to the point of just
+the minimal initialization stuff for the CPU and UART and printing a string
+from ROM to the UART.</p>
+
+<p>As I was doing this testing, the CPU would appear to
+crash or not properly enter into any exception handler (even when forced too by
+using an illegal instruction!). After many, many days of trial and error and
+screaming at the board I finally broke it down to the point of it was either a
+faulty CPU or I’m a complete idiot and can’t write five m68k assembly
+instructions.</p>
+
+<p>So, I cut my losses and switch to my fall back board that was a little newer
+and based on a MC68340 CPU. My main hesitation initially for not using this
+board to begin with was that it was a peripheral integrated CPU, which meant
+the board was basically ROM, RAM, CPU, and power related parts.</p>
+
+<figure class=""><img src="/assets/images/2017-04-18/axc-em.jpg" alt="AMX AXC-EM board." /><figcaption>
+      The AMX AXC-EM board.
+
+    </figcaption></figure>
+
+<p>As it stands I’ve had a much more enjoyable time working with this board and so
+have progressed much further with the software, rather than staring at a
+blinking LED and hoping it blinks <em>just right</em> this time (if you follow me on
+Twitter you’ll know what I mean)..</p>
+
+<h1 id="the-software-environment">The Software Environment.</h1>
+
+<p>At the moment I’m writing everything in assembler for the m68k. I’m on a
+Macbook Pro and I run the m68k development environment in a Ubuntu Xenial VM
+using Vagrant. Rather than trying to setup the cross compiler in OSX, I just
+opted to use Linux and the Ubuntu m86k deb packages.</p>
+
+<p>So, to edit the code I use a Vagrant share and access the files in OSX using
+Vim in iTerm, and in another panel I have an open SSH session into the VM to do
+the compilation.</p>
+
+<p>To get the code onto the EEPROMs I use a <a href="http://www.autoelectric.cn/en/tl866_main.html">TL866a MiniPro
+programmer</a>, which I’ve compiled
+the <a href="https://github.com/vdudouyt/minipro">open source command line tool</a> for it
+in OSX. This means to program the EEPROMs I run the commands in OSX.</p>
+
+<p>Sounds difficult but it’s really not. I have a Makefile which handles all the
+compiling and ROM images, plus outputting dump files. It also has the recipe
+for programming the even and odd ROM images to the EEPROMs via the MiniPro
+tool.</p>
+
+<p>The flow sorta looks like this:</p>
+
+<ul>
+  <li>Makes changes to the source code in vim inside one iTerm pane.</li>
+  <li>Switch to the VM pane that’s SSH’d into the VM. Run the make compile command.</li>
+  <li>Switch back to the editor pane in iTerm.</li>
+  <li>Put the even EEPROM in the programmer.</li>
+  <li>From inside vim run the make commands to program the even EEPROM</li>
+  <li>Rinse repeat for the odd ROM</li>
+</ul>
+
+<p>Here is the Makefile I’m using, you can see it <a href="https://github.com/alangarf/amx_axc_m68k/blob/master/Makefile">here on Github
+too.</a></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>M68K=m68k-linux-gnu
+AS=$(M68K)-as
+LD=$(M68K)-ld
+COPY=$(M68K)-objcopy
+DUMP=$(M68K)-objdump
+
+ASFLAGS=-m68340 --warn --fatal-warnings
+LDFLAGS=-T m68k.ld
+DUMPFLAGS=-m68020 -x -D
+
+EEPROM=AT28C256
+PREFIX=m68k-
+
+FMT=binary
+
+SRCS=loader.s
+OBJS=$(SRCS:.s=.o)
+MAIN=loader
+
+.PHONY: dump clean
+
+all:	$(MAIN)
+
+.s.o:
+	$(AS) $(ASFLAGS) -o $@ $&lt;
+
+$(MAIN): $(OBJS)
+	$(LD) $(LDFLAGS) -o $(MAIN).a $(OBJS)
+	$(COPY) -b 0 -i 2 --interleave-width=1 -O $(FMT) $(MAIN).a $(PREFIX)$(MAIN)-even.bin
+	$(COPY) -b 1 -i 2 --interleave-width=1 -O $(FMT) $(MAIN).a $(PREFIX)$(MAIN)-odd.bin
+
+clean:
+	rm -f *.o $(PREFIX)$(MAIN)-even.bin $(PREFIX)$(MAIN)-odd.bin $(PREFIX)$(MAIN).bin $(MAIN).a
+
+prog_even:
+	@echo Programming $(MAIN)-even onto $(EEPROM)
+	minipro -p "$(EEPROM)" -w $(PREFIX)$(MAIN)-even.bin -s
+
+prog_odd:
+	@echo Programming $(MAIN)-odd onto $(EEPROM)
+	minipro -p "$(EEPROM)" -w $(PREFIX)$(MAIN)-odd.bin -s
+
+dump:	$(MAIN)
+	$(DUMP) $(DUMPFLAGS) $(MAIN).a
+</code></pre></div></div>
+
+<h1 id="compilation-and-linking">Compilation and Linking</h1>
+
+<p>As you can see from the Makefile above I’m using <code class="language-plaintext highlighter-rouge">m68k-linux-gnu-as</code> to
+assemble the object files from the source files. I am then using
+<code class="language-plaintext highlighter-rouge">m68k-linux-gnu-ld</code> to link the object file(s) into the <code class="language-plaintext highlighter-rouge">.a</code> archive object
+file. Which is then split into the <code class="language-plaintext highlighter-rouge">even</code> and <code class="language-plaintext highlighter-rouge">odd</code> ROM binary images needed
+for the two 8 bit EEPROMS to make the 16bit wide program data.</p>
+
+<p>I have a small linker script to handle the vector mapping, the stack and RAM
+locations etc. This step makes moving the resources around <em>very</em> easy, which
+I’m now thankful for because the two boards I have are vastly different in
+memory map to each other.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MEMORY
+{
+    ROM (rx) : ORIGIN = 0x00000000, LENGTH = 0x10000
+    RAM (xrw) : ORIGIN = 0x00040000, LENGTH = 0x10000
+}
+
+/* stack location */
+stack_size = 1024;
+
+_stack_start = ORIGIN(RAM)+LENGTH(RAM)-0x10;
+_stack_end = _stack_start - stack_size;
+
+/* ram location */
+_ram_start = ORIGIN(RAM);
+_ram_end = ORIGIN(RAM)+LENGTH(RAM);
+
+/* system integration module */
+_sim40 = 0x80000;
+_timers = _sim40 + 0x600;
+_uarts = _sim40 + 0x700;
+_dma = _sim40 + 0x780;
+
+SECTIONS {
+  .vectors 0x00 :
+  {
+    . = ALIGN(4);
+    KEEP(*(.vectors))
+    . = ALIGN(4);
+  } &gt; ROM
+
+  .text 0x400 : {
+    . = ALIGN(4);
+    *(.text)
+    . = ALIGN(4);
+  } &gt; ROM
+
+  .data : { *(.data) } &gt; RAM
+  .bss :  { *(.bss)  *(COMMON) } &gt; RAM
+}
+
+OUTPUT_ARCH(m68k)
+</code></pre></div></div>
+
+<p>I’ve been trying to get an <code class="language-plaintext highlighter-rouge">.rodata</code> section working, but for whatever reason
+my sections end up with the wrong alignment and any strings I put there are in
+the ROM image, but don’t appear to work. Maybe when I get some times I’ll
+figure out why that is, for now I’m happy to just put the strings at the end of
+the <code class="language-plaintext highlighter-rouge">.text</code> section.</p>
+
+<h1 id="initializing-the-mc68340-cpu">Initializing the MC68340 CPU</h1>
+
+<p>The MC68430 is a great CPU, it has a lovely set of peripherals, and some very
+nice features. However getting it going can be a little trick as both the RAM
+and ROM positions are controlled completely by the System Integration Module.
+The “SIM40” is a peripheral module in the MC68340 that basically handles all
+the address decoding and glue logic the other board had in 74 series ICs. This
+allows cool things like loading the START and SP registers from the ROM, and
+then moving the ROM up high in the memory map and replacing where the ROM would
+be with RAM. All with just a few instructions. Done in hardware you’d need
+complex gating or a GAL to achieve something similar.</p>
+
+<p>So to start with here is a chunk of code that configures the ROM and RAM
+locations in the memory map, and configures the CPU speed and interrupt maps.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*************************************************************************
+*
+*  Init the CPU and System Integration Module - Configs module options
+*
+.init:
+            move.w      #0x2700, %sr                    | mask interrupts and set supervisor mode
+
+            moveq       #7, %d0
+            movec       %d0, %dfc
+            move.l      #_sim40 + 1, %d0
+            moves.l     %d0, 0x3ff00                    | move sim40 base address to 0x80000
+
+            /* setup ROM chip select CS0 */
+            move.l      #0x03fffd, _sm_csam0 + _sim40   | 16 bit port, three wait, mask FC bits, 256KB in size
+            move.l      #0x000001, _sm_csbar0 + _sim40  | starting at 0x00000
+
+            /* setup RAM chip select CS1 */
+            move.l      #0x03fff1, _sm_csam1 + _sim40   | 16 bit port, zero wait, mask FC bits, 256KB in size
+            move.l      #0x040001, _sm_csbar1 + _sim40  | starting at 0x40000
+
+            /* setup system protects and clock */
+            move.b      #0x06, _sm_sypcr + _sim40       | turn off watchdogs, bus fault, bus monitor
+            move.w      #0x7c00, _sm_syncr + _sim40     | set clock to 15.991 MHz
+            move.w      #0x420f, _sm_mcr + _sim40       | set MCR, no interrupts etc
+</code></pre></div></div>
+
+<p>In this project I’ve just kept the memory map really simple.</p>
+
+<ul>
+  <li>0x000000 is ROM</li>
+  <li>0x040000 is RAM</li>
+  <li>0x080000 is the SIM40 peripherals</li>
+</ul>
+
+<p>I may switch the RAM and ROM around later as this would allow me to dynamically
+change the interrupt and trap vectors. Otherwise I have to hard code jumps to
+RAM locations inside the ROM where the vectors are in order to make them
+dynamic. At the moment I’m not really using interrupts, but I can see myself
+wanting too in the near future (also breakpoints etc in my ROM Monitor).</p>
+
+<h1 id="initializing-the-mc68340">Initializing the MC68340</h1>
+
+<p>The MC68340 has a great suite of peripherals, from UARTs, Timers, System
+protection devices and DMA.</p>
+
+<figure class="">
+    
+    <a href="https://fromorbit.com/assets/images/2017-04-26/mc68340.png">
+    
+        <img src="https://fromorbit.com/assets/images/2017-04-26/mc68340.png" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2017-04-26/320-mc68340.png 320w,https://fromorbit.com/assets/images/2017-04-26/640-mc68340.png 640w,https://fromorbit.com/assets/images/2017-04-26/1280-mc68340.png 1280w" alt="The internals of the MC68340" />
+    
+    </a>
+    
+
+</figure>
+
+<p>The SIM40 modules can move the addresses of these devices where ever you
+choose, but the layout is:</p>
+
+<figure class="">
+    
+    <a href="https://fromorbit.com/assets/images/2017-04-26/sim40.png">
+    
+        <img src="https://fromorbit.com/assets/images/2017-04-26/sim40.png" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2017-04-26/320-sim40.png 320w,https://fromorbit.com/assets/images/2017-04-26/640-sim40.png 640w,https://fromorbit.com/assets/images/2017-04-26/1280-sim40.png 1280w" alt="The SIM40 address structure" />
+    
+    </a>
+    
+
+</figure>
+
+<p>As you can see in the code above I’ve set it to the address of <code class="language-plaintext highlighter-rouge">0x080000</code>. For
+this project at the moment I’m turning more stuff <code class="language-plaintext highlighter-rouge">off</code> than I’m turning <code class="language-plaintext highlighter-rouge">on</code>.
+By default all these peripherals are available and running, you have to disable
+them if you’re not using them. Realistically this is more about power reduction
+than anything, but like unused logic gates, I feel they must be put into a
+known state. :)</p>
+
+<p>So I turn off all watchdogs, and system protection peripherals (eg. double bus
+fault monitors, bus monitors, reset etc), the timers, and the DMA. Since I need
+a UART I configure one and disable the other.</p>
+
+<h1 id="the-boot-loader">The boot-loader</h1>
+
+<p>Initially I was just going to port across an existing ROM monitor for the m68k,
+there are plenty of quality ones out there but given the time I lost on the
+faulty CPU/board I quickly realized I won’t be able to port the monitor quickly
+enough if I had to burn EEPROMs each time to make any <em>actual</em> application with
+the board. I set out to make an Mandelbrot set with this board, so debugging a
+monitor wasn’t something I had time to do.</p>
+
+<p>So speaking to my friend @trc_wm he suggested getting just something dumb that
+dumps binary into RAM and jumps to it, then write some python to push the
+binary at the serial port.</p>
+
+<p>I started implementing that until I saw a few pieces of code that would load
+<code class="language-plaintext highlighter-rouge">srec</code> format into RAM. I decoded the logic and wrote my own implementation in
+a few hours, I figured this would be all round simpler in the long run as I
+wouldn’t need to write the python. Instead I could just cut and paste the srec
+records straight into the terminal, or at the very least <code class="language-plaintext highlighter-rouge">cat</code> them out to the
+serial port.</p>
+
+<p>Here is an example showing altering the code, compiling, copying the srecord
+data and running it:</p>
+
+<figure class=""><img src="/assets/images/2017-04-26/hello_world.gif" alt="GIF showing the boot-loader in action" /><figcaption>
+      Demo showing updating code and pushing it to the bootloader
+
+    </figcaption></figure>
+
+<h1 id="enough-for-today">Enough for today</h1>
+
+<p>That ought to do me for today. To achieve my goal of generating a Mandelbrot
+set with the board for the Retro Challenge, I’m going to work on either getting
+compiling C to run on the m68k, or port a BASIC/FORTH tomorrow and then write a
+Mandelbrot set generator in the chosen language.</p>
+
+<p>We’ll see…</p>]]></content><author><name>Alan Garfield</name></author><summary type="html"><![CDATA[Getting down and dirty with make and gcc.]]></summary></entry><entry><title type="html">Rinse Repeat. :( - Retro Challenge 2017/04</title><link href="https://fromorbit.com/rinse-repeat-rc201704/" rel="alternate" type="text/html" title="Rinse Repeat. :( - Retro Challenge 2017/04" /><published>2017-04-18T00:00:00+10:00</published><updated>2017-04-18T00:00:00+10:00</updated><id>https://fromorbit.com/rinse-repeat-rc201704</id><content type="html" xml:base="https://fromorbit.com/rinse-repeat-rc201704/"><![CDATA[<p>Apart from work and family commitments over Easter I’ve been stuck in a rinse
+repeat cycle with this board.</p>
+
+<p>I am still trying to iron the bugs out, and I’m having weird issues with the
+firmware. I started thinking about porting the TS2 “monitor” to this board, but
+was having weird issues trying to get the UART to output a string from ROM.</p>
+
+<h1 id="im-doing-something-wrong-">I’m doing something wrong …</h1>
+
+<p>I then set up a new project just to do a simple test of blinking the LED in a
+sequence stored in ROM. It was about this time I started to suspect there was
+something wrong with the CPU or the board. Reading a byte from RAM with <em>post
+decrement</em> addressing would work, but trying to do the same in ROM would crash
+the CPU. After much stuffing around I finally put out a cry on Twitter and
+@brouhaha mentioned that the CPU could be <em>double faulting</em> and asserting it’s
+HALT line. I hadn’t realized this CPU had bidirectional RESET and HALT lines!</p>
+
+<p>Looking at the schematic I made, I did wonder why the RESET and HALT lines had
+resistors in them. It now makes sense given they can drive the lines as well as
+take input. So anyway, I stuck my multimeter into the HALT pin when a crash
+happened and yes the CPU was double faulting.</p>
+
+<h1 id="the-7-stages-of-grief-">The 7 Stages of Grief …</h1>
+
+<p>At this point I doubted <em>everything</em> I spent a week or more trying to solve why
+this was happening. I questioned my understanding of m68k assembler, and kept
+breaking my testing program down till all I had was basically three
+instructions and the problem still existed. I questioned the assembler. I
+questioned the linker. I whinged on Twitter, I complained constantly to @trc_vm
+via Slack. I then questioned the new EEPROMs I had bought.</p>
+
+<p>Which this last one may or may not be a real issue, but the previous EPROMs
+were 90nS speed rated, and the RAM is 100nS speed rated. These new AT28C256
+EEPROMs are a fair bit slower at 150nS, so I desoldered the 12MHz crystal and
+under-clocked the CPU to 8MHz to see if that made any difference. In the end it
+did, in some small way in that at least now it would appear to fall into the
+exception handlers and not just double bus fault all the time. But I still had
+my problem with byte loading values from ROM.</p>
+
+<p>I then started to question “can the m68k actually address bytes, I’m sure it
+can” so I scoured all possible resources to confirm it. Then I altered my
+program to use words instead of bytes and the damn thing started working!</p>
+
+<h1 id="time-to-crack-out-the-logic-analyzer">Time to crack out the logic analyzer.</h1>
+
+<p>So now I’m to the point I’m questioning the board or the CPU. So I drag out the
+logic analyzer and since I can’t find more than 5 chip clip leads I’m forced to
+stuff around to get what I want. I set up my simple small test program to blink
+the LED in a sequence stored in the ROM. First blink the LED twice, pause, then
+blink the LED three times, pause, etc etc. Eventually up to 8 blinks.</p>
+
+<p>Run this, I get my two blinks then a locked up LED. I wanted to see what the
+ROMs were doing on the 8 bit address read. So I clipped up the RAM/ROM chip
+select lines, the even and odd enable lines and the LED output.</p>
+
+<figure class="half ">
+  
+    
+    
+    <a href="https://fromorbit.com/assets/images/2017-04-18/even.jpg">
+        <img src="https://fromorbit.com/assets/images/2017-04-18/even.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2017-04-18/320-even.jpg 320w,https://fromorbit.com/assets/images/2017-04-18/640-even.jpg 640w,https://fromorbit.com/assets/images/2017-04-18/1280-even.jpg 1280w" alt="The even read" />
+    </a>
+  
+    
+    
+    <a href="https://fromorbit.com/assets/images/2017-04-18/odd.jpg">
+        <img src="https://fromorbit.com/assets/images/2017-04-18/odd.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2017-04-18/320-odd.jpg 320w,https://fromorbit.com/assets/images/2017-04-18/640-odd.jpg 640w,https://fromorbit.com/assets/images/2017-04-18/1280-odd.jpg 1280w" alt="The odd read" />
+    </a>
+  
+  
+    <figcaption>What the logic analyser saw…
+</figcaption>
+  
+</figure>
+
+<p>You can easily see the ROM is doing an 8bit read on even, then an 8bit read on
+odd.</p>
+
+<h1 id="damn-it-this-looks-ok--">Damn it, this looks OK … :(</h1>
+
+<p>Suffice to say, I’m at a loss. I re-installed the original factory firmware to
+finally see if I wasn’t going bananas. It too failed and entered a double
+bus fault. So if the original firmware now fails I’ve somehow damaged the CPU
+or the board.</p>
+
+<p>I’ve found on eBay a few replacement CPU’s for every little money, but they
+won’t be here in time for the end of the Retro Challenge. But it does mean I
+will get this board going again. I’ve learnt so much playing with it, and my
+understanding of GNU binutils etc is so much richer because of it. So perhaps I
+can’t get anything going this year for the challenge…</p>
+
+<h1 id="-or-can-i">… or can I?</h1>
+
+<p>When I rescued this board from the dumpster I also recovered a few others with
+it. I picked this board for the Retro Challenge because it seemed the most
+approachable; generic MC68HC000; external UARTs and I/O. But it wasn’t the only
+board I recovered with a m68k processor on it.</p>
+
+<p>Enter the AMX AXC-EM with an MC68340RP16 on board!</p>
+
+<figure class="half ">
+  
+    
+    
+    <a href="https://fromorbit.com/assets/images/2017-04-18/axc-em.jpg">
+        <img src="https://fromorbit.com/assets/images/2017-04-18/axc-em.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2017-04-18/320-axc-em.jpg 320w,https://fromorbit.com/assets/images/2017-04-18/640-axc-em.jpg 640w,https://fromorbit.com/assets/images/2017-04-18/1280-axc-em.jpg 1280w" alt="AMX AXC-EM board" />
+    </a>
+  
+    
+    
+    <a href="https://fromorbit.com/assets/images/2017-04-18/mc68340.jpg">
+        <img src="https://fromorbit.com/assets/images/2017-04-18/mc68340.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2017-04-18/320-mc68340.jpg 320w,https://fromorbit.com/assets/images/2017-04-18/640-mc68340.jpg 640w,https://fromorbit.com/assets/images/2017-04-18/1280-mc68340.jpg 1280w" alt="MC68340 cpu" />
+    </a>
+  
+  
+</figure>
+
+<h1 id="why-didnt-you-use-this-one-first">Why didn’t you use this one first?</h1>
+
+<p>To be honest I wasn’t sure what I wanted, and I was familiar with the
+MC68HC000. I also thought having the UARTs and I/O all on chip was cheating.
+This board is basically the same thing functionally-wise to the other. It’s
+just newer and with an ‘020 based CPU. Basically all the same hardware is on
+board. Two UARTs, an LED, 8 DIP switches, battery backup RAM, clock/calendar,
+etc etc. It’s still from 1992 so it fits the Challenge. :)</p>
+
+<p>So yeah, now I start again basically. I have to figure out the memory map, the
+device layout and the differences with an ‘020 versus a vanilla 68000. Dear god
+I hope it can read bytes from ROM!</p>]]></content><author><name>Alan Garfield</name></author><summary type="html"><![CDATA[Over, and over, and over, and over, and over, and over again.]]></summary></entry><entry><title type="html">Now we’re get’n somewhere! - Retro Challenge 2017/04</title><link href="https://fromorbit.com/gettin-somewhere-rc201704/" rel="alternate" type="text/html" title="Now we’re get’n somewhere! - Retro Challenge 2017/04" /><published>2017-04-08T00:00:00+10:00</published><updated>2017-04-08T00:00:00+10:00</updated><id>https://fromorbit.com/gettin-somewhere-rc201704</id><content type="html" xml:base="https://fromorbit.com/gettin-somewhere-rc201704/"><![CDATA[<p>After the UV fiasco I’ve finally managed to get around the issue. I did that by
+ditching EPROMs and instead replaced them with EEPROMs!</p>
+
+<p>Rummaging around in the shed I found two other cards from the system this
+controller was in originally. They were for controlling infrared devices and
+what not and used a M68HC11 CPU. They had 27C64 EPROMs and 28C64s EEPROM each.</p>
+
+<p>My guess is that rather than adding battery backed up RAM on these smaller
+cards, AMX opted just to use the 28C64 as SRAM since the write performance etc
+of them are pretty good. These smaller cards really didn’t store much other
+than configuration data and they would’ve just used the internal 768 bytes of RAM
+on chip and just set the 28C64 up as an external 8KB of non-volatile RAM.</p>
+
+<p>Anyway, I found them and thought “Hmmm a blinking LED doesn’t need 64KBs
+(2x32KB) of ROM to work, 16KBs (2x8KB) should be ample”. The only real issue I
+had was that I only had two and they were from different manufacturers. I wasn’t
+sure if this would cause an issue or not but I figured it would be worth a
+try.</p>
+
+<h1 id="a-try-">A try …</h1>
+
+<p>The 28C64s are basically almost pin compatible with the 27C256s (obviously
+missing the two additional address lines.</p>
+
+<p><img src="/assets/images/2017-04-08/eeprom_vs_eprom1.png" alt="Pin outs of a 28C64 and a 27C256" class="align-center" /></p>
+
+<p>So apart from A14, A13 and the VPP signal these would plug straight in. Woo hoo
+I was thinking, this’ll be easy!</p>
+
+<p>I set to work. I wanted to replace the crappy single leaf sockets that are on
+this board, but I wasn’t willing to do all of them in one hit. The PCB traces
+on the thicker tracks have started that weird bubbling/lifting thing that
+things of this vintage start to do. I figured it would be safer if I just did
+one set at a time. So I carefully desoldered the two sockets and replaced them
+with machine pin sockets…</p>
+
+<figure class=""><img src="/assets/images/2017-04-08/sockets_gone.jpg" alt="Removed the sockets" /><figcaption>
+      Old sockets be gone!
+
+    </figcaption></figure>
+
+<p>It was at this time that I noticed pin 1 on these sockets had traces. Given
+these are the VPP lines I thought that was strange. It turns out they’re
+actually connected to A16! This isn’t a problem (yet) as the VPP lines require
+high voltage to do anything.</p>
+
+<p>The solution I came up with to make the 28C64s work without their write enable
+line being connected to A14 was to add another layer of machine pins with the
+sockets missing.</p>
+
+<figure class=""><img src="/assets/images/2017-04-08/adapters_in_place.jpg" alt="Adapters in place" /><figcaption>
+      Adapters in place
+
+    </figcaption></figure>
+
+<p>I opted to pull out the VPP, A13 and A14 pins just to make sure. I then
+programmed my blink routine into the two mismatched 28C64s and expected great
+things to happen… And they did… briefly…</p>
+
+<h1 id="the-led-blinked-sometimes">THE LED BLINKED!… sometimes.</h1>
+
+<p>After all the hassle with the EPROMS and UV light etc I <em>finally</em> had the
+little LED blink. The only issue was that it wouldn’t do it consistently.
+Sometimes it would blink 4 or 5 times then stop, other times it would blink
+once and stay on, and others it just wouldn’t blink at all. :(</p>
+
+<p>I started to suspect that possibly different timings with the EEPROMs vendors
+and that the CPU was only <em>sometimes</em> getting it’s stars to align well enough
+for the LED to blink for a few cycles etc before it got all jammed up. I wasn’t
+too disappointed as I knew my element14 delivery was arriving in the morning
+with my new AT28C256’s and the fact I got the board to do <em>anything</em> was a
+total win in my book at this point.</p>
+
+<p>I posted on twitter about my success and went to bed late, trying not to
+disturb my lovely wife once again.</p>
+
+<h1 id="something-fishy-is-going-on">Something fishy is going on.</h1>
+
+<p>Through my following working day I kept being suspicious of the timing
+conclusion I’d drawn myself into. It was odd that the CPU would process
+hundreds of thousands of instruction reads from these EEPROMs inside the delay
+loop code before “magically” the timing of the EEPROMs would became an issue
+and ruined the whole thing. That started to sound very very unlikely to me. It
+just didn’t make sense.</p>
+
+<p>I then started thinking about the code, and how the interrupt and error vectors
+where not set correctly in the early part of the ROM code. So if the CPU had an
+external interrupt triggered by some of the other uninitialized hardware, the
+CPU could be falling into an ISR that didn’t exist and lock up.</p>
+
+<p>This started to sound more and more likely to me, so once I finished work for
+the day I set about properly configuring the interrupt vector table and
+cleaning up my horrible testing code.</p>
+
+<p>I wanted the code to be relocatable and the vector table be properly configured
+using a linker script so that I can link up a bunch of objects and have the
+magic of linking work with me rather than it just being a dumb copy-it-here type
+deal.</p>
+
+<h1 id="building-the-code-environment">Building the code environment.</h1>
+
+<p><a href="https://github.com/alangarf/amx_axc_m68k">https://github.com/alangarf/amx_axc_m68k</a></p>
+
+<p>After much frustration trying to figure out why <code class="language-plaintext highlighter-rouge">ld</code> was overwriting my new
+<code class="language-plaintext highlighter-rouge">.vector</code> section and my general lack of understanding of a lot of what the
+linker does I enlisted the help of my dear friend
+<a href="https://twitter.com/trc_wm">Niels</a> to help point me in the right direction.</p>
+
+<p>Together we figured out my <code class="language-plaintext highlighter-rouge">.section</code> in my assembly code didn’t have the right
+flags set so <code class="language-plaintext highlighter-rouge">ld</code> wasn’t loading the <code class="language-plaintext highlighter-rouge">.vector</code> section into the output. Rightly
+so because it thought it didn’t have to.  After we figured that out the vectors
+where properly being set, and I had a workable development setup to continue on
+with.</p>
+
+<p>I later discovered that <code class="language-plaintext highlighter-rouge">objcopy</code> also can generate interleaved binary files
+just for the purpose of creating ROM files for systems like this one. So rather
+than using some dodgy python I wrote quickly to split the resulting binary ROM
+image in half, I simply made <code class="language-plaintext highlighter-rouge">objcopy</code> create an <em>even</em> and an <em>odd</em> ROM
+image!</p>
+
+<p>Suitably chuffed with myself at this point.</p>
+
+<h1 id="at28c256s-arrive">AT28C256s arrive!</h1>
+
+<p>Again, element14 in Sydney amaze me. My AT28C256s were ordered at 5:30PM the
+day before, and arrived at my door in country NSW Australia by lunch time the
+next day. I’m about 5 hours drive away from their warehouse (I used to live
+near their warehouse and boy it was useful), so it’s truly amazing how quickly
+I can get parts from them.</p>
+
+<p>Anyway, deciding for a quick win I didn’t bother creating a pin swapping socket
+for these new chips. I figured I’d just use only the first 8KB of them and drop
+them into the existing sockets I had for the 28C64s.</p>
+
+<figure class=""><img src="/assets/images/2017-04-08/at28c256s_in_place.jpg" alt="AT28C256s in place" /><figcaption>
+      AT28C256s in place
+
+    </figcaption></figure>
+
+<p>I realized after plugging them in that had I not removed the VPP lines from
+these sockets that I would’ve connected A16 to the A14 pin on these EEPROMs,
+which would’ve allowed for 16KBs of ROM split across 0x0000 -&gt; 0x3FFF and
+0x8000 -&gt; 0xBFFF.</p>
+
+<p>But more importantly when I do properly do the pin swap to make these into a
+continuous 64KB address space the write enable pin would end up at the VPP
+position which now I know has A16 attached to it!</p>
+
+<p>This could’ve had <strong>all sorts</strong> of weird consequences had I not known that now!</p>
+
+<h1 id="so-did-it-work">So did it work?</h1>
+
+<p>I powered up the board with the new EEPROMs and the updated code and <strong>success</strong>
+it blinked perfectly, a nice solid consistent blink…</p>
+
+<figure class=""><img src="/assets/images/2017-04-08/blinking1.gif" alt="Blink you good thing!" /><figcaption>
+      Blink you good thing!
+
+    </figcaption></figure>
+
+<p>… until I lifted the board.</p>
+
+<h1 id="ugh-youre-kidding-me">UGH, you’re kidding me.</h1>
+
+<p>It seems like the issue I had with the other 28C64s wasn’t timing or bad code,
+it was a plain and simple dry joint somewhere on this board causing all the
+issues. :(</p>
+
+<p>I mean expecting a 27 year old board that spent at least 10 years bouncing
+around my garage to have no damage after all this time probably was a little
+naive.</p>
+
+<p>When testing the manufacturers firmware via a serial terminal I remember
+noticing initially that sometimes the board wouldn’t boot properly or it would
+crash sometimes. But even then I attributed this to a bad serial lead or the
+shitty terminal emulator I had on my Windows machine in the shed.</p>
+
+<p>So, now I have a treasure hunt on my hands. Is it a bad solder joint, or a
+cracked trace somewhere on the board. I’m going to start with resolding all the
+connections first, then I’ll start looking more closely at the traces. The main
+issue I have is that a <strong>lot</strong> of the traces are hidden under sockets and
+immovable devices so that could be fun. BUT at least now I have a working board
+with a known issue. If I giggle the board just so I can make it work reliably.
+So that’s a win in my book!</p>
+
+<h1 id="what-else-have-you-done-though-what-about-that-schema">What else have you done though, what about that schema?</h1>
+
+<p>Yeah I’ve updated the schematic some more, apart from the level conversion of
+the RS232 port I’ve got the entire schematic done now. You can get the KiCAD
+files from: <a href="https://github.com/alangarf/amx_axc_kicad">https://github.com/alangarf/amx_axc_kicad</a>.</p>
+
+<p><a href="/assets/images/2017-04-08/schematic.png" class="align-center"><img src="/assets/images/2017-04-08/schematic.png" alt="The schematic" /></a></p>
+
+<h1 id="is-that-all">Is that all?</h1>
+
+<p>Yeah I think that’ll do for today. :)</p>]]></content><author><name>Alan Garfield</name></author><summary type="html"><![CDATA[Things are starting to be coming up Milhouse!]]></summary></entry><entry><title type="html">Ugh! I need UV - Retro Challenge 2017/04</title><link href="https://fromorbit.com/m68k-why-no-uv-rc201704/" rel="alternate" type="text/html" title="Ugh! I need UV - Retro Challenge 2017/04" /><published>2017-04-06T00:00:00+10:00</published><updated>2017-04-06T00:00:00+10:00</updated><id>https://fromorbit.com/m68k-why-no-uv-rc201704</id><content type="html" xml:base="https://fromorbit.com/m68k-why-no-uv-rc201704/"><![CDATA[<p>So I set out to make the LED blink a merry blink tonight, but was finally thwarted when I came to the realisation I’d need UV light to erase the EPROMs to load my code in. Suffice to say this was mighty frustrating.</p>
+
+<p>I’m getting ahead of the story, so let’s start from the beginning</p>
+
+<h1 id="the-beginning">The beginning</h1>
+
+<p>Starting tonight with a goal to have “something” running on this board before I went to bed I started sorting out my development environment. Setting up the required software and tools to get the job done so to speak.</p>
+
+<p>I installed all the GNU m68k tools. I made a nice little Makefile to assemble my assembly…</p>
+
+<div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">M68K</span><span class="o">=</span>m68k-linux-gnu
+<span class="nv">AS</span><span class="o">=</span><span class="nv">$(M68K)</span><span class="nt">-as</span>
+<span class="nv">LD</span><span class="o">=</span><span class="nv">$(M68K)</span><span class="nt">-ld</span>
+<span class="nv">DUMP</span><span class="o">=</span><span class="nv">$(M68K)</span><span class="nt">-objdump</span>
+
+<span class="nv">START</span><span class="o">=</span>0x00
+<span class="nv">FMT</span><span class="o">=</span>binary
+<span class="c">#FMT=ihex
+</span><span class="nv">CPU</span><span class="o">=</span><span class="nt">-m68000</span>
+
+<span class="nv">SRCS</span><span class="o">=</span>blink.s
+<span class="nv">OBJS</span><span class="o">=</span><span class="nv">$(SRCS:.s=.o)</span>
+<span class="nv">MAIN</span><span class="o">=</span>blink.bin
+
+<span class="nl">.PHONY</span><span class="o">:</span> <span class="nf">dump clean</span>
+
+<span class="nl">all</span><span class="o">:</span>    <span class="nf">$(MAIN)</span>
+        <span class="err">@echo</span> <span class="err">Builds</span> <span class="err">blink.bin</span>
+
+<span class="nl">$(MAIN)</span><span class="o">:</span> <span class="nf">$(OBJS)</span>
+        <span class="err">$(LD)</span> <span class="err">-e</span> <span class="err">$(START)</span> <span class="err">--oformat</span> <span class="err">$(FMT)</span> <span class="err">-o</span> <span class="err">$(MAIN)</span> <span class="err">$(OBJS)</span>
+
+<span class="nl">.s.o</span><span class="o">:</span>
+        <span class="err">$(AS)</span> <span class="err">$(CPU)</span> <span class="err">-o</span> <span class="err">$@</span> <span class="err">$&lt;</span>
+
+<span class="nl">clean</span><span class="o">:</span>
+        <span class="err">rm</span> <span class="err">*.o</span> <span class="err">$(MAIN)</span>
+
+<span class="nl">dump</span><span class="o">:</span>   <span class="nf">$(MAIN)</span>
+        <span class="err">$(DUMP)</span> <span class="err">$(CPU)</span> <span class="err">--disassemble-all</span> <span class="nv">--target</span><span class="o">=</span><span class="nv">$(FMT)</span> <span class="nt">--start-address</span><span class="o">=</span><span class="nv">$(START)</span> <span class="nv">$(MAIN)</span>
+</code></pre></div></div>
+
+<p>I even bashed together a little test program to twiddle the LED bit of the 74LS259…</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/*
+ * Blink LED connected to 74LS259 output.
+ *
+ * ROM is at 0x00000-0x0FA00.
+ * RAM is at 0x20000-0x2FA00
+ * 74LS259 is at 0x60000.
+ */
+
+.equ PORT, 0x60000
+
+/* Iterations of delay loop before updating output value */
+.equ DELAY, 50000
+
+.org 0
+    /* set initial SSP (supervisor stack pointer) */
+    .byte 0, 0, 0, 0
+
+    /* set the program counter */
+    .byte 0, 0, 4, 0
+
+.org 0x400
+    move.l #PORT, %a0
+
+.top:
+    move.b #0x0E, %d0   /* set Q7 to low in the addressable latch mode */
+    move.b %d0, (%a0)   /* write to 'LS259 */
+
+    move.l #DELAY, %d1
+.delay1:
+    tst.l %d1
+    beq .delay1end
+    subq.l #1, %d1
+    jmp .delay1
+
+.delay1end:
+    move.b #0x0F, %d0   /* set Q7 to high in the addressable latch mode */
+    move.b %d0, (%a0)   /* write to 'LS259 */
+
+    move.l #DELAY, %d1
+.delay2:
+    tst.l %d1
+    beq .delay2end
+    subq.l #1, %d1
+    jmp .delay2
+
+.delay2end:
+    jmp .top
+
+.org 0xFFFA
+    jmp .top
+</code></pre></div></div>
+
+<p>And like a late night TV shopping channel ad I’ll even throw in a <del>free set of steak knives</del> tool to split the resulting binary into 32KB interleaved chunks so they’d work on the board.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/python3
+</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="p">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="p">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"src"</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="p">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+<span class="n">even_fn</span> <span class="o">=</span> <span class="s">"even-{}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">src</span><span class="p">)</span>
+<span class="n">odd_fn</span> <span class="o">=</span> <span class="s">"odd-{}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">src</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">src</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">even_fn</span><span class="p">,</span> <span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">even</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">odd_fn</span><span class="p">,</span> <span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">odd</span><span class="p">:</span>
+
+            <span class="n">src</span><span class="p">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="p">.</span><span class="n">SEEK_END</span><span class="p">)</span>
+            <span class="n">src_size</span> <span class="o">=</span> <span class="n">src</span><span class="p">.</span><span class="n">tell</span><span class="p">()</span>
+
+            <span class="n">src</span><span class="p">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">src_size</span><span class="p">):</span>
+                <span class="n">src</span><span class="p">.</span><span class="n">seek</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">c</span> <span class="o">%</span> <span class="mi">2</span><span class="p">:</span>
+                    <span class="n">odd</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">even</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Also buy one get one free; I upgraded the software for the Minipro TL866 on OSX. I even figured out the magic device type for my EPROMs.</p>
+
+<h1 id="then-it-happened">Then it happened…</h1>
+
+<p>I went and tried to write the first “even” binary to the EPROM…</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ minipro -p "27C256 @DIP28 #2" -w even-blink.bin
+Found Minipro TL866A v03.2.72
+Chip ID OK: 0x298c
+Writing Code... OK
+Reading Code... OK
+Verification failed at 0x200: 0x20 != 0x00
+</code></pre></div></div>
+
+<p class="notice--danger">COMPUTER SAYS NO...</p>
+
+<h1 id="beware-losing-all-hope">Beware, losing all hope…</h1>
+
+<p>Damn it! I forgot I need to erase these things first.</p>
+
+<p>Hunting around the garage for any source of UV I knew my search was futile. I even resorted to madness when I found a big bag of “UV” LEDs.</p>
+
+<figure class=""><img src="/assets/images/2017-04-06/uv_madness.png" alt="Silly pic of UV LED trying to erase EPROM" /><figcaption>
+      UGH, my world for some UV
+
+    </figcaption></figure>
+
+<h1 id="so-now-what">So, now what…</h1>
+
+<p>Well I’ll need to figure out a source of UV. However I also figured I’d just buy some newer flash based EEPROMs in the mean time. Element14 have them in stock locally and I should see them before the weekend hopefully.</p>
+
+<p>I ordered two <a href="http://www.microchip.com/wwwproducts/en/AT28C256">AT28C256</a>s, which are 98% pin compatible and fast enough for this board. I need to hack a pin swap between pin 1 and 27, but that’s a small price to pay I guess.</p>
+
+<p>Still very disappointed, and my wife is likely to kill me when I sneak into bed at 1:00am. Wouldn’t be so bad if I had the taste of victory instead of the bitter pill of defeat.</p>
+
+<p>I put up a good fight.</p>
+
+<p>But UV got the better of me.</p>
+
+<p>Here’s to tomorrow!</p>]]></content><author><name>Alan Garfield</name></author><summary type="html"><![CDATA[Who knew you'd need UV to erase EPROMs! Derp.]]></summary></entry><entry><title type="html">Got together a schematic today - Retro Challenge 2017/04</title><link href="https://fromorbit.com/m68k-schematic-rc201704/" rel="alternate" type="text/html" title="Got together a schematic today - Retro Challenge 2017/04" /><published>2017-04-05T00:00:00+10:00</published><updated>2017-04-05T00:00:00+10:00</updated><id>https://fromorbit.com/m68k-schematic-rc201704</id><content type="html" xml:base="https://fromorbit.com/m68k-schematic-rc201704/"><![CDATA[<p>Quick one today, I worked on the schematic a little more. Still a few unknowns
+and a couple of holes I’ve not filled in yet, but the schematic is 80%
+complete. At least to a point where I can get a ROM monitor etc running and
+know where all the hardware is and have a good certainty I’m not talking in the
+breeze when I start trying to control the hardware.</p>
+
+<p>I’ve also been working on a simulator for this board using the <a href="https://github.com/kstenerud/Musashi">Musashi 68000
+core</a> in C. I’ve built up the address
+map, and started writting modules to simulate the hardware. This will help me
+greatly in development as I won’t need to be burning ROMs so often to try
+things out initially. A ROM monitor would help a lot too, so I’m weighing up
+options given the time I have for the competition and my already terrible
+work/life balance.</p>
+
+<p>Here is a snippet of the UART core I’ve written for the simulator, it sets up the internal registers etc of the UART so the firmware can read and write state to configure the registers. The only bit I’ve not successfully worked out yet is the interrupt priorities, there is something wonky on this boards layout I’ve not figured out with the interrupt. But that’s another days problem.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scc2691_core uarts[2];
+
+void scc2691_reset(void)
+{
+    for(int i = 0; i &lt; 2; i++) {
+        uarts[i].id = i;
+
+        uarts[i].m1 = 0x0;
+        uarts[i].m1_flag = 0x0;
+        uarts[i].m2 = 0x0;
+
+        uarts[i].csr  = 0x0;
+        uarts[i].cr   = 0xA;
+        uarts[i].thr  = 0x0;
+        uarts[i].acr  = 0x0;
+        uarts[i].imr  = 0x0;
+        uarts[i].ctur = 0x0;
+        uarts[i].ctlr = 0x0;
+
+        uarts[i].sr  = 0x0;
+        uarts[i].rhr = 0x0;
+        uarts[i].isr = 0x0;
+        uarts[i].ctu = 0x0;
+        uarts[i].ctl = 0x0;
+
+        uarts[i].cnt_flag = 0;
+        uarts[i].cnt_value = 0;
+
+        uarts[i].tx = 0;
+        uarts[i].tx_last = time(NULL);
+        int_controller_clear(1);
+    }
+}
+</code></pre></div></div>
+
+<h1 id="the-schematic-so-far-">The schematic so far …</h1>
+
+<p><a href="/assets/images/2017-04-05/schematic.png" class="align-center"><img src="/assets/images/2017-04-05/schematic.png" alt="AMX board schematic" /></a></p>]]></content><author><name>Alan Garfield</name></author><summary type="html"><![CDATA[Beeping and clicking things into KiCAD like a mad man]]></summary></entry></feed>
