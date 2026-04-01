@@ -1,5 +1,5 @@
 ---
-title: Using git subtree to send `_site` to `master` branch
+title: Using git subtree to send _site to master branch
 excerpt: "More for the brain file"
 ---
 

@@ -12,5 +12,7 @@ group :jekyll_plugins do
   gem "jekyll-youtube"
   gem "jekyll-paginate"
   gem "jekyll-archives"
+  gem "jekyll-responsive-image"
+  gem "observer"
 end
 

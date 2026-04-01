@@ -13,12 +13,16 @@ url                      : https://fromorbit.com
 teaser                   : "/assets/images/logo_blue.svg" # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : "/assets/images/logo_blue.svg" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
+
 image_url: /assets/images
-sizes: '(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px'
-srcset:
-  - 320
-  - 640
-  - 1280
+responsive_image:
+  template: _includes/ri.html
+  output_path_format: assets/resized/%{width}/%{basename}
+  sizes:
+    - width: 320
+    - width: 480
+    - width: 1280
+
 breadcrumbs              : # true, false (default)
 words_per_minute         : 200
 enable_copy_code_button  : # true, false (default)
@@ -170,6 +174,7 @@ lsi: false
 excerpt_separator: "\n\n"
 incremental: false
 
+highlight_theme: "solarized-dark"
 
 # Markdown Processing
 kramdown:
@@ -228,6 +233,7 @@ plugins:
   - jekyll-feed
   - jekyll-include-cache
   - jekyll-youtube
+  - jekyll-responsive-image
 
 # mimic GitHub Pages with --safe
 whitelist:
@@ -287,7 +293,7 @@ defaults:
       author_profile: true
       read_time: true
       comments: # true
-      share: true
+      share: false
       related: true
       show_date: true
 

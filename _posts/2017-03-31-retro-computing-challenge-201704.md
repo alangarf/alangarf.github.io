@@ -1,7 +1,10 @@
 ---
 title: Retro Challenge 2017/04
-thumbnail: "/assets/images/2017-03-31/m68k.png"
+thumbnail: "/assets/images/2017-03-31-m68k.png"
 
+g1:
+  - image_path: assets/images/2017-03-31-amx_axc_master.png
+    url: assets/images/2017-03-31-amx_axc_master.png
 ---
 
 After working with a friend on a Z80 based project I spoke about some SCC2691
@@ -16,9 +19,7 @@ He quickly said I'd be nuts to tear the board apart and it would make a good
 candidate for the RetroChallenge competition. So after very little thought I
 considered this as something that might be fun to do. So of course...
 
-[![AMX AXC 68000
-Board](/assets/images/2017-03-31/tmb_amx_axc_master.png)](/assets/images/2017-03-31/amx_axc_master.png)
-
+{% include gallery layout="" id="g1" %}
 
 ## Retrochallenge
 

@@ -4,4 +4,4 @@ title: First post!
 
 First post!
 
-{% include i src="banana.jpg" nolink="true" %}
+{% include figure popup=true image_path="/assets/images/2004-01-01-banana.jpg" %}

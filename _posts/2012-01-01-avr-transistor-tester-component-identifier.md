@@ -2,7 +2,6 @@
 title:  "AVR Transistor Tester / Component Identifier"
 teaser: "Using a Single Board Computer running Linux to control a quadrature encoded servo motor."
 thumbnail: "//i3.ytimg.com/vi/PRjM9Kkg-xM/mqdefault.jpg"
-
 ---
 
 # Ooh a gadget.
@@ -63,7 +62,11 @@ I cut two notches in the sides of the trough, hot-glued in the LEDs and also ran
 
 To explain more about it's construction and show it in operation with a few components I recorded a basic video.
 
+---
+
 {% youtube "http://www.youtube.com/watch?v=PRjM9Kkg-xM" %}
+
+---
 
 # Conclusion
 

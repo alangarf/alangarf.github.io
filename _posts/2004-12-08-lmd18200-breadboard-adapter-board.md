@@ -1,17 +1,24 @@
 ---
-
-subheadline: "Handy Breadboard Adapter"
 title: "LMD18200 Breadboard Adapter Board"
+subheadline: "Handy Breadboard Adapter"
 teaser: "This is a small PCB designed to allow a TO220 packaged LMD18200 to be used easily on a normal solder-less breadboard."
 image:
     thumb: "/images/lmd18200_board.jpg"
 
-gallery:
-    - image_url: images/lmd18200_board.jpg
-    - image_url: images/lmd18200_board1.jpg
-    - image_url: images/lmd18200_adapter.png
-    - image_url: images/lmd18200_driver_schema.png
+g1:
+    - image_path: assets/images/2004-12-08-lmd18200_board.jpg
+      url: assets/images/2004-12-08-lmd18200_board.jpg
+    - image_path: assets/images/2004-12-08-lmd18200_board1.jpg
+      url: assets/images/2004-12-08-lmd18200_board1.jpg
+
+g2:
+    - image_path: assets/images/2004-12-08-lmd18200_adapter.png
+      url: assets/images/2004-12-08-lmd18200_adapter.png
+    - image_path: assets/images/2004-12-08-lmd18200_driver_schema.png
+      url: assets/images/2004-12-08-lmd18200_driver_schema.png
 ---
+
+{% include gallery layout="half" id="g1" %}
 
 I designed this board out of necessity. I needed a decent H-bridge to
 test my new servo motor controller design without having to commit the
@@ -26,8 +33,10 @@ and Thermal Overload) for all your micro controller needs. It has a
 separate power rail to provide the LMD18200 with the greater than 12V it
 needs to turn on it's FET's.
 
+{% include gallery layout="half" id="g2"%}
+
 All in all I think it's a pretty handy little board for any sort of load
 switching type operation (lighting, motors, whatever) from a breadboard.
 
-**Source Files:** 
+**Source Files:**
 Available at <https://github.com/alangarf/lmd18200_breakout>{:target="_blank"}

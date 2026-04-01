@@ -56,6 +56,9 @@ GEM
     jekyll-include-cache (0.2.1)
       jekyll (>= 3.7, < 5.0)
     jekyll-paginate (1.1.0)
+    jekyll-responsive-image (1.6.0)
+      jekyll (>= 2.0, < 5.0)
+      rmagick (>= 2.0, < 5.0)
     jekyll-sass-converter (1.5.2)
       sass (~> 3.4)
     jekyll-sitemap (1.4.0)
@@ -85,6 +88,7 @@ GEM
       jekyll-sitemap (~> 1.3)
     net-http (0.9.1)
       uri (>= 0.11.1)
+    observer (0.1.2)
     octokit (4.25.1)
       faraday (>= 1, < 3)
       sawyer (~> 0.9)
@@ -95,6 +99,7 @@ GEM
     rb-inotify (0.11.1)
       ffi (~> 1.0)
     rexml (3.4.4)
+    rmagick (4.3.0)
     rouge (3.30.0)
     safe_yaml (1.0.5)
     sass (3.7.4)
@@ -126,9 +131,11 @@ DEPENDENCIES
   jekyll-feed
   jekyll-include-cache
   jekyll-paginate
+  jekyll-responsive-image
   jekyll-youtube
   kramdown-parser-gfm
   minimal-mistakes-jekyll
+  observer
 
 CHECKSUMS
   addressable (2.8.9) sha256=cc154fcbe689711808a43601dee7b980238ce54368d23e127421753e46895485
@@ -159,6 +166,7 @@ CHECKSUMS
   jekyll-gist (1.5.0) sha256=495b6483552a3e2975a2752964ea7acddd545bc6e13ce2be15a50cec8d4c9f0f
   jekyll-include-cache (0.2.1) sha256=c7d4b9e551732a27442cb2ce853ba36a2f69c66603694b8c1184c99ab1a1a205
   jekyll-paginate (1.1.0) sha256=880aadf4b02529a93541d508c5cbb744f014cbfc071d0263a31f25ec9066eb64
+  jekyll-responsive-image (1.6.0) sha256=f7630a13967fb89aa11af25a64fd93bbd0560a440e99e01f6ee90c9c2629b86c
   jekyll-sass-converter (1.5.2) sha256=53773669e414dc3bb070113befacb808576025a28cfa4a4accc682e90a9c1101
   jekyll-sitemap (1.4.0) sha256=0de08c5debc185ea5a8f980e1025c7cd3f8e0c35c8b6ef592f15c46235cf4218
   jekyll-watch (2.2.1) sha256=bc44ed43f5e0a552836245a54dbff3ea7421ecc2856707e8a1ee203a8387a7e1
@@ -172,12 +180,14 @@ CHECKSUMS
   mercenary (0.3.6) sha256=2a084b18f5692c86a633e185d5311ba6d11fc46c802eb414ae05368178078a82
   minimal-mistakes-jekyll (4.28.0) sha256=97d38e5ae90d8d9192bb0c9dc577ed41783bd3842a506429842e984e0877ecd7
   net-http (0.9.1) sha256=25ba0b67c63e89df626ed8fac771d0ad24ad151a858af2cc8e6a716ca4336996
+  observer (0.1.2) sha256=d8a3107131ba661138d748e7be3dbafc0d82e732fffba9fccb3d7829880950ac
   octokit (4.25.1) sha256=c02092ee82dcdfe84db0e0ea630a70d32becc54245a4f0bacfd21c010df09b96
   pathutil (0.16.2) sha256=e43b74365631cab4f6d5e4228f812927efc9cb2c71e62976edcb252ee948d589
   public_suffix (5.1.1) sha256=250ec74630d735194c797491c85e3c6a141d7b5d9bd0b66a3fa6268cf67066ed
   rb-fsevent (0.11.2) sha256=43900b972e7301d6570f64b850a5aa67833ee7d87b458ee92805d56b7318aefe
   rb-inotify (0.11.1) sha256=a0a700441239b0ff18eb65e3866236cd78613d6b9f78fea1f9ac47a85e47be6e
   rexml (3.4.4) sha256=19e0a2c3425dfbf2d4fc1189747bdb2f849b6c5e74180401b15734bc97b5d142
+  rmagick (4.3.0) sha256=44d9799400ac4a3a3a9673972dc1e705644b6f57e0df63cbc0644d67e455a72f
   rouge (3.30.0) sha256=a3d353222aa72e49e2c86726c0bcfd719f82592f57d494474655f48e669eceb6
   safe_yaml (1.0.5) sha256=a6ac2d64b7eb027bdeeca1851fe7e7af0d668e133e8a88066a0c6f7087d9f848
   sass (3.7.4) sha256=808b0d39053aa69068df939e24671fe84fd5a9d3314486e1a1457d0934a4255d

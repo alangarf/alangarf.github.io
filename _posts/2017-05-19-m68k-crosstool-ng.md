@@ -2,9 +2,15 @@
 title: More fun with the m68k
 excerpt: "Finally I achieved my goal of getting a Mandelbrot routine running on this m68k board and I learned a lot along the way"
 header:
-  overlay_image: "/assets/images/2017-04-18/mc68340.jpg"
+  overlay_image: "assets/images/2017-04-18-mc68340.jpg"
   overlay_filter: rgba(32, 62, 91, 0.8)
-  teaser: "/assets/images/2017-04-18/mc68340.jpg"
+  teaser: "assets/images/2017-04-18-mc68340.jpg"
+g1:
+  - image_path: assets/images/2017-05-19-mandelbrot.gif
+    url: assets/images/2017-05-19-mandelbrot.gif
+g2:
+  - image_path: assets/images/2017-05-19-mandelbrot-2.gif
+    url: assets/images/2017-05-19-mandelbrot-2.gif
 
 ---
 
@@ -175,12 +181,12 @@ itself.
 
 Here is a real-time display of the board rendering a larger Mandelbrot set.
 
-{% include i src="mandelbrot.gif" nolink="true" %}
+{% include gallery id="g1" class="" %}
 
 An here is a better example showing the actual CPU speed by character. I
 removed the line buffering so each character can be seen as it is rendered.
 
-{% include i src="mandelbrot-2.gif" nolink="true" %}
+{% include gallery id="g2" class="" %}
 
 So now I have a really good tool-chain, a working linker script and can
 basically compile anything I like. I think the next test is to get the on board

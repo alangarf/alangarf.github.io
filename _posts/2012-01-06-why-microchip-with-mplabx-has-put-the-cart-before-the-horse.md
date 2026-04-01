@@ -4,8 +4,10 @@ teaser: "I had been a long time user of Microchip parts, and a fan for over ten 
 thumbnail: "/assets/images/2012-01-06/tmb_MicrochipTechnology_Logo.png"
 
 ---
-![Microchip](/assets/images/2012-01-06/MicrochipTechnology_Logo.png)
-# Update: I received a response from Microchip; see the end.
+![Microchip Logo](/assets/images/2012-01-06-MicrochipTechnology_Logo.png){: .align-center}
+
+**Update**: I received a response from Microchip; see the end.
+{: .notice--warning}
 
 # The history.
 
@@ -58,13 +60,16 @@ I installed PICC18 from HiTech (which doesn't need root by the way) and that see
 
 I'm just so frustrated with Microchip now, I feel like my loyalty has been really put down and unnoticed. I'm so tempted to sell all my various parts on eBay for cheap, and become an anti-Microchip zealot.
 
-# Update!.
+---
+
+# Update!
+{: .text-center}
 
 After being contacted via various means by Microchip some of my points have been answered.
 
 'prj' from Microchips forums answered two of my questions.
 
-#### 1. It needs root to install even if you're installing it in your home dir.
+##### 1. It needs root to install even if you're installing it in your home dir.
 
 <blockquote>We currently use the Java call "loadLibrary" to access our low-level, USB support library. "loadLibrary" pulls the libraries from the default library path (as defined by java.library.path ) no matter on which OS it may be running. For Windows, this is either \Windows\system32 or \Windows\SysWOW64, and, usually, if not always, on Linux this includes /usr/libs (which is a common location for user libraries per our discussions with many a Linux user). On Linux, our library in turn loads a specific version of libusb using a uniquely named soft link that we create in /usr/local/libs (in this way we do not overwrite any versions of libusb which may be on the user's system).
 
@@ -72,7 +77,7 @@ Both of these locations on Linux normally require root privileges to access. As 
 
 Admittedly, our current scheme may present some concerns (root access), but precludes some of the "where are you" handling that can become very messy very fast.</blockquote>
 
-#### 2. The 'please reboot for the changes to take effect' msg after you install is quaint and unneeded.
+##### 2. The 'please reboot for the changes to take effect' msg after you install is quaint and unneeded.
 
 <blockquote>One other reason we need root access is that we place a udev rule file in place to provide USB hot plug support while using libusb (at the time we did this, libusb did not have hot plug support). Udev rules files are placed in /etc/udev/rules.d/, which, again, normally requires root privileges.
 

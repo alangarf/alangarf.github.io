@@ -1,13 +1,14 @@
 ---
 title: Updating the website...
 teaser: "Yes my website has been updated once again!"
-thumbnail: "/assets/images/2017-03-30/successkid.jpg"
-
+thumbnail: "/assets/images/2017-03-30-successkid.jpg"
+g1:
+    - image_path: assets/images/2017-03-30-successkid.jpg
 ---
 
 # Wonders of wonders...
 
-![Success Kid](/assets/images/2017-03-30/successkid.jpg)
+{% include gallery layout="" id="g1" %}
 
 Yes my website is being updated once again.
 

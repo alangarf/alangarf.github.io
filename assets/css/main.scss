@@ -10,17 +10,20 @@ $header-font-family : 'Jura', sans-serif;
 
 // @sass-lint: disable
 // @disable-check: deprecations
-@import "minimal-mistakes/skins/dark";
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes";
 
 @import url('https://fonts.googleapis.com/css?family=Orbitron|Jura:300,600|Spinnaker');
 
 .masthead {
-  background-color: #546B83;
+  /* background-color: #546B83; */
+  background-color: darken($background-color, 4%);
   .site-title {
     font-family: 'Orbitron', sans-serif;
-    color: #C8DCF0;
-    text-shadow: 2px 2px #213E5C;
+    /* color: #C8DCF0; */
+    /* text-shadow: 2px 2px #213E5C; */
+    color: lighten($primary-color, 5%);
+    text-shadow: 2px 2px darken($primary-color, 20%);
   }
 }
 
@@ -42,8 +45,9 @@ $header-font-family : 'Jura', sans-serif;
 
 .archive__item-title {
   font-family: 'Jura', sans-serif;
-  text-shadow: 2px 2px #011E3C;
+  text-shadow: 1px 1px #011E3C;
   font-size: 1.12em;
+  padding-bottom: 4px;
 
   .u-url {
     text-decoration: none;
