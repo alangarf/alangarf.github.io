@@ -36,7 +36,7 @@
 
 
 
-  <meta property="og:image" content="https://fromorbit.com/assets/images/2017-03-31/m68k.png">
+  <meta property="og:image" content="https://fromorbit.com/assets/images/2017-03-31-m68k.png">
   
 
 
@@ -48,7 +48,7 @@
 
   
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://fromorbit.com/assets/images/2017-03-31/m68k.png">
+    <meta name="twitter:image" content="https://fromorbit.com/assets/images/2017-03-31-m68k.png">
     
   
 
@@ -168,7 +168,7 @@
 
 
 <div class="page__hero--overlay"
-  style=" background-image: linear-gradient(rgba(140, 79, 47, 0.8), rgba(140, 79, 47, 0.8)), url('/assets/images/2017-03-31/m68k.png');"
+  style=" background-image: linear-gradient(rgba(140, 79, 47, 0.8), rgba(140, 79, 47, 0.8)), url('/assets/images/2017-03-31-m68k.png');"
 >
   
     <div class="wrapper">
@@ -370,44 +370,49 @@ work/life balance.</p>
 
 <p>Here is a snippet of the UART core I’ve written for the simulator, it sets up the internal registers etc of the UART so the firmware can read and write state to configure the registers. The only bit I’ve not successfully worked out yet is the interrupt priorities, there is something wonky on this boards layout I’ve not figured out with the interrupt. But that’s another days problem.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scc2691_core uarts[2];
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">scc2691_core</span> <span class="n">uarts</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
 
-void scc2691_reset(void)
-{
-    for(int i = 0; i &lt; 2; i++) {
-        uarts[i].id = i;
+<span class="kt">void</span> <span class="nf">scc2691_reset</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">id</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
 
-        uarts[i].m1 = 0x0;
-        uarts[i].m1_flag = 0x0;
-        uarts[i].m2 = 0x0;
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">m1</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">m1_flag</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">m2</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
 
-        uarts[i].csr  = 0x0;
-        uarts[i].cr   = 0xA;
-        uarts[i].thr  = 0x0;
-        uarts[i].acr  = 0x0;
-        uarts[i].imr  = 0x0;
-        uarts[i].ctur = 0x0;
-        uarts[i].ctlr = 0x0;
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">csr</span>  <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">cr</span>   <span class="o">=</span> <span class="mh">0xA</span><span class="p">;</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">thr</span>  <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">acr</span>  <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">imr</span>  <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ctur</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ctlr</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
 
-        uarts[i].sr  = 0x0;
-        uarts[i].rhr = 0x0;
-        uarts[i].isr = 0x0;
-        uarts[i].ctu = 0x0;
-        uarts[i].ctl = 0x0;
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">sr</span>  <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">rhr</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">isr</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ctu</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ctl</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
 
-        uarts[i].cnt_flag = 0;
-        uarts[i].cnt_value = 0;
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">cnt_flag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">cnt_value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-        uarts[i].tx = 0;
-        uarts[i].tx_last = time(NULL);
-        int_controller_clear(1);
-    }
-}
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">tx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">tx_last</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+        <span class="n">int_controller_clear</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <h1 id="the-schematic-so-far-">The schematic so far …</h1>
 
-<p><a href="/assets/images/2017-04-05/schematic.png" class="align-center"><img src="/assets/images/2017-04-05/schematic.png" alt="AMX board schematic" /></a></p>
+<figure class=""><a href="/assets/images/2017-04-05-schematic.png" class="image-popup" title="AMX board schematic
+"><img src="/assets/images/2017-04-05-schematic.png" alt="AMX board schematic" /></a><figcaption>
+      AMX board schematic
+
+    </figcaption></figure>
+
 
         
       </section>
@@ -430,26 +435,6 @@ void scc2691_reset(void)
       </footer>
 
       
-<section class="page__share">
-  <h4 class="page__share-title">Share on</h4>
-
-  <a href="https://x.com/intent/tweet?via=alangarf&text=Got+together+a+schematic+today+-+Retro+Challenge+2017%2F04%20https%3A%2F%2Ffromorbit.com%2Fm68k-schematic-rc201704%2F" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
-    <i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i><span> X</span>
-  </a>
-
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ffromorbit.com%2Fm68k-schematic-rc201704%2F" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
-    <i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span>
-  </a>
-
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://fromorbit.com/m68k-schematic-rc201704/" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
-    <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span>
-  </a>
-
-  <a href="https://bsky.app/intent/compose?text=Got+together+a+schematic+today+-+Retro+Challenge+2017%2F04%20https%3A%2F%2Ffromorbit.com%2Fm68k-schematic-rc201704%2F" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
-    <i class="fab fa-fw fa-bluesky" aria-hidden="true"></i><span> Bluesky</span>
-  </a>
-</section>
-
 
       
 
@@ -492,7 +477,7 @@ void scc2691_reset(void)
     
     <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a class="u-url" href="/Static-Jekyll-to-github-pages/" rel="permalink">Using git subtree to send <code class="language-plaintext highlighter-rouge">_site</code> to <code class="language-plaintext highlighter-rouge">master</code> branch
+        <a class="u-url" href="/Static-Jekyll-to-github-pages/" rel="permalink">Using git subtree to send _site to master branch
 </a>
       
     </h2>
@@ -649,7 +634,7 @@ void scc2691_reset(void)
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
       <div class="archive__item-teaser">
-        <img src="/assets/images/2022-05-23/linear16.jpg" alt="">
+        <img src="/assets/images/2022-05-23-linear16.jpg" alt="">
       </div>
     
     <h2 class="archive__item-title no_toc p-name" itemprop="headline">

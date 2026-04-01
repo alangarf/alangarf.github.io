@@ -36,7 +36,7 @@
 
 
 
-  <meta property="og:image" content="https://fromorbit.com/assets/images/2017-04-08/adapters_in_place.jpg">
+  <meta property="og:image" content="https://fromorbit.com/assets/images/2017-04-08-adapters_in_place.jpg">
   
 
 
@@ -48,7 +48,7 @@
 
   
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://fromorbit.com/assets/images/2017-04-08/adapters_in_place.jpg">
+    <meta name="twitter:image" content="https://fromorbit.com/assets/images/2017-04-08-adapters_in_place.jpg">
     
   
 
@@ -168,7 +168,7 @@
 
 
 <div class="page__hero--overlay"
-  style=" background-image: linear-gradient(rgba(140, 102, 47, 0.8), rgba(140, 102, 47, 0.8)), url('/assets/images/2017-04-08/adapters_in_place.jpg');"
+  style=" background-image: linear-gradient(rgba(140, 102, 47, 0.8), rgba(140, 102, 47, 0.8)), url('/assets/images/2017-04-08-adapters_in_place.jpg');"
 >
   
     <div class="wrapper">
@@ -378,7 +378,20 @@ try.</p>
 <p>The 28C64s are basically almost pin compatible with the 27C256s (obviously
 missing the two additional address lines.</p>
 
-<p><img src="/assets/images/2017-04-08/eeprom_vs_eprom1.png" alt="Pin outs of a 28C64 and a 27C256" class="align-center" /></p>
+<figure class="half ">
+  
+    
+      <a href="/assets/images/2017-04-08-eeprom_vs_eprom1.png" title="Pin outs of a 28C64 and a 27C256">
+
+            
+
+<img src="/assets/images/2017-04-08-eeprom_vs_eprom1.png" alt="Pin outs of a 28C64 and a 27C256" srcset="    /assets/resized/320/2017-04-08-eeprom_vs_eprom1.png 320w, /assets/images/2017-04-08-eeprom_vs_eprom1.png 400w" />
+
+      </a>
+    
+  
+  
+</figure>
 
 <p>So apart from A14, A13 and the VPP signal these would plug straight in. Woo hoo
 I was thinking, this’ll be easy!</p>
@@ -390,10 +403,20 @@ things of this vintage start to do. I figured it would be safer if I just did
 one set at a time. So I carefully desoldered the two sockets and replaced them
 with machine pin sockets…</p>
 
-<figure class=""><img src="/assets/images/2017-04-08/sockets_gone.jpg" alt="Removed the sockets" /><figcaption>
-      Old sockets be gone!
+<figure class=" ">
+  
+    
+      <a href="/assets/images/2017-04-08-sockets_gone.jpg" title="Old sockets be gone!">
 
-    </figcaption></figure>
+            
+
+<img src="/assets/images/2017-04-08-sockets_gone.jpg" alt="Removed the sockets" srcset="    /assets/resized/320/2017-04-08-sockets_gone.jpg 320w,    /assets/resized/480/2017-04-08-sockets_gone.jpg 480w,    /assets/resized/1280/2017-04-08-sockets_gone.jpg 1280w, /assets/images/2017-04-08-sockets_gone.jpg 4032w" />
+
+      </a>
+    
+  
+  
+</figure>
 
 <p>It was at this time that I noticed pin 1 on these sockets had traces. Given
 these are the VPP lines I thought that was strange. It turns out they’re
@@ -404,10 +427,20 @@ high voltage to do anything.</p>
 line being connected to A14 was to add another layer of machine pins with the
 sockets missing.</p>
 
-<figure class=""><img src="/assets/images/2017-04-08/adapters_in_place.jpg" alt="Adapters in place" /><figcaption>
-      Adapters in place
+<figure class=" ">
+  
+    
+      <a href="/assets/images/2017-04-08-adapters_in_place.jpg" title="Adapters in place">
 
-    </figcaption></figure>
+            
+
+<img src="/assets/images/2017-04-08-adapters_in_place.jpg" alt="Adapters in place" srcset="    /assets/resized/320/2017-04-08-adapters_in_place.jpg 320w,    /assets/resized/480/2017-04-08-adapters_in_place.jpg 480w,    /assets/resized/1280/2017-04-08-adapters_in_place.jpg 1280w, /assets/images/2017-04-08-adapters_in_place.jpg 3024w" />
+
+      </a>
+    
+  
+  
+</figure>
 
 <p>I opted to pull out the VPP, A13 and A14 pins just to make sure. I then
 programmed my blink routine into the two mismatched 28C64s and expected great
@@ -488,10 +521,20 @@ I can get parts from them.</p>
 for these new chips. I figured I’d just use only the first 8KB of them and drop
 them into the existing sockets I had for the 28C64s.</p>
 
-<figure class=""><img src="/assets/images/2017-04-08/at28c256s_in_place.jpg" alt="AT28C256s in place" /><figcaption>
-      AT28C256s in place
+<figure class=" ">
+  
+    
+      <a href="/assets/images/2017-04-08-at28c256s_in_place.jpg" title="AT28C256s in place">
 
-    </figcaption></figure>
+            
+
+<img src="/assets/images/2017-04-08-at28c256s_in_place.jpg" alt="AT28C256s in place" srcset="    /assets/resized/320/2017-04-08-at28c256s_in_place.jpg 320w,    /assets/resized/480/2017-04-08-at28c256s_in_place.jpg 480w,    /assets/resized/1280/2017-04-08-at28c256s_in_place.jpg 1280w, /assets/images/2017-04-08-at28c256s_in_place.jpg 4032w" />
+
+      </a>
+    
+  
+  
+</figure>
 
 <p>I realized after plugging them in that had I not removed the VPP lines from
 these sockets that I would’ve connected A16 to the A14 pin on these EEPROMs,
@@ -509,10 +552,20 @@ position which now I know has A16 attached to it!</p>
 <p>I powered up the board with the new EEPROMs and the updated code and <strong>success</strong>
 it blinked perfectly, a nice solid consistent blink…</p>
 
-<figure class=""><img src="/assets/images/2017-04-08/blinking1.gif" alt="Blink you good thing!" /><figcaption>
-      Blink you good thing!
+<figure class=" ">
+  
+    
+      <a href="/assets/images/2017-04-08-blinking1.gif" title="Blink you good thing!">
 
-    </figcaption></figure>
+            
+
+<img src="/assets/images/2017-04-08-blinking1.gif" alt="Blink you good thing!" srcset="    /assets/resized/320/2017-04-08-blinking1.gif 320w, /assets/images/2017-04-08-blinking1.gif 450w" />
+
+      </a>
+    
+  
+  
+</figure>
 
 <p>… until I lifted the board.</p>
 
@@ -545,7 +598,20 @@ So that’s a win in my book!</p>
 the RS232 port I’ve got the entire schematic done now. You can get the KiCAD
 files from: <a href="https://github.com/alangarf/amx_axc_kicad">https://github.com/alangarf/amx_axc_kicad</a>.</p>
 
-<p><a href="/assets/images/2017-04-08/schematic.png" class="align-center"><img src="/assets/images/2017-04-08/schematic.png" alt="The schematic" /></a></p>
+<figure class=" ">
+  
+    
+      <a href="/assets/images/2017-04-08-schematic.png" title="The schematic">
+
+            
+
+<img src="/assets/images/2017-04-08-schematic.png" alt="The schematic" srcset="    /assets/resized/320/2017-04-08-schematic.png 320w,    /assets/resized/480/2017-04-08-schematic.png 480w,    /assets/resized/1280/2017-04-08-schematic.png 1280w, /assets/images/2017-04-08-schematic.png 3174w" />
+
+      </a>
+    
+  
+  
+</figure>
 
 <h1 id="is-that-all">Is that all?</h1>
 
@@ -573,26 +639,6 @@ files from: <a href="https://github.com/alangarf/amx_axc_kicad">https://github.c
       </footer>
 
       
-<section class="page__share">
-  <h4 class="page__share-title">Share on</h4>
-
-  <a href="https://x.com/intent/tweet?via=alangarf&text=Now+we%27re+get%27n+somewhere%21+-+Retro+Challenge+2017%2F04%20https%3A%2F%2Ffromorbit.com%2Fgettin-somewhere-rc201704%2F" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
-    <i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i><span> X</span>
-  </a>
-
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ffromorbit.com%2Fgettin-somewhere-rc201704%2F" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
-    <i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span>
-  </a>
-
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://fromorbit.com/gettin-somewhere-rc201704/" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
-    <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span>
-  </a>
-
-  <a href="https://bsky.app/intent/compose?text=Now+we%27re+get%27n+somewhere%21+-+Retro+Challenge+2017%2F04%20https%3A%2F%2Ffromorbit.com%2Fgettin-somewhere-rc201704%2F" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
-    <i class="fab fa-fw fa-bluesky" aria-hidden="true"></i><span> Bluesky</span>
-  </a>
-</section>
-
 
       
 
@@ -635,7 +681,7 @@ files from: <a href="https://github.com/alangarf/amx_axc_kicad">https://github.c
     
     <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a class="u-url" href="/Static-Jekyll-to-github-pages/" rel="permalink">Using git subtree to send <code class="language-plaintext highlighter-rouge">_site</code> to <code class="language-plaintext highlighter-rouge">master</code> branch
+        <a class="u-url" href="/Static-Jekyll-to-github-pages/" rel="permalink">Using git subtree to send _site to master branch
 </a>
       
     </h2>
@@ -792,7 +838,7 @@ files from: <a href="https://github.com/alangarf/amx_axc_kicad">https://github.c
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
       <div class="archive__item-teaser">
-        <img src="/assets/images/2022-05-23/linear16.jpg" alt="">
+        <img src="/assets/images/2022-05-23-linear16.jpg" alt="">
       </div>
     
     <h2 class="archive__item-title no_toc p-name" itemprop="headline">

@@ -36,7 +36,7 @@
 
 
 
-  <meta property="og:image" content="https://fromorbit.com/assets/images/2017-04-18/mc68340.jpg">
+  <meta property="og:image" content="https://fromorbit.com/assets/images/2017-04-26-mc68340.png">
   
 
 
@@ -48,7 +48,7 @@
 
   
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://fromorbit.com/assets/images/2017-04-18/mc68340.jpg">
+    <meta name="twitter:image" content="https://fromorbit.com/assets/images/2017-04-26-mc68340.png">
     
   
 
@@ -168,7 +168,7 @@
 
 
 <div class="page__hero--overlay"
-  style=" background-image: linear-gradient(rgba(32, 62, 91, 0.8), rgba(32, 62, 91, 0.8)), url('/assets/images/2017-04-18/mc68340.jpg');"
+  style=" background-image: linear-gradient(rgba(32, 62, 91, 0.8), rgba(32, 62, 91, 0.8)), url('/assets/images/2017-04-26-mc68340.png');"
 >
   
     <div class="wrapper">
@@ -379,10 +379,20 @@ and based on a MC68340 CPU. My main hesitation initially for not using this
 board to begin with was that it was a peripheral integrated CPU, which meant
 the board was basically ROM, RAM, CPU, and power related parts.</p>
 
-<figure class=""><img src="/assets/images/2017-04-18/axc-em.jpg" alt="AMX AXC-EM board." /><figcaption>
-      The AMX AXC-EM board.
+<figure class=" ">
+  
+    
+      <a href="/assets/images/2017-04-18-axc-em.jpg" title="AMX AXC-EM board.">
 
-    </figcaption></figure>
+            
+
+<img src="/assets/images/2017-04-18-axc-em.jpg" alt="AMX AXC-EM board." srcset="    /assets/resized/320/2017-04-18-axc-em.jpg 320w,    /assets/resized/480/2017-04-18-axc-em.jpg 480w,    /assets/resized/1280/2017-04-18-axc-em.jpg 1280w, /assets/images/2017-04-18-axc-em.jpg 2048w" />
+
+      </a>
+    
+  
+  
+</figure>
 
 <p>As it stands I’ve had a much more enjoyable time working with this board and so
 have progressed much further with the software, rather than staring at a
@@ -424,50 +434,50 @@ tool.</p>
 <p>Here is the Makefile I’m using, you can see it <a href="https://github.com/alangarf/amx_axc_m68k/blob/master/Makefile">here on Github
 too.</a></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>M68K=m68k-linux-gnu
-AS=$(M68K)-as
-LD=$(M68K)-ld
-COPY=$(M68K)-objcopy
-DUMP=$(M68K)-objdump
+<div class="language-make full highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">M68K</span><span class="o">=</span>m68k-linux-gnu
+<span class="nv">AS</span><span class="o">=</span><span class="nv">$(M68K)</span><span class="nt">-as</span>
+<span class="nv">LD</span><span class="o">=</span><span class="nv">$(M68K)</span><span class="nt">-ld</span>
+<span class="nv">COPY</span><span class="o">=</span><span class="nv">$(M68K)</span><span class="nt">-objcopy</span>
+<span class="nv">DUMP</span><span class="o">=</span><span class="nv">$(M68K)</span><span class="nt">-objdump</span>
 
-ASFLAGS=-m68340 --warn --fatal-warnings
-LDFLAGS=-T m68k.ld
-DUMPFLAGS=-m68020 -x -D
+<span class="nv">ASFLAGS</span><span class="o">=</span><span class="nt">-m68340</span> <span class="nt">--warn</span> <span class="nt">--fatal-warnings</span>
+<span class="nv">LDFLAGS</span><span class="o">=</span><span class="nt">-T</span> m68k.ld
+<span class="nv">DUMPFLAGS</span><span class="o">=</span><span class="nt">-m68020</span> <span class="nt">-x</span> <span class="nt">-D</span>
 
-EEPROM=AT28C256
-PREFIX=m68k-
+<span class="nv">EEPROM</span><span class="o">=</span>AT28C256
+<span class="nv">PREFIX</span><span class="o">=</span>m68k-
 
-FMT=binary
+<span class="nv">FMT</span><span class="o">=</span>binary
 
-SRCS=loader.s
-OBJS=$(SRCS:.s=.o)
-MAIN=loader
+<span class="nv">SRCS</span><span class="o">=</span>loader.s
+<span class="nv">OBJS</span><span class="o">=</span><span class="nv">$(SRCS:.s=.o)</span>
+<span class="nv">MAIN</span><span class="o">=</span>loader
 
-.PHONY: dump clean
+<span class="nl">.PHONY</span><span class="o">:</span> <span class="nf">dump clean</span>
 
-all:	$(MAIN)
+<span class="nl">all</span><span class="o">:</span>	<span class="nf">$(MAIN)</span>
 
-.s.o:
-	$(AS) $(ASFLAGS) -o $@ $&lt;
+<span class="nl">.s.o</span><span class="o">:</span>
+	<span class="nv">$(AS)</span> <span class="nv">$(ASFLAGS)</span> <span class="nt">-o</span> <span class="nv">$@</span> <span class="nv">$&lt;</span>
 
-$(MAIN): $(OBJS)
-	$(LD) $(LDFLAGS) -o $(MAIN).a $(OBJS)
-	$(COPY) -b 0 -i 2 --interleave-width=1 -O $(FMT) $(MAIN).a $(PREFIX)$(MAIN)-even.bin
-	$(COPY) -b 1 -i 2 --interleave-width=1 -O $(FMT) $(MAIN).a $(PREFIX)$(MAIN)-odd.bin
+<span class="nl">$(MAIN)</span><span class="o">:</span> <span class="nf">$(OBJS)</span>
+	<span class="nv">$(LD)</span> <span class="nv">$(LDFLAGS)</span> <span class="nt">-o</span> <span class="nv">$(MAIN)</span>.a <span class="nv">$(OBJS)</span>
+	<span class="nv">$(COPY)</span> <span class="nt">-b</span> 0 <span class="nt">-i</span> 2 <span class="nt">--interleave-width</span><span class="o">=</span>1 <span class="nt">-O</span> <span class="nv">$(FMT)</span> <span class="nv">$(MAIN)</span>.a <span class="nv">$(PREFIX)$(MAIN)</span><span class="nt">-even</span>.bin
+	<span class="nv">$(COPY)</span> <span class="nt">-b</span> 1 <span class="nt">-i</span> 2 <span class="nt">--interleave-width</span><span class="o">=</span>1 <span class="nt">-O</span> <span class="nv">$(FMT)</span> <span class="nv">$(MAIN)</span>.a <span class="nv">$(PREFIX)$(MAIN)</span><span class="nt">-odd</span>.bin
 
-clean:
-	rm -f *.o $(PREFIX)$(MAIN)-even.bin $(PREFIX)$(MAIN)-odd.bin $(PREFIX)$(MAIN).bin $(MAIN).a
+<span class="nl">clean</span><span class="o">:</span>
+	<span class="nb">rm</span> <span class="nt">-f</span> <span class="k">*</span>.o <span class="nv">$(PREFIX)$(MAIN)</span><span class="nt">-even</span>.bin <span class="nv">$(PREFIX)$(MAIN)</span><span class="nt">-odd</span>.bin <span class="nv">$(PREFIX)$(MAIN)</span>.bin <span class="nv">$(MAIN)</span>.a
 
-prog_even:
-	@echo Programming $(MAIN)-even onto $(EEPROM)
-	minipro -p "$(EEPROM)" -w $(PREFIX)$(MAIN)-even.bin -s
+<span class="nl">prog_even</span><span class="o">:</span>
+	<span class="p">@</span><span class="nb">echo </span>Programming <span class="nv">$(MAIN)</span><span class="nt">-even</span> onto <span class="nv">$(EEPROM)</span>
+	minipro <span class="nt">-p</span> <span class="s2">"</span><span class="nv">$(EEPROM)</span><span class="s2">"</span> <span class="nt">-w</span> <span class="nv">$(PREFIX)$(MAIN)</span><span class="nt">-even</span>.bin <span class="nt">-s</span>
 
-prog_odd:
-	@echo Programming $(MAIN)-odd onto $(EEPROM)
-	minipro -p "$(EEPROM)" -w $(PREFIX)$(MAIN)-odd.bin -s
+<span class="nl">prog_odd</span><span class="o">:</span>
+	<span class="p">@</span><span class="nb">echo </span>Programming <span class="nv">$(MAIN)</span><span class="nt">-odd</span> onto <span class="nv">$(EEPROM)</span>
+	minipro <span class="nt">-p</span> <span class="s2">"</span><span class="nv">$(EEPROM)</span><span class="s2">"</span> <span class="nt">-w</span> <span class="nv">$(PREFIX)$(MAIN)</span><span class="nt">-odd</span>.bin <span class="nt">-s</span>
 
-dump:	$(MAIN)
-	$(DUMP) $(DUMPFLAGS) $(MAIN).a
+<span class="nl">dump</span><span class="o">:</span>	<span class="nf">$(MAIN)</span>
+	<span class="nv">$(DUMP)</span> <span class="nv">$(DUMPFLAGS)</span> <span class="nv">$(MAIN)</span>.a
 </code></pre></div></div>
 
 <h1 id="compilation-and-linking">Compilation and Linking</h1>
@@ -547,7 +557,7 @@ complex gating or a GAL to achieve something similar.</p>
 <p>So to start with here is a chunk of code that configures the ROM and RAM
 locations in the memory map, and configures the CPU speed and interrupt maps.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*************************************************************************
+<div class="language-plaintext full highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*************************************************************************
 *
 *  Init the CPU and System Integration Module - Configs module options
 *
@@ -592,29 +602,37 @@ wanting too in the near future (also breakpoints etc in my ROM Monitor).</p>
 <p>The MC68340 has a great suite of peripherals, from UARTs, Timers, System
 protection devices and DMA.</p>
 
-<figure class="">
+<figure class=" ">
+  
     
-    <a href="https://fromorbit.com/assets/images/2017-04-26/mc68340.png">
-    
-        <img src="https://fromorbit.com/assets/images/2017-04-26/mc68340.png" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2017-04-26/320-mc68340.png 320w,https://fromorbit.com/assets/images/2017-04-26/640-mc68340.png 640w,https://fromorbit.com/assets/images/2017-04-26/1280-mc68340.png 1280w" alt="The internals of the MC68340" />
-    
-    </a>
-    
+      <a href="/assets/images/2017-04-26-mc68340.png" title="The internals of the MC68340">
 
+            
+
+<img src="/assets/images/2017-04-26-mc68340.png" alt="The internals of the MC68340" srcset="    /assets/resized/320/2017-04-26-mc68340.png 320w,    /assets/resized/480/2017-04-26-mc68340.png 480w, /assets/images/2017-04-26-mc68340.png 1190w" />
+
+      </a>
+    
+  
+  
 </figure>
 
 <p>The SIM40 modules can move the addresses of these devices where ever you
 choose, but the layout is:</p>
 
-<figure class="">
+<figure class=" ">
+  
     
-    <a href="https://fromorbit.com/assets/images/2017-04-26/sim40.png">
-    
-        <img src="https://fromorbit.com/assets/images/2017-04-26/sim40.png" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2017-04-26/320-sim40.png 320w,https://fromorbit.com/assets/images/2017-04-26/640-sim40.png 640w,https://fromorbit.com/assets/images/2017-04-26/1280-sim40.png 1280w" alt="The SIM40 address structure" />
-    
-    </a>
-    
+      <a href="/assets/images/2017-04-26-sim40.png" title="The SIM40 address structure">
 
+            
+
+<img src="/assets/images/2017-04-26-sim40.png" alt="The SIM40 address structure" srcset="    /assets/resized/320/2017-04-26-sim40.png 320w,    /assets/resized/480/2017-04-26-sim40.png 480w,    /assets/resized/1280/2017-04-26-sim40.png 1280w, /assets/images/2017-04-26-sim40.png 1704w" />
+
+      </a>
+    
+  
+  
 </figure>
 
 <p>As you can see in the code above I’ve set it to the address of <code class="language-plaintext highlighter-rouge">0x080000</code>. For
@@ -651,10 +669,20 @@ serial port.</p>
 <p>Here is an example showing altering the code, compiling, copying the srecord
 data and running it:</p>
 
-<figure class=""><img src="/assets/images/2017-04-26/hello_world.gif" alt="GIF showing the boot-loader in action" /><figcaption>
-      Demo showing updating code and pushing it to the bootloader
+<figure class=" ">
+  
+    
+      <a href="/assets/images/2017-04-26-hello_world.gif" title="Demo showing updating code and pushing it to the bootloader">
 
-    </figcaption></figure>
+            
+
+<img src="/assets/images/2017-04-26-hello_world.gif" alt="GIF showing the boot-loader in action" srcset="    /assets/resized/320/2017-04-26-hello_world.gif 320w,    /assets/resized/480/2017-04-26-hello_world.gif 480w, /assets/images/2017-04-26-hello_world.gif 905w" />
+
+      </a>
+    
+  
+  
+</figure>
 
 <h1 id="enough-for-today">Enough for today</h1>
 
@@ -687,26 +715,6 @@ Mandelbrot set generator in the chosen language.</p>
       </footer>
 
       
-<section class="page__share">
-  <h4 class="page__share-title">Share on</h4>
-
-  <a href="https://x.com/intent/tweet?via=alangarf&text=m68k+Environment+-+Retro+Challenge+2017%2F04%20https%3A%2F%2Ffromorbit.com%2Fm68k-environment-rc201704%2F" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
-    <i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i><span> X</span>
-  </a>
-
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ffromorbit.com%2Fm68k-environment-rc201704%2F" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
-    <i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span>
-  </a>
-
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://fromorbit.com/m68k-environment-rc201704/" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
-    <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span>
-  </a>
-
-  <a href="https://bsky.app/intent/compose?text=m68k+Environment+-+Retro+Challenge+2017%2F04%20https%3A%2F%2Ffromorbit.com%2Fm68k-environment-rc201704%2F" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
-    <i class="fab fa-fw fa-bluesky" aria-hidden="true"></i><span> Bluesky</span>
-  </a>
-</section>
-
 
       
 
@@ -749,7 +757,7 @@ Mandelbrot set generator in the chosen language.</p>
     
     <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a class="u-url" href="/Static-Jekyll-to-github-pages/" rel="permalink">Using git subtree to send <code class="language-plaintext highlighter-rouge">_site</code> to <code class="language-plaintext highlighter-rouge">master</code> branch
+        <a class="u-url" href="/Static-Jekyll-to-github-pages/" rel="permalink">Using git subtree to send _site to master branch
 </a>
       
     </h2>
@@ -906,7 +914,7 @@ Mandelbrot set generator in the chosen language.</p>
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
       <div class="archive__item-teaser">
-        <img src="/assets/images/2022-05-23/linear16.jpg" alt="">
+        <img src="/assets/images/2022-05-23-linear16.jpg" alt="">
       </div>
     
     <h2 class="archive__item-title no_toc p-name" itemprop="headline">

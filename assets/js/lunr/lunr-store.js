@@ -1,6 +1,6 @@
 var store = [{
         "title": "First post!",
-        "excerpt":"First post!                                    ","categories": [],
+        "excerpt":"First post!     ","categories": [],
         "tags": [],
         "url": "/first-post/",
         "teaser": "/assets/images/logo_blue.svg"
@@ -11,8 +11,14 @@ var store = [{
         "url": "/lmd18200-breadboard-adapter-board/",
         "teaser": "/assets/images/logo_blue.svg"
       },{
+        "title": "Simple SPI Enabled HD44780",
+        "excerpt":"This is my new SPI enabled LCD display. It uses the same technique used here. It uses a 74HC164 shift register to put bits into a HD44780 LCD in it’s 8-bit mode. This has the advantage of vastly simplified communication (no 4-bit nibble mode stuff etc) and being SPI only...","categories": [],
+        "tags": [],
+        "url": "/simple-spi-enabled-hd44780/",
+        "teaser": "/assets/images/logo_blue.svg"
+      },{
         "title": "Image to Gcode",
-        "excerpt":"Been playing with some code to convert images to GCode.   Here is a test sample. Not bad I reckon. From 3 metres away it looks like a black and white photo. :)            ","categories": [],
+        "excerpt":"Been playing with some code to convert images to GCode.   Here is a test sample. Not bad I reckon. From 3 metres away it looks like a black and white photo. :)                                                                                                                                                ","categories": [],
         "tags": [],
         "url": "/image-to-gcode/",
         "teaser": "/assets/images/logo_blue.svg"
@@ -42,7 +48,7 @@ var store = [{
         "teaser": "/assets/images/logo_blue.svg"
       },{
         "title": "WBR receiver fiddling",
-        "excerpt":"       More fiddling with the WBR receiver. Heaps of fun!  ","categories": [],
+        "excerpt":"           More fiddling with the WBR receiver. Heaps of fun!  ","categories": [],
         "tags": [],
         "url": "/wbr-receiver-fiddling/",
         "teaser": "/assets/images/logo_blue.svg"
@@ -60,61 +66,61 @@ var store = [{
         "teaser": "/assets/images/logo_blue.svg"
       },{
         "title": "Wishbone FPGA Motion Controller",
-        "excerpt":"       This is just showing off my little Wishbone motion controller I wrote for this little TS7500 SBC.  ","categories": [],
+        "excerpt":"           This is just showing off my little Wishbone motion controller I wrote for this little TS7500 SBC.  ","categories": [],
         "tags": [],
         "url": "/wishbone-fpga-motion-controller/",
         "teaser": "/assets/images/logo_blue.svg"
       },{
         "title": "10-turn Potentiometer Tear Down",
-        "excerpt":"       I pull apart a 10-turn potentiometer to see what’s inside. Pretty cool.  ","categories": [],
+        "excerpt":"           I pull apart a 10-turn potentiometer to see what’s inside. Pretty cool.  ","categories": [],
         "tags": [],
         "url": "/10-turn-potentiometer-tear-down/",
         "teaser": "/assets/images/logo_blue.svg"
       },{
         "title": "Web interface for Motion controller",
-        "excerpt":"       This is a quick show-and-tell of the working of my motion controller.  ","categories": [],
+        "excerpt":"           This is a quick show-and-tell of the working of my motion controller.  ","categories": [],
         "tags": [],
         "url": "/web-interface-for-motion-controller/",
         "teaser": "/assets/images/logo_blue.svg"
       },{
         "title": "Tiny Matrix Hack",
-        "excerpt":"       This is a PCB mounted version of the TinyMatrix. I built it for my little nephew for Christmas. I opted to use AAA batteries as CR2032’s aren’t that common for a kids toy.  ","categories": [],
+        "excerpt":"           This is a PCB mounted version of the TinyMatrix. I built it for my little nephew for Christmas. I opted to use AAA batteries as CR2032’s aren’t that common for a kids toy.  ","categories": [],
         "tags": [],
         "url": "/tiny-matrix-hack/",
         "teaser": "/assets/images/logo_blue.svg"
       },{
         "title": "Bluetooth fun",
-        "excerpt":"       Mucking around on a Sunday with the excellent Bluegiga WT32 module.  ","categories": [],
+        "excerpt":"           Mucking around on a Sunday with the excellent Bluegiga WT32 module.  ","categories": [],
         "tags": [],
         "url": "/bluetooth-fun/",
         "teaser": "/assets/images/logo_blue.svg"
       },{
         "title": "Initial ZPU muck-about",
-        "excerpt":"       This is a fairly boring video of me talking to camera about my ideas on using a ZPU softcore CPU for a project I have on the boil. There is also a bit of a rant about crappy operating systems and vendor tools.  ","categories": [],
+        "excerpt":"           This is a fairly boring video of me talking to camera about my ideas on using a ZPU softcore CPU for a project I have on the boil. There is also a bit of a rant about crappy operating systems and vendor tools.  ","categories": [],
         "tags": [],
         "url": "/initial-zpu-muck-about/",
         "teaser": "/assets/images/logo_blue.svg"
       },{
         "title": "Papilio DX board",
-        "excerpt":"       I found a cool discovery while talking on the phone and fiddling with things on my bench. The cool little Papilio One FPGA board has a perfect fitting random development board from Deal Extreme that I just happen to find. They still seem readily available and super useful!  ","categories": [],
+        "excerpt":"           I found a cool discovery while talking on the phone and fiddling with things on my bench. The cool little Papilio One FPGA board has a perfect fitting random development board from Deal Extreme that I just happen to find. They still seem readily available and super useful!  ","categories": [],
         "tags": [],
         "url": "/papilio-dx-board/",
         "teaser": "/assets/images/logo_blue.svg"
       },{
         "title": "The Mini H Quad v2.0 “The Hammer” frame",
-        "excerpt":"       This frame is freely available from http://untestedprototype.com/ and is feature packed for something that’s so small.   I fully intend to FPV this little quad and hopefully be buzzing around my local park.   Can’t wait! Damn international shipping!  ","categories": [],
+        "excerpt":"           This frame is freely available from http://untestedprototype.com/ and is feature packed for something that’s so small.   I fully intend to FPV this little quad and hopefully be buzzing around my local park.   Can’t wait! Damn international shipping!  ","categories": [],
         "tags": [],
         "url": "/the-mini-h-quad-v2-0-the-hammer-frame/",
         "teaser": "/assets/images/logo_blue.svg"
       },{
         "title": "Digital Foosball",
-        "excerpt":"       We digitized our foosball table for a hackday at work. It was a really fun task that has added a new dimension to our game play.  ","categories": [],
+        "excerpt":"           We digitized our foosball table for a hackday at work. It was a really fun task that has added a new dimension to our game play.  ","categories": [],
         "tags": [],
         "url": "/digital-foosball/",
         "teaser": "/assets/images/logo_blue.svg"
       },{
         "title": "Digital Foosball Two",
-        "excerpt":"      ","categories": [],
+        "excerpt":"          ","categories": [],
         "tags": [],
         "url": "/digital-foosball-two/",
         "teaser": "/assets/images/logo_blue.svg"
@@ -141,43 +147,43 @@ var store = [{
         "excerpt":"Quick one today, I worked on the schematic a little more. Still a few unknowns and a couple of holes I’ve not filled in yet, but the schematic is 80% complete. At least to a point where I can get a ROM monitor etc running and know where all the...","categories": [],
         "tags": [],
         "url": "/m68k-schematic-rc201704/",
-        "teaser": "/assets/images/2017-03-31/m68k.png"
+        "teaser": "/assets/images/2017-03-31-m68k.png"
       },{
         "title": "Ugh! I need UV - Retro Challenge 2017/04",
         "excerpt":"So I set out to make the LED blink a merry blink tonight, but was finally thwarted when I came to the realisation I’d need UV light to erase the EPROMs to load my code in. Suffice to say this was mighty frustrating. I’m getting ahead of the story, so...","categories": [],
         "tags": [],
         "url": "/m68k-why-no-uv-rc201704/",
-        "teaser": "/assets/images/2017-03-31/m68k.png"
+        "teaser": "/assets/images/2017-03-31-m68k.png"
       },{
         "title": "Now we're get'n somewhere! - Retro Challenge 2017/04",
         "excerpt":"After the UV fiasco I’ve finally managed to get around the issue. I did that by ditching EPROMs and instead replaced them with EEPROMs! Rummaging around in the shed I found two other cards from the system this controller was in originally. They were for controlling infrared devices and what...","categories": [],
         "tags": [],
         "url": "/gettin-somewhere-rc201704/",
-        "teaser": "/assets/images/2017-04-08/adapters_in_place.jpg"
+        "teaser": "/assets/images/2017-04-08-adapters_in_place.jpg"
       },{
         "title": "Rinse Repeat. :( - Retro Challenge 2017/04",
         "excerpt":"Apart from work and family commitments over Easter I’ve been stuck in a rinse repeat cycle with this board. I am still trying to iron the bugs out, and I’m having weird issues with the firmware. I started thinking about porting the TS2 “monitor” to this board, but was having...","categories": [],
         "tags": [],
         "url": "/rinse-repeat-rc201704/",
-        "teaser": "/assets/images/2017-04-18/axc-em.jpg"
+        "teaser": "/assets/images/2017-04-18-axc-em.jpg"
       },{
         "title": "m68k Environment - Retro Challenge 2017/04",
         "excerpt":"So, for this post I want to talk about my development environment and where I’m up to as far as the Retro Challenge. I’ve had a lot of issues with this project. Initially I was cruising well and looking well on track to make something really cool, but then I...","categories": [],
         "tags": [],
         "url": "/m68k-environment-rc201704/",
-        "teaser": "/assets/images/2017-04-18/mc68340.jpg"
+        "teaser": "/assets/images/2017-04-18-mc68340.jpg"
       },{
         "title": "More fun with the m68k",
         "excerpt":"The last days of the Retro Challenge The Retro Challenge behind me, and not actually achieving my goal I was pretty disappointed that work/life commitments stacked against me in getting there. That didn’t stop me from completing my goal, just wasn’t in the time frame of the competition. Where I...","categories": [],
         "tags": [],
         "url": "/m68k-crosstool-ng/",
-        "teaser": "/assets/images/2017-04-18/mc68340.jpg"
+        "teaser": "/assets/images/2017-04-18-mc68340.jpg"
       },{
         "title": "45W IRF510 HF Linear Amp",
         "excerpt":"45W IRF510 HF Linear Amp Boy it’s been a long time between posts. Sorry about that. I got real lazy and just starting pumping my content into twitter and really just never took the time to document things. Anyway, here is a project I built to get me out of...","categories": [],
         "tags": [],
         "url": "/IRF510-linear-amp/",
-        "teaser": "/assets/images/2022-05-23/linear16.jpg"
+        "teaser": "/assets/images/2022-05-23-linear16.jpg"
       },{
         "title": "Alan's Wishlist",
         "excerpt":"Wish List      Chicago Air HUSH70-H Silenced 70L Air Compressor   Duralloy Multiweld 201 PFC 4in1 MIG Welder   ","categories": [],
@@ -191,7 +197,7 @@ var store = [{
         "url": "/StlinkV3-PicoDebug-Arch/",
         "teaser": "/assets/images/logo_blue.svg"
       },{
-        "title": "Using git subtree to send `_site` to `master` branch",
+        "title": "Using git subtree to send _site to master branch",
         "excerpt":"What? If you use github pages and you want to generate your static files yourself you can use a repo with a master branch that is your public static rendered files, and another branch in my case sources that is the raw source files that I render with Jeykll locally....","categories": [],
         "tags": [],
         "url": "/Static-Jekyll-to-github-pages/",

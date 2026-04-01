@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://fromorbit.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fromorbit.com/" rel="alternate" type="text/html" /><updated>2026-03-31T00:14:14+11:00</updated><id>https://fromorbit.com/feed.xml</id><title type="html">FromOrbit.com</title><subtitle>Generic nerd who dabbles in programming, electronics, CNC and retro computing.
-</subtitle><author><name>Alan Garfield</name></author><entry><title type="html">Using git subtree to send `_site` to `master` branch</title><link href="https://fromorbit.com/Static-Jekyll-to-github-pages/" rel="alternate" type="text/html" title="Using git subtree to send `_site` to `master` branch" /><published>2026-03-30T00:00:00+11:00</published><updated>2026-03-30T00:00:00+11:00</updated><id>https://fromorbit.com/Static-Jekyll-to-github-pages</id><content type="html" xml:base="https://fromorbit.com/Static-Jekyll-to-github-pages/"><![CDATA[<h1 id="what">What?</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://fromorbit.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fromorbit.com/" rel="alternate" type="text/html" /><updated>2026-04-01T21:08:20+11:00</updated><id>https://fromorbit.com/feed.xml</id><title type="html">FromOrbit.com</title><subtitle>Generic nerd who dabbles in programming, electronics, CNC and retro computing.
+</subtitle><author><name>Alan Garfield</name></author><entry><title type="html">Using git subtree to send _site to master branch</title><link href="https://fromorbit.com/Static-Jekyll-to-github-pages/" rel="alternate" type="text/html" title="Using git subtree to send _site to master branch" /><published>2026-03-30T00:00:00+11:00</published><updated>2026-03-30T00:00:00+11:00</updated><id>https://fromorbit.com/Static-Jekyll-to-github-pages</id><content type="html" xml:base="https://fromorbit.com/Static-Jekyll-to-github-pages/"><![CDATA[<h1 id="what">What?</h1>
 
 <p>If you use github pages and you want to generate your static files yourself you can use a repo with a <code class="language-plaintext highlighter-rouge">master</code> branch that is your public static rendered files, and another branch in my case <code class="language-plaintext highlighter-rouge">sources</code> that is the raw source files that I render with Jeykll locally.</p>
 
@@ -106,22 +106,34 @@ see how it would go…</p>
 <figure class="third ">
   
     
+      <a href="/assets/images/2022-05-23-linear2.jpg">
+
+            
+
+<img src="/assets/images/2022-05-23-linear2.jpg" alt="picture two" srcset="    /assets/resized/320/2022-05-23-linear2.jpg 320w,    /assets/resized/480/2022-05-23-linear2.jpg 480w,    /assets/resized/1280/2022-05-23-linear2.jpg 1280w, /assets/images/2022-05-23-linear2.jpg 2048w" />
+
+      </a>
     
-    <a href="https://fromorbit.com/assets/images/2022-05-23/linear2.jpg">
-        <img src="https://fromorbit.com/assets/images/2022-05-23/linear2.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear2.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear2.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear2.jpg 1280w" alt="picture two" />
-    </a>
   
     
+      <a href="/assets/images/2022-05-23-linear3.jpg">
+
+            
+
+<img src="/assets/images/2022-05-23-linear3.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear3.jpg 320w,    /assets/resized/480/2022-05-23-linear3.jpg 480w,    /assets/resized/1280/2022-05-23-linear3.jpg 1280w, /assets/images/2022-05-23-linear3.jpg 2048w" />
+
+      </a>
     
-    <a href="https://fromorbit.com/assets/images/2022-05-23/linear3.jpg">
-        <img src="https://fromorbit.com/assets/images/2022-05-23/linear3.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear3.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear3.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear3.jpg 1280w" alt="picture three" />
-    </a>
   
     
+      <a href="/assets/images/2022-05-23-linear4.jpg">
+
+            
+
+<img src="/assets/images/2022-05-23-linear4.jpg" alt="picture one" srcset="    /assets/resized/320/2022-05-23-linear4.jpg 320w,    /assets/resized/480/2022-05-23-linear4.jpg 480w,    /assets/resized/1280/2022-05-23-linear4.jpg 1280w, /assets/images/2022-05-23-linear4.jpg 2048w" />
+
+      </a>
     
-    <a href="https://fromorbit.com/assets/images/2022-05-23/linear4.jpg">
-        <img src="https://fromorbit.com/assets/images/2022-05-23/linear4.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear4.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear4.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear4.jpg 1280w" alt="picture one" />
-    </a>
   
   
 </figure>
@@ -140,16 +152,24 @@ prototype.</p>
 <figure class="half ">
   
     
+      <a href="/assets/images/2022-05-23-linear5.jpg">
+
+            
+
+<img src="/assets/images/2022-05-23-linear5.jpg" alt="picture two" srcset="    /assets/resized/320/2022-05-23-linear5.jpg 320w,    /assets/resized/480/2022-05-23-linear5.jpg 480w,    /assets/resized/1280/2022-05-23-linear5.jpg 1280w, /assets/images/2022-05-23-linear5.jpg 2048w" />
+
+      </a>
     
-    <a href="https://fromorbit.com/assets/images/2022-05-23/linear5.jpg">
-        <img src="https://fromorbit.com/assets/images/2022-05-23/linear5.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear5.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear5.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear5.jpg 1280w" alt="picture two" />
-    </a>
   
     
+      <a href="/assets/images/2022-05-23-linear6.jpg">
+
+            
+
+<img src="/assets/images/2022-05-23-linear6.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear6.jpg 320w,    /assets/resized/480/2022-05-23-linear6.jpg 480w,    /assets/resized/1280/2022-05-23-linear6.jpg 1280w, /assets/images/2022-05-23-linear6.jpg 2048w" />
+
+      </a>
     
-    <a href="https://fromorbit.com/assets/images/2022-05-23/linear6.jpg">
-        <img src="https://fromorbit.com/assets/images/2022-05-23/linear6.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear6.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear6.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear6.jpg 1280w" alt="picture three" />
-    </a>
   
   
 </figure>
@@ -159,10 +179,14 @@ prototype.</p>
 <figure class=" ">
   
     
+      <a href="/assets/images/2022-05-23-linear7.jpg">
+
+            
+
+<img src="/assets/images/2022-05-23-linear7.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear7.jpg 320w,    /assets/resized/480/2022-05-23-linear7.jpg 480w,    /assets/resized/1280/2022-05-23-linear7.jpg 1280w, /assets/images/2022-05-23-linear7.jpg 2048w" />
+
+      </a>
     
-    <a href="https://fromorbit.com/assets/images/2022-05-23/linear7.jpg">
-        <img src="https://fromorbit.com/assets/images/2022-05-23/linear7.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear7.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear7.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear7.jpg 1280w" alt="picture three" />
-    </a>
   
   
 </figure>
@@ -174,22 +198,34 @@ mounted on top and the board mounted on stand-offs.</p>
 <figure class="third ">
   
     
+      <a href="/assets/images/2022-05-23-linear8.jpg">
+
+            
+
+<img src="/assets/images/2022-05-23-linear8.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear8.jpg 320w,    /assets/resized/480/2022-05-23-linear8.jpg 480w,    /assets/resized/1280/2022-05-23-linear8.jpg 1280w, /assets/images/2022-05-23-linear8.jpg 2048w" />
+
+      </a>
     
-    <a href="https://fromorbit.com/assets/images/2022-05-23/linear8.jpg">
-        <img src="https://fromorbit.com/assets/images/2022-05-23/linear8.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear8.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear8.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear8.jpg 1280w" alt="picture three" />
-    </a>
   
     
+      <a href="/assets/images/2022-05-23-linear10.jpg">
+
+            
+
+<img src="/assets/images/2022-05-23-linear10.jpg" alt="picture one" srcset="    /assets/resized/320/2022-05-23-linear10.jpg 320w,    /assets/resized/480/2022-05-23-linear10.jpg 480w,    /assets/resized/1280/2022-05-23-linear10.jpg 1280w, /assets/images/2022-05-23-linear10.jpg 2048w" />
+
+      </a>
     
-    <a href="https://fromorbit.com/assets/images/2022-05-23/linear10.jpg">
-        <img src="https://fromorbit.com/assets/images/2022-05-23/linear10.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear10.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear10.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear10.jpg 1280w" alt="picture one" />
-    </a>
   
     
+      <a href="/assets/images/2022-05-23-linear11.jpg">
+
+            
+
+<img src="/assets/images/2022-05-23-linear11.jpg" alt="picture two" srcset="    /assets/resized/320/2022-05-23-linear11.jpg 320w,    /assets/resized/480/2022-05-23-linear11.jpg 480w,    /assets/resized/1280/2022-05-23-linear11.jpg 1280w, /assets/images/2022-05-23-linear11.jpg 2048w" />
+
+      </a>
     
-    <a href="https://fromorbit.com/assets/images/2022-05-23/linear11.jpg">
-        <img src="https://fromorbit.com/assets/images/2022-05-23/linear11.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear11.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear11.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear11.jpg 1280w" alt="picture two" />
-    </a>
   
   
 </figure>
@@ -205,16 +241,24 @@ continued.</p>
 <figure class="half ">
   
     
+      <a href="/assets/images/2022-05-23-linear13.jpg">
+
+            
+
+<img src="/assets/images/2022-05-23-linear13.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear13.jpg 320w,    /assets/resized/480/2022-05-23-linear13.jpg 480w,    /assets/resized/1280/2022-05-23-linear13.jpg 1280w, /assets/images/2022-05-23-linear13.jpg 2048w" />
+
+      </a>
     
-    <a href="https://fromorbit.com/assets/images/2022-05-23/linear13.jpg">
-        <img src="https://fromorbit.com/assets/images/2022-05-23/linear13.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear13.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear13.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear13.jpg 1280w" alt="picture three" />
-    </a>
   
     
+      <a href="/assets/images/2022-05-23-linear12.jpg">
+
+            
+
+<img src="/assets/images/2022-05-23-linear12.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear12.jpg 320w,    /assets/resized/480/2022-05-23-linear12.jpg 480w,    /assets/resized/1280/2022-05-23-linear12.jpg 1280w, /assets/images/2022-05-23-linear12.jpg 2048w" />
+
+      </a>
     
-    <a href="https://fromorbit.com/assets/images/2022-05-23/linear12.jpg">
-        <img src="https://fromorbit.com/assets/images/2022-05-23/linear12.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear12.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear12.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear12.jpg 1280w" alt="picture three" />
-    </a>
   
   
 </figure>
@@ -228,16 +272,24 @@ No oscillations, nice clear output and all looked very good and pleasing.</p>
 <figure class="half ">
   
     
+      <a href="/assets/images/2022-05-23-linear14.jpg">
+
+            
+
+<img src="/assets/images/2022-05-23-linear14.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear14.jpg 320w,    /assets/resized/480/2022-05-23-linear14.jpg 480w,    /assets/resized/1280/2022-05-23-linear14.jpg 1280w, /assets/images/2022-05-23-linear14.jpg 2048w" />
+
+      </a>
     
-    <a href="https://fromorbit.com/assets/images/2022-05-23/linear14.jpg">
-        <img src="https://fromorbit.com/assets/images/2022-05-23/linear14.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear14.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear14.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear14.jpg 1280w" alt="picture three" />
-    </a>
   
     
+      <a href="/assets/images/2022-05-23-linear15.jpg">
+
+            
+
+<img src="/assets/images/2022-05-23-linear15.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear15.jpg 320w,    /assets/resized/480/2022-05-23-linear15.jpg 480w,    /assets/resized/1280/2022-05-23-linear15.jpg 1280w, /assets/images/2022-05-23-linear15.jpg 2048w" />
+
+      </a>
     
-    <a href="https://fromorbit.com/assets/images/2022-05-23/linear15.jpg">
-        <img src="https://fromorbit.com/assets/images/2022-05-23/linear15.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear15.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear15.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear15.jpg 1280w" alt="picture three" />
-    </a>
   
   
 </figure>
@@ -248,10 +300,14 @@ transferred across to the new board</p>
 <figure class=" ">
   
     
+      <a href="/assets/images/2022-05-23-linear16.jpg">
+
+            
+
+<img src="/assets/images/2022-05-23-linear16.jpg" alt="picture one" srcset="    /assets/resized/320/2022-05-23-linear16.jpg 320w,    /assets/resized/480/2022-05-23-linear16.jpg 480w,    /assets/resized/1280/2022-05-23-linear16.jpg 1280w, /assets/images/2022-05-23-linear16.jpg 1536w" />
+
+      </a>
     
-    <a href="https://fromorbit.com/assets/images/2022-05-23/linear16.jpg">
-        <img src="https://fromorbit.com/assets/images/2022-05-23/linear16.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear16.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear16.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear16.jpg 1280w" alt="picture one" />
-    </a>
   
   
 </figure>
@@ -265,22 +321,34 @@ it around 45W output.</p>
 <figure class="third ">
   
     
+      <a href="/assets/images/2022-05-23-linear17.jpg">
+
+            
+
+<img src="/assets/images/2022-05-23-linear17.jpg" alt="picture two" srcset="    /assets/resized/320/2022-05-23-linear17.jpg 320w,    /assets/resized/480/2022-05-23-linear17.jpg 480w,    /assets/resized/1280/2022-05-23-linear17.jpg 1280w, /assets/images/2022-05-23-linear17.jpg 2048w" />
+
+      </a>
     
-    <a href="https://fromorbit.com/assets/images/2022-05-23/linear17.jpg">
-        <img src="https://fromorbit.com/assets/images/2022-05-23/linear17.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear17.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear17.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear17.jpg 1280w" alt="picture two" />
-    </a>
   
     
+      <a href="/assets/images/2022-05-23-linear18.jpg">
+
+            
+
+<img src="/assets/images/2022-05-23-linear18.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear18.jpg 320w,    /assets/resized/480/2022-05-23-linear18.jpg 480w,    /assets/resized/1280/2022-05-23-linear18.jpg 1280w, /assets/images/2022-05-23-linear18.jpg 2237w" />
+
+      </a>
     
-    <a href="https://fromorbit.com/assets/images/2022-05-23/linear18.jpg">
-        <img src="https://fromorbit.com/assets/images/2022-05-23/linear18.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear18.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear18.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear18.jpg 1280w" alt="picture three" />
-    </a>
   
     
+      <a href="/assets/images/2022-05-23-linear19.jpg">
+
+            
+
+<img src="/assets/images/2022-05-23-linear19.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear19.jpg 320w,    /assets/resized/480/2022-05-23-linear19.jpg 480w,    /assets/resized/1280/2022-05-23-linear19.jpg 1280w, /assets/images/2022-05-23-linear19.jpg 2048w" />
+
+      </a>
     
-    <a href="https://fromorbit.com/assets/images/2022-05-23/linear19.jpg">
-        <img src="https://fromorbit.com/assets/images/2022-05-23/linear19.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear19.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear19.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear19.jpg 1280w" alt="picture three" />
-    </a>
   
   
 </figure>
@@ -296,40 +364,64 @@ this works.</p>
 <figure class="third ">
   
     
+      <a href="/assets/images/2022-05-23-linear20.jpg">
+
+            
+
+<img src="/assets/images/2022-05-23-linear20.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear20.jpg 320w,    /assets/resized/480/2022-05-23-linear20.jpg 480w,    /assets/resized/1280/2022-05-23-linear20.jpg 1280w, /assets/images/2022-05-23-linear20.jpg 2048w" />
+
+      </a>
     
-    <a href="https://fromorbit.com/assets/images/2022-05-23/linear20.jpg">
-        <img src="https://fromorbit.com/assets/images/2022-05-23/linear20.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear20.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear20.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear20.jpg 1280w" alt="picture three" />
-    </a>
   
     
+      <a href="/assets/images/2022-05-23-linear21.jpg">
+
+            
+
+<img src="/assets/images/2022-05-23-linear21.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear21.jpg 320w,    /assets/resized/480/2022-05-23-linear21.jpg 480w,    /assets/resized/1280/2022-05-23-linear21.jpg 1280w, /assets/images/2022-05-23-linear21.jpg 2048w" />
+
+      </a>
     
-    <a href="https://fromorbit.com/assets/images/2022-05-23/linear21.jpg">
-        <img src="https://fromorbit.com/assets/images/2022-05-23/linear21.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear21.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear21.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear21.jpg 1280w" alt="picture three" />
-    </a>
   
     
+      <a href="/assets/images/2022-05-23-linear23.jpg">
+
+            
+
+<img src="/assets/images/2022-05-23-linear23.jpg" alt="picture two" srcset="    /assets/resized/320/2022-05-23-linear23.jpg 320w,    /assets/resized/480/2022-05-23-linear23.jpg 480w,    /assets/resized/1280/2022-05-23-linear23.jpg 1280w, /assets/images/2022-05-23-linear23.jpg 2048w" />
+
+      </a>
     
-    <a href="https://fromorbit.com/assets/images/2022-05-23/linear23.jpg">
-        <img src="https://fromorbit.com/assets/images/2022-05-23/linear23.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear23.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear23.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear23.jpg 1280w" alt="picture two" />
-    </a>
   
     
+      <a href="/assets/images/2022-05-23-linear24.jpg">
+
+            
+
+<img src="/assets/images/2022-05-23-linear24.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear24.jpg 320w,    /assets/resized/480/2022-05-23-linear24.jpg 480w,    /assets/resized/1280/2022-05-23-linear24.jpg 1280w, /assets/images/2022-05-23-linear24.jpg 2048w" />
+
+      </a>
     
-    <a href="https://fromorbit.com/assets/images/2022-05-23/linear24.jpg">
-        <img src="https://fromorbit.com/assets/images/2022-05-23/linear24.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear24.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear24.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear24.jpg 1280w" alt="picture three" />
-    </a>
   
     
+      <a href="/assets/images/2022-05-23-linear25.jpg">
+
+            
+
+<img src="/assets/images/2022-05-23-linear25.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear25.jpg 320w,    /assets/resized/480/2022-05-23-linear25.jpg 480w,    /assets/resized/1280/2022-05-23-linear25.jpg 1280w, /assets/images/2022-05-23-linear25.jpg 1958w" />
+
+      </a>
     
-    <a href="https://fromorbit.com/assets/images/2022-05-23/linear25.jpg">
-        <img src="https://fromorbit.com/assets/images/2022-05-23/linear25.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear25.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear25.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear25.jpg 1280w" alt="picture three" />
-    </a>
   
     
+      <a href="/assets/images/2022-05-23-linear26.jpg">
+
+            
+
+<img src="/assets/images/2022-05-23-linear26.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear26.jpg 320w,    /assets/resized/480/2022-05-23-linear26.jpg 480w,    /assets/resized/1280/2022-05-23-linear26.jpg 1280w, /assets/images/2022-05-23-linear26.jpg 1559w" />
+
+      </a>
     
-    <a href="https://fromorbit.com/assets/images/2022-05-23/linear26.jpg">
-        <img src="https://fromorbit.com/assets/images/2022-05-23/linear26.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear26.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear26.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear26.jpg 1280w" alt="picture three" />
-    </a>
   
   
 </figure>
@@ -346,10 +438,14 @@ I have had many successful QSOs from all over Australia, NZ and the USA.</p>
 <figure class=" ">
   
     
+      <a href="/assets/images/2022-05-23-linear27.jpg">
+
+            
+
+<img src="/assets/images/2022-05-23-linear27.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear27.jpg 320w,    /assets/resized/480/2022-05-23-linear27.jpg 480w,    /assets/resized/1280/2022-05-23-linear27.jpg 1280w, /assets/images/2022-05-23-linear27.jpg 2048w" />
+
+      </a>
     
-    <a href="https://fromorbit.com/assets/images/2022-05-23/linear27.jpg">
-        <img src="https://fromorbit.com/assets/images/2022-05-23/linear27.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2022-05-23/320-linear27.jpg 320w,https://fromorbit.com/assets/images/2022-05-23/640-linear27.jpg 640w,https://fromorbit.com/assets/images/2022-05-23/1280-linear27.jpg 1280w" alt="picture three" />
-    </a>
   
   
 </figure>
@@ -518,25 +614,37 @@ itself.</p>
 
 <p>Here is a real-time display of the board rendering a larger Mandelbrot set.</p>
 
-<figure class="">
+<figure class=" ">
+  
     
-    
-        <img src="https://fromorbit.com/assets/images/2017-05-19/mandelbrot.gif" alt="" />
-    
-    
+      <a href="/assets/images/2017-05-19-mandelbrot.gif">
 
+            
+
+<img src="/assets/images/2017-05-19-mandelbrot.gif" alt="" srcset="    /assets/resized/320/2017-05-19-mandelbrot.gif 320w,    /assets/resized/480/2017-05-19-mandelbrot.gif 480w, /assets/images/2017-05-19-mandelbrot.gif 945w" />
+
+      </a>
+    
+  
+  
 </figure>
 
 <p>An here is a better example showing the actual CPU speed by character. I
 removed the line buffering so each character can be seen as it is rendered.</p>
 
-<figure class="">
+<figure class=" ">
+  
     
-    
-        <img src="https://fromorbit.com/assets/images/2017-05-19/mandelbrot-2.gif" alt="" />
-    
-    
+      <a href="/assets/images/2017-05-19-mandelbrot-2.gif">
 
+            
+
+<img src="/assets/images/2017-05-19-mandelbrot-2.gif" alt="" srcset="    /assets/resized/320/2017-05-19-mandelbrot-2.gif 320w,    /assets/resized/480/2017-05-19-mandelbrot-2.gif 480w, /assets/images/2017-05-19-mandelbrot-2.gif 945w" />
+
+      </a>
+    
+  
+  
 </figure>
 
 <p>So now I have a really good tool-chain, a working linker script and can
@@ -568,10 +676,20 @@ and based on a MC68340 CPU. My main hesitation initially for not using this
 board to begin with was that it was a peripheral integrated CPU, which meant
 the board was basically ROM, RAM, CPU, and power related parts.</p>
 
-<figure class=""><img src="/assets/images/2017-04-18/axc-em.jpg" alt="AMX AXC-EM board." /><figcaption>
-      The AMX AXC-EM board.
+<figure class=" ">
+  
+    
+      <a href="/assets/images/2017-04-18-axc-em.jpg" title="AMX AXC-EM board.">
 
-    </figcaption></figure>
+            
+
+<img src="/assets/images/2017-04-18-axc-em.jpg" alt="AMX AXC-EM board." srcset="    /assets/resized/320/2017-04-18-axc-em.jpg 320w,    /assets/resized/480/2017-04-18-axc-em.jpg 480w,    /assets/resized/1280/2017-04-18-axc-em.jpg 1280w, /assets/images/2017-04-18-axc-em.jpg 2048w" />
+
+      </a>
+    
+  
+  
+</figure>
 
 <p>As it stands I’ve had a much more enjoyable time working with this board and so
 have progressed much further with the software, rather than staring at a
@@ -613,50 +731,50 @@ tool.</p>
 <p>Here is the Makefile I’m using, you can see it <a href="https://github.com/alangarf/amx_axc_m68k/blob/master/Makefile">here on Github
 too.</a></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>M68K=m68k-linux-gnu
-AS=$(M68K)-as
-LD=$(M68K)-ld
-COPY=$(M68K)-objcopy
-DUMP=$(M68K)-objdump
+<div class="language-make full highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">M68K</span><span class="o">=</span>m68k-linux-gnu
+<span class="nv">AS</span><span class="o">=</span><span class="nv">$(M68K)</span><span class="nt">-as</span>
+<span class="nv">LD</span><span class="o">=</span><span class="nv">$(M68K)</span><span class="nt">-ld</span>
+<span class="nv">COPY</span><span class="o">=</span><span class="nv">$(M68K)</span><span class="nt">-objcopy</span>
+<span class="nv">DUMP</span><span class="o">=</span><span class="nv">$(M68K)</span><span class="nt">-objdump</span>
 
-ASFLAGS=-m68340 --warn --fatal-warnings
-LDFLAGS=-T m68k.ld
-DUMPFLAGS=-m68020 -x -D
+<span class="nv">ASFLAGS</span><span class="o">=</span><span class="nt">-m68340</span> <span class="nt">--warn</span> <span class="nt">--fatal-warnings</span>
+<span class="nv">LDFLAGS</span><span class="o">=</span><span class="nt">-T</span> m68k.ld
+<span class="nv">DUMPFLAGS</span><span class="o">=</span><span class="nt">-m68020</span> <span class="nt">-x</span> <span class="nt">-D</span>
 
-EEPROM=AT28C256
-PREFIX=m68k-
+<span class="nv">EEPROM</span><span class="o">=</span>AT28C256
+<span class="nv">PREFIX</span><span class="o">=</span>m68k-
 
-FMT=binary
+<span class="nv">FMT</span><span class="o">=</span>binary
 
-SRCS=loader.s
-OBJS=$(SRCS:.s=.o)
-MAIN=loader
+<span class="nv">SRCS</span><span class="o">=</span>loader.s
+<span class="nv">OBJS</span><span class="o">=</span><span class="nv">$(SRCS:.s=.o)</span>
+<span class="nv">MAIN</span><span class="o">=</span>loader
 
-.PHONY: dump clean
+<span class="nl">.PHONY</span><span class="o">:</span> <span class="nf">dump clean</span>
 
-all:	$(MAIN)
+<span class="nl">all</span><span class="o">:</span>	<span class="nf">$(MAIN)</span>
 
-.s.o:
-	$(AS) $(ASFLAGS) -o $@ $&lt;
+<span class="nl">.s.o</span><span class="o">:</span>
+	<span class="nv">$(AS)</span> <span class="nv">$(ASFLAGS)</span> <span class="nt">-o</span> <span class="nv">$@</span> <span class="nv">$&lt;</span>
 
-$(MAIN): $(OBJS)
-	$(LD) $(LDFLAGS) -o $(MAIN).a $(OBJS)
-	$(COPY) -b 0 -i 2 --interleave-width=1 -O $(FMT) $(MAIN).a $(PREFIX)$(MAIN)-even.bin
-	$(COPY) -b 1 -i 2 --interleave-width=1 -O $(FMT) $(MAIN).a $(PREFIX)$(MAIN)-odd.bin
+<span class="nl">$(MAIN)</span><span class="o">:</span> <span class="nf">$(OBJS)</span>
+	<span class="nv">$(LD)</span> <span class="nv">$(LDFLAGS)</span> <span class="nt">-o</span> <span class="nv">$(MAIN)</span>.a <span class="nv">$(OBJS)</span>
+	<span class="nv">$(COPY)</span> <span class="nt">-b</span> 0 <span class="nt">-i</span> 2 <span class="nt">--interleave-width</span><span class="o">=</span>1 <span class="nt">-O</span> <span class="nv">$(FMT)</span> <span class="nv">$(MAIN)</span>.a <span class="nv">$(PREFIX)$(MAIN)</span><span class="nt">-even</span>.bin
+	<span class="nv">$(COPY)</span> <span class="nt">-b</span> 1 <span class="nt">-i</span> 2 <span class="nt">--interleave-width</span><span class="o">=</span>1 <span class="nt">-O</span> <span class="nv">$(FMT)</span> <span class="nv">$(MAIN)</span>.a <span class="nv">$(PREFIX)$(MAIN)</span><span class="nt">-odd</span>.bin
 
-clean:
-	rm -f *.o $(PREFIX)$(MAIN)-even.bin $(PREFIX)$(MAIN)-odd.bin $(PREFIX)$(MAIN).bin $(MAIN).a
+<span class="nl">clean</span><span class="o">:</span>
+	<span class="nb">rm</span> <span class="nt">-f</span> <span class="k">*</span>.o <span class="nv">$(PREFIX)$(MAIN)</span><span class="nt">-even</span>.bin <span class="nv">$(PREFIX)$(MAIN)</span><span class="nt">-odd</span>.bin <span class="nv">$(PREFIX)$(MAIN)</span>.bin <span class="nv">$(MAIN)</span>.a
 
-prog_even:
-	@echo Programming $(MAIN)-even onto $(EEPROM)
-	minipro -p "$(EEPROM)" -w $(PREFIX)$(MAIN)-even.bin -s
+<span class="nl">prog_even</span><span class="o">:</span>
+	<span class="p">@</span><span class="nb">echo </span>Programming <span class="nv">$(MAIN)</span><span class="nt">-even</span> onto <span class="nv">$(EEPROM)</span>
+	minipro <span class="nt">-p</span> <span class="s2">"</span><span class="nv">$(EEPROM)</span><span class="s2">"</span> <span class="nt">-w</span> <span class="nv">$(PREFIX)$(MAIN)</span><span class="nt">-even</span>.bin <span class="nt">-s</span>
 
-prog_odd:
-	@echo Programming $(MAIN)-odd onto $(EEPROM)
-	minipro -p "$(EEPROM)" -w $(PREFIX)$(MAIN)-odd.bin -s
+<span class="nl">prog_odd</span><span class="o">:</span>
+	<span class="p">@</span><span class="nb">echo </span>Programming <span class="nv">$(MAIN)</span><span class="nt">-odd</span> onto <span class="nv">$(EEPROM)</span>
+	minipro <span class="nt">-p</span> <span class="s2">"</span><span class="nv">$(EEPROM)</span><span class="s2">"</span> <span class="nt">-w</span> <span class="nv">$(PREFIX)$(MAIN)</span><span class="nt">-odd</span>.bin <span class="nt">-s</span>
 
-dump:	$(MAIN)
-	$(DUMP) $(DUMPFLAGS) $(MAIN).a
+<span class="nl">dump</span><span class="o">:</span>	<span class="nf">$(MAIN)</span>
+	<span class="nv">$(DUMP)</span> <span class="nv">$(DUMPFLAGS)</span> <span class="nv">$(MAIN)</span>.a
 </code></pre></div></div>
 
 <h1 id="compilation-and-linking">Compilation and Linking</h1>
@@ -736,7 +854,7 @@ complex gating or a GAL to achieve something similar.</p>
 <p>So to start with here is a chunk of code that configures the ROM and RAM
 locations in the memory map, and configures the CPU speed and interrupt maps.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*************************************************************************
+<div class="language-plaintext full highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*************************************************************************
 *
 *  Init the CPU and System Integration Module - Configs module options
 *
@@ -781,29 +899,37 @@ wanting too in the near future (also breakpoints etc in my ROM Monitor).</p>
 <p>The MC68340 has a great suite of peripherals, from UARTs, Timers, System
 protection devices and DMA.</p>
 
-<figure class="">
+<figure class=" ">
+  
     
-    <a href="https://fromorbit.com/assets/images/2017-04-26/mc68340.png">
-    
-        <img src="https://fromorbit.com/assets/images/2017-04-26/mc68340.png" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2017-04-26/320-mc68340.png 320w,https://fromorbit.com/assets/images/2017-04-26/640-mc68340.png 640w,https://fromorbit.com/assets/images/2017-04-26/1280-mc68340.png 1280w" alt="The internals of the MC68340" />
-    
-    </a>
-    
+      <a href="/assets/images/2017-04-26-mc68340.png" title="The internals of the MC68340">
 
+            
+
+<img src="/assets/images/2017-04-26-mc68340.png" alt="The internals of the MC68340" srcset="    /assets/resized/320/2017-04-26-mc68340.png 320w,    /assets/resized/480/2017-04-26-mc68340.png 480w, /assets/images/2017-04-26-mc68340.png 1190w" />
+
+      </a>
+    
+  
+  
 </figure>
 
 <p>The SIM40 modules can move the addresses of these devices where ever you
 choose, but the layout is:</p>
 
-<figure class="">
+<figure class=" ">
+  
     
-    <a href="https://fromorbit.com/assets/images/2017-04-26/sim40.png">
-    
-        <img src="https://fromorbit.com/assets/images/2017-04-26/sim40.png" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2017-04-26/320-sim40.png 320w,https://fromorbit.com/assets/images/2017-04-26/640-sim40.png 640w,https://fromorbit.com/assets/images/2017-04-26/1280-sim40.png 1280w" alt="The SIM40 address structure" />
-    
-    </a>
-    
+      <a href="/assets/images/2017-04-26-sim40.png" title="The SIM40 address structure">
 
+            
+
+<img src="/assets/images/2017-04-26-sim40.png" alt="The SIM40 address structure" srcset="    /assets/resized/320/2017-04-26-sim40.png 320w,    /assets/resized/480/2017-04-26-sim40.png 480w,    /assets/resized/1280/2017-04-26-sim40.png 1280w, /assets/images/2017-04-26-sim40.png 1704w" />
+
+      </a>
+    
+  
+  
 </figure>
 
 <p>As you can see in the code above I’ve set it to the address of <code class="language-plaintext highlighter-rouge">0x080000</code>. For
@@ -840,10 +966,20 @@ serial port.</p>
 <p>Here is an example showing altering the code, compiling, copying the srecord
 data and running it:</p>
 
-<figure class=""><img src="/assets/images/2017-04-26/hello_world.gif" alt="GIF showing the boot-loader in action" /><figcaption>
-      Demo showing updating code and pushing it to the bootloader
+<figure class=" ">
+  
+    
+      <a href="/assets/images/2017-04-26-hello_world.gif" title="Demo showing updating code and pushing it to the bootloader">
 
-    </figcaption></figure>
+            
+
+<img src="/assets/images/2017-04-26-hello_world.gif" alt="GIF showing the boot-loader in action" srcset="    /assets/resized/320/2017-04-26-hello_world.gif 320w,    /assets/resized/480/2017-04-26-hello_world.gif 480w, /assets/images/2017-04-26-hello_world.gif 905w" />
+
+      </a>
+    
+  
+  
+</figure>
 
 <h1 id="enough-for-today">Enough for today</h1>
 
@@ -910,20 +1046,25 @@ select lines, the even and odd enable lines and the LED output.</p>
 <figure class="half ">
   
     
+      <a href="/assets/images/2017-04-18-even.jpg" title="The even read">
+
+            
+
+<img src="/assets/images/2017-04-18-even.jpg" alt="The even read" srcset="    /assets/resized/320/2017-04-18-even.jpg 320w,    /assets/resized/480/2017-04-18-even.jpg 480w, /assets/images/2017-04-18-even.jpg 680w" />
+
+      </a>
     
-    <a href="https://fromorbit.com/assets/images/2017-04-18/even.jpg">
-        <img src="https://fromorbit.com/assets/images/2017-04-18/even.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2017-04-18/320-even.jpg 320w,https://fromorbit.com/assets/images/2017-04-18/640-even.jpg 640w,https://fromorbit.com/assets/images/2017-04-18/1280-even.jpg 1280w" alt="The even read" />
-    </a>
   
     
+      <a href="/assets/images/2017-04-18-odd.jpg" title="The odd read">
+
+            
+
+<img src="/assets/images/2017-04-18-odd.jpg" alt="The odd read" srcset="    /assets/resized/320/2017-04-18-odd.jpg 320w,    /assets/resized/480/2017-04-18-odd.jpg 480w, /assets/images/2017-04-18-odd.jpg 680w" />
+
+      </a>
     
-    <a href="https://fromorbit.com/assets/images/2017-04-18/odd.jpg">
-        <img src="https://fromorbit.com/assets/images/2017-04-18/odd.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2017-04-18/320-odd.jpg 320w,https://fromorbit.com/assets/images/2017-04-18/640-odd.jpg 640w,https://fromorbit.com/assets/images/2017-04-18/1280-odd.jpg 1280w" alt="The odd read" />
-    </a>
   
-  
-    <figcaption>What the logic analyser saw…
-</figcaption>
   
 </figure>
 
@@ -955,16 +1096,24 @@ board I recovered with a m68k processor on it.</p>
 <figure class="half ">
   
     
+      <a href="/assets/images/2017-04-18-axc-em.jpg" title="AMX AXC-EM board">
+
+            
+
+<img src="/assets/images/2017-04-18-axc-em.jpg" alt="AMX AXC-EM board" srcset="    /assets/resized/320/2017-04-18-axc-em.jpg 320w,    /assets/resized/480/2017-04-18-axc-em.jpg 480w,    /assets/resized/1280/2017-04-18-axc-em.jpg 1280w, /assets/images/2017-04-18-axc-em.jpg 2048w" />
+
+      </a>
     
-    <a href="https://fromorbit.com/assets/images/2017-04-18/axc-em.jpg">
-        <img src="https://fromorbit.com/assets/images/2017-04-18/axc-em.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2017-04-18/320-axc-em.jpg 320w,https://fromorbit.com/assets/images/2017-04-18/640-axc-em.jpg 640w,https://fromorbit.com/assets/images/2017-04-18/1280-axc-em.jpg 1280w" alt="AMX AXC-EM board" />
-    </a>
   
     
+      <a href="/assets/images/2017-04-18-mc68340.jpg" title="MC68340 cpu">
+
+            
+
+<img src="/assets/images/2017-04-18-mc68340.jpg" alt="MC68340 cpu" srcset="    /assets/resized/320/2017-04-18-mc68340.jpg 320w,    /assets/resized/480/2017-04-18-mc68340.jpg 480w,    /assets/resized/1280/2017-04-18-mc68340.jpg 1280w, /assets/images/2017-04-18-mc68340.jpg 2048w" />
+
+      </a>
     
-    <a href="https://fromorbit.com/assets/images/2017-04-18/mc68340.jpg">
-        <img src="https://fromorbit.com/assets/images/2017-04-18/mc68340.jpg" sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 500px" srcset="https://fromorbit.com/assets/images/2017-04-18/320-mc68340.jpg 320w,https://fromorbit.com/assets/images/2017-04-18/640-mc68340.jpg 640w,https://fromorbit.com/assets/images/2017-04-18/1280-mc68340.jpg 1280w" alt="MC68340 cpu" />
-    </a>
   
   
 </figure>
@@ -1004,7 +1153,20 @@ try.</p>
 <p>The 28C64s are basically almost pin compatible with the 27C256s (obviously
 missing the two additional address lines.</p>
 
-<p><img src="/assets/images/2017-04-08/eeprom_vs_eprom1.png" alt="Pin outs of a 28C64 and a 27C256" class="align-center" /></p>
+<figure class="half ">
+  
+    
+      <a href="/assets/images/2017-04-08-eeprom_vs_eprom1.png" title="Pin outs of a 28C64 and a 27C256">
+
+            
+
+<img src="/assets/images/2017-04-08-eeprom_vs_eprom1.png" alt="Pin outs of a 28C64 and a 27C256" srcset="    /assets/resized/320/2017-04-08-eeprom_vs_eprom1.png 320w, /assets/images/2017-04-08-eeprom_vs_eprom1.png 400w" />
+
+      </a>
+    
+  
+  
+</figure>
 
 <p>So apart from A14, A13 and the VPP signal these would plug straight in. Woo hoo
 I was thinking, this’ll be easy!</p>
@@ -1016,10 +1178,20 @@ things of this vintage start to do. I figured it would be safer if I just did
 one set at a time. So I carefully desoldered the two sockets and replaced them
 with machine pin sockets…</p>
 
-<figure class=""><img src="/assets/images/2017-04-08/sockets_gone.jpg" alt="Removed the sockets" /><figcaption>
-      Old sockets be gone!
+<figure class=" ">
+  
+    
+      <a href="/assets/images/2017-04-08-sockets_gone.jpg" title="Old sockets be gone!">
 
-    </figcaption></figure>
+            
+
+<img src="/assets/images/2017-04-08-sockets_gone.jpg" alt="Removed the sockets" srcset="    /assets/resized/320/2017-04-08-sockets_gone.jpg 320w,    /assets/resized/480/2017-04-08-sockets_gone.jpg 480w,    /assets/resized/1280/2017-04-08-sockets_gone.jpg 1280w, /assets/images/2017-04-08-sockets_gone.jpg 4032w" />
+
+      </a>
+    
+  
+  
+</figure>
 
 <p>It was at this time that I noticed pin 1 on these sockets had traces. Given
 these are the VPP lines I thought that was strange. It turns out they’re
@@ -1030,10 +1202,20 @@ high voltage to do anything.</p>
 line being connected to A14 was to add another layer of machine pins with the
 sockets missing.</p>
 
-<figure class=""><img src="/assets/images/2017-04-08/adapters_in_place.jpg" alt="Adapters in place" /><figcaption>
-      Adapters in place
+<figure class=" ">
+  
+    
+      <a href="/assets/images/2017-04-08-adapters_in_place.jpg" title="Adapters in place">
 
-    </figcaption></figure>
+            
+
+<img src="/assets/images/2017-04-08-adapters_in_place.jpg" alt="Adapters in place" srcset="    /assets/resized/320/2017-04-08-adapters_in_place.jpg 320w,    /assets/resized/480/2017-04-08-adapters_in_place.jpg 480w,    /assets/resized/1280/2017-04-08-adapters_in_place.jpg 1280w, /assets/images/2017-04-08-adapters_in_place.jpg 3024w" />
+
+      </a>
+    
+  
+  
+</figure>
 
 <p>I opted to pull out the VPP, A13 and A14 pins just to make sure. I then
 programmed my blink routine into the two mismatched 28C64s and expected great
@@ -1114,10 +1296,20 @@ I can get parts from them.</p>
 for these new chips. I figured I’d just use only the first 8KB of them and drop
 them into the existing sockets I had for the 28C64s.</p>
 
-<figure class=""><img src="/assets/images/2017-04-08/at28c256s_in_place.jpg" alt="AT28C256s in place" /><figcaption>
-      AT28C256s in place
+<figure class=" ">
+  
+    
+      <a href="/assets/images/2017-04-08-at28c256s_in_place.jpg" title="AT28C256s in place">
 
-    </figcaption></figure>
+            
+
+<img src="/assets/images/2017-04-08-at28c256s_in_place.jpg" alt="AT28C256s in place" srcset="    /assets/resized/320/2017-04-08-at28c256s_in_place.jpg 320w,    /assets/resized/480/2017-04-08-at28c256s_in_place.jpg 480w,    /assets/resized/1280/2017-04-08-at28c256s_in_place.jpg 1280w, /assets/images/2017-04-08-at28c256s_in_place.jpg 4032w" />
+
+      </a>
+    
+  
+  
+</figure>
 
 <p>I realized after plugging them in that had I not removed the VPP lines from
 these sockets that I would’ve connected A16 to the A14 pin on these EEPROMs,
@@ -1135,10 +1327,20 @@ position which now I know has A16 attached to it!</p>
 <p>I powered up the board with the new EEPROMs and the updated code and <strong>success</strong>
 it blinked perfectly, a nice solid consistent blink…</p>
 
-<figure class=""><img src="/assets/images/2017-04-08/blinking1.gif" alt="Blink you good thing!" /><figcaption>
-      Blink you good thing!
+<figure class=" ">
+  
+    
+      <a href="/assets/images/2017-04-08-blinking1.gif" title="Blink you good thing!">
 
-    </figcaption></figure>
+            
+
+<img src="/assets/images/2017-04-08-blinking1.gif" alt="Blink you good thing!" srcset="    /assets/resized/320/2017-04-08-blinking1.gif 320w, /assets/images/2017-04-08-blinking1.gif 450w" />
+
+      </a>
+    
+  
+  
+</figure>
 
 <p>… until I lifted the board.</p>
 
@@ -1171,7 +1373,20 @@ So that’s a win in my book!</p>
 the RS232 port I’ve got the entire schematic done now. You can get the KiCAD
 files from: <a href="https://github.com/alangarf/amx_axc_kicad">https://github.com/alangarf/amx_axc_kicad</a>.</p>
 
-<p><a href="/assets/images/2017-04-08/schematic.png" class="align-center"><img src="/assets/images/2017-04-08/schematic.png" alt="The schematic" /></a></p>
+<figure class=" ">
+  
+    
+      <a href="/assets/images/2017-04-08-schematic.png" title="The schematic">
+
+            
+
+<img src="/assets/images/2017-04-08-schematic.png" alt="The schematic" srcset="    /assets/resized/320/2017-04-08-schematic.png 320w,    /assets/resized/480/2017-04-08-schematic.png 480w,    /assets/resized/1280/2017-04-08-schematic.png 1280w, /assets/images/2017-04-08-schematic.png 3174w" />
+
+      </a>
+    
+  
+  
+</figure>
 
 <h1 id="is-that-all">Is that all?</h1>
 
@@ -1325,7 +1540,7 @@ Verification failed at 0x200: 0x20 != 0x00
 
 <p>Hunting around the garage for any source of UV I knew my search was futile. I even resorted to madness when I found a big bag of “UV” LEDs.</p>
 
-<figure class=""><img src="/assets/images/2017-04-06/uv_madness.png" alt="Silly pic of UV LED trying to erase EPROM" /><figcaption>
+<figure class=""><img src="/assets/images/2017-04-06-uv_madness.png" alt="Silly pic of UV LED trying to erase EPROM" /><figcaption>
       UGH, my world for some UV
 
     </figcaption></figure>
@@ -1358,41 +1573,45 @@ work/life balance.</p>
 
 <p>Here is a snippet of the UART core I’ve written for the simulator, it sets up the internal registers etc of the UART so the firmware can read and write state to configure the registers. The only bit I’ve not successfully worked out yet is the interrupt priorities, there is something wonky on this boards layout I’ve not figured out with the interrupt. But that’s another days problem.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scc2691_core uarts[2];
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">scc2691_core</span> <span class="n">uarts</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
 
-void scc2691_reset(void)
-{
-    for(int i = 0; i &lt; 2; i++) {
-        uarts[i].id = i;
+<span class="kt">void</span> <span class="nf">scc2691_reset</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">id</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
 
-        uarts[i].m1 = 0x0;
-        uarts[i].m1_flag = 0x0;
-        uarts[i].m2 = 0x0;
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">m1</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">m1_flag</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">m2</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
 
-        uarts[i].csr  = 0x0;
-        uarts[i].cr   = 0xA;
-        uarts[i].thr  = 0x0;
-        uarts[i].acr  = 0x0;
-        uarts[i].imr  = 0x0;
-        uarts[i].ctur = 0x0;
-        uarts[i].ctlr = 0x0;
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">csr</span>  <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">cr</span>   <span class="o">=</span> <span class="mh">0xA</span><span class="p">;</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">thr</span>  <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">acr</span>  <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">imr</span>  <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ctur</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ctlr</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
 
-        uarts[i].sr  = 0x0;
-        uarts[i].rhr = 0x0;
-        uarts[i].isr = 0x0;
-        uarts[i].ctu = 0x0;
-        uarts[i].ctl = 0x0;
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">sr</span>  <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">rhr</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">isr</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ctu</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ctl</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
 
-        uarts[i].cnt_flag = 0;
-        uarts[i].cnt_value = 0;
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">cnt_flag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">cnt_value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-        uarts[i].tx = 0;
-        uarts[i].tx_last = time(NULL);
-        int_controller_clear(1);
-    }
-}
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">tx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">tx_last</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+        <span class="n">int_controller_clear</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <h1 id="the-schematic-so-far-">The schematic so far …</h1>
 
-<p><a href="/assets/images/2017-04-05/schematic.png" class="align-center"><img src="/assets/images/2017-04-05/schematic.png" alt="AMX board schematic" /></a></p>]]></content><author><name>Alan Garfield</name></author><summary type="html"><![CDATA[Beeping and clicking things into KiCAD like a mad man]]></summary></entry></feed>
+<figure class=""><a href="/assets/images/2017-04-05-schematic.png" class="image-popup" title="AMX board schematic
+"><img src="/assets/images/2017-04-05-schematic.png" alt="AMX board schematic" /></a><figcaption>
+      AMX board schematic
+
+    </figcaption></figure>]]></content><author><name>Alan Garfield</name></author><summary type="html"><![CDATA[Beeping and clicking things into KiCAD like a mad man]]></summary></entry></feed>

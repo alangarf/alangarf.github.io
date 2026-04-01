@@ -328,65 +328,65 @@
         
         <p>I first started with this board by pulling off the ROMs and dumping their contents. Being a m68k CPU generally the ROMs are split into odd and even byte streams, and in order to dissassemble them the two ROM images need to be interleaved again. I achieved this with a little bit of python:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#!/usr/bin/python3
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/python3
+</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
 
-import os
-import argparse
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="p">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="p">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"odd_file"</span><span class="p">)</span>
+<span class="n">parser</span><span class="p">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"even_file"</span><span class="p">)</span>
+<span class="n">parser</span><span class="p">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"output"</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="p">.</span><span class="n">parse_args</span><span class="p">()</span>
 
-parser = argparse.ArgumentParser()
-parser.add_argument("odd_file")
-parser.add_argument("even_file")
-parser.add_argument("output")
-args = parser.parse_args()
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">output</span><span class="p">,</span> <span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">out</span><span class="p">:</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">odd_file</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">odd</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">even_file</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">even</span><span class="p">:</span>
 
-with open(args.output, 'wb') as out:
-  with open(args.odd_file, 'rb') as odd:
-    with open(args.even_file, 'rb') as even:
+      <span class="n">odd</span><span class="p">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="p">.</span><span class="n">SEEK_END</span><span class="p">)</span>
+      <span class="n">odd_size</span> <span class="o">=</span> <span class="n">odd</span><span class="p">.</span><span class="n">tell</span><span class="p">()</span>
 
-      odd.seek(0, os.SEEK_END)
-      odd_size = odd.tell()
+      <span class="n">even</span><span class="p">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="p">.</span><span class="n">SEEK_END</span><span class="p">)</span>
+      <span class="n">even_size</span> <span class="o">=</span> <span class="n">even</span><span class="p">.</span><span class="n">tell</span><span class="p">()</span>
 
-      even.seek(0, os.SEEK_END)
-      even_size = even.tell()
+      <span class="k">if</span> <span class="p">(</span><span class="n">odd_size</span> <span class="o">!=</span> <span class="n">even_size</span><span class="p">):</span>
+        <span class="nb">exit</span><span class="p">(</span><span class="s">"ROM images aren't the same size!"</span><span class="p">)</span>
 
-      if (odd_size != even_size):
-        exit("ROM images aren't the same size!")
+      <span class="n">odd</span><span class="p">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+      <span class="n">even</span><span class="p">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
-      odd.seek(0)
-      even.seek(0)
+      <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">odd_size</span><span class="p">):</span>
+        <span class="n">odd</span><span class="p">.</span><span class="n">seek</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        <span class="n">even</span><span class="p">.</span><span class="n">seek</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 
-      for c in range(0, odd_size):
-        odd.seek(c)
-        even.seek(c)
-
-        out.write(odd.read(1))
-        out.write(even.read(1))
+        <span class="n">out</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">odd</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+        <span class="n">out</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">even</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 </code></pre></div></div>
 
 <h1 id="roming-around-like-its-1995">ROMing around like it’s 1995</h1>
 
 <p>I took the two ROM images I dumped and merged them back together using the following:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ merge.py rom_odd.bin rom_even.bin rom_out.bin
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>merge.py rom_odd.bin rom_even.bin rom_out.bin
 </code></pre></div></div>
 
 <p>After verifying the <code class="language-plaintext highlighter-rouge">rom_out.bin</code> using <code class="language-plaintext highlighter-rouge">objdump</code> for the m86k I knew I was on my way.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ m68k-linux-gnu-objdump --disassemble-all --target=binary --architecture=m68k --start-address=0x00 rom_out.bin
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>m68k-linux-gnu-objdump <span class="nt">--disassemble-all</span> <span class="nt">--target</span><span class="o">=</span>binary <span class="nt">--architecture</span><span class="o">=</span>m68k <span class="nt">--start-address</span><span class="o">=</span>0x00 rom_out.bin
 </code></pre></div></div>
 
 <p>This gave me the disassembled output of the m68k ROM image:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rom_out.bin:     file format binary
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rom_out.bin:     file format binary
 
 
 Disassembly of section .data:
 
 00000000 &lt;.data&gt;:
-       0:	0002 0ff0      	orib #-16,%d2
-       4:	0000 0400      	orib #0,%d0
+       0:	0002 0ff0      	orib <span class="c">#-16,%d2</span>
+       4:	0000 0400      	orib <span class="c">#0,%d0</span>
 
-[SNIP]
+<span class="o">[</span>SNIP]
 </code></pre></div></div>
 
 <p>The first value is the preset value the CPU uses for the SP (stack pointer). So
@@ -400,7 +400,8 @@ will load is at location 0x400.</p>
 
 <p>Further digging through the assembly and looking at hex dumps you can start to
 see strings (even some funny stuff) and loops testing devices and memory etc.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>00009140: 3131 2100 2a21 3132 2100 5041 5353 0053  11!.*!12!.PASS.S
+
+<div class="language-plaintext full highlighter-rouge"><div class="highlight"><pre class="highlight"><code>00009140: 3131 2100 2a21 3132 2100 5041 5353 0053  11!.*!12!.PASS.S
 00009150: 454e 4420 434f 4d4d 414e 4400 5345 4e44  END COMMAND.SEND
 00009160: 2053 5452 494e 4700 5055 5348 0056 414c   STRING.PUSH.VAL
 00009170: 5545 204f 4600 4445 5649 4345 2053 5441  UE OF.DEVICE STA
@@ -430,7 +431,11 @@ see strings (even some funny stuff) and loops testing devices and memory etc.</p
 
 <p>I start building up a picture in KiCad of the schematic. Not taking values of components etc, but just the general connections so that many things can become much clearer. I first tackled the address decoding.</p>
 
-<p><a href="/assets/images/2017-04-03/address-decoding.png"><img src="/assets/images/2017-04-03/tmb_address-decoding.png" alt="AMX AXC 68000 address decoding" /></a></p>
+<figure class=""><a href="/assets/images/2017-04-03-address-decoding.png" class="image-popup" title="AMX AXC 68000 address decoding
+"><img src="/assets/images/2017-04-03-address-decoding.png" alt="AMX AXC 68000 address decoding" /></a><figcaption>
+      AMX AXC 68000 address decoding
+
+    </figcaption></figure>
 
 <p>So after a lot of beeping and probing I got the address map out:</p>
 
@@ -448,7 +453,11 @@ see strings (even some funny stuff) and loops testing devices and memory etc.</p
 
 <p>Need to understand the UARTs a little better, one is standard RS232 the other is a weird RS485 like interface (called AXLink in AMX speak).</p>
 
-<p><a href="/assets/images/2017-04-03/axlink_bus.png"><img src="/assets/images/2017-04-03/tmb_axlink_bus.png" alt="AXLink bus schematic" /></a></p>
+<figure class=""><a href="/assets/images/2017-04-03-axlink_bus.png" class="image-popup" title="AXLink bus schematic
+"><img src="/assets/images/2017-04-03-axlink_bus.png" alt="AXLink bus schematic" /></a><figcaption>
+      AXLink bus schematic
+
+    </figcaption></figure>
 
 <p>Anyway, that’s all for today. I’ll crack on with more tomorrow!</p>
 
@@ -474,26 +483,6 @@ see strings (even some funny stuff) and loops testing devices and memory etc.</p
       </footer>
 
       
-<section class="page__share">
-  <h4 class="page__share-title">Share on</h4>
-
-  <a href="https://x.com/intent/tweet?via=alangarf&text=Beeping+out+the+board+-+Retro+Challenge+2017%2F04%20https%3A%2F%2Ffromorbit.com%2Fm68k-amx-board-rc201704%2F" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
-    <i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i><span> X</span>
-  </a>
-
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ffromorbit.com%2Fm68k-amx-board-rc201704%2F" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
-    <i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span>
-  </a>
-
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://fromorbit.com/m68k-amx-board-rc201704/" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
-    <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span>
-  </a>
-
-  <a href="https://bsky.app/intent/compose?text=Beeping+out+the+board+-+Retro+Challenge+2017%2F04%20https%3A%2F%2Ffromorbit.com%2Fm68k-amx-board-rc201704%2F" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
-    <i class="fab fa-fw fa-bluesky" aria-hidden="true"></i><span> Bluesky</span>
-  </a>
-</section>
-
 
       
 
@@ -536,7 +525,7 @@ see strings (even some funny stuff) and loops testing devices and memory etc.</p
     
     <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a class="u-url" href="/Static-Jekyll-to-github-pages/" rel="permalink">Using git subtree to send <code class="language-plaintext highlighter-rouge">_site</code> to <code class="language-plaintext highlighter-rouge">master</code> branch
+        <a class="u-url" href="/Static-Jekyll-to-github-pages/" rel="permalink">Using git subtree to send _site to master branch
 </a>
       
     </h2>
@@ -693,7 +682,7 @@ see strings (even some funny stuff) and loops testing devices and memory etc.</p
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
       <div class="archive__item-teaser">
-        <img src="/assets/images/2022-05-23/linear16.jpg" alt="">
+        <img src="/assets/images/2022-05-23-linear16.jpg" alt="">
       </div>
     
     <h2 class="archive__item-title no_toc p-name" itemprop="headline">
