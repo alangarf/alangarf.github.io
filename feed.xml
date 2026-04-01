@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://fromorbit.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fromorbit.com/" rel="alternate" type="text/html" /><updated>2026-04-01T21:08:20+11:00</updated><id>https://fromorbit.com/feed.xml</id><title type="html">FromOrbit.com</title><subtitle>Generic nerd who dabbles in programming, electronics, CNC and retro computing.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://fromorbit.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fromorbit.com/" rel="alternate" type="text/html" /><updated>2026-04-01T23:24:10+11:00</updated><id>https://fromorbit.com/feed.xml</id><title type="html">FromOrbit.com</title><subtitle>Generic nerd who dabbles in programming, electronics, CNC and retro computing.
 </subtitle><author><name>Alan Garfield</name></author><entry><title type="html">Using git subtree to send _site to master branch</title><link href="https://fromorbit.com/Static-Jekyll-to-github-pages/" rel="alternate" type="text/html" title="Using git subtree to send _site to master branch" /><published>2026-03-30T00:00:00+11:00</published><updated>2026-03-30T00:00:00+11:00</updated><id>https://fromorbit.com/Static-Jekyll-to-github-pages</id><content type="html" xml:base="https://fromorbit.com/Static-Jekyll-to-github-pages/"><![CDATA[<h1 id="what">What?</h1>
 
 <p>If you use github pages and you want to generate your static files yourself you can use a repo with a <code class="language-plaintext highlighter-rouge">master</code> branch that is your public static rendered files, and another branch in my case <code class="language-plaintext highlighter-rouge">sources</code> that is the raw source files that I render with Jeykll locally.</p>
@@ -33,14 +33,14 @@ git worktree add _site master
 
 <p>Two rules, one for STLink-V3 and one for Pico Probe.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># STLink V3 (0483:3753) - Main Serial Port (VCP Data)
-SUBSYSTEM=="tty", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3753", ENV{ID_USB_INTERFACE_NUM}=="01", SYMLINK+="stlink_v3_main", TAG+="uaccess"
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># STLink V3 (0483:3753) - Main Serial Port (VCP Data)</span>
+<span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">"tty"</span>, ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">"0483"</span>, ATTRS<span class="o">{</span>idProduct<span class="o">}==</span><span class="s2">"3753"</span>, ENV<span class="o">{</span>ID_USB_INTERFACE_NUM<span class="o">}==</span><span class="s2">"01"</span>, SYMLINK+<span class="o">=</span><span class="s2">"stlink_v3_main"</span>, TAG+<span class="o">=</span><span class="s2">"uaccess"</span>
 
-# STLink V3 (0483:3753) - Bridge Serial Port (VCP2 Data)
-SUBSYSTEM=="tty", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3753", ENV{ID_USB_INTERFACE_NUM}=="04", SYMLINK+="stlink_v3_bridge", TAG+="uaccess"
+<span class="c"># STLink V3 (0483:3753) - Bridge Serial Port (VCP2 Data)</span>
+<span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">"tty"</span>, ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">"0483"</span>, ATTRS<span class="o">{</span>idProduct<span class="o">}==</span><span class="s2">"3753"</span>, ENV<span class="o">{</span>ID_USB_INTERFACE_NUM<span class="o">}==</span><span class="s2">"04"</span>, SYMLINK+<span class="o">=</span><span class="s2">"stlink_v3_bridge"</span>, TAG+<span class="o">=</span><span class="s2">"uaccess"</span>
 
-# STLink V3 (0483:3753) - Debug Interface (For probe-rs / OpenOCD)
-SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3753", ENV{ID_USB_INTERFACE_NUM}=="00", TAG+="uaccess"
+<span class="c"># STLink V3 (0483:3753) - Debug Interface (For probe-rs / OpenOCD)</span>
+<span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">"usb"</span>, ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">"0483"</span>, ATTRS<span class="o">{</span>idProduct<span class="o">}==</span><span class="s2">"3753"</span>, ENV<span class="o">{</span>ID_USB_INTERFACE_NUM<span class="o">}==</span><span class="s2">"00"</span>, TAG+<span class="o">=</span><span class="s2">"uaccess"</span>
 </code></pre></div></div>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Raspberry Pi Pico (RP2040) BOOTSEL
@@ -58,15 +58,15 @@ KERNEL=="ttyACM*", ATTRS{idVendor}=="2e8a", ATTRS{idProduct}=="000c", ATTRS{seri
 
 <p>Install in <code class="language-plaintext highlighter-rouge">/etc/udev/rules.d/</code>, call em whatever.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo udevadm control --reload-rules &amp;&amp; sudo udevadm trigger
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>udevadm control <span class="nt">--reload-rules</span> <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>udevadm trigger
 </code></pre></div></div>
 
 <p>Check with probe-rs:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>❯ probe-rs list
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>❯ probe-rs list
 The following debug probes were found:
-[0]: Debug Probe (CMSIS-DAP) -- 2e8a:000c-0:E663AC91D3480E30 (CMSIS-DAP)
-[1]: STLink V3 -- 0483:3753:0027003C3038511834333935 (ST-LINK)
+<span class="o">[</span>0]: Debug Probe <span class="o">(</span>CMSIS-DAP<span class="o">)</span> <span class="nt">--</span> 2e8a:000c-0:E663AC91D3480E30 <span class="o">(</span>CMSIS-DAP<span class="o">)</span>
+<span class="o">[</span>1]: STLink V3 <span class="nt">--</span> 0483:3753:0027003C3038511834333935 <span class="o">(</span>ST-LINK<span class="o">)</span>
 </code></pre></div></div>
 
 <p>Happy happy days!</p>]]></content><author><name>Alan Garfield</name></author><summary type="html"><![CDATA[for the brain file]]></summary></entry><entry><title type="html">Alan’s Wishlist</title><link href="https://fromorbit.com/Alan-wishlist-or-stuff-he-wants-to-remember/" rel="alternate" type="text/html" title="Alan’s Wishlist" /><published>2025-04-25T00:00:00+10:00</published><updated>2025-04-25T00:00:00+10:00</updated><id>https://fromorbit.com/Alan-wishlist-or-stuff-he-wants-to-remember</id><content type="html" xml:base="https://fromorbit.com/Alan-wishlist-or-stuff-he-wants-to-remember/"><![CDATA[<h1 id="wish-list">Wish List</h1>
@@ -732,10 +732,10 @@ tool.</p>
 too.</a></p>
 
 <div class="language-make full highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">M68K</span><span class="o">=</span>m68k-linux-gnu
-<span class="nv">AS</span><span class="o">=</span><span class="nv">$(M68K)</span><span class="nt">-as</span>
-<span class="nv">LD</span><span class="o">=</span><span class="nv">$(M68K)</span><span class="nt">-ld</span>
-<span class="nv">COPY</span><span class="o">=</span><span class="nv">$(M68K)</span><span class="nt">-objcopy</span>
-<span class="nv">DUMP</span><span class="o">=</span><span class="nv">$(M68K)</span><span class="nt">-objdump</span>
+<span class="nv">AS</span><span class="o">=</span><span class="p">$(</span>M68K<span class="p">)</span><span class="nt">-as</span>
+<span class="nv">LD</span><span class="o">=</span><span class="p">$(</span>M68K<span class="p">)</span><span class="nt">-ld</span>
+<span class="nv">COPY</span><span class="o">=</span><span class="p">$(</span>M68K<span class="p">)</span><span class="nt">-objcopy</span>
+<span class="nv">DUMP</span><span class="o">=</span><span class="p">$(</span>M68K<span class="p">)</span><span class="nt">-objdump</span>
 
 <span class="nv">ASFLAGS</span><span class="o">=</span><span class="nt">-m68340</span> <span class="nt">--warn</span> <span class="nt">--fatal-warnings</span>
 <span class="nv">LDFLAGS</span><span class="o">=</span><span class="nt">-T</span> m68k.ld
@@ -747,7 +747,7 @@ too.</a></p>
 <span class="nv">FMT</span><span class="o">=</span>binary
 
 <span class="nv">SRCS</span><span class="o">=</span>loader.s
-<span class="nv">OBJS</span><span class="o">=</span><span class="nv">$(SRCS:.s=.o)</span>
+<span class="nv">OBJS</span><span class="o">=</span><span class="p">$(</span>SRCS:.s<span class="o">=</span>.o<span class="p">)</span>
 <span class="nv">MAIN</span><span class="o">=</span>loader
 
 <span class="nl">.PHONY</span><span class="o">:</span> <span class="nf">dump clean</span>
@@ -755,26 +755,26 @@ too.</a></p>
 <span class="nl">all</span><span class="o">:</span>	<span class="nf">$(MAIN)</span>
 
 <span class="nl">.s.o</span><span class="o">:</span>
-	<span class="nv">$(AS)</span> <span class="nv">$(ASFLAGS)</span> <span class="nt">-o</span> <span class="nv">$@</span> <span class="nv">$&lt;</span>
+	<span class="p">$(</span>AS<span class="p">)</span> <span class="p">$(</span>ASFLAGS<span class="p">)</span> <span class="nt">-o</span> <span class="nv">$@</span> <span class="nv">$&lt;</span>
 
 <span class="nl">$(MAIN)</span><span class="o">:</span> <span class="nf">$(OBJS)</span>
-	<span class="nv">$(LD)</span> <span class="nv">$(LDFLAGS)</span> <span class="nt">-o</span> <span class="nv">$(MAIN)</span>.a <span class="nv">$(OBJS)</span>
-	<span class="nv">$(COPY)</span> <span class="nt">-b</span> 0 <span class="nt">-i</span> 2 <span class="nt">--interleave-width</span><span class="o">=</span>1 <span class="nt">-O</span> <span class="nv">$(FMT)</span> <span class="nv">$(MAIN)</span>.a <span class="nv">$(PREFIX)$(MAIN)</span><span class="nt">-even</span>.bin
-	<span class="nv">$(COPY)</span> <span class="nt">-b</span> 1 <span class="nt">-i</span> 2 <span class="nt">--interleave-width</span><span class="o">=</span>1 <span class="nt">-O</span> <span class="nv">$(FMT)</span> <span class="nv">$(MAIN)</span>.a <span class="nv">$(PREFIX)$(MAIN)</span><span class="nt">-odd</span>.bin
+	<span class="p">$(</span>LD<span class="p">)</span> <span class="p">$(</span>LDFLAGS<span class="p">)</span> <span class="nt">-o</span> <span class="p">$(</span>MAIN<span class="p">)</span>.a <span class="p">$(</span>OBJS<span class="p">)</span>
+	<span class="p">$(</span>COPY<span class="p">)</span> <span class="nt">-b</span> 0 <span class="nt">-i</span> 2 <span class="nt">--interleave-width</span><span class="o">=</span>1 <span class="nt">-O</span> <span class="p">$(</span>FMT<span class="p">)</span> <span class="p">$(</span>MAIN<span class="p">)</span>.a <span class="p">$(</span>PREFIX<span class="p">)$(</span>MAIN<span class="p">)</span><span class="nt">-even</span>.bin
+	<span class="p">$(</span>COPY<span class="p">)</span> <span class="nt">-b</span> 1 <span class="nt">-i</span> 2 <span class="nt">--interleave-width</span><span class="o">=</span>1 <span class="nt">-O</span> <span class="p">$(</span>FMT<span class="p">)</span> <span class="p">$(</span>MAIN<span class="p">)</span>.a <span class="p">$(</span>PREFIX<span class="p">)$(</span>MAIN<span class="p">)</span><span class="nt">-odd</span>.bin
 
 <span class="nl">clean</span><span class="o">:</span>
-	<span class="nb">rm</span> <span class="nt">-f</span> <span class="k">*</span>.o <span class="nv">$(PREFIX)$(MAIN)</span><span class="nt">-even</span>.bin <span class="nv">$(PREFIX)$(MAIN)</span><span class="nt">-odd</span>.bin <span class="nv">$(PREFIX)$(MAIN)</span>.bin <span class="nv">$(MAIN)</span>.a
+	<span class="nb">rm</span> <span class="nt">-f</span> <span class="k">*</span>.o <span class="p">$(</span>PREFIX<span class="p">)$(</span>MAIN<span class="p">)</span><span class="nt">-even</span>.bin <span class="p">$(</span>PREFIX<span class="p">)$(</span>MAIN<span class="p">)</span><span class="nt">-odd</span>.bin <span class="p">$(</span>PREFIX<span class="p">)$(</span>MAIN<span class="p">)</span>.bin <span class="p">$(</span>MAIN<span class="p">)</span>.a
 
 <span class="nl">prog_even</span><span class="o">:</span>
-	<span class="p">@</span><span class="nb">echo </span>Programming <span class="nv">$(MAIN)</span><span class="nt">-even</span> onto <span class="nv">$(EEPROM)</span>
-	minipro <span class="nt">-p</span> <span class="s2">"</span><span class="nv">$(EEPROM)</span><span class="s2">"</span> <span class="nt">-w</span> <span class="nv">$(PREFIX)$(MAIN)</span><span class="nt">-even</span>.bin <span class="nt">-s</span>
+	<span class="p">@</span><span class="nb">echo </span>Programming <span class="p">$(</span>MAIN<span class="p">)</span><span class="nt">-even</span> onto <span class="p">$(</span>EEPROM<span class="p">)</span>
+	minipro <span class="nt">-p</span> <span class="s2">"</span><span class="p">$(</span><span class="s2">EEPROM</span><span class="p">)</span><span class="s2">"</span> <span class="nt">-w</span> <span class="p">$(</span>PREFIX<span class="p">)$(</span>MAIN<span class="p">)</span><span class="nt">-even</span>.bin <span class="nt">-s</span>
 
 <span class="nl">prog_odd</span><span class="o">:</span>
-	<span class="p">@</span><span class="nb">echo </span>Programming <span class="nv">$(MAIN)</span><span class="nt">-odd</span> onto <span class="nv">$(EEPROM)</span>
-	minipro <span class="nt">-p</span> <span class="s2">"</span><span class="nv">$(EEPROM)</span><span class="s2">"</span> <span class="nt">-w</span> <span class="nv">$(PREFIX)$(MAIN)</span><span class="nt">-odd</span>.bin <span class="nt">-s</span>
+	<span class="p">@</span><span class="nb">echo </span>Programming <span class="p">$(</span>MAIN<span class="p">)</span><span class="nt">-odd</span> onto <span class="p">$(</span>EEPROM<span class="p">)</span>
+	minipro <span class="nt">-p</span> <span class="s2">"</span><span class="p">$(</span><span class="s2">EEPROM</span><span class="p">)</span><span class="s2">"</span> <span class="nt">-w</span> <span class="p">$(</span>PREFIX<span class="p">)$(</span>MAIN<span class="p">)</span><span class="nt">-odd</span>.bin <span class="nt">-s</span>
 
 <span class="nl">dump</span><span class="o">:</span>	<span class="nf">$(MAIN)</span>
-	<span class="nv">$(DUMP)</span> <span class="nv">$(DUMPFLAGS)</span> <span class="nv">$(MAIN)</span>.a
+	<span class="p">$(</span>DUMP<span class="p">)</span> <span class="p">$(</span>DUMPFLAGS<span class="p">)</span> <span class="p">$(</span>MAIN<span class="p">)</span>.a
 </code></pre></div></div>
 
 <h1 id="compilation-and-linking">Compilation and Linking</h1>
@@ -1401,9 +1401,9 @@ files from: <a href="https://github.com/alangarf/amx_axc_kicad">https://github.c
 <p>I installed all the GNU m68k tools. I made a nice little Makefile to assemble my assembly…</p>
 
 <div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">M68K</span><span class="o">=</span>m68k-linux-gnu
-<span class="nv">AS</span><span class="o">=</span><span class="nv">$(M68K)</span><span class="nt">-as</span>
-<span class="nv">LD</span><span class="o">=</span><span class="nv">$(M68K)</span><span class="nt">-ld</span>
-<span class="nv">DUMP</span><span class="o">=</span><span class="nv">$(M68K)</span><span class="nt">-objdump</span>
+<span class="nv">AS</span><span class="o">=</span><span class="p">$(</span>M68K<span class="p">)</span><span class="nt">-as</span>
+<span class="nv">LD</span><span class="o">=</span><span class="p">$(</span>M68K<span class="p">)</span><span class="nt">-ld</span>
+<span class="nv">DUMP</span><span class="o">=</span><span class="p">$(</span>M68K<span class="p">)</span><span class="nt">-objdump</span>
 
 <span class="nv">START</span><span class="o">=</span>0x00
 <span class="nv">FMT</span><span class="o">=</span>binary
@@ -1411,7 +1411,7 @@ files from: <a href="https://github.com/alangarf/amx_axc_kicad">https://github.c
 </span><span class="nv">CPU</span><span class="o">=</span><span class="nt">-m68000</span>
 
 <span class="nv">SRCS</span><span class="o">=</span>blink.s
-<span class="nv">OBJS</span><span class="o">=</span><span class="nv">$(SRCS:.s=.o)</span>
+<span class="nv">OBJS</span><span class="o">=</span><span class="p">$(</span>SRCS:.s<span class="o">=</span>.o<span class="p">)</span>
 <span class="nv">MAIN</span><span class="o">=</span>blink.bin
 
 <span class="nl">.PHONY</span><span class="o">:</span> <span class="nf">dump clean</span>
@@ -1429,7 +1429,7 @@ files from: <a href="https://github.com/alangarf/amx_axc_kicad">https://github.c
         <span class="err">rm</span> <span class="err">*.o</span> <span class="err">$(MAIN)</span>
 
 <span class="nl">dump</span><span class="o">:</span>   <span class="nf">$(MAIN)</span>
-        <span class="err">$(DUMP)</span> <span class="err">$(CPU)</span> <span class="err">--disassemble-all</span> <span class="nv">--target</span><span class="o">=</span><span class="nv">$(FMT)</span> <span class="nt">--start-address</span><span class="o">=</span><span class="nv">$(START)</span> <span class="nv">$(MAIN)</span>
+        <span class="err">$(DUMP)</span> <span class="err">$(CPU)</span> <span class="err">--disassemble-all</span> <span class="nv">--target</span><span class="o">=</span><span class="p">$(</span>FMT<span class="p">)</span> <span class="nt">--start-address</span><span class="o">=</span><span class="p">$(</span>START<span class="p">)</span> <span class="p">$(</span>MAIN<span class="p">)</span>
 </code></pre></div></div>
 
 <p>I even bashed together a little test program to twiddle the LED bit of the 74LS259…</p>
@@ -1490,32 +1490,32 @@ files from: <a href="https://github.com/alangarf/amx_axc_kicad">https://github.c
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/python3
 </span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="n">os</span>
+<span class="kn">import</span> <span class="n">argparse</span>
 
-<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="p">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
-<span class="n">parser</span><span class="p">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"src"</span><span class="p">)</span>
-<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="p">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="p">.</span><span class="nc">ArgumentParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="p">.</span><span class="nf">add_argument</span><span class="p">(</span><span class="sh">"</span><span class="s">src</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="p">.</span><span class="nf">parse_args</span><span class="p">()</span>
 
-<span class="n">even_fn</span> <span class="o">=</span> <span class="s">"even-{}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">src</span><span class="p">)</span>
-<span class="n">odd_fn</span> <span class="o">=</span> <span class="s">"odd-{}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">src</span><span class="p">)</span>
+<span class="n">even_fn</span> <span class="o">=</span> <span class="sh">"</span><span class="s">even-{}</span><span class="sh">"</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">src</span><span class="p">)</span>
+<span class="n">odd_fn</span> <span class="o">=</span> <span class="sh">"</span><span class="s">odd-{}</span><span class="sh">"</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">src</span><span class="p">)</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">src</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">even_fn</span><span class="p">,</span> <span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">even</span><span class="p">:</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">odd_fn</span><span class="p">,</span> <span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">odd</span><span class="p">:</span>
+<span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">src</span><span class="p">,</span> <span class="sh">'</span><span class="s">rb</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">even_fn</span><span class="p">,</span> <span class="sh">'</span><span class="s">wb</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">even</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">odd_fn</span><span class="p">,</span> <span class="sh">'</span><span class="s">wb</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">odd</span><span class="p">:</span>
 
-            <span class="n">src</span><span class="p">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="p">.</span><span class="n">SEEK_END</span><span class="p">)</span>
-            <span class="n">src_size</span> <span class="o">=</span> <span class="n">src</span><span class="p">.</span><span class="n">tell</span><span class="p">()</span>
+            <span class="n">src</span><span class="p">.</span><span class="nf">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="p">.</span><span class="n">SEEK_END</span><span class="p">)</span>
+            <span class="n">src_size</span> <span class="o">=</span> <span class="n">src</span><span class="p">.</span><span class="nf">tell</span><span class="p">()</span>
 
-            <span class="n">src</span><span class="p">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">src</span><span class="p">.</span><span class="nf">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
-            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">src_size</span><span class="p">):</span>
-                <span class="n">src</span><span class="p">.</span><span class="n">seek</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">src_size</span><span class="p">):</span>
+                <span class="n">src</span><span class="p">.</span><span class="nf">seek</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 
                 <span class="k">if</span> <span class="n">c</span> <span class="o">%</span> <span class="mi">2</span><span class="p">:</span>
-                    <span class="n">odd</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+                    <span class="n">odd</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="nf">read</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">even</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+                    <span class="n">even</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="nf">read</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 </code></pre></div></div>
 
 <p>Also buy one get one free; I upgraded the software for the Minipro TL866 on OSX. I even figured out the magic device type for my EPROMs.</p>

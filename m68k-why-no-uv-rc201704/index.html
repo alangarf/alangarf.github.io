@@ -365,9 +365,9 @@
 <p>I installed all the GNU m68k tools. I made a nice little Makefile to assemble my assembly…</p>
 
 <div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">M68K</span><span class="o">=</span>m68k-linux-gnu
-<span class="nv">AS</span><span class="o">=</span><span class="nv">$(M68K)</span><span class="nt">-as</span>
-<span class="nv">LD</span><span class="o">=</span><span class="nv">$(M68K)</span><span class="nt">-ld</span>
-<span class="nv">DUMP</span><span class="o">=</span><span class="nv">$(M68K)</span><span class="nt">-objdump</span>
+<span class="nv">AS</span><span class="o">=</span><span class="p">$(</span>M68K<span class="p">)</span><span class="nt">-as</span>
+<span class="nv">LD</span><span class="o">=</span><span class="p">$(</span>M68K<span class="p">)</span><span class="nt">-ld</span>
+<span class="nv">DUMP</span><span class="o">=</span><span class="p">$(</span>M68K<span class="p">)</span><span class="nt">-objdump</span>
 
 <span class="nv">START</span><span class="o">=</span>0x00
 <span class="nv">FMT</span><span class="o">=</span>binary
@@ -375,7 +375,7 @@
 </span><span class="nv">CPU</span><span class="o">=</span><span class="nt">-m68000</span>
 
 <span class="nv">SRCS</span><span class="o">=</span>blink.s
-<span class="nv">OBJS</span><span class="o">=</span><span class="nv">$(SRCS:.s=.o)</span>
+<span class="nv">OBJS</span><span class="o">=</span><span class="p">$(</span>SRCS:.s<span class="o">=</span>.o<span class="p">)</span>
 <span class="nv">MAIN</span><span class="o">=</span>blink.bin
 
 <span class="nl">.PHONY</span><span class="o">:</span> <span class="nf">dump clean</span>
@@ -393,7 +393,7 @@
         <span class="err">rm</span> <span class="err">*.o</span> <span class="err">$(MAIN)</span>
 
 <span class="nl">dump</span><span class="o">:</span>   <span class="nf">$(MAIN)</span>
-        <span class="err">$(DUMP)</span> <span class="err">$(CPU)</span> <span class="err">--disassemble-all</span> <span class="nv">--target</span><span class="o">=</span><span class="nv">$(FMT)</span> <span class="nt">--start-address</span><span class="o">=</span><span class="nv">$(START)</span> <span class="nv">$(MAIN)</span>
+        <span class="err">$(DUMP)</span> <span class="err">$(CPU)</span> <span class="err">--disassemble-all</span> <span class="nv">--target</span><span class="o">=</span><span class="p">$(</span>FMT<span class="p">)</span> <span class="nt">--start-address</span><span class="o">=</span><span class="p">$(</span>START<span class="p">)</span> <span class="p">$(</span>MAIN<span class="p">)</span>
 </code></pre></div></div>
 
 <p>I even bashed together a little test program to twiddle the LED bit of the 74LS259…</p>
@@ -454,32 +454,32 @@
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/python3
 </span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="n">os</span>
+<span class="kn">import</span> <span class="n">argparse</span>
 
-<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="p">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
-<span class="n">parser</span><span class="p">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"src"</span><span class="p">)</span>
-<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="p">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="p">.</span><span class="nc">ArgumentParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="p">.</span><span class="nf">add_argument</span><span class="p">(</span><span class="sh">"</span><span class="s">src</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="p">.</span><span class="nf">parse_args</span><span class="p">()</span>
 
-<span class="n">even_fn</span> <span class="o">=</span> <span class="s">"even-{}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">src</span><span class="p">)</span>
-<span class="n">odd_fn</span> <span class="o">=</span> <span class="s">"odd-{}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">src</span><span class="p">)</span>
+<span class="n">even_fn</span> <span class="o">=</span> <span class="sh">"</span><span class="s">even-{}</span><span class="sh">"</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">src</span><span class="p">)</span>
+<span class="n">odd_fn</span> <span class="o">=</span> <span class="sh">"</span><span class="s">odd-{}</span><span class="sh">"</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">src</span><span class="p">)</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">src</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">even_fn</span><span class="p">,</span> <span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">even</span><span class="p">:</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">odd_fn</span><span class="p">,</span> <span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">odd</span><span class="p">:</span>
+<span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">src</span><span class="p">,</span> <span class="sh">'</span><span class="s">rb</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">even_fn</span><span class="p">,</span> <span class="sh">'</span><span class="s">wb</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">even</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">odd_fn</span><span class="p">,</span> <span class="sh">'</span><span class="s">wb</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">odd</span><span class="p">:</span>
 
-            <span class="n">src</span><span class="p">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="p">.</span><span class="n">SEEK_END</span><span class="p">)</span>
-            <span class="n">src_size</span> <span class="o">=</span> <span class="n">src</span><span class="p">.</span><span class="n">tell</span><span class="p">()</span>
+            <span class="n">src</span><span class="p">.</span><span class="nf">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="p">.</span><span class="n">SEEK_END</span><span class="p">)</span>
+            <span class="n">src_size</span> <span class="o">=</span> <span class="n">src</span><span class="p">.</span><span class="nf">tell</span><span class="p">()</span>
 
-            <span class="n">src</span><span class="p">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">src</span><span class="p">.</span><span class="nf">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
-            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">src_size</span><span class="p">):</span>
-                <span class="n">src</span><span class="p">.</span><span class="n">seek</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">src_size</span><span class="p">):</span>
+                <span class="n">src</span><span class="p">.</span><span class="nf">seek</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 
                 <span class="k">if</span> <span class="n">c</span> <span class="o">%</span> <span class="mi">2</span><span class="p">:</span>
-                    <span class="n">odd</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+                    <span class="n">odd</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="nf">read</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">even</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+                    <span class="n">even</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="nf">read</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 </code></pre></div></div>
 
 <p>Also buy one get one free; I upgraded the software for the Minipro TL866 on OSX. I even figured out the magic device type for my EPROMs.</p>
@@ -560,6 +560,18 @@ Verification failed at 0x200: 0x20 != 0x00
     </div>
 
     
+      
+        
+<div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Leave a comment</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+      
+    
   </article>
 
   
@@ -568,7 +580,7 @@ Verification failed at 0x200: 0x20 != 0x00
 
 <div class="page__related">
   
-  <h2 class="page__related-title">You May Also Enjoy</h2>
+  <h2 class="page__related-title">You may also enjoy</h2>
   <div class="grid__wrapper">
     
       
@@ -810,6 +822,8 @@ Verification failed at 0x200: 0x20 != 0x00
 <div class="page__footer-follow">
   <ul class="social-icons">
     
+      <li><strong>Follow:</strong></li>
+    
 
     
       
@@ -848,6 +862,25 @@ Verification failed at 0x200: 0x20 != 0x00
 
 
 
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://fromorbit.com/m68k-why-no-uv-rc201704/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/m68k-why-no-uv-rc201704"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://fromorbit-com.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
 
 
 

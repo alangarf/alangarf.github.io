@@ -435,10 +435,10 @@ tool.</p>
 too.</a></p>
 
 <div class="language-make full highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">M68K</span><span class="o">=</span>m68k-linux-gnu
-<span class="nv">AS</span><span class="o">=</span><span class="nv">$(M68K)</span><span class="nt">-as</span>
-<span class="nv">LD</span><span class="o">=</span><span class="nv">$(M68K)</span><span class="nt">-ld</span>
-<span class="nv">COPY</span><span class="o">=</span><span class="nv">$(M68K)</span><span class="nt">-objcopy</span>
-<span class="nv">DUMP</span><span class="o">=</span><span class="nv">$(M68K)</span><span class="nt">-objdump</span>
+<span class="nv">AS</span><span class="o">=</span><span class="p">$(</span>M68K<span class="p">)</span><span class="nt">-as</span>
+<span class="nv">LD</span><span class="o">=</span><span class="p">$(</span>M68K<span class="p">)</span><span class="nt">-ld</span>
+<span class="nv">COPY</span><span class="o">=</span><span class="p">$(</span>M68K<span class="p">)</span><span class="nt">-objcopy</span>
+<span class="nv">DUMP</span><span class="o">=</span><span class="p">$(</span>M68K<span class="p">)</span><span class="nt">-objdump</span>
 
 <span class="nv">ASFLAGS</span><span class="o">=</span><span class="nt">-m68340</span> <span class="nt">--warn</span> <span class="nt">--fatal-warnings</span>
 <span class="nv">LDFLAGS</span><span class="o">=</span><span class="nt">-T</span> m68k.ld
@@ -450,7 +450,7 @@ too.</a></p>
 <span class="nv">FMT</span><span class="o">=</span>binary
 
 <span class="nv">SRCS</span><span class="o">=</span>loader.s
-<span class="nv">OBJS</span><span class="o">=</span><span class="nv">$(SRCS:.s=.o)</span>
+<span class="nv">OBJS</span><span class="o">=</span><span class="p">$(</span>SRCS:.s<span class="o">=</span>.o<span class="p">)</span>
 <span class="nv">MAIN</span><span class="o">=</span>loader
 
 <span class="nl">.PHONY</span><span class="o">:</span> <span class="nf">dump clean</span>
@@ -458,26 +458,26 @@ too.</a></p>
 <span class="nl">all</span><span class="o">:</span>	<span class="nf">$(MAIN)</span>
 
 <span class="nl">.s.o</span><span class="o">:</span>
-	<span class="nv">$(AS)</span> <span class="nv">$(ASFLAGS)</span> <span class="nt">-o</span> <span class="nv">$@</span> <span class="nv">$&lt;</span>
+	<span class="p">$(</span>AS<span class="p">)</span> <span class="p">$(</span>ASFLAGS<span class="p">)</span> <span class="nt">-o</span> <span class="nv">$@</span> <span class="nv">$&lt;</span>
 
 <span class="nl">$(MAIN)</span><span class="o">:</span> <span class="nf">$(OBJS)</span>
-	<span class="nv">$(LD)</span> <span class="nv">$(LDFLAGS)</span> <span class="nt">-o</span> <span class="nv">$(MAIN)</span>.a <span class="nv">$(OBJS)</span>
-	<span class="nv">$(COPY)</span> <span class="nt">-b</span> 0 <span class="nt">-i</span> 2 <span class="nt">--interleave-width</span><span class="o">=</span>1 <span class="nt">-O</span> <span class="nv">$(FMT)</span> <span class="nv">$(MAIN)</span>.a <span class="nv">$(PREFIX)$(MAIN)</span><span class="nt">-even</span>.bin
-	<span class="nv">$(COPY)</span> <span class="nt">-b</span> 1 <span class="nt">-i</span> 2 <span class="nt">--interleave-width</span><span class="o">=</span>1 <span class="nt">-O</span> <span class="nv">$(FMT)</span> <span class="nv">$(MAIN)</span>.a <span class="nv">$(PREFIX)$(MAIN)</span><span class="nt">-odd</span>.bin
+	<span class="p">$(</span>LD<span class="p">)</span> <span class="p">$(</span>LDFLAGS<span class="p">)</span> <span class="nt">-o</span> <span class="p">$(</span>MAIN<span class="p">)</span>.a <span class="p">$(</span>OBJS<span class="p">)</span>
+	<span class="p">$(</span>COPY<span class="p">)</span> <span class="nt">-b</span> 0 <span class="nt">-i</span> 2 <span class="nt">--interleave-width</span><span class="o">=</span>1 <span class="nt">-O</span> <span class="p">$(</span>FMT<span class="p">)</span> <span class="p">$(</span>MAIN<span class="p">)</span>.a <span class="p">$(</span>PREFIX<span class="p">)$(</span>MAIN<span class="p">)</span><span class="nt">-even</span>.bin
+	<span class="p">$(</span>COPY<span class="p">)</span> <span class="nt">-b</span> 1 <span class="nt">-i</span> 2 <span class="nt">--interleave-width</span><span class="o">=</span>1 <span class="nt">-O</span> <span class="p">$(</span>FMT<span class="p">)</span> <span class="p">$(</span>MAIN<span class="p">)</span>.a <span class="p">$(</span>PREFIX<span class="p">)$(</span>MAIN<span class="p">)</span><span class="nt">-odd</span>.bin
 
 <span class="nl">clean</span><span class="o">:</span>
-	<span class="nb">rm</span> <span class="nt">-f</span> <span class="k">*</span>.o <span class="nv">$(PREFIX)$(MAIN)</span><span class="nt">-even</span>.bin <span class="nv">$(PREFIX)$(MAIN)</span><span class="nt">-odd</span>.bin <span class="nv">$(PREFIX)$(MAIN)</span>.bin <span class="nv">$(MAIN)</span>.a
+	<span class="nb">rm</span> <span class="nt">-f</span> <span class="k">*</span>.o <span class="p">$(</span>PREFIX<span class="p">)$(</span>MAIN<span class="p">)</span><span class="nt">-even</span>.bin <span class="p">$(</span>PREFIX<span class="p">)$(</span>MAIN<span class="p">)</span><span class="nt">-odd</span>.bin <span class="p">$(</span>PREFIX<span class="p">)$(</span>MAIN<span class="p">)</span>.bin <span class="p">$(</span>MAIN<span class="p">)</span>.a
 
 <span class="nl">prog_even</span><span class="o">:</span>
-	<span class="p">@</span><span class="nb">echo </span>Programming <span class="nv">$(MAIN)</span><span class="nt">-even</span> onto <span class="nv">$(EEPROM)</span>
-	minipro <span class="nt">-p</span> <span class="s2">"</span><span class="nv">$(EEPROM)</span><span class="s2">"</span> <span class="nt">-w</span> <span class="nv">$(PREFIX)$(MAIN)</span><span class="nt">-even</span>.bin <span class="nt">-s</span>
+	<span class="p">@</span><span class="nb">echo </span>Programming <span class="p">$(</span>MAIN<span class="p">)</span><span class="nt">-even</span> onto <span class="p">$(</span>EEPROM<span class="p">)</span>
+	minipro <span class="nt">-p</span> <span class="s2">"</span><span class="p">$(</span><span class="s2">EEPROM</span><span class="p">)</span><span class="s2">"</span> <span class="nt">-w</span> <span class="p">$(</span>PREFIX<span class="p">)$(</span>MAIN<span class="p">)</span><span class="nt">-even</span>.bin <span class="nt">-s</span>
 
 <span class="nl">prog_odd</span><span class="o">:</span>
-	<span class="p">@</span><span class="nb">echo </span>Programming <span class="nv">$(MAIN)</span><span class="nt">-odd</span> onto <span class="nv">$(EEPROM)</span>
-	minipro <span class="nt">-p</span> <span class="s2">"</span><span class="nv">$(EEPROM)</span><span class="s2">"</span> <span class="nt">-w</span> <span class="nv">$(PREFIX)$(MAIN)</span><span class="nt">-odd</span>.bin <span class="nt">-s</span>
+	<span class="p">@</span><span class="nb">echo </span>Programming <span class="p">$(</span>MAIN<span class="p">)</span><span class="nt">-odd</span> onto <span class="p">$(</span>EEPROM<span class="p">)</span>
+	minipro <span class="nt">-p</span> <span class="s2">"</span><span class="p">$(</span><span class="s2">EEPROM</span><span class="p">)</span><span class="s2">"</span> <span class="nt">-w</span> <span class="p">$(</span>PREFIX<span class="p">)$(</span>MAIN<span class="p">)</span><span class="nt">-odd</span>.bin <span class="nt">-s</span>
 
 <span class="nl">dump</span><span class="o">:</span>	<span class="nf">$(MAIN)</span>
-	<span class="nv">$(DUMP)</span> <span class="nv">$(DUMPFLAGS)</span> <span class="nv">$(MAIN)</span>.a
+	<span class="p">$(</span>DUMP<span class="p">)</span> <span class="p">$(</span>DUMPFLAGS<span class="p">)</span> <span class="p">$(</span>MAIN<span class="p">)</span>.a
 </code></pre></div></div>
 
 <h1 id="compilation-and-linking">Compilation and Linking</h1>
@@ -731,6 +731,18 @@ Mandelbrot set generator in the chosen language.</p>
     </div>
 
     
+      
+        
+<div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Leave a comment</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+      
+    
   </article>
 
   
@@ -739,7 +751,7 @@ Mandelbrot set generator in the chosen language.</p>
 
 <div class="page__related">
   
-  <h2 class="page__related-title">You May Also Enjoy</h2>
+  <h2 class="page__related-title">You may also enjoy</h2>
   <div class="grid__wrapper">
     
       
@@ -981,6 +993,8 @@ Mandelbrot set generator in the chosen language.</p>
 <div class="page__footer-follow">
   <ul class="social-icons">
     
+      <li><strong>Follow:</strong></li>
+    
 
     
       
@@ -1019,6 +1033,25 @@ Mandelbrot set generator in the chosen language.</p>
 
 
 
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://fromorbit.com/m68k-environment-rc201704/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/m68k-environment-rc201704"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://fromorbit-com.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
 
 
 

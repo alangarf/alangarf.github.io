@@ -330,14 +330,14 @@
 
 <p>Two rules, one for STLink-V3 and one for Pico Probe.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># STLink V3 (0483:3753) - Main Serial Port (VCP Data)
-SUBSYSTEM=="tty", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3753", ENV{ID_USB_INTERFACE_NUM}=="01", SYMLINK+="stlink_v3_main", TAG+="uaccess"
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># STLink V3 (0483:3753) - Main Serial Port (VCP Data)</span>
+<span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">"tty"</span>, ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">"0483"</span>, ATTRS<span class="o">{</span>idProduct<span class="o">}==</span><span class="s2">"3753"</span>, ENV<span class="o">{</span>ID_USB_INTERFACE_NUM<span class="o">}==</span><span class="s2">"01"</span>, SYMLINK+<span class="o">=</span><span class="s2">"stlink_v3_main"</span>, TAG+<span class="o">=</span><span class="s2">"uaccess"</span>
 
-# STLink V3 (0483:3753) - Bridge Serial Port (VCP2 Data)
-SUBSYSTEM=="tty", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3753", ENV{ID_USB_INTERFACE_NUM}=="04", SYMLINK+="stlink_v3_bridge", TAG+="uaccess"
+<span class="c"># STLink V3 (0483:3753) - Bridge Serial Port (VCP2 Data)</span>
+<span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">"tty"</span>, ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">"0483"</span>, ATTRS<span class="o">{</span>idProduct<span class="o">}==</span><span class="s2">"3753"</span>, ENV<span class="o">{</span>ID_USB_INTERFACE_NUM<span class="o">}==</span><span class="s2">"04"</span>, SYMLINK+<span class="o">=</span><span class="s2">"stlink_v3_bridge"</span>, TAG+<span class="o">=</span><span class="s2">"uaccess"</span>
 
-# STLink V3 (0483:3753) - Debug Interface (For probe-rs / OpenOCD)
-SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3753", ENV{ID_USB_INTERFACE_NUM}=="00", TAG+="uaccess"
+<span class="c"># STLink V3 (0483:3753) - Debug Interface (For probe-rs / OpenOCD)</span>
+<span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">"usb"</span>, ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">"0483"</span>, ATTRS<span class="o">{</span>idProduct<span class="o">}==</span><span class="s2">"3753"</span>, ENV<span class="o">{</span>ID_USB_INTERFACE_NUM<span class="o">}==</span><span class="s2">"00"</span>, TAG+<span class="o">=</span><span class="s2">"uaccess"</span>
 </code></pre></div></div>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Raspberry Pi Pico (RP2040) BOOTSEL
@@ -355,15 +355,15 @@ KERNEL=="ttyACM*", ATTRS{idVendor}=="2e8a", ATTRS{idProduct}=="000c", ATTRS{seri
 
 <p>Install in <code class="language-plaintext highlighter-rouge">/etc/udev/rules.d/</code>, call em whatever.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo udevadm control --reload-rules &amp;&amp; sudo udevadm trigger
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>udevadm control <span class="nt">--reload-rules</span> <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>udevadm trigger
 </code></pre></div></div>
 
 <p>Check with probe-rs:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>❯ probe-rs list
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>❯ probe-rs list
 The following debug probes were found:
-[0]: Debug Probe (CMSIS-DAP) -- 2e8a:000c-0:E663AC91D3480E30 (CMSIS-DAP)
-[1]: STLink V3 -- 0483:3753:0027003C3038511834333935 (ST-LINK)
+<span class="o">[</span>0]: Debug Probe <span class="o">(</span>CMSIS-DAP<span class="o">)</span> <span class="nt">--</span> 2e8a:000c-0:E663AC91D3480E30 <span class="o">(</span>CMSIS-DAP<span class="o">)</span>
+<span class="o">[</span>1]: STLink V3 <span class="nt">--</span> 0483:3753:0027003C3038511834333935 <span class="o">(</span>ST-LINK<span class="o">)</span>
 </code></pre></div></div>
 
 <p>Happy happy days!</p>
@@ -405,6 +405,18 @@ The following debug probes were found:
     </div>
 
     
+      
+        
+<div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Leave a comment</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+      
+    
   </article>
 
   
@@ -413,7 +425,7 @@ The following debug probes were found:
 
 <div class="page__related">
   
-  <h2 class="page__related-title">You May Also Enjoy</h2>
+  <h2 class="page__related-title">You may also enjoy</h2>
   <div class="grid__wrapper">
     
       
@@ -655,6 +667,8 @@ The following debug probes were found:
 <div class="page__footer-follow">
   <ul class="social-icons">
     
+      <li><strong>Follow:</strong></li>
+    
 
     
       
@@ -693,6 +707,25 @@ The following debug probes were found:
 
 
 
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://fromorbit.com/StlinkV3-PicoDebug-Arch/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/StlinkV3-PicoDebug-Arch"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://fromorbit-com.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
 
 
 
