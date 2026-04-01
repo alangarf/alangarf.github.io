@@ -1,92 +1,92 @@
 ---
 title: 45W IRF510 HF Linear Amp
-excerpt: "The little amp that could!"
+excerpt: The little amp that could!
 header:
   overlay_image: "/assets/images/2022-05-23-linear16.jpg"
   overlay_filter: rgba(12, 62, 51, 0.8)
   teaser: "/assets/images/2022-05-23-linear16.jpg"
 g1:
-  - image_path: assets/images/2022-05-23-linear2.jpg
-    url: assets/images/2022-05-23-linear2.jpg
-    alt: "picture two"
-  - image_path: assets/images/2022-05-23-linear3.jpg
-    url: assets/images/2022-05-23-linear3.jpg
-    alt: "picture three"
-  - image_path: assets/images/2022-05-23-linear4.jpg
-    url: assets/images/2022-05-23-linear4.jpg
-    alt: "picture one"
+- image_path: assets/images/2022-05-23-linear2.jpg
+  url: assets/images/2022-05-23-linear2.jpg
+  alt: picture two
+- image_path: assets/images/2022-05-23-linear3.jpg
+  url: assets/images/2022-05-23-linear3.jpg
+  alt: picture three
+- image_path: assets/images/2022-05-23-linear4.jpg
+  url: assets/images/2022-05-23-linear4.jpg
+  alt: picture one
 g2:
-  - image_path: assets/images/2022-05-23-linear5.jpg
-    url: assets/images/2022-05-23-linear5.jpg
-    alt: "picture two"
-  - image_path: assets/images/2022-05-23-linear6.jpg
-    url: assets/images/2022-05-23-linear6.jpg
-    alt: "picture three"
+- image_path: assets/images/2022-05-23-linear5.jpg
+  url: assets/images/2022-05-23-linear5.jpg
+  alt: picture two
+- image_path: assets/images/2022-05-23-linear6.jpg
+  url: assets/images/2022-05-23-linear6.jpg
+  alt: picture three
 g3:
-  - image_path: assets/images/2022-05-23-linear7.jpg
-    url: assets/images/2022-05-23-linear7.jpg
-    alt: "picture three"
+- image_path: assets/images/2022-05-23-linear7.jpg
+  url: assets/images/2022-05-23-linear7.jpg
+  alt: picture three
 g4:
-  - image_path: assets/images/2022-05-23-linear8.jpg
-    url: assets/images/2022-05-23-linear8.jpg
-    alt: "picture three"
-  - image_path: assets/images/2022-05-23-linear10.jpg
-    url: assets/images/2022-05-23-linear10.jpg
-    alt: "picture one"
-  - image_path: assets/images/2022-05-23-linear11.jpg
-    url: assets/images/2022-05-23-linear11.jpg
-    alt: "picture two"
+- image_path: assets/images/2022-05-23-linear8.jpg
+  url: assets/images/2022-05-23-linear8.jpg
+  alt: picture three
+- image_path: assets/images/2022-05-23-linear10.jpg
+  url: assets/images/2022-05-23-linear10.jpg
+  alt: picture one
+- image_path: assets/images/2022-05-23-linear11.jpg
+  url: assets/images/2022-05-23-linear11.jpg
+  alt: picture two
 g5:
-  - image_path: assets/images/2022-05-23-linear13.jpg
-    url: assets/images/2022-05-23-linear13.jpg
-    alt: "picture three"
-  - image_path: assets/images/2022-05-23-linear12.jpg
-    url: assets/images/2022-05-23-linear12.jpg
-    alt: "picture three"
+- image_path: assets/images/2022-05-23-linear13.jpg
+  url: assets/images/2022-05-23-linear13.jpg
+  alt: picture three
+- image_path: assets/images/2022-05-23-linear12.jpg
+  url: assets/images/2022-05-23-linear12.jpg
+  alt: picture three
 g6:
-  - image_path: assets/images/2022-05-23-linear14.jpg
-    url: assets/images/2022-05-23-linear14.jpg
-    alt: "picture three"
-  - image_path: assets/images/2022-05-23-linear15.jpg
-    url: assets/images/2022-05-23-linear15.jpg
-    alt: "picture three"
+- image_path: assets/images/2022-05-23-linear14.jpg
+  url: assets/images/2022-05-23-linear14.jpg
+  alt: picture three
+- image_path: assets/images/2022-05-23-linear15.jpg
+  url: assets/images/2022-05-23-linear15.jpg
+  alt: picture three
 g7:
-  - image_path: assets/images/2022-05-23-linear16.jpg
-    url: assets/images/2022-05-23-linear16.jpg
-    alt: "picture one"
+- image_path: assets/images/2022-05-23-linear16.jpg
+  url: assets/images/2022-05-23-linear16.jpg
+  alt: picture one
 g8:
-  - image_path: assets/images/2022-05-23-linear17.jpg
-    url: assets/images/2022-05-23-linear17.jpg
-    alt: "picture two"
-  - image_path: assets/images/2022-05-23-linear18.jpg
-    url: assets/images/2022-05-23-linear18.jpg
-    alt: "picture three"
-  - image_path: assets/images/2022-05-23-linear19.jpg
-    url: assets/images/2022-05-23-linear19.jpg
-    alt: "picture three"
+- image_path: assets/images/2022-05-23-linear17.jpg
+  url: assets/images/2022-05-23-linear17.jpg
+  alt: picture two
+- image_path: assets/images/2022-05-23-linear18.jpg
+  url: assets/images/2022-05-23-linear18.jpg
+  alt: picture three
+- image_path: assets/images/2022-05-23-linear19.jpg
+  url: assets/images/2022-05-23-linear19.jpg
+  alt: picture three
 g9:
-  - image_path: assets/images/2022-05-23-linear20.jpg
-    url: assets/images/2022-05-23-linear20.jpg
-    alt: "picture three"
-  - image_path: assets/images/2022-05-23-linear21.jpg
-    url: assets/images/2022-05-23-linear21.jpg
-    alt: "picture three"
-  - image_path: assets/images/2022-05-23-linear23.jpg
-    url: assets/images/2022-05-23-linear23.jpg
-    alt: "picture two"
-  - image_path: assets/images/2022-05-23-linear24.jpg
-    url: assets/images/2022-05-23-linear24.jpg
-    alt: "picture three"
-  - image_path: assets/images/2022-05-23-linear25.jpg
-    url: assets/images/2022-05-23-linear25.jpg
-    alt: "picture three"
-  - image_path: assets/images/2022-05-23-linear26.jpg
-    url: assets/images/2022-05-23-linear26.jpg
-    alt: "picture three"
+- image_path: assets/images/2022-05-23-linear20.jpg
+  url: assets/images/2022-05-23-linear20.jpg
+  alt: picture three
+- image_path: assets/images/2022-05-23-linear21.jpg
+  url: assets/images/2022-05-23-linear21.jpg
+  alt: picture three
+- image_path: assets/images/2022-05-23-linear23.jpg
+  url: assets/images/2022-05-23-linear23.jpg
+  alt: picture two
+- image_path: assets/images/2022-05-23-linear24.jpg
+  url: assets/images/2022-05-23-linear24.jpg
+  alt: picture three
+- image_path: assets/images/2022-05-23-linear25.jpg
+  url: assets/images/2022-05-23-linear25.jpg
+  alt: picture three
+- image_path: assets/images/2022-05-23-linear26.jpg
+  url: assets/images/2022-05-23-linear26.jpg
+  alt: picture three
 g10:
-  - image_path: assets/images/2022-05-23-linear27.jpg
-    url: assets/images/2022-05-23-linear27.jpg
-    alt: "picture three"
+- image_path: assets/images/2022-05-23-linear27.jpg
+  url: assets/images/2022-05-23-linear27.jpg
+  alt: picture three
 ---
 
 # 45W IRF510 HF Linear Amp

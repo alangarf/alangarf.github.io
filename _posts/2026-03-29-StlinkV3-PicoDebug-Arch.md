@@ -7,7 +7,7 @@ excerpt: "for the brain file"
 
 Two rules, one for STLink-V3 and one for Pico Probe.
 
-```
+```shell
 # STLink V3 (0483:3753) - Main Serial Port (VCP Data)
 SUBSYSTEM=="tty", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3753", ENV{ID_USB_INTERFACE_NUM}=="01", SYMLINK+="stlink_v3_main", TAG+="uaccess"
 
@@ -36,13 +36,13 @@ KERNEL=="ttyACM*", ATTRS{idVendor}=="2e8a", ATTRS{idProduct}=="000c", ATTRS{seri
 
 Install in `/etc/udev/rules.d/`, call em whatever.
 
-```
+```shell
 sudo udevadm control --reload-rules && sudo udevadm trigger
 ```
 
 Check with probe-rs:
 
-```
+```shell
 ❯ probe-rs list
 The following debug probes were found:
 [0]: Debug Probe (CMSIS-DAP) -- 2e8a:000c-0:E663AC91D3480E30 (CMSIS-DAP)

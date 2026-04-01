@@ -1,6 +1,6 @@
 ---
-title: "About me"
-permalink: /about/
+title: About me
+permalink: "/about/"
 ---
 
 > "I say we take off and build the entire site from orbit. It's the only way to be sure."

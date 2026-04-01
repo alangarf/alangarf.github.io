@@ -15,6 +15,10 @@ $header-font-family : 'Jura', sans-serif;
 
 @import url('https://fonts.googleapis.com/css?family=Orbitron|Jura:300,600|Spinnaker');
 
+.highlight {
+  font-size: 0.9em;
+}
+
 .masthead {
   /* background-color: #546B83; */
   background-color: darken($background-color, 4%);
