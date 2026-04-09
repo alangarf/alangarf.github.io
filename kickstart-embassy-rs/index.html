@@ -15,8 +15,8 @@
 <meta charset="utf-8">
 
 
-<!-- begin _includes/seo.html --><title>Using git subtree to send _site to master branch | FromOrbit.com</title>
-<meta name="description" content="More for the brain file">
+<!-- begin _includes/seo.html --><title>Kickstart an Embassy-rs project | FromOrbit.com</title>
+<meta name="description" content="Kickstarting an Embassy-rs project for a Blackpill">
 
 
   <meta name="author" content="Alan Garfield">
@@ -28,20 +28,20 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_AU">
 <meta property="og:site_name" content="FromOrbit.com">
-<meta property="og:title" content="Using git subtree to send _site to master branch">
-<meta property="og:url" content="https://fromorbit.com/Static-Jekyll-to-github-pages/">
+<meta property="og:title" content="Kickstart an Embassy-rs project">
+<meta property="og:url" content="https://fromorbit.com/kickstart-embassy-rs/">
 
 
-  <meta property="og:description" content="More for the brain file">
+  <meta property="og:description" content="Kickstarting an Embassy-rs project for a Blackpill">
 
 
 
 
 
   <meta name="twitter:site" content="@alangarf">
-  <meta name="twitter:title" content="Using git subtree to send _site to master branch">
-  <meta name="twitter:description" content="More for the brain file">
-  <meta name="twitter:url" content="https://fromorbit.com/Static-Jekyll-to-github-pages/">
+  <meta name="twitter:title" content="Kickstart an Embassy-rs project">
+  <meta name="twitter:description" content="Kickstarting an Embassy-rs project for a Blackpill">
+  <meta name="twitter:url" content="https://fromorbit.com/kickstart-embassy-rs/">
 
   
     <meta name="twitter:card" content="summary">
@@ -54,7 +54,7 @@
 
 
 
-  <meta property="article:published_time" content="2026-03-30T00:00:00+11:00">
+  <meta property="article:published_time" content="2026-04-09T00:00:00+10:00">
 
 
 
@@ -65,7 +65,7 @@
   
 
 
-<link rel="canonical" href="https://fromorbit.com/Static-Jekyll-to-github-pages/">
+<link rel="canonical" href="https://fromorbit.com/kickstart-embassy-rs/">
 
 
 
@@ -101,7 +101,7 @@
 
   </head>
 
-  <body class="layout--single" dir="ltr">
+  <body class="layout--single wide" dir="ltr">
     
 <nav class="skip-links" aria-label="Skip links">
   <ul>
@@ -280,16 +280,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Using git subtree to send _site to master branch">
-    <meta itemprop="description" content="More for the brain file">
-    <meta itemprop="datePublished" content="2026-03-30T00:00:00+11:00">
+    <meta itemprop="headline" content="Kickstart an Embassy-rs project">
+    <meta itemprop="description" content="Kickstarting an Embassy-rs project for a Blackpill">
+    <meta itemprop="datePublished" content="2026-04-09T00:00:00+10:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="https://fromorbit.com/Static-Jekyll-to-github-pages/" itemprop="url">Using git subtree to send _site to master branch
+            <a href="https://fromorbit.com/kickstart-embassy-rs/" itemprop="url">Kickstart an Embassy-rs project
 </a>
           </h1>
           
@@ -301,7 +301,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2026-03-30T00:00:00+11:00">March 30, 2026</time>
+        <time datetime="2026-04-09T00:00:00+10:00">April 9, 2026</time>
       </span>
     
 
@@ -314,7 +314,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          less than 1 minute read
+          2 minute read
         
       </span>
     
@@ -326,37 +326,178 @@
 
       <section class="page__content e-content" itemprop="text">
         
-        <h1 id="what">What?</h1>
+        <h1 id="kickstarting-an-embassy-rs-project-for-a-blackpill">Kickstarting an Embassy-rs project for a Blackpill</h1>
 
-<p>If you use github pages and you want to generate your static files yourself you can use a repo with a <code class="language-plaintext highlighter-rouge">master</code> branch that is your public static rendered files, and another branch in my case <code class="language-plaintext highlighter-rouge">sources</code> that is the raw source files that I render with Jeykll locally.</p>
+<ol>
+  <li>Install rust core
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl <span class="nt">--proto</span> <span class="s1">'=https'</span> <span class="nt">--tlsv1</span>.2 <span class="nt">-sSf</span> https://sh.rustup.rs | sh
+</code></pre></div>    </div>
+  </li>
+  <li>Install probe-rs for programming and debugging
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl <span class="nt">-LsSf</span> https://github.com/probe-rs/probe-rs/releases/latest/download/probe-rs-tools-installer.sh | sh
+</code></pre></div>    </div>
+  </li>
+  <li>Install cargo-generate
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>cargo <span class="nb">install </span>cargo-generate
+</code></pre></div>    </div>
+  </li>
+  <li>Generate initial project
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>cargo generate <span class="nt">--git</span> https://github.com/lulf/embassy-template.git <span class="nt">-d</span> <span class="nv">chip</span><span class="o">=</span>&lt;stm32f411ce OR stm32f401xx&gt; <span class="nt">--name</span> blackpill
+🔧   chip: <span class="s2">"stm32f411ce"</span> <span class="o">(</span>value from CLI<span class="o">)</span>
+🔧   Destination: /home/alan/projects/rust/blackpill ...
+🔧   project-name: blackpill ...
+🔧   Generating template ...
+<span class="o">[</span> 1/16]   Done: .cargo/config.toml
+<span class="o">[</span> 2/16]   Done: .cargo
+<span class="o">[</span> 3/16]   Done: .github/workflows/ci.yaml
+<span class="o">[</span> 4/16]   Done: .github/workflows/update-chip-choices.yml
+<span class="o">[</span> 5/16]   Done: .github/workflows
+<span class="o">[</span> 6/16]   Done: .github
+<span class="o">[</span> 7/16]   Done: .gitignore
+<span class="o">[</span> 8/16]   Done: Cargo.toml
+<span class="o">[</span> 9/16]   Done: build.rs
+<span class="o">[</span>10/16]   Done: ci.sh
+<span class="o">[</span>11/16]   Done: memory.x
+<span class="o">[</span>12/16]   Ignored: pre-script.rhai
+<span class="o">[</span>13/16]   Done: rust-toolchain.toml
+<span class="o">[</span>14/16]   Done: scripts
+<span class="o">[</span>15/16]   Done: src/main.rs
+<span class="o">[</span>16/16]   Done: src
+🔧   Moving generated files into: <span class="sb">`</span>/home/alan/projects/rust/blackpill<span class="sb">`</span>...
+🔧   Initializing a fresh Git repository
+✨   Done! New project created /home/alan/projects/rust/blackpill
+</code></pre></div>    </div>
 
-<h1 id="why">Why?</h1>
+    <ul>
+      <li>If you don’t know the full chip name you can use <code class="language-plaintext highlighter-rouge">probe-rs</code> to look for it etc:
+        <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>probe-rs chip info stm32f401
+stm32f401
+Error: Found multiple chips matching <span class="s1">'stm32f401'</span>, unable to <span class="k">select </span>a single
+chip. <span class="o">(</span>STM32F401CB, STM32F401CBUx, STM32F401CBYx, STM32F401CC, STM32F401CCUx,
+STM32F401CCYx, STM32F401CCFx, STM32F401CD, STM32F401CDUx, STM32F401CDYx,
+STM32F401CE, STM32F401CEUx, STM32F401CEYx, STM32F401RB, STM32F401RBTx,
+STM32F401RC, STM32F401RCTx, STM32F401RD, STM32F401RDTx, STM32F401RE,
+STM32F401RETx, STM32F401VB, STM32F401VBHx, STM32F401VBTx, STM32F401VC,
+STM32F401VCTx, STM32F401VCHx, STM32F401VD, STM32F401VDHx, STM32F401VDTx,
+STM32F401VE, STM32F401VEHx, STM32F401VETx<span class="o">)</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>Build the test project to make sure it’s happy
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>blackpill
+<span class="nv">$ </span>cargo build
+info: downloading 11 components
+ Updating crates.io index
+  Locking 87 packages to latest compatible versions
+   Adding embassy-executor v0.9.1 <span class="o">(</span>available: v0.10.0<span class="o">)</span>
+   Adding embassy-stm32 v0.4.0 <span class="o">(</span>available: v0.6.0<span class="o">)</span>
+   Adding embassy-sync v0.7.2 <span class="o">(</span>available: v0.8.0<span class="o">)</span>
+  Downloaded embassy-stm32 v0.4.0
+  Downloaded stm32-metapac v18.0.0
+  Downloaded stm32-fmc v0.3.2
+  Downloaded 3 crates <span class="o">(</span>11.9MiB<span class="o">)</span> <span class="k">in </span>0.83s <span class="o">(</span>largest was <span class="sb">`</span>stm32-metapac<span class="sb">`</span> at 11.5MiB<span class="o">)</span>
+Compiling proc-macro2 v1.0.106
+Compiling unicode-ident v1.0.24
+Compiling quote v1.0.45
+Compiling defmt v1.0.1
+Compiling thiserror v2.0.18
+Compiling defmt-macros v1.0.1
+Compiling semver-parser v0.7.0
+Compiling bitflags v1.3.2
+Compiling cortex-m v0.7.7
+Compiling nb v1.1.0
+Compiling critical-section v1.2.0
+Compiling cortex-m-rt v0.7.5
+Compiling semver v0.9.0
+Compiling stable_deref_trait v1.2.1
+Compiling nb v0.1.3
+Compiling void v1.0.2
+Compiling byteorder v1.5.0
+Compiling vcell v0.1.3
+Compiling embedded-hal v0.2.7
+Compiling rustc_version v0.2.3
+Compiling volatile-register v0.2.2
+Compiling futures-core v0.3.32
+Compiling embedded-io-async v0.6.1
+Compiling hash32 v0.3.1
+Compiling bitfield v0.13.2
+Compiling litrs v1.0.0
+Compiling heapless v0.8.0
+Compiling cfg-if v1.0.4
+Compiling bare-metal v0.2.5
+Compiling embassy-time-driver v0.2.2
+Compiling autocfg v1.5.0
+Compiling ident_case v1.0.1
+Compiling embedded-hal v1.0.0
+Compiling stm32-metapac v18.0.0
+Compiling fnv v1.0.7
+Compiling futures-sink v0.3.32
+Compiling heapless v0.9.2
+Compiling strsim v0.11.1
+Compiling embedded-hal-async v1.0.0
+Compiling syn v2.0.117
+Compiling document-features v0.2.12
+Compiling num-traits v0.2.19
+Compiling embassy-sync v0.7.2
+Compiling proc-macro-error-attr2 v2.0.0
+Compiling embassy-sync v0.8.0
+Compiling embassy-time-queue-utils v0.3.0
+Compiling embassy-hal-internal v0.3.0
+Compiling embedded-io v0.7.1
+Compiling embedded-io-async v0.7.0
+Compiling as-slice v0.2.1
+Compiling embedded-storage v0.3.1
+Compiling embassy-executor-timer-queue v0.1.0
+Compiling aligned v0.4.3
+Compiling embedded-storage-async v0.4.1
+Compiling pin-project-lite v0.2.17
+Compiling embassy-executor v0.9.1
+Compiling defmt-rtt v1.1.0
+Compiling panic-probe v1.0.0
+Compiling futures-task v0.3.32
+Compiling embassy-futures v0.1.2
+Compiling futures-util v0.3.32
+Compiling block-device-driver v0.2.0
+Compiling embedded-hal-nb v1.0.0
+Compiling stm32-fmc v0.3.2
+Compiling embedded-can v0.4.1
+Compiling sdio-host v0.9.0
+Compiling bit_field v0.10.3
+Compiling rand_core v0.9.5
+Compiling static_assertions v1.1.0
+Compiling bitflags v2.11.0
+Compiling blackpill v0.1.0 <span class="o">(</span>/home/alan/projects/rust/blackpill<span class="o">)</span>
+Compiling rand_core v0.6.4
+Compiling proc-macro-error2 v2.0.1
+Compiling darling_core v0.20.11
+Compiling thiserror-impl v2.0.18
+Compiling cortex-m-rt-macros v0.7.5
+Compiling darling_macro v0.20.11
+Compiling defmt-parser v1.0.0
+Compiling darling v0.20.11
+Compiling embassy-executor-macros v0.7.0
+Compiling defmt v0.3.100
+Compiling embassy-time v0.5.1
+Compiling embedded-io v0.6.1
+Compiling embassy-net-driver v0.2.0
+Compiling embassy-usb-driver v0.2.0
+Compiling embassy-usb-synopsys-otg v0.3.2
+Compiling embassy-stm32 v0.4.0
+Compiling embassy-embedded-hal v0.5.0
+ Finished <span class="sb">`</span>dev<span class="sb">`</span> profile <span class="o">[</span>optimized + debuginfo] target<span class="o">(</span>s<span class="o">)</span> <span class="k">in </span>15.92s
+</code></pre></div>    </div>
+  </li>
+  <li>Run the project (if adjustments in main.rs match your MCU)
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>cargo run
+ Finished <span class="sb">`</span>dev<span class="sb">`</span> profile <span class="o">[</span>optimized + debuginfo] target<span class="o">(</span>s<span class="o">)</span> <span class="k">in </span>0.04s
+  Running <span class="sb">`</span>probe-rs run <span class="nt">--chip</span> STM32F411CE target/thumbv7em-none-eabihf/debug/blackpill<span class="sb">`</span>
+   Erasing ✔   0% <span class="o">[</span><span class="nt">--------------------</span><span class="o">]</span>        0 B @        0 B/s <span class="o">(</span>ETA 0s<span class="o">)</span>
+etc etc
+</code></pre></div>    </div>
+  </li>
+</ol>
 
-<p>Because I want to add my own modules and plugins and have the rendered locally and not be forced to use the supported ones for github to render for me.</p>
-
-<h1 id="how">How?</h1>
-
-<p>It’s pretty neat I think:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rm -rf _site
-git worktree add _site master
-</code></pre></div></div>
-
-<p>Then add the following to your <code class="language-plaintext highlighter-rouge">Makefile</code> if you use make, alter to adjust to your use case.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deploy:
-	JEKYLL_ENV=production bundle exec jekyll build
-	cd _site &amp;&amp; git add . &amp;&amp; git commit -m "Deploy: $(shell date)" &amp;&amp; git push origin master
-</code></pre></div></div>
-
-<p>Which will commit the <code class="language-plaintext highlighter-rouge">_site</code> into the <code class="language-plaintext highlighter-rouge">master</code> branch and push it to github.</p>
-
-<p>Which you simply do by:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make deploy
-</code></pre></div></div>
-
-<p>And 30 seconds later your github pages is updated and live!</p>
 
         
       </section>
@@ -373,7 +514,7 @@ git worktree add _site master
         
 
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2026-03-30T00:00:00+11:00">March 30, 2026</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2026-04-09T00:00:00+10:00">April 9, 2026</time></p>
 
 
       </footer>
@@ -384,10 +525,10 @@ git worktree add _site master
 
   <nav class="pagination" aria-label="Post pagination">
     
-      <a href="/StlinkV3-PicoDebug-Arch/" class="pagination--pager" title="Getting STLink-V3 and Pico Probe working in Arch Linux">Previous</a>
+      <a href="/Static-Jekyll-to-github-pages/" class="pagination--pager" title="Using git subtree to send _site to master branch">Previous</a>
     
     
-      <a href="/kickstart-embassy-rs/" class="pagination--pager" title="Kickstart an Embassy-rs project">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
@@ -433,7 +574,7 @@ git worktree add _site master
     
     <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a class="u-url" href="/kickstart-embassy-rs/" rel="permalink">Kickstart an Embassy-rs project
+        <a class="u-url" href="/Static-Jekyll-to-github-pages/" rel="permalink">Using git subtree to send _site to master branch
 </a>
       
     </h2>
@@ -446,7 +587,7 @@ git worktree add _site master
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2026-04-09T00:00:00+10:00">April 9, 2026</time>
+        <time datetime="2026-03-30T00:00:00+11:00">March 30, 2026</time>
       </span>
     
 
@@ -459,14 +600,14 @@ git worktree add _site master
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          3 minute read
+          less than 1 minute read
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt p-summary" itemprop="description">Kickstarting an Embassy-rs project for a Blackpill
+    <p class="archive__item-excerpt p-summary" itemprop="description">More for the brain file
 </p>
   </article>
 </div>
@@ -702,8 +843,8 @@ git worktree add _site master
     
   <script>
     var disqus_config = function () {
-      this.page.url = "https://fromorbit.com/Static-Jekyll-to-github-pages/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/Static-Jekyll-to-github-pages"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "https://fromorbit.com/kickstart-embassy-rs/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/kickstart-embassy-rs"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');

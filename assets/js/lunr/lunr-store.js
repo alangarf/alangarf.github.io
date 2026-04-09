@@ -202,4 +202,10 @@ var store = [{
         "tags": [],
         "url": "/Static-Jekyll-to-github-pages/",
         "teaser": "/assets/images/logo_blue.svg"
+      },{
+        "title": "Kickstart an Embassy-rs project",
+        "excerpt":"Kickstarting an Embassy-rs project for a Blackpill Install rust core $ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh Install probe-rs for programming and debugging $ curl -LsSf https://github.com/probe-rs/probe-rs/releases/latest/download/probe-rs-tools-installer.sh | sh Install cargo-generate $ cargo install cargo-generate Generate initial project $ cargo generate --git https://github.com/lulf/embassy-template.git -d chip=&lt;stm32f411ce OR stm32f401xx&gt; --name...","categories": [],
+        "tags": [],
+        "url": "/kickstart-embassy-rs/",
+        "teaser": "/assets/images/logo_blue.svg"
       }]

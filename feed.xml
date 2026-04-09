@@ -1,5 +1,175 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://fromorbit.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fromorbit.com/" rel="alternate" type="text/html" /><updated>2026-04-01T23:24:10+11:00</updated><id>https://fromorbit.com/feed.xml</id><title type="html">FromOrbit.com</title><subtitle>Generic nerd who dabbles in programming, electronics, CNC and retro computing.
-</subtitle><author><name>Alan Garfield</name></author><entry><title type="html">Using git subtree to send _site to master branch</title><link href="https://fromorbit.com/Static-Jekyll-to-github-pages/" rel="alternate" type="text/html" title="Using git subtree to send _site to master branch" /><published>2026-03-30T00:00:00+11:00</published><updated>2026-03-30T00:00:00+11:00</updated><id>https://fromorbit.com/Static-Jekyll-to-github-pages</id><content type="html" xml:base="https://fromorbit.com/Static-Jekyll-to-github-pages/"><![CDATA[<h1 id="what">What?</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://fromorbit.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fromorbit.com/" rel="alternate" type="text/html" /><updated>2026-04-09T22:45:29+10:00</updated><id>https://fromorbit.com/feed.xml</id><title type="html">FromOrbit.com</title><subtitle>Generic nerd who dabbles in programming, electronics, CNC and retro computing.
+</subtitle><author><name>Alan Garfield</name></author><entry><title type="html">Kickstart an Embassy-rs project</title><link href="https://fromorbit.com/kickstart-embassy-rs/" rel="alternate" type="text/html" title="Kickstart an Embassy-rs project" /><published>2026-04-09T00:00:00+10:00</published><updated>2026-04-09T00:00:00+10:00</updated><id>https://fromorbit.com/kickstart-embassy-rs</id><content type="html" xml:base="https://fromorbit.com/kickstart-embassy-rs/"><![CDATA[<h1 id="kickstarting-an-embassy-rs-project-for-a-blackpill">Kickstarting an Embassy-rs project for a Blackpill</h1>
+
+<ol>
+  <li>Install rust core
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl <span class="nt">--proto</span> <span class="s1">'=https'</span> <span class="nt">--tlsv1</span>.2 <span class="nt">-sSf</span> https://sh.rustup.rs | sh
+</code></pre></div>    </div>
+  </li>
+  <li>Install probe-rs for programming and debugging
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl <span class="nt">-LsSf</span> https://github.com/probe-rs/probe-rs/releases/latest/download/probe-rs-tools-installer.sh | sh
+</code></pre></div>    </div>
+  </li>
+  <li>Install cargo-generate
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>cargo <span class="nb">install </span>cargo-generate
+</code></pre></div>    </div>
+  </li>
+  <li>Generate initial project
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>cargo generate <span class="nt">--git</span> https://github.com/lulf/embassy-template.git <span class="nt">-d</span> <span class="nv">chip</span><span class="o">=</span>&lt;stm32f411ce OR stm32f401xx&gt; <span class="nt">--name</span> blackpill
+🔧   chip: <span class="s2">"stm32f411ce"</span> <span class="o">(</span>value from CLI<span class="o">)</span>
+🔧   Destination: /home/alan/projects/rust/blackpill ...
+🔧   project-name: blackpill ...
+🔧   Generating template ...
+<span class="o">[</span> 1/16]   Done: .cargo/config.toml
+<span class="o">[</span> 2/16]   Done: .cargo
+<span class="o">[</span> 3/16]   Done: .github/workflows/ci.yaml
+<span class="o">[</span> 4/16]   Done: .github/workflows/update-chip-choices.yml
+<span class="o">[</span> 5/16]   Done: .github/workflows
+<span class="o">[</span> 6/16]   Done: .github
+<span class="o">[</span> 7/16]   Done: .gitignore
+<span class="o">[</span> 8/16]   Done: Cargo.toml
+<span class="o">[</span> 9/16]   Done: build.rs
+<span class="o">[</span>10/16]   Done: ci.sh
+<span class="o">[</span>11/16]   Done: memory.x
+<span class="o">[</span>12/16]   Ignored: pre-script.rhai
+<span class="o">[</span>13/16]   Done: rust-toolchain.toml
+<span class="o">[</span>14/16]   Done: scripts
+<span class="o">[</span>15/16]   Done: src/main.rs
+<span class="o">[</span>16/16]   Done: src
+🔧   Moving generated files into: <span class="sb">`</span>/home/alan/projects/rust/blackpill<span class="sb">`</span>...
+🔧   Initializing a fresh Git repository
+✨   Done! New project created /home/alan/projects/rust/blackpill
+</code></pre></div>    </div>
+
+    <ul>
+      <li>If you don’t know the full chip name you can use <code class="language-plaintext highlighter-rouge">probe-rs</code> to look for it etc:
+        <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>probe-rs chip info stm32f401
+stm32f401
+Error: Found multiple chips matching <span class="s1">'stm32f401'</span>, unable to <span class="k">select </span>a single
+chip. <span class="o">(</span>STM32F401CB, STM32F401CBUx, STM32F401CBYx, STM32F401CC, STM32F401CCUx,
+STM32F401CCYx, STM32F401CCFx, STM32F401CD, STM32F401CDUx, STM32F401CDYx,
+STM32F401CE, STM32F401CEUx, STM32F401CEYx, STM32F401RB, STM32F401RBTx,
+STM32F401RC, STM32F401RCTx, STM32F401RD, STM32F401RDTx, STM32F401RE,
+STM32F401RETx, STM32F401VB, STM32F401VBHx, STM32F401VBTx, STM32F401VC,
+STM32F401VCTx, STM32F401VCHx, STM32F401VD, STM32F401VDHx, STM32F401VDTx,
+STM32F401VE, STM32F401VEHx, STM32F401VETx<span class="o">)</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>Build the test project to make sure it’s happy
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>blackpill
+<span class="nv">$ </span>cargo build
+info: downloading 11 components
+ Updating crates.io index
+  Locking 87 packages to latest compatible versions
+   Adding embassy-executor v0.9.1 <span class="o">(</span>available: v0.10.0<span class="o">)</span>
+   Adding embassy-stm32 v0.4.0 <span class="o">(</span>available: v0.6.0<span class="o">)</span>
+   Adding embassy-sync v0.7.2 <span class="o">(</span>available: v0.8.0<span class="o">)</span>
+  Downloaded embassy-stm32 v0.4.0
+  Downloaded stm32-metapac v18.0.0
+  Downloaded stm32-fmc v0.3.2
+  Downloaded 3 crates <span class="o">(</span>11.9MiB<span class="o">)</span> <span class="k">in </span>0.83s <span class="o">(</span>largest was <span class="sb">`</span>stm32-metapac<span class="sb">`</span> at 11.5MiB<span class="o">)</span>
+Compiling proc-macro2 v1.0.106
+Compiling unicode-ident v1.0.24
+Compiling quote v1.0.45
+Compiling defmt v1.0.1
+Compiling thiserror v2.0.18
+Compiling defmt-macros v1.0.1
+Compiling semver-parser v0.7.0
+Compiling bitflags v1.3.2
+Compiling cortex-m v0.7.7
+Compiling nb v1.1.0
+Compiling critical-section v1.2.0
+Compiling cortex-m-rt v0.7.5
+Compiling semver v0.9.0
+Compiling stable_deref_trait v1.2.1
+Compiling nb v0.1.3
+Compiling void v1.0.2
+Compiling byteorder v1.5.0
+Compiling vcell v0.1.3
+Compiling embedded-hal v0.2.7
+Compiling rustc_version v0.2.3
+Compiling volatile-register v0.2.2
+Compiling futures-core v0.3.32
+Compiling embedded-io-async v0.6.1
+Compiling hash32 v0.3.1
+Compiling bitfield v0.13.2
+Compiling litrs v1.0.0
+Compiling heapless v0.8.0
+Compiling cfg-if v1.0.4
+Compiling bare-metal v0.2.5
+Compiling embassy-time-driver v0.2.2
+Compiling autocfg v1.5.0
+Compiling ident_case v1.0.1
+Compiling embedded-hal v1.0.0
+Compiling stm32-metapac v18.0.0
+Compiling fnv v1.0.7
+Compiling futures-sink v0.3.32
+Compiling heapless v0.9.2
+Compiling strsim v0.11.1
+Compiling embedded-hal-async v1.0.0
+Compiling syn v2.0.117
+Compiling document-features v0.2.12
+Compiling num-traits v0.2.19
+Compiling embassy-sync v0.7.2
+Compiling proc-macro-error-attr2 v2.0.0
+Compiling embassy-sync v0.8.0
+Compiling embassy-time-queue-utils v0.3.0
+Compiling embassy-hal-internal v0.3.0
+Compiling embedded-io v0.7.1
+Compiling embedded-io-async v0.7.0
+Compiling as-slice v0.2.1
+Compiling embedded-storage v0.3.1
+Compiling embassy-executor-timer-queue v0.1.0
+Compiling aligned v0.4.3
+Compiling embedded-storage-async v0.4.1
+Compiling pin-project-lite v0.2.17
+Compiling embassy-executor v0.9.1
+Compiling defmt-rtt v1.1.0
+Compiling panic-probe v1.0.0
+Compiling futures-task v0.3.32
+Compiling embassy-futures v0.1.2
+Compiling futures-util v0.3.32
+Compiling block-device-driver v0.2.0
+Compiling embedded-hal-nb v1.0.0
+Compiling stm32-fmc v0.3.2
+Compiling embedded-can v0.4.1
+Compiling sdio-host v0.9.0
+Compiling bit_field v0.10.3
+Compiling rand_core v0.9.5
+Compiling static_assertions v1.1.0
+Compiling bitflags v2.11.0
+Compiling blackpill v0.1.0 <span class="o">(</span>/home/alan/projects/rust/blackpill<span class="o">)</span>
+Compiling rand_core v0.6.4
+Compiling proc-macro-error2 v2.0.1
+Compiling darling_core v0.20.11
+Compiling thiserror-impl v2.0.18
+Compiling cortex-m-rt-macros v0.7.5
+Compiling darling_macro v0.20.11
+Compiling defmt-parser v1.0.0
+Compiling darling v0.20.11
+Compiling embassy-executor-macros v0.7.0
+Compiling defmt v0.3.100
+Compiling embassy-time v0.5.1
+Compiling embedded-io v0.6.1
+Compiling embassy-net-driver v0.2.0
+Compiling embassy-usb-driver v0.2.0
+Compiling embassy-usb-synopsys-otg v0.3.2
+Compiling embassy-stm32 v0.4.0
+Compiling embassy-embedded-hal v0.5.0
+ Finished <span class="sb">`</span>dev<span class="sb">`</span> profile <span class="o">[</span>optimized + debuginfo] target<span class="o">(</span>s<span class="o">)</span> <span class="k">in </span>15.92s
+</code></pre></div>    </div>
+  </li>
+  <li>Run the project (if adjustments in main.rs match your MCU)
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>cargo run
+ Finished <span class="sb">`</span>dev<span class="sb">`</span> profile <span class="o">[</span>optimized + debuginfo] target<span class="o">(</span>s<span class="o">)</span> <span class="k">in </span>0.04s
+  Running <span class="sb">`</span>probe-rs run <span class="nt">--chip</span> STM32F411CE target/thumbv7em-none-eabihf/debug/blackpill<span class="sb">`</span>
+   Erasing ✔   0% <span class="o">[</span><span class="nt">--------------------</span><span class="o">]</span>        0 B @        0 B/s <span class="o">(</span>ETA 0s<span class="o">)</span>
+etc etc
+</code></pre></div>    </div>
+  </li>
+</ol>]]></content><author><name>Alan Garfield</name></author><summary type="html"><![CDATA[Kickstarting an Embassy-rs project for a Blackpill]]></summary></entry><entry><title type="html">Using git subtree to send _site to master branch</title><link href="https://fromorbit.com/Static-Jekyll-to-github-pages/" rel="alternate" type="text/html" title="Using git subtree to send _site to master branch" /><published>2026-03-30T00:00:00+11:00</published><updated>2026-03-30T00:00:00+11:00</updated><id>https://fromorbit.com/Static-Jekyll-to-github-pages</id><content type="html" xml:base="https://fromorbit.com/Static-Jekyll-to-github-pages/"><![CDATA[<h1 id="what">What?</h1>
 
 <p>If you use github pages and you want to generate your static files yourself you can use a repo with a <code class="language-plaintext highlighter-rouge">master</code> branch that is your public static rendered files, and another branch in my case <code class="language-plaintext highlighter-rouge">sources</code> that is the raw source files that I render with Jeykll locally.</p>
 
@@ -1557,61 +1727,4 @@ Verification failed at 0x200: 0x20 != 0x00
 
 <p>But UV got the better of me.</p>
 
-<p>Here’s to tomorrow!</p>]]></content><author><name>Alan Garfield</name></author><summary type="html"><![CDATA[Who knew you'd need UV to erase EPROMs! Derp.]]></summary></entry><entry><title type="html">Got together a schematic today - Retro Challenge 2017/04</title><link href="https://fromorbit.com/m68k-schematic-rc201704/" rel="alternate" type="text/html" title="Got together a schematic today - Retro Challenge 2017/04" /><published>2017-04-05T00:00:00+10:00</published><updated>2017-04-05T00:00:00+10:00</updated><id>https://fromorbit.com/m68k-schematic-rc201704</id><content type="html" xml:base="https://fromorbit.com/m68k-schematic-rc201704/"><![CDATA[<p>Quick one today, I worked on the schematic a little more. Still a few unknowns
-and a couple of holes I’ve not filled in yet, but the schematic is 80%
-complete. At least to a point where I can get a ROM monitor etc running and
-know where all the hardware is and have a good certainty I’m not talking in the
-breeze when I start trying to control the hardware.</p>
-
-<p>I’ve also been working on a simulator for this board using the <a href="https://github.com/kstenerud/Musashi">Musashi 68000
-core</a> in C. I’ve built up the address
-map, and started writting modules to simulate the hardware. This will help me
-greatly in development as I won’t need to be burning ROMs so often to try
-things out initially. A ROM monitor would help a lot too, so I’m weighing up
-options given the time I have for the competition and my already terrible
-work/life balance.</p>
-
-<p>Here is a snippet of the UART core I’ve written for the simulator, it sets up the internal registers etc of the UART so the firmware can read and write state to configure the registers. The only bit I’ve not successfully worked out yet is the interrupt priorities, there is something wonky on this boards layout I’ve not figured out with the interrupt. But that’s another days problem.</p>
-
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">scc2691_core</span> <span class="n">uarts</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
-
-<span class="kt">void</span> <span class="nf">scc2691_reset</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">id</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-
-        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">m1</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
-        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">m1_flag</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
-        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">m2</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
-
-        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">csr</span>  <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
-        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">cr</span>   <span class="o">=</span> <span class="mh">0xA</span><span class="p">;</span>
-        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">thr</span>  <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
-        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">acr</span>  <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
-        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">imr</span>  <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
-        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ctur</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
-        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ctlr</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
-
-        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">sr</span>  <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
-        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">rhr</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
-        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">isr</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
-        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ctu</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
-        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ctl</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
-
-        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">cnt_flag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">cnt_value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">tx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="n">uarts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">tx_last</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
-        <span class="n">int_controller_clear</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h1 id="the-schematic-so-far-">The schematic so far …</h1>
-
-<figure class=""><a href="/assets/images/2017-04-05-schematic.png" class="image-popup" title="AMX board schematic
-"><img src="/assets/images/2017-04-05-schematic.png" alt="AMX board schematic" /></a><figcaption>
-      AMX board schematic
-
-    </figcaption></figure>]]></content><author><name>Alan Garfield</name></author><summary type="html"><![CDATA[Beeping and clicking things into KiCAD like a mad man]]></summary></entry></feed>
+<p>Here’s to tomorrow!</p>]]></content><author><name>Alan Garfield</name></author><summary type="html"><![CDATA[Who knew you'd need UV to erase EPROMs! Derp.]]></summary></entry></feed>
