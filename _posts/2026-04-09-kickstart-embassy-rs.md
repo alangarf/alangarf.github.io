@@ -1,6 +1,8 @@
 ---
 title: Kickstart an Embassy-rs project
 classes: wide
+layout: splash
+author_profile: false
 ---
 
 # Kickstarting an Embassy-rs project for a Blackpill
