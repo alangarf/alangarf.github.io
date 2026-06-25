@@ -1,6 +1,10 @@
 ---
 title: RP PicoW LED clock using Rust and Embassy-rs
-author_profile: false
+excerpt: Tick tock tick tock
+header:
+  overlay_image: assets/images/2026-06-25-pico_clock_1.jpg
+  overlay_filter: rgba(62, 51, 12, 0.8)
+  teaser: "assets/images/2026-06-25-pico_clock_1.jpg"
 g1:
 - image_path: assets/images/2026-06-25-pico_clock_1.jpg
   url: assets/images/2026-06-25-pico_clock_1.jpg
