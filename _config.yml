@@ -192,6 +192,7 @@ kramdown:
 sass:
   sass_dir: _sass
   style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
+  silence_deprecations: ["import", "global-builtin", "if-function", "slash-div", "color-functions"]
 
 
 # Outputting
@@ -223,7 +224,6 @@ pagination:
   trail:
     before: 2
     after: 2
-
 
 # Plugins (previously gems:)
 plugins:

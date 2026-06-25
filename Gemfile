@@ -5,6 +5,7 @@ gem "base64"
 gem "bigdecimal"
 gem "kramdown-parser-gfm"
 gem "faraday-retry"
+gem "erb"
 
 group :jekyll_plugins do
   gem "jekyll-include-cache"
