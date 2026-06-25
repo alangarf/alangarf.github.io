@@ -208,4 +208,10 @@ var store = [{
         "tags": [],
         "url": "/kickstart-embassy-rs/",
         "teaser": "/assets/images/logo_blue.svg"
+      },{
+        "title": "RP PicoW LED clock using Rust and Embassy-rs",
+        "excerpt":"For a while now, I’ve attempted to build an LED clock. My first attempt was about 16 years ago using a PIC18F452; it worked, but I wasn’t inspired by the development environment at the time, and I had to set the time manually. Truth be told, it was all awful....","categories": [],
+        "tags": [],
+        "url": "/pico-clock/",
+        "teaser": "/assets/images/logo_blue.svg"
       }]

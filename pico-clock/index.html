@@ -1,0 +1,694 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en-AU" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>RP PicoW LED clock using Rust and Embassy-rs | FromOrbit.com</title>
+<meta name="description" content="For a while now, I’ve attempted to build an LED clock. My first attempt was about 16 years ago using a PIC18F452; it worked, but I wasn’t inspired by the development environment at the time, and I had to set the time manually. Truth be told, it was all awful.">
+
+
+  <meta name="author" content="Alan Garfield">
+  
+  <meta property="article:author" content="Alan Garfield">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_AU">
+<meta property="og:site_name" content="FromOrbit.com">
+<meta property="og:title" content="RP PicoW LED clock using Rust and Embassy-rs">
+<meta property="og:url" content="https://fromorbit.com/pico-clock/">
+
+
+  <meta property="og:description" content="For a while now, I’ve attempted to build an LED clock. My first attempt was about 16 years ago using a PIC18F452; it worked, but I wasn’t inspired by the development environment at the time, and I had to set the time manually. Truth be told, it was all awful.">
+
+
+
+
+
+  <meta name="twitter:site" content="@alangarf">
+  <meta name="twitter:title" content="RP PicoW LED clock using Rust and Embassy-rs">
+  <meta name="twitter:description" content="For a while now, I’ve attempted to build an LED clock. My first attempt was about 16 years ago using a PIC18F452; it worked, but I wasn’t inspired by the development environment at the time, and I had to set the time manually. Truth be told, it was all awful.">
+  <meta name="twitter:url" content="https://fromorbit.com/pico-clock/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+
+
+  <meta property="article:published_time" content="2026-06-25T00:00:00+10:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://fromorbit.com/pico-clock/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="FromOrbit.com Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <link rel="icon" type="image/svg+xml" href="/assets/images/logo_bg.svg">
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo_blue.svg" alt="FromOrbit.com"></a>
+        
+        <a class="site-title" href="/">
+          FromOrbit.com
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="RP PicoW LED clock using Rust and Embassy-rs">
+    <meta itemprop="description" content="For a while now, I’ve attempted to build an LED clock. My first attempt was about 16 years ago using a PIC18F452; it worked, but I wasn’t inspired by the development environment at the time, and I had to set the time manually. Truth be told, it was all awful.">
+    <meta itemprop="datePublished" content="2026-06-25T00:00:00+10:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://fromorbit.com/pico-clock/" itemprop="url">RP PicoW LED clock using Rust and Embassy-rs
+</a>
+          </h1>
+          
+
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2026-06-25T00:00:00+10:00">June 25, 2026</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <p>For a while now, I’ve attempted to build an LED clock. My first attempt was about 16 years ago using a PIC18F452; it worked, but I wasn’t inspired by the development environment at the time, and I had to set the time manually. Truth be told, it was all awful.</p>
+
+<p>In another attempt, I used an ATMega16. That got close, but once again, there was no easy Wi-Fi (at the time), and it was just not inspiring to work on. The attempt prior to this current one used the same four-module 8x8 LED displays with SPI control, but on an STM32F103 with a WizNet chip. It was written in C++ and worked well, but I unfortunately got swamped with work and never got back to it.</p>
+
+<p>Recently, I’ve had a bit of spare time, so I decided I’d like to try Rust on something. I’ve previously had success with Embassy-rs on an embedded project using an STM32G431 with an audio codec. I liked the async nature of it, and it was a pretty good way to tackle the learning curve of Rust and the ecosystem. It wasn’t just printing text in a terminal—it was blinking lights and making noises with a codec!</p>
+
+<figure class="third ">
+  
+    
+      <a href="/assets/images/2026-06-25-pico_clock_1.jpg">
+
+            
+
+<img src="/assets/images/2026-06-25-pico_clock_1.jpg" alt="Pico Clock Front Red" srcset="    /assets/resized/320/2026-06-25-pico_clock_1.jpg 320w,    /assets/resized/480/2026-06-25-pico_clock_1.jpg 480w, /assets/images/2026-06-25-pico_clock_1.jpg 965w" />
+
+      </a>
+    
+  
+    
+      <a href="/assets/images/2026-06-25-pico_clock_2.jpg">
+
+            
+
+<img src="/assets/images/2026-06-25-pico_clock_2.jpg" alt="Pico Clock Front Blue" srcset="    /assets/resized/320/2026-06-25-pico_clock_2.jpg 320w,    /assets/resized/480/2026-06-25-pico_clock_2.jpg 480w, /assets/images/2026-06-25-pico_clock_2.jpg 965w" />
+
+      </a>
+    
+  
+    
+      <a href="/assets/images/2026-06-25-pico_clock_3.jpg">
+
+            
+
+<img src="/assets/images/2026-06-25-pico_clock_3.jpg" alt="Pico Clock Front Green" srcset="    /assets/resized/320/2026-06-25-pico_clock_3.jpg 320w,    /assets/resized/480/2026-06-25-pico_clock_3.jpg 480w, /assets/images/2026-06-25-pico_clock_3.jpg 834w" />
+
+      </a>
+    
+  
+  
+</figure>
+
+<p>And this is the result so far! I really enjoyed embassy once again, and my Rust is far less “rusty”.</p>
+
+<figure class="half ">
+  
+    
+      <a href="/assets/images/2026-06-25-pico_clock_4.jpg">
+
+            
+
+<img src="/assets/images/2026-06-25-pico_clock_4.jpg" alt="Pico Clock Front Red" srcset="    /assets/resized/320/2026-06-25-pico_clock_4.jpg 320w,    /assets/resized/480/2026-06-25-pico_clock_4.jpg 480w, /assets/images/2026-06-25-pico_clock_4.jpg 965w" />
+
+      </a>
+    
+  
+    
+      <a href="/assets/images/2026-06-25-pico_clock_5.jpg">
+
+            
+
+<img src="/assets/images/2026-06-25-pico_clock_5.jpg" alt="Pico Clock Front Red" srcset="    /assets/resized/320/2026-06-25-pico_clock_5.jpg 320w,    /assets/resized/480/2026-06-25-pico_clock_5.jpg 480w, /assets/images/2026-06-25-pico_clock_5.jpg 965w" />
+
+      </a>
+    
+  
+  
+</figure>
+
+<p>I ended up using a Raspberry Pi Pico W (which is fully supported in Embassy) as the cost is exceptionally low and it includes the onboard CYW43 Wi-Fi chip. I’m using the same 8x8 LED modules as before—I bought a bunch of them cheap years ago—but I was never happy with the character size, nor the fact that I couldn’t fit seconds on the display. Because of this, I set out to expand the display to five 8x8 LED modules.</p>
+
+<figure class="third ">
+  
+    
+      <a href="/assets/images/2026-06-25-pico_clock_6.jpg">
+
+            
+
+<img src="/assets/images/2026-06-25-pico_clock_6.jpg" alt="Pico Clock Front Red" srcset="    /assets/resized/320/2026-06-25-pico_clock_6.jpg 320w,    /assets/resized/480/2026-06-25-pico_clock_6.jpg 480w, /assets/images/2026-06-25-pico_clock_6.jpg 965w" />
+
+      </a>
+    
+  
+    
+      <a href="/assets/images/2026-06-25-pico_clock_7.jpg">
+
+            
+
+<img src="/assets/images/2026-06-25-pico_clock_7.jpg" alt="Pico Clock Front Red" srcset="    /assets/resized/320/2026-06-25-pico_clock_7.jpg 320w,    /assets/resized/480/2026-06-25-pico_clock_7.jpg 480w, /assets/images/2026-06-25-pico_clock_7.jpg 965w" />
+
+      </a>
+    
+  
+    
+      <a href="/assets/images/2026-06-25-pico_clock_8.jpg">
+
+            
+
+<img src="/assets/images/2026-06-25-pico_clock_8.jpg" alt="Pico Clock Front Red" srcset="    /assets/resized/320/2026-06-25-pico_clock_8.jpg 320w,    /assets/resized/480/2026-06-25-pico_clock_8.jpg 480w, /assets/images/2026-06-25-pico_clock_8.jpg 965w" />
+
+      </a>
+    
+  
+  
+</figure>
+
+<p>To that end, I also disliked that these cheap LED assemblies were never flat out of the factory; the modules were simply pushed into machined pin headers that were soldered so poorly the displays were barely aligned with one another. So, out came the desoldering gun, and I removed the headers entirely. Because I needed to add a fifth module to the end, I designed a 3D-printed mount to hold the PCBs perfectly flush together while I resoldered the LED modules directly. The mount worked great, making the final display flat and rigid.</p>
+
+<p>Next, I needed to mount the Pico W, so I modeled a bracket that provided clearance for the pins and securely attached it to the display module itself. The final 3D-printed case consists of three parts: the main enclosure, a front lens that sits before the display/Pico W stack, and a rear panel that houses the USB-C power input and a push button. The entire case sandwiches the PCB against the lens and the front bezel, making the whole assembly feel incredibly solid.</p>
+
+<p>I designed the case and all the 3D-printed parts using FreeCAD V1.1. I’ve been using FreeCAD for a while, and the growth I’ve seen in the project is phenomenal. A lot of rough edges have been removed, and it has truly become a powerhouse tool. I enjoy working in it, I’ve made many neat things with it, and I couldn’t be happier with how this case turned out.</p>
+
+<p>I particularly enjoyed how clean the USB-C mount is. I used those cheap, ubiquitous USB-C breakout boards and mounted the PCB onto two small printed studs that hold it perfectly aligned with the cutout hole. I then put a blob of hot glue underneath the board and pressed it firmly against the mount. So far, I have yet to break that bond, even when plugging and unplugging the cable. It’s incredibly rigid, and I think it would take a serious amount of abuse to make it fail. Best of all, if you ever need to remove it, a single drop of isopropyl alcohol weakens the hot glue bond instantly, and the board just pops right off. It feels like magic.</p>
+
+<p>I will post more about the Rust project soon, but suffice it to say I like the asynchronous nature of Embassy and love how easily you can run multiple tasks at once. Additionally, the signaling, pub/sub channels, and atomic buffers that let you pass all sorts of information between tasks efficiently and safely are just amazing.</p>
+
+<p>However, I’m not a huge fan of the build sizes. A 125-kilobyte clock firmware—which includes an NTP implementation, display animations, IPv4 networking (IPv6 is supported, but a CYW43 bug makes it not worth it at the moment), a captive portal for setup, and a web interface for controlling options saved to flash storage—somehow requires 2.6GB of disk space to build all the modules and Cargo packages. It feels a bit bloated and inefficient, but they are essentially shifting runtime complexity and safety into a compile-time problem. I guess if that’s the cost, disk space is cheap! Or it was in pre-AI time!</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2026-06-25T00:00:00+10:00">June 25, 2026</time></p>
+
+
+      </footer>
+
+      
+
+      
+
+  <nav class="pagination" aria-label="Post pagination">
+    
+      <a href="/kickstart-embassy-rs/" class="pagination--pager" title="Kickstart an Embassy-rs project">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+      
+        
+<div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Leave a comment</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+      
+    
+  </article>
+
+  
+  
+    
+
+<div class="page__related">
+  
+  <h2 class="page__related-title">You may also enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/logo_blue.svg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
+      
+        <a class="u-url" href="/kickstart-embassy-rs/" rel="permalink">Kickstart an Embassy-rs project
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2026-04-09T00:00:00+10:00">April 9, 2026</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">Kickstarting an Embassy-rs project for a Blackpill
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/logo_blue.svg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
+      
+        <a class="u-url" href="/Static-Jekyll-to-github-pages/" rel="permalink">Using git subtree to send _site to master branch
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2026-03-30T00:00:00+11:00">March 30, 2026</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">More for the brain file
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/logo_blue.svg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
+      
+        <a class="u-url" href="/StlinkV3-PicoDebug-Arch/" rel="permalink">Getting STLink-V3 and Pico Probe working in Arch Linux
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2026-03-29T00:00:00+11:00">March 29, 2026</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">for the brain file
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/logo_blue.svg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
+      
+        <a class="u-url" href="/Alan-wishlist-or-stuff-he-wants-to-remember/" rel="permalink">Alan’s Wishlist
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2025-04-25T00:00:00+10:00">April 25, 2025</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt p-summary" itemprop="description">MOAR STUFF
+</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2013 - 2026 <a href="https://fromorbit.com">FromOrbit.com</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://fromorbit.com/pico-clock/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/pico-clock"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://fromorbit-com.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+  </body>
+</html>
