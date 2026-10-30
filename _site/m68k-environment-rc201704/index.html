@@ -1,0 +1,1089 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.1 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en-AU" class="no-js" dir="ltr">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>m68k Environment - Retro Challenge 2017/04 | FromOrbit.com</title>
+<meta name="description" content="Getting down and dirty with make and gcc.">
+
+
+  <meta name="author" content="Alan Garfield">
+  
+  <meta property="article:author" content="Alan Garfield">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_AU">
+<meta property="og:site_name" content="FromOrbit.com">
+<meta property="og:title" content="m68k Environment - Retro Challenge 2017/04">
+<meta property="og:url" content="https://fromorbit.com/m68k-environment-rc201704/">
+
+
+  <meta property="og:description" content="Getting down and dirty with make and gcc.">
+
+
+
+  <meta property="og:image" content="https://fromorbit.com/m68k-environment-rc201704/motorola-logo.png">
+  
+
+
+
+  <meta name="twitter:site" content="@alangarf">
+  <meta name="twitter:title" content="m68k Environment - Retro Challenge 2017/04">
+  <meta name="twitter:description" content="Getting down and dirty with make and gcc.">
+  <meta name="twitter:url" content="https://fromorbit.com/m68k-environment-rc201704/">
+
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://fromorbit.com/m68k-environment-rc201704/motorola-logo.png">
+    
+  
+
+  
+
+
+
+
+
+  <meta property="article:published_time" content="2017-04-26T00:00:00+10:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://fromorbit.com/m68k-environment-rc201704/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="FromOrbit.com Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <link rel="icon" type="image/svg+xml" href="/assets/images/logo_bg.svg">
+
+  </head>
+
+  <body class="layout--single">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo_blue.svg" alt="FromOrbit.com"></a>
+        
+        <a class="site-title" href="/">
+          FromOrbit.com
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style=" background-image: linear-gradient(rgba(32, 62, 91, 0.8), rgba(32, 62, 91, 0.8)), url('/m68k-environment-rc201704/motorola-logo.png');"
+>
+  
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+        
+          m68k Environment - Retro Challenge 2017/04
+
+        
+      </h1>
+      
+        <p class="page__lead">Getting down and dirty with make and gcc.
+</p>
+      
+      
+
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2017-04-26T00:00:00+10:00">April 26, 2017</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          8 minute read
+        
+      </span>
+    
+  </p>
+
+
+      
+    </div>
+  
+  
+</div>
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://fromorbit.com/">
+        <img src="/assets/images/bio.jpg" alt="Alan Garfield" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://fromorbit.com/" itemprop="url">Alan Garfield</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Generic nerd who dabbles in programming, electronics, CNC and retro computing.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-location-dot" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Australia</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://youtube.com/randomgarfield" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-youtube" aria-hidden="true"></i><span class="label">YouTube</span></a></li>
+          
+        
+          
+            <li><a href="https://twitter.com/alangarf" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-square-x-twitter" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/alangarf" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="m68k Environment - Retro Challenge 2017/04">
+    <meta itemprop="description" content="Getting down and dirty with make and gcc.">
+    <meta itemprop="datePublished" content="2017-04-26T00:00:00+10:00">
+    
+
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        
+<p>So, for this post I want to talk about my development environment and where I’m
+up to as far as the Retro Challenge.</p>
+
+<p>I’ve had a <em>lot</em> of issues with this project. Initially I was cruising well and
+looking well on track to make something really cool, but then I damaged the
+board.</p>
+
+<p>The board started to exhibit a fault with it’s ability to load bytes from ROM.
+This became apparent as I started porting the TS2 ROM Monitor. When the fault
+occurred I started to gradually break the application down to the point of just
+the minimal initialization stuff for the CPU and UART and printing a string
+from ROM to the UART.</p>
+
+<p>As I was doing this testing, the CPU would appear to
+crash or not properly enter into any exception handler (even when forced too by
+using an illegal instruction!). After many, many days of trial and error and
+screaming at the board I finally broke it down to the point of it was either a
+faulty CPU or I’m a complete idiot and can’t write five m68k assembly
+instructions.</p>
+
+<p>So, I cut my losses and switch to my fall back board that was a little newer
+and based on a MC68340 CPU. My main hesitation initially for not using this
+board to begin with was that it was a peripheral integrated CPU, which meant
+the board was basically ROM, RAM, CPU, and power related parts.</p>
+
+<figure class=" ">
+  
+    
+      <a href="axc-em.jpg" title="AMX AXC-EM board.">
+
+            
+
+
+
+<img src="/assets/resized/320/axc-em.jpg" alt="AMX AXC-EM board." srcset="    /assets/resized/320/axc-em.jpg 320w,    /assets/resized/480/axc-em.jpg 480w,    /assets/resized/1280/axc-em.jpg 1280w, axc-em.jpg 2048w" />
+
+      </a>
+    
+  
+  
+</figure>
+
+<p>As it stands I’ve had a much more enjoyable time working with this board and so
+have progressed much further with the software, rather than staring at a
+blinking LED and hoping it blinks <em>just right</em> this time (if you follow me on
+Twitter you’ll know what I mean)..</p>
+
+<h1 id="the-software-environment">The Software Environment.</h1>
+
+<p>At the moment I’m writing everything in assembler for the m68k. I’m on a
+Macbook Pro and I run the m68k development environment in a Ubuntu Xenial VM
+using Vagrant. Rather than trying to setup the cross compiler in OSX, I just
+opted to use Linux and the Ubuntu m86k deb packages.</p>
+
+<p>So, to edit the code I use a Vagrant share and access the files in OSX using
+Vim in iTerm, and in another panel I have an open SSH session into the VM to do
+the compilation.</p>
+
+<p>To get the code onto the EEPROMs I use a <a href="http://www.autoelectric.cn/en/tl866_main.html">TL866a MiniPro
+programmer</a>, which I’ve compiled
+the <a href="https://github.com/vdudouyt/minipro">open source command line tool</a> for it
+in OSX. This means to program the EEPROMs I run the commands in OSX.</p>
+
+<p>Sounds difficult but it’s really not. I have a Makefile which handles all the
+compiling and ROM images, plus outputting dump files. It also has the recipe
+for programming the even and odd ROM images to the EEPROMs via the MiniPro
+tool.</p>
+
+<p>The flow sorta looks like this:</p>
+
+<ul>
+  <li>Makes changes to the source code in vim inside one iTerm pane.</li>
+  <li>Switch to the VM pane that’s SSH’d into the VM. Run the make compile command.</li>
+  <li>Switch back to the editor pane in iTerm.</li>
+  <li>Put the even EEPROM in the programmer.</li>
+  <li>From inside vim run the make commands to program the even EEPROM</li>
+  <li>Rinse repeat for the odd ROM</li>
+</ul>
+
+<p>Here is the Makefile I’m using, you can see it <a href="https://github.com/alangarf/amx_axc_m68k/blob/master/Makefile">here on Github
+too.</a></p>
+
+<div class="language-make full highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">M68K</span><span class="o">=</span>m68k-linux-gnu
+<span class="nv">AS</span><span class="o">=</span><span class="p">$(</span>M68K<span class="p">)</span><span class="nt">-as</span>
+<span class="nv">LD</span><span class="o">=</span><span class="p">$(</span>M68K<span class="p">)</span><span class="nt">-ld</span>
+<span class="nv">COPY</span><span class="o">=</span><span class="p">$(</span>M68K<span class="p">)</span><span class="nt">-objcopy</span>
+<span class="nv">DUMP</span><span class="o">=</span><span class="p">$(</span>M68K<span class="p">)</span><span class="nt">-objdump</span>
+
+<span class="nv">ASFLAGS</span><span class="o">=</span><span class="nt">-m68340</span> <span class="nt">--warn</span> <span class="nt">--fatal-warnings</span>
+<span class="nv">LDFLAGS</span><span class="o">=</span><span class="nt">-T</span> m68k.ld
+<span class="nv">DUMPFLAGS</span><span class="o">=</span><span class="nt">-m68020</span> <span class="nt">-x</span> <span class="nt">-D</span>
+
+<span class="nv">EEPROM</span><span class="o">=</span>AT28C256
+<span class="nv">PREFIX</span><span class="o">=</span>m68k-
+
+<span class="nv">FMT</span><span class="o">=</span>binary
+
+<span class="nv">SRCS</span><span class="o">=</span>loader.s
+<span class="nv">OBJS</span><span class="o">=</span><span class="p">$(</span>SRCS:.s<span class="o">=</span>.o<span class="p">)</span>
+<span class="nv">MAIN</span><span class="o">=</span>loader
+
+<span class="nl">.PHONY</span><span class="o">:</span> <span class="nf">dump clean</span>
+
+<span class="nl">all</span><span class="o">:</span>	<span class="nf">$(MAIN)</span>
+
+<span class="nl">.s.o</span><span class="o">:</span>
+	<span class="p">$(</span>AS<span class="p">)</span> <span class="p">$(</span>ASFLAGS<span class="p">)</span> <span class="nt">-o</span> <span class="nv">$@</span> <span class="nv">$&lt;</span>
+
+<span class="nl">$(MAIN)</span><span class="o">:</span> <span class="nf">$(OBJS)</span>
+	<span class="p">$(</span>LD<span class="p">)</span> <span class="p">$(</span>LDFLAGS<span class="p">)</span> <span class="nt">-o</span> <span class="p">$(</span>MAIN<span class="p">)</span>.a <span class="p">$(</span>OBJS<span class="p">)</span>
+	<span class="p">$(</span>COPY<span class="p">)</span> <span class="nt">-b</span> 0 <span class="nt">-i</span> 2 <span class="nt">--interleave-width</span><span class="o">=</span>1 <span class="nt">-O</span> <span class="p">$(</span>FMT<span class="p">)</span> <span class="p">$(</span>MAIN<span class="p">)</span>.a <span class="p">$(</span>PREFIX<span class="p">)$(</span>MAIN<span class="p">)</span><span class="nt">-even</span>.bin
+	<span class="p">$(</span>COPY<span class="p">)</span> <span class="nt">-b</span> 1 <span class="nt">-i</span> 2 <span class="nt">--interleave-width</span><span class="o">=</span>1 <span class="nt">-O</span> <span class="p">$(</span>FMT<span class="p">)</span> <span class="p">$(</span>MAIN<span class="p">)</span>.a <span class="p">$(</span>PREFIX<span class="p">)$(</span>MAIN<span class="p">)</span><span class="nt">-odd</span>.bin
+
+<span class="nl">clean</span><span class="o">:</span>
+	<span class="nb">rm</span> <span class="nt">-f</span> <span class="k">*</span>.o <span class="p">$(</span>PREFIX<span class="p">)$(</span>MAIN<span class="p">)</span><span class="nt">-even</span>.bin <span class="p">$(</span>PREFIX<span class="p">)$(</span>MAIN<span class="p">)</span><span class="nt">-odd</span>.bin <span class="p">$(</span>PREFIX<span class="p">)$(</span>MAIN<span class="p">)</span>.bin <span class="p">$(</span>MAIN<span class="p">)</span>.a
+
+<span class="nl">prog_even</span><span class="o">:</span>
+	<span class="p">@</span><span class="nb">echo </span>Programming <span class="p">$(</span>MAIN<span class="p">)</span><span class="nt">-even</span> onto <span class="p">$(</span>EEPROM<span class="p">)</span>
+	minipro <span class="nt">-p</span> <span class="s2">"</span><span class="p">$(</span><span class="s2">EEPROM</span><span class="p">)</span><span class="s2">"</span> <span class="nt">-w</span> <span class="p">$(</span>PREFIX<span class="p">)$(</span>MAIN<span class="p">)</span><span class="nt">-even</span>.bin <span class="nt">-s</span>
+
+<span class="nl">prog_odd</span><span class="o">:</span>
+	<span class="p">@</span><span class="nb">echo </span>Programming <span class="p">$(</span>MAIN<span class="p">)</span><span class="nt">-odd</span> onto <span class="p">$(</span>EEPROM<span class="p">)</span>
+	minipro <span class="nt">-p</span> <span class="s2">"</span><span class="p">$(</span><span class="s2">EEPROM</span><span class="p">)</span><span class="s2">"</span> <span class="nt">-w</span> <span class="p">$(</span>PREFIX<span class="p">)$(</span>MAIN<span class="p">)</span><span class="nt">-odd</span>.bin <span class="nt">-s</span>
+
+<span class="nl">dump</span><span class="o">:</span>	<span class="nf">$(MAIN)</span>
+	<span class="p">$(</span>DUMP<span class="p">)</span> <span class="p">$(</span>DUMPFLAGS<span class="p">)</span> <span class="p">$(</span>MAIN<span class="p">)</span>.a
+</code></pre></div></div>
+
+<h1 id="compilation-and-linking">Compilation and Linking</h1>
+
+<p>As you can see from the Makefile above I’m using <code class="language-plaintext highlighter-rouge">m68k-linux-gnu-as</code> to
+assemble the object files from the source files. I am then using
+<code class="language-plaintext highlighter-rouge">m68k-linux-gnu-ld</code> to link the object file(s) into the <code class="language-plaintext highlighter-rouge">.a</code> archive object
+file. Which is then split into the <code class="language-plaintext highlighter-rouge">even</code> and <code class="language-plaintext highlighter-rouge">odd</code> ROM binary images needed
+for the two 8 bit EEPROMS to make the 16bit wide program data.</p>
+
+<p>I have a small linker script to handle the vector mapping, the stack and RAM
+locations etc. This step makes moving the resources around <em>very</em> easy, which
+I’m now thankful for because the two boards I have are vastly different in
+memory map to each other.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MEMORY
+{
+    ROM (rx) : ORIGIN = 0x00000000, LENGTH = 0x10000
+    RAM (xrw) : ORIGIN = 0x00040000, LENGTH = 0x10000
+}
+
+/* stack location */
+stack_size = 1024;
+
+_stack_start = ORIGIN(RAM)+LENGTH(RAM)-0x10;
+_stack_end = _stack_start - stack_size;
+
+/* ram location */
+_ram_start = ORIGIN(RAM);
+_ram_end = ORIGIN(RAM)+LENGTH(RAM);
+
+/* system integration module */
+_sim40 = 0x80000;
+_timers = _sim40 + 0x600;
+_uarts = _sim40 + 0x700;
+_dma = _sim40 + 0x780;
+
+SECTIONS {
+  .vectors 0x00 :
+  {
+    . = ALIGN(4);
+    KEEP(*(.vectors))
+    . = ALIGN(4);
+  } &gt; ROM
+
+  .text 0x400 : {
+    . = ALIGN(4);
+    *(.text)
+    . = ALIGN(4);
+  } &gt; ROM
+
+  .data : { *(.data) } &gt; RAM
+  .bss :  { *(.bss)  *(COMMON) } &gt; RAM
+}
+
+OUTPUT_ARCH(m68k)
+</code></pre></div></div>
+
+<p>I’ve been trying to get an <code class="language-plaintext highlighter-rouge">.rodata</code> section working, but for whatever reason
+my sections end up with the wrong alignment and any strings I put there are in
+the ROM image, but don’t appear to work. Maybe when I get some times I’ll
+figure out why that is, for now I’m happy to just put the strings at the end of
+the <code class="language-plaintext highlighter-rouge">.text</code> section.</p>
+
+<h1 id="initializing-the-mc68340-cpu">Initializing the MC68340 CPU</h1>
+
+<p>The MC68430 is a great CPU, it has a lovely set of peripherals, and some very
+nice features. However getting it going can be a little trick as both the RAM
+and ROM positions are controlled completely by the System Integration Module.
+The “SIM40” is a peripheral module in the MC68340 that basically handles all
+the address decoding and glue logic the other board had in 74 series ICs. This
+allows cool things like loading the START and SP registers from the ROM, and
+then moving the ROM up high in the memory map and replacing where the ROM would
+be with RAM. All with just a few instructions. Done in hardware you’d need
+complex gating or a GAL to achieve something similar.</p>
+
+<p>So to start with here is a chunk of code that configures the ROM and RAM
+locations in the memory map, and configures the CPU speed and interrupt maps.</p>
+
+<div class="language-plaintext full highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*************************************************************************
+*
+*  Init the CPU and System Integration Module - Configs module options
+*
+.init:
+            move.w      #0x2700, %sr                    | mask interrupts and set supervisor mode
+
+            moveq       #7, %d0
+            movec       %d0, %dfc
+            move.l      #_sim40 + 1, %d0
+            moves.l     %d0, 0x3ff00                    | move sim40 base address to 0x80000
+
+            /* setup ROM chip select CS0 */
+            move.l      #0x03fffd, _sm_csam0 + _sim40   | 16 bit port, three wait, mask FC bits, 256KB in size
+            move.l      #0x000001, _sm_csbar0 + _sim40  | starting at 0x00000
+
+            /* setup RAM chip select CS1 */
+            move.l      #0x03fff1, _sm_csam1 + _sim40   | 16 bit port, zero wait, mask FC bits, 256KB in size
+            move.l      #0x040001, _sm_csbar1 + _sim40  | starting at 0x40000
+
+            /* setup system protects and clock */
+            move.b      #0x06, _sm_sypcr + _sim40       | turn off watchdogs, bus fault, bus monitor
+            move.w      #0x7c00, _sm_syncr + _sim40     | set clock to 15.991 MHz
+            move.w      #0x420f, _sm_mcr + _sim40       | set MCR, no interrupts etc
+</code></pre></div></div>
+
+<p>In this project I’ve just kept the memory map really simple.</p>
+
+<ul>
+  <li>0x000000 is ROM</li>
+  <li>0x040000 is RAM</li>
+  <li>0x080000 is the SIM40 peripherals</li>
+</ul>
+
+<p>I may switch the RAM and ROM around later as this would allow me to dynamically
+change the interrupt and trap vectors. Otherwise I have to hard code jumps to
+RAM locations inside the ROM where the vectors are in order to make them
+dynamic. At the moment I’m not really using interrupts, but I can see myself
+wanting too in the near future (also breakpoints etc in my ROM Monitor).</p>
+
+<h1 id="initializing-the-mc68340">Initializing the MC68340</h1>
+
+<p>The MC68340 has a great suite of peripherals, from UARTs, Timers, System
+protection devices and DMA.</p>
+
+<figure class=" ">
+  
+    
+      <a href="mc68340.png" title="The internals of the MC68340">
+
+            
+
+
+
+<img src="/assets/resized/320/mc68340.png" alt="The internals of the MC68340" srcset="    /assets/resized/320/mc68340.png 320w,    /assets/resized/480/mc68340.png 480w, mc68340.png 1190w" />
+
+      </a>
+    
+  
+  
+</figure>
+
+<p>The SIM40 modules can move the addresses of these devices where ever you
+choose, but the layout is:</p>
+
+<figure class=" ">
+  
+    
+      <a href="sim40.png" title="The SIM40 address structure">
+
+            
+
+
+
+<img src="/assets/resized/320/sim40.png" alt="The SIM40 address structure" srcset="    /assets/resized/320/sim40.png 320w,    /assets/resized/480/sim40.png 480w,    /assets/resized/1280/sim40.png 1280w, sim40.png 1704w" />
+
+      </a>
+    
+  
+  
+</figure>
+
+<p>As you can see in the code above I’ve set it to the address of <code class="language-plaintext highlighter-rouge">0x080000</code>. For
+this project at the moment I’m turning more stuff <code class="language-plaintext highlighter-rouge">off</code> than I’m turning <code class="language-plaintext highlighter-rouge">on</code>.
+By default all these peripherals are available and running, you have to disable
+them if you’re not using them. Realistically this is more about power reduction
+than anything, but like unused logic gates, I feel they must be put into a
+known state. :)</p>
+
+<p>So I turn off all watchdogs, and system protection peripherals (eg. double bus
+fault monitors, bus monitors, reset etc), the timers, and the DMA. Since I need
+a UART I configure one and disable the other.</p>
+
+<h1 id="the-boot-loader">The boot-loader</h1>
+
+<p>Initially I was just going to port across an existing ROM monitor for the m68k,
+there are plenty of quality ones out there but given the time I lost on the
+faulty CPU/board I quickly realized I won’t be able to port the monitor quickly
+enough if I had to burn EEPROMs each time to make any <em>actual</em> application with
+the board. I set out to make an Mandelbrot set with this board, so debugging a
+monitor wasn’t something I had time to do.</p>
+
+<p>So speaking to my friend @trc_wm he suggested getting just something dumb that
+dumps binary into RAM and jumps to it, then write some python to push the
+binary at the serial port.</p>
+
+<p>I started implementing that until I saw a few pieces of code that would load
+<code class="language-plaintext highlighter-rouge">srec</code> format into RAM. I decoded the logic and wrote my own implementation in
+a few hours, I figured this would be all round simpler in the long run as I
+wouldn’t need to write the python. Instead I could just cut and paste the srec
+records straight into the terminal, or at the very least <code class="language-plaintext highlighter-rouge">cat</code> them out to the
+serial port.</p>
+
+<p>Here is an example showing altering the code, compiling, copying the srecord
+data and running it:</p>
+
+<figure class=" ">
+  
+    
+      <a href="hello_world.gif" title="Demo showing updating code and pushing it to the bootloader">
+
+            
+
+
+
+<img src="/assets/resized/320/hello_world.gif" alt="GIF showing the boot-loader in action" srcset="    /assets/resized/320/hello_world.gif 320w,    /assets/resized/480/hello_world.gif 480w, hello_world.gif 905w" />
+
+      </a>
+    
+  
+  
+</figure>
+
+<h1 id="enough-for-today">Enough for today</h1>
+
+<p>That ought to do me for today. To achieve my goal of generating a Mandelbrot
+set with the board for the Retro Challenge, I’m going to work on either getting
+compiling C to run on the m68k, or port a BASIC/FORTH tomorrow and then write a
+Mandelbrot set generator in the chosen language.</p>
+
+<p>We’ll see…</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2017-04-26T00:00:00+10:00">April 26, 2017</time></p>
+
+
+      </footer>
+
+      
+
+      
+
+  <nav class="pagination" aria-label="Post pagination">
+    
+      <a href="/rinse-repeat-rc201704/" class="pagination--pager" title="Rinse Repeat. :( - Retro Challenge 2017/04">Previous</a>
+    
+    
+      <a href="/m68k-crosstool-ng/" class="pagination--pager" title="More fun with the m68k">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+      
+        
+<div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Leave a comment</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+      
+    
+  </article>
+
+  
+  
+    
+
+<div class="page__related">
+  
+  <h2 class="page__related-title">You may also enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/resized/480/pico_clock_1.jpg" alt="">
+      </div>
+    
+
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/pico-clock/" rel="permalink">RP PicoW LED clock using Rust and Embassy-rs
+</a>
+      
+    </h2>
+
+    
+
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2026-06-25T00:00:00+10:00">June 25, 2026</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
+
+    
+      <p class="archive__item-excerpt" itemprop="description">Tick tock tick tock
+</p>
+    
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+
+    
+      <div class="archive__item-teaser">
+        <img src="/kickstart-embassy-rs/rust.png" alt="">
+      </div>
+    
+
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/kickstart-embassy-rs/" rel="permalink">Kickstart an Embassy-rs project
+</a>
+      
+    </h2>
+
+    
+
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2026-04-09T00:00:00+10:00">April 9, 2026</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+    
+  </p>
+
+
+
+    
+      <p class="archive__item-excerpt" itemprop="description">Kickstarting an Embassy-rs project for a Blackpill
+</p>
+    
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/resized/480/jekyll-logo.png" alt="">
+      </div>
+    
+
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Static-Jekyll-to-github-pages/" rel="permalink">Using git subtree to send _site to master branch
+</a>
+      
+    </h2>
+
+    
+
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2026-03-30T00:00:00+11:00">March 30, 2026</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+
+    
+      <p class="archive__item-excerpt" itemprop="description">More for the brain file
+</p>
+    
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/resized/480/st-logo.png" alt="">
+      </div>
+    
+
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/StlinkV3-PicoDebug-Arch/" rel="permalink">Getting STLink-V3 and Pico Probe working in Arch Linux
+</a>
+      
+    </h2>
+
+    
+
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2026-03-29T00:00:00+11:00">March 29, 2026</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+
+    
+      <p class="archive__item-excerpt" itemprop="description">for the brain file
+</p>
+    
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2013 - 2026 <a href="https://fromorbit.com">FromOrbit.com</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://fromorbit.com/m68k-environment-rc201704/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/m68k-environment-rc201704"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://fromorbit-com.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+  </body>
+</html>
