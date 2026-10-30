@@ -7,7 +7,7 @@ serve:
 deploy:
 	JEKYLL_ENV=production bundle exec jekyll build
 
-	git -C _site add .
+	git -C _site add -f .
 	git -C _site commit -m "Deploy update: $$(date)"
 	git -C _site push origin master
 

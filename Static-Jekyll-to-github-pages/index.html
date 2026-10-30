@@ -2,14 +2,14 @@
 
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Minimal Mistakes Jekyll Theme 4.28.1 by Michael Rose
   Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
   Copyright 2024-2026 iBug - ibugone.com | @iBug
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
 -->
 
-<html lang="en-AU" class="no-js">
+<html lang="en-AU" class="no-js" dir="ltr">
   <head>
     
 <meta charset="utf-8">
@@ -36,6 +36,9 @@
 
 
 
+  <meta property="og:image" content="https://fromorbit.com/Static-Jekyll-to-github-pages/jekyll-logo.png">
+  
+
 
 
   <meta name="twitter:site" content="@alangarf">
@@ -44,7 +47,8 @@
   <meta name="twitter:url" content="https://fromorbit.com/Static-Jekyll-to-github-pages/">
 
   
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://fromorbit.com/Static-Jekyll-to-github-pages/jekyll-logo.png">
     
   
 
@@ -101,7 +105,7 @@
 
   </head>
 
-  <body class="layout--single" dir="ltr">
+  <body class="layout--single">
     
 <nav class="skip-links" aria-label="Skip links">
   <ul>
@@ -152,6 +156,66 @@
 
     <div class="initial-content">
       
+
+
+  
+
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style=" background-image: linear-gradient(rgba(25, 25, 25, 0.8), rgba(25, 25, 25, 0.8)), url('/Static-Jekyll-to-github-pages/jekyll-logo.png');"
+>
+  
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+        
+          Using git subtree to send _site to master branch
+
+        
+      </h1>
+      
+        <p class="page__lead">More for the brain file
+</p>
+      
+      
+
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2026-03-30T00:00:00+11:00">March 30, 2026</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+      
+    </div>
+  
+  
+</div>
 
 
 
@@ -287,46 +351,11 @@
 
     <div class="page__inner-wrap">
       
-        <header>
-          <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="https://fromorbit.com/Static-Jekyll-to-github-pages/" itemprop="url">Using git subtree to send _site to master branch
-</a>
-          </h1>
-          
-
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2026-03-30T00:00:00+11:00">March 30, 2026</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-        </header>
-      
 
       <section class="page__content e-content" itemprop="text">
         
-        <h1 id="what">What?</h1>
+        
+<h1 id="what">What?</h1>
 
 <p>If you use github pages and you want to generate your static files yourself you can use a repo with a <code class="language-plaintext highlighter-rouge">master</code> branch that is your public static rendered files, and another branch in my case <code class="language-plaintext highlighter-rouge">sources</code> that is the raw source files that I render with Jeykll locally.</p>
 
@@ -423,20 +452,22 @@ git worktree add _site master
 
 
 
-
 <div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+
     
       <div class="archive__item-teaser">
-        <img src="/assets/images/2026-06-25-pico_clock_1.jpg" alt="">
+        <img src="/assets/resized/480/pico_clock_1.jpg" alt="">
       </div>
     
-    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
+
+    <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a class="u-url" href="/pico-clock/" rel="permalink">RP PicoW LED clock using Rust and Embassy-rs
+        <a href="/pico-clock/" rel="permalink">RP PicoW LED clock using Rust and Embassy-rs
 </a>
       
     </h2>
+
     
 
 
@@ -466,8 +497,11 @@ git worktree add _site master
   </p>
 
 
-    <p class="archive__item-excerpt p-summary" itemprop="description">Tick tock tick tock
+
+    
+      <p class="archive__item-excerpt" itemprop="description">Tick tock tick tock
 </p>
+    
   </article>
 </div>
 
@@ -477,20 +511,22 @@ git worktree add _site master
 
 
 
-
 <div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+
     
       <div class="archive__item-teaser">
-        <img src="/assets/images/logo_blue.svg" alt="">
+        <img src="/kickstart-embassy-rs/rust.png" alt="">
       </div>
     
-    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
+
+    <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a class="u-url" href="/kickstart-embassy-rs/" rel="permalink">Kickstart an Embassy-rs project
+        <a href="/kickstart-embassy-rs/" rel="permalink">Kickstart an Embassy-rs project
 </a>
       
     </h2>
+
     
 
 
@@ -520,8 +556,11 @@ git worktree add _site master
   </p>
 
 
-    <p class="archive__item-excerpt p-summary" itemprop="description">Kickstarting an Embassy-rs project for a Blackpill
+
+    
+      <p class="archive__item-excerpt" itemprop="description">Kickstarting an Embassy-rs project for a Blackpill
 </p>
+    
   </article>
 </div>
 
@@ -531,20 +570,22 @@ git worktree add _site master
 
 
 
-
 <div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+
     
       <div class="archive__item-teaser">
-        <img src="/assets/images/logo_blue.svg" alt="">
+        <img src="/assets/resized/480/st-logo.png" alt="">
       </div>
     
-    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
+
+    <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a class="u-url" href="/StlinkV3-PicoDebug-Arch/" rel="permalink">Getting STLink-V3 and Pico Probe working in Arch Linux
+        <a href="/StlinkV3-PicoDebug-Arch/" rel="permalink">Getting STLink-V3 and Pico Probe working in Arch Linux
 </a>
       
     </h2>
+
     
 
 
@@ -574,8 +615,11 @@ git worktree add _site master
   </p>
 
 
-    <p class="archive__item-excerpt p-summary" itemprop="description">for the brain file
+
+    
+      <p class="archive__item-excerpt" itemprop="description">for the brain file
 </p>
+    
   </article>
 </div>
 
@@ -585,20 +629,22 @@ git worktree add _site master
 
 
 
-
 <div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+
     
       <div class="archive__item-teaser">
-        <img src="/assets/images/logo_blue.svg" alt="">
+        <img src="/assets/resized/480/wish_list.jpg" alt="">
       </div>
     
-    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
+
+    <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a class="u-url" href="/Alan-wishlist-or-stuff-he-wants-to-remember/" rel="permalink">Alan’s Wishlist
+        <a href="/Alan-wishlist-or-stuff-he-wants-to-remember/" rel="permalink">Alan’s Wishlist
 </a>
       
     </h2>
+
     
 
 
@@ -628,8 +674,11 @@ git worktree add _site master
   </p>
 
 
-    <p class="archive__item-excerpt p-summary" itemprop="description">MOAR STUFF
+
+    
+      <p class="archive__item-excerpt" itemprop="description">MOAR STUFF
 </p>
+    
   </article>
 </div>
 

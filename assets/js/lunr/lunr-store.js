@@ -18,7 +18,7 @@ var store = [{
         "teaser": "/assets/images/logo_blue.svg"
       },{
         "title": "Image to Gcode",
-        "excerpt":"Been playing with some code to convert images to GCode.   Here is a test sample. Not bad I reckon. From 3 metres away it looks like a black and white photo. :)                                                                                                                                                ","categories": [],
+        "excerpt":"Been playing with some code to convert images to GCode.   Here is a test sample. Not bad I reckon. From 3 metres away it looks like a black and white photo. :)                                                                                                                                                      ","categories": [],
         "tags": [],
         "url": "/image-to-gcode/",
         "teaser": "/assets/images/logo_blue.svg"
@@ -96,122 +96,122 @@ var store = [{
         "teaser": "/assets/images/logo_blue.svg"
       },{
         "title": "Initial ZPU muck-about",
-        "excerpt":"           This is a fairly boring video of me talking to camera about my ideas on using a ZPU softcore CPU for a project I have on the boil. There is also a bit of a rant about crappy operating systems and vendor tools.  ","categories": [],
+        "excerpt":"            This is a fairly boring video of me talking to camera about my ideas on using a ZPU softcore CPU for a project I have on the boil. There is also a bit of a rant about crappy operating systems and vendor tools.  ","categories": [],
         "tags": [],
         "url": "/initial-zpu-muck-about/",
-        "teaser": "/assets/images/logo_blue.svg"
+        "teaser": "/assets/resized/480/zpu.jpg"
       },{
         "title": "Papilio DX board",
-        "excerpt":"           I found a cool discovery while talking on the phone and fiddling with things on my bench. The cool little Papilio One FPGA board has a perfect fitting random development board from Deal Extreme that I just happen to find. They still seem readily available and super useful!  ","categories": [],
+        "excerpt":"            I found a cool discovery while talking on the phone and fiddling with things on my bench. The cool little Papilio One FPGA board has a perfect fitting random development board from Deal Extreme that I just happen to find. They still seem readily available and super useful!  ","categories": [],
         "tags": [],
         "url": "/papilio-dx-board/",
-        "teaser": "/assets/images/logo_blue.svg"
+        "teaser": "/assets/resized/480/pap.jpg"
       },{
         "title": "The Mini H Quad v2.0 “The Hammer” frame",
-        "excerpt":"           This frame is freely available from http://untestedprototype.com/ and is feature packed for something that’s so small.   I fully intend to FPV this little quad and hopefully be buzzing around my local park.   Can’t wait! Damn international shipping!  ","categories": [],
+        "excerpt":"            This frame is freely available from http://untestedprototype.com/ and is feature packed for something that’s so small.   I fully intend to FPV this little quad and hopefully be buzzing around my local park.   Can’t wait! Damn international shipping!  ","categories": [],
         "tags": [],
         "url": "/the-mini-h-quad-v2-0-the-hammer-frame/",
-        "teaser": "/assets/images/logo_blue.svg"
+        "teaser": "/assets/resized/480/quad.jpg"
       },{
         "title": "Digital Foosball",
-        "excerpt":"           We digitized our foosball table for a hackday at work. It was a really fun task that has added a new dimension to our game play.  ","categories": [],
+        "excerpt":"            We digitized our foosball table for a hackday at work. It was a really fun task that has added a new dimension to our game play.  ","categories": [],
         "tags": [],
         "url": "/digital-foosball/",
-        "teaser": "/assets/images/logo_blue.svg"
+        "teaser": "/assets/resized/480/foos.jpg"
       },{
         "title": "Digital Foosball Two",
-        "excerpt":"          ","categories": [],
+        "excerpt":"           ","categories": [],
         "tags": [],
         "url": "/digital-foosball-two/",
-        "teaser": "/assets/images/logo_blue.svg"
+        "teaser": "/assets/resized/480/foos.png"
       },{
         "title": "Updating the website...",
         "excerpt":"Wonders of wonders… Yes my website is being updated once again. After about 5 aborted attempts to rebuild all my old content and get this site up and going again. I’ve finally decided to just start making new content, and if I find the time (and the will) I’ll periodically...","categories": [],
         "tags": [],
         "url": "/updating-website/",
-        "teaser": "/assets/images/logo_blue.svg"
+        "teaser": "/updating-website/successkid.jpg"
       },{
         "title": "Retro Challenge 2017/04",
         "excerpt":"After working with a friend on a Z80 based project I spoke about some SCC2691 UARTs I had from an old board I had saved from a skip bin some 10 years ago. He asked questions about the board and I described it to him.. “Yeah it’s got a 68000...","categories": [],
         "tags": [],
         "url": "/retro-computing-challenge-201704/",
-        "teaser": "/assets/images/logo_blue.svg"
+        "teaser": "/assets/resized/480/board.jpg"
       },{
         "title": "Beeping out the board - Retro Challenge 2017/04",
         "excerpt":"I first started with this board by pulling off the ROMs and dumping their contents. Being a m68k CPU generally the ROMs are split into odd and even byte streams, and in order to dissassemble them the two ROM images need to be interleaved again. I achieved this with a...","categories": [],
         "tags": [],
         "url": "/m68k-amx-board-rc201704/",
-        "teaser": "/assets/images/logo_blue.svg"
+        "teaser": "/assets/resized/480/74hcxxx.jpg"
       },{
         "title": "Got together a schematic today - Retro Challenge 2017/04",
         "excerpt":"Quick one today, I worked on the schematic a little more. Still a few unknowns and a couple of holes I’ve not filled in yet, but the schematic is 80% complete. At least to a point where I can get a ROM monitor etc running and know where all the...","categories": [],
         "tags": [],
         "url": "/m68k-schematic-rc201704/",
-        "teaser": "/assets/images/2017-03-31-m68k.png"
+        "teaser": "/assets/resized/480/board_roms.jpg"
       },{
         "title": "Ugh! I need UV - Retro Challenge 2017/04",
         "excerpt":"So I set out to make the LED blink a merry blink tonight, but was finally thwarted when I came to the realisation I’d need UV light to erase the EPROMs to load my code in. Suffice to say this was mighty frustrating. I’m getting ahead of the story, so...","categories": [],
         "tags": [],
         "url": "/m68k-why-no-uv-rc201704/",
-        "teaser": "/assets/images/2017-03-31-m68k.png"
+        "teaser": "/assets/resized/480/m68k.png"
       },{
         "title": "Now we're get'n somewhere! - Retro Challenge 2017/04",
         "excerpt":"After the UV fiasco I’ve finally managed to get around the issue. I did that by ditching EPROMs and instead replaced them with EEPROMs! Rummaging around in the shed I found two other cards from the system this controller was in originally. They were for controlling infrared devices and what...","categories": [],
         "tags": [],
         "url": "/gettin-somewhere-rc201704/",
-        "teaser": "/assets/images/2017-04-08-adapters_in_place.jpg"
+        "teaser": "/assets/resized/480/adapters_in_place.jpg"
       },{
         "title": "Rinse Repeat. :( - Retro Challenge 2017/04",
         "excerpt":"Apart from work and family commitments over Easter I’ve been stuck in a rinse repeat cycle with this board. I am still trying to iron the bugs out, and I’m having weird issues with the firmware. I started thinking about porting the TS2 “monitor” to this board, but was having...","categories": [],
         "tags": [],
         "url": "/rinse-repeat-rc201704/",
-        "teaser": "/assets/images/2017-04-18-axc-em.jpg"
+        "teaser": "/assets/resized/480/axc-em.jpg"
       },{
         "title": "m68k Environment - Retro Challenge 2017/04",
         "excerpt":"So, for this post I want to talk about my development environment and where I’m up to as far as the Retro Challenge. I’ve had a lot of issues with this project. Initially I was cruising well and looking well on track to make something really cool, but then I...","categories": [],
         "tags": [],
         "url": "/m68k-environment-rc201704/",
-        "teaser": "/assets/images/2017-04-18-mc68340.jpg"
+        "teaser": "/m68k-environment-rc201704/motorola-logo.png"
       },{
         "title": "More fun with the m68k",
         "excerpt":"The last days of the Retro Challenge The Retro Challenge behind me, and not actually achieving my goal I was pretty disappointed that work/life commitments stacked against me in getting there. That didn’t stop me from completing my goal, just wasn’t in the time frame of the competition. Where I...","categories": [],
         "tags": [],
         "url": "/m68k-crosstool-ng/",
-        "teaser": "/assets/images/2017-04-18-mc68340.jpg"
+        "teaser": "/assets/resized/480/mc68340.png"
       },{
         "title": "45W IRF510 HF Linear Amp",
         "excerpt":"45W IRF510 HF Linear Amp Boy it’s been a long time between posts. Sorry about that. I got real lazy and just starting pumping my content into twitter and really just never took the time to document things. Anyway, here is a project I built to get me out of...","categories": [],
         "tags": [],
         "url": "/IRF510-linear-amp/",
-        "teaser": "/assets/images/2022-05-23-linear16.jpg"
+        "teaser": "/assets/resized/480/linear16.jpg"
       },{
         "title": "Alan's Wishlist",
-        "excerpt":"Wish List      Chicago Air HUSH70-H Silenced 70L Air Compressor   Duralloy Multiweld 201 PFC 4in1 MIG Welder   ","categories": [],
+        "excerpt":" Wish List      Chicago Air HUSH70-H Silenced 70L Air Compressor   Duralloy Multiweld 201 PFC 4in1 MIG Welder   ","categories": [],
         "tags": [],
         "url": "/Alan-wishlist-or-stuff-he-wants-to-remember/",
-        "teaser": "/assets/images/logo_blue.svg"
+        "teaser": "/assets/resized/480/wish_list.jpg"
       },{
         "title": "Getting STLink-V3 and Pico Probe working in Arch Linux",
         "excerpt":"How? Two rules, one for STLink-V3 and one for Pico Probe. # STLink V3 (0483:3753) - Main Serial Port (VCP Data) SUBSYSTEM==\"tty\", ATTRS{idVendor}==\"0483\", ATTRS{idProduct}==\"3753\", ENV{ID_USB_INTERFACE_NUM}==\"01\", SYMLINK+=\"stlink_v3_main\", TAG+=\"uaccess\" # STLink V3 (0483:3753) - Bridge Serial Port (VCP2 Data) SUBSYSTEM==\"tty\", ATTRS{idVendor}==\"0483\", ATTRS{idProduct}==\"3753\", ENV{ID_USB_INTERFACE_NUM}==\"04\", SYMLINK+=\"stlink_v3_bridge\", TAG+=\"uaccess\" # STLink V3 (0483:3753) - Debug Interface...","categories": [],
         "tags": [],
         "url": "/StlinkV3-PicoDebug-Arch/",
-        "teaser": "/assets/images/logo_blue.svg"
+        "teaser": "/assets/resized/480/st-logo.png"
       },{
         "title": "Using git subtree to send _site to master branch",
         "excerpt":"What? If you use github pages and you want to generate your static files yourself you can use a repo with a master branch that is your public static rendered files, and another branch in my case sources that is the raw source files that I render with Jeykll locally....","categories": [],
         "tags": [],
         "url": "/Static-Jekyll-to-github-pages/",
-        "teaser": "/assets/images/logo_blue.svg"
+        "teaser": "/assets/resized/480/jekyll-logo.png"
       },{
         "title": "Kickstart an Embassy-rs project",
         "excerpt":"Kickstarting an Embassy-rs project for a Blackpill Install rust core $ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh Install probe-rs for programming and debugging $ curl -LsSf https://github.com/probe-rs/probe-rs/releases/latest/download/probe-rs-tools-installer.sh | sh Install cargo-generate $ cargo install cargo-generate Generate initial project $ cargo generate --git https://github.com/lulf/embassy-template.git -d chip=&lt;stm32f411ce OR stm32f401xx&gt; --name...","categories": [],
         "tags": [],
         "url": "/kickstart-embassy-rs/",
-        "teaser": "/assets/images/logo_blue.svg"
+        "teaser": "/kickstart-embassy-rs/rust.png"
       },{
         "title": "RP PicoW LED clock using Rust and Embassy-rs",
         "excerpt":"For a while now, I’ve attempted to build an LED clock. My first attempt was about 16 years ago using a PIC18F452; it worked, but I wasn’t inspired by the development environment at the time, and I had to set the time manually. Truth be told, it was all awful....","categories": [],
         "tags": [],
         "url": "/pico-clock/",
-        "teaser": "/assets/images/2026-06-25-pico_clock_1.jpg"
+        "teaser": "/assets/resized/480/pico_clock_1.jpg"
       }]

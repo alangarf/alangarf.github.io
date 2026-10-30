@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://fromorbit.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fromorbit.com/" rel="alternate" type="text/html" /><updated>2026-06-25T22:01:29+10:00</updated><id>https://fromorbit.com/feed.xml</id><title type="html">FromOrbit.com</title><subtitle>Generic nerd who dabbles in programming, electronics, CNC and retro computing.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://fromorbit.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fromorbit.com/" rel="alternate" type="text/html" /><updated>2026-10-30T15:38:28+11:00</updated><id>https://fromorbit.com/feed.xml</id><title type="html">FromOrbit.com</title><subtitle>Generic nerd who dabbles in programming, electronics, CNC and retro computing.
 </subtitle><author><name>Alan Garfield</name></author><entry><title type="html">RP PicoW LED clock using Rust and Embassy-rs</title><link href="https://fromorbit.com/pico-clock/" rel="alternate" type="text/html" title="RP PicoW LED clock using Rust and Embassy-rs" /><published>2026-06-25T00:00:00+10:00</published><updated>2026-06-25T00:00:00+10:00</updated><id>https://fromorbit.com/pico-clock</id><content type="html" xml:base="https://fromorbit.com/pico-clock/"><![CDATA[<p>For a while now, I’ve attempted to build an LED clock. My first attempt was about 16 years ago using a PIC18F452; it worked, but I wasn’t inspired by the development environment at the time, and I had to set the time manually. Truth be told, it was all awful.</p>
 
 <p>In another attempt, I used an ATMega16. That got close, but once again, there was no easy Wi-Fi (at the time), and it was just not inspiring to work on. The attempt prior to this current one used the same four-module 8x8 LED displays with SPI control, but on an STM32F103 with a WizNet chip. It was written in C++ and worked well, but I unfortunately got swamped with work and never got back to it.</p>
@@ -8,31 +8,37 @@
 <figure class="third ">
   
     
-      <a href="/assets/images/2026-06-25-pico_clock_1.jpg">
+      <a href="pico_clock_1.jpg">
 
             
 
-<img src="/assets/images/2026-06-25-pico_clock_1.jpg" alt="Pico Clock Front Red" srcset="    /assets/resized/320/2026-06-25-pico_clock_1.jpg 320w,    /assets/resized/480/2026-06-25-pico_clock_1.jpg 480w, /assets/images/2026-06-25-pico_clock_1.jpg 965w" />
+
+
+<img src="/assets/resized/320/pico_clock_1.jpg" alt="Pico Clock Front Red" srcset="    /assets/resized/320/pico_clock_1.jpg 320w,    /assets/resized/480/pico_clock_1.jpg 480w, pico_clock_1.jpg 965w" />
 
       </a>
     
   
     
-      <a href="/assets/images/2026-06-25-pico_clock_2.jpg">
+      <a href="pico_clock_2.jpg">
 
             
 
-<img src="/assets/images/2026-06-25-pico_clock_2.jpg" alt="Pico Clock Front Blue" srcset="    /assets/resized/320/2026-06-25-pico_clock_2.jpg 320w,    /assets/resized/480/2026-06-25-pico_clock_2.jpg 480w, /assets/images/2026-06-25-pico_clock_2.jpg 965w" />
+
+
+<img src="/assets/resized/320/pico_clock_2.jpg" alt="Pico Clock Front Blue" srcset="    /assets/resized/320/pico_clock_2.jpg 320w,    /assets/resized/480/pico_clock_2.jpg 480w, pico_clock_2.jpg 965w" />
 
       </a>
     
   
     
-      <a href="/assets/images/2026-06-25-pico_clock_3.jpg">
+      <a href="pico_clock_3.jpg">
 
             
 
-<img src="/assets/images/2026-06-25-pico_clock_3.jpg" alt="Pico Clock Front Green" srcset="    /assets/resized/320/2026-06-25-pico_clock_3.jpg 320w,    /assets/resized/480/2026-06-25-pico_clock_3.jpg 480w, /assets/images/2026-06-25-pico_clock_3.jpg 834w" />
+
+
+<img src="/assets/resized/320/pico_clock_3.jpg" alt="Pico Clock Front Green" srcset="    /assets/resized/320/pico_clock_3.jpg 320w,    /assets/resized/480/pico_clock_3.jpg 480w, pico_clock_3.jpg 834w" />
 
       </a>
     
@@ -45,21 +51,25 @@
 <figure class="half ">
   
     
-      <a href="/assets/images/2026-06-25-pico_clock_4.jpg">
+      <a href="pico_clock_4.jpg">
 
             
 
-<img src="/assets/images/2026-06-25-pico_clock_4.jpg" alt="Pico Clock Front Red" srcset="    /assets/resized/320/2026-06-25-pico_clock_4.jpg 320w,    /assets/resized/480/2026-06-25-pico_clock_4.jpg 480w, /assets/images/2026-06-25-pico_clock_4.jpg 965w" />
+
+
+<img src="/assets/resized/320/pico_clock_4.jpg" alt="Pico Clock Front Red" srcset="    /assets/resized/320/pico_clock_4.jpg 320w,    /assets/resized/480/pico_clock_4.jpg 480w, pico_clock_4.jpg 965w" />
 
       </a>
     
   
     
-      <a href="/assets/images/2026-06-25-pico_clock_5.jpg">
+      <a href="pico_clock_5.jpg">
 
             
 
-<img src="/assets/images/2026-06-25-pico_clock_5.jpg" alt="Pico Clock Front Red" srcset="    /assets/resized/320/2026-06-25-pico_clock_5.jpg 320w,    /assets/resized/480/2026-06-25-pico_clock_5.jpg 480w, /assets/images/2026-06-25-pico_clock_5.jpg 965w" />
+
+
+<img src="/assets/resized/320/pico_clock_5.jpg" alt="Pico Clock Front Red" srcset="    /assets/resized/320/pico_clock_5.jpg 320w,    /assets/resized/480/pico_clock_5.jpg 480w, pico_clock_5.jpg 965w" />
 
       </a>
     
@@ -72,31 +82,37 @@
 <figure class="third ">
   
     
-      <a href="/assets/images/2026-06-25-pico_clock_6.jpg">
+      <a href="pico_clock_6.jpg">
 
             
 
-<img src="/assets/images/2026-06-25-pico_clock_6.jpg" alt="Pico Clock Front Red" srcset="    /assets/resized/320/2026-06-25-pico_clock_6.jpg 320w,    /assets/resized/480/2026-06-25-pico_clock_6.jpg 480w, /assets/images/2026-06-25-pico_clock_6.jpg 965w" />
+
+
+<img src="/assets/resized/320/pico_clock_6.jpg" alt="Pico Clock Front Red" srcset="    /assets/resized/320/pico_clock_6.jpg 320w,    /assets/resized/480/pico_clock_6.jpg 480w, pico_clock_6.jpg 965w" />
 
       </a>
     
   
     
-      <a href="/assets/images/2026-06-25-pico_clock_7.jpg">
+      <a href="pico_clock_7.jpg">
 
             
 
-<img src="/assets/images/2026-06-25-pico_clock_7.jpg" alt="Pico Clock Front Red" srcset="    /assets/resized/320/2026-06-25-pico_clock_7.jpg 320w,    /assets/resized/480/2026-06-25-pico_clock_7.jpg 480w, /assets/images/2026-06-25-pico_clock_7.jpg 965w" />
+
+
+<img src="/assets/resized/320/pico_clock_7.jpg" alt="Pico Clock Front Red" srcset="    /assets/resized/320/pico_clock_7.jpg 320w,    /assets/resized/480/pico_clock_7.jpg 480w, pico_clock_7.jpg 965w" />
 
       </a>
     
   
     
-      <a href="/assets/images/2026-06-25-pico_clock_8.jpg">
+      <a href="pico_clock_8.jpg">
 
             
 
-<img src="/assets/images/2026-06-25-pico_clock_8.jpg" alt="Pico Clock Front Red" srcset="    /assets/resized/320/2026-06-25-pico_clock_8.jpg 320w,    /assets/resized/480/2026-06-25-pico_clock_8.jpg 480w, /assets/images/2026-06-25-pico_clock_8.jpg 965w" />
+
+
+<img src="/assets/resized/320/pico_clock_8.jpg" alt="Pico Clock Front Red" srcset="    /assets/resized/320/pico_clock_8.jpg 320w,    /assets/resized/480/pico_clock_8.jpg 480w, pico_clock_8.jpg 965w" />
 
       </a>
     
@@ -391,31 +407,37 @@ see how it would go…</p>
 <figure class="third ">
   
     
-      <a href="/assets/images/2022-05-23-linear2.jpg">
+      <a href="linear2.jpg">
 
             
 
-<img src="/assets/images/2022-05-23-linear2.jpg" alt="picture two" srcset="    /assets/resized/320/2022-05-23-linear2.jpg 320w,    /assets/resized/480/2022-05-23-linear2.jpg 480w,    /assets/resized/1280/2022-05-23-linear2.jpg 1280w, /assets/images/2022-05-23-linear2.jpg 2048w" />
+
+
+<img src="/assets/resized/320/linear2.jpg" alt="picture two" srcset="    /assets/resized/320/linear2.jpg 320w,    /assets/resized/480/linear2.jpg 480w,    /assets/resized/1280/linear2.jpg 1280w, linear2.jpg 2048w" />
 
       </a>
     
   
     
-      <a href="/assets/images/2022-05-23-linear3.jpg">
+      <a href="linear3.jpg">
 
             
 
-<img src="/assets/images/2022-05-23-linear3.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear3.jpg 320w,    /assets/resized/480/2022-05-23-linear3.jpg 480w,    /assets/resized/1280/2022-05-23-linear3.jpg 1280w, /assets/images/2022-05-23-linear3.jpg 2048w" />
+
+
+<img src="/assets/resized/320/linear3.jpg" alt="picture three" srcset="    /assets/resized/320/linear3.jpg 320w,    /assets/resized/480/linear3.jpg 480w,    /assets/resized/1280/linear3.jpg 1280w, linear3.jpg 2048w" />
 
       </a>
     
   
     
-      <a href="/assets/images/2022-05-23-linear4.jpg">
+      <a href="linear4.jpg">
 
             
 
-<img src="/assets/images/2022-05-23-linear4.jpg" alt="picture one" srcset="    /assets/resized/320/2022-05-23-linear4.jpg 320w,    /assets/resized/480/2022-05-23-linear4.jpg 480w,    /assets/resized/1280/2022-05-23-linear4.jpg 1280w, /assets/images/2022-05-23-linear4.jpg 2048w" />
+
+
+<img src="/assets/resized/320/linear4.jpg" alt="picture one" srcset="    /assets/resized/320/linear4.jpg 320w,    /assets/resized/480/linear4.jpg 480w,    /assets/resized/1280/linear4.jpg 1280w, linear4.jpg 2048w" />
 
       </a>
     
@@ -437,21 +459,25 @@ prototype.</p>
 <figure class="half ">
   
     
-      <a href="/assets/images/2022-05-23-linear5.jpg">
+      <a href="linear5.jpg">
 
             
 
-<img src="/assets/images/2022-05-23-linear5.jpg" alt="picture two" srcset="    /assets/resized/320/2022-05-23-linear5.jpg 320w,    /assets/resized/480/2022-05-23-linear5.jpg 480w,    /assets/resized/1280/2022-05-23-linear5.jpg 1280w, /assets/images/2022-05-23-linear5.jpg 2048w" />
+
+
+<img src="/assets/resized/320/linear5.jpg" alt="picture two" srcset="    /assets/resized/320/linear5.jpg 320w,    /assets/resized/480/linear5.jpg 480w,    /assets/resized/1280/linear5.jpg 1280w, linear5.jpg 2048w" />
 
       </a>
     
   
     
-      <a href="/assets/images/2022-05-23-linear6.jpg">
+      <a href="linear6.jpg">
 
             
 
-<img src="/assets/images/2022-05-23-linear6.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear6.jpg 320w,    /assets/resized/480/2022-05-23-linear6.jpg 480w,    /assets/resized/1280/2022-05-23-linear6.jpg 1280w, /assets/images/2022-05-23-linear6.jpg 2048w" />
+
+
+<img src="/assets/resized/320/linear6.jpg" alt="picture three" srcset="    /assets/resized/320/linear6.jpg 320w,    /assets/resized/480/linear6.jpg 480w,    /assets/resized/1280/linear6.jpg 1280w, linear6.jpg 2048w" />
 
       </a>
     
@@ -464,11 +490,13 @@ prototype.</p>
 <figure class=" ">
   
     
-      <a href="/assets/images/2022-05-23-linear7.jpg">
+      <a href="linear7.jpg">
 
             
 
-<img src="/assets/images/2022-05-23-linear7.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear7.jpg 320w,    /assets/resized/480/2022-05-23-linear7.jpg 480w,    /assets/resized/1280/2022-05-23-linear7.jpg 1280w, /assets/images/2022-05-23-linear7.jpg 2048w" />
+
+
+<img src="/assets/resized/320/linear7.jpg" alt="picture three" srcset="    /assets/resized/320/linear7.jpg 320w,    /assets/resized/480/linear7.jpg 480w,    /assets/resized/1280/linear7.jpg 1280w, linear7.jpg 2048w" />
 
       </a>
     
@@ -483,31 +511,37 @@ mounted on top and the board mounted on stand-offs.</p>
 <figure class="third ">
   
     
-      <a href="/assets/images/2022-05-23-linear8.jpg">
+      <a href="linear8.jpg">
 
             
 
-<img src="/assets/images/2022-05-23-linear8.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear8.jpg 320w,    /assets/resized/480/2022-05-23-linear8.jpg 480w,    /assets/resized/1280/2022-05-23-linear8.jpg 1280w, /assets/images/2022-05-23-linear8.jpg 2048w" />
+
+
+<img src="/assets/resized/320/linear8.jpg" alt="picture three" srcset="    /assets/resized/320/linear8.jpg 320w,    /assets/resized/480/linear8.jpg 480w,    /assets/resized/1280/linear8.jpg 1280w, linear8.jpg 2048w" />
 
       </a>
     
   
     
-      <a href="/assets/images/2022-05-23-linear10.jpg">
+      <a href="linear10.jpg">
 
             
 
-<img src="/assets/images/2022-05-23-linear10.jpg" alt="picture one" srcset="    /assets/resized/320/2022-05-23-linear10.jpg 320w,    /assets/resized/480/2022-05-23-linear10.jpg 480w,    /assets/resized/1280/2022-05-23-linear10.jpg 1280w, /assets/images/2022-05-23-linear10.jpg 2048w" />
+
+
+<img src="/assets/resized/320/linear10.jpg" alt="picture one" srcset="    /assets/resized/320/linear10.jpg 320w,    /assets/resized/480/linear10.jpg 480w,    /assets/resized/1280/linear10.jpg 1280w, linear10.jpg 2048w" />
 
       </a>
     
   
     
-      <a href="/assets/images/2022-05-23-linear11.jpg">
+      <a href="linear11.jpg">
 
             
 
-<img src="/assets/images/2022-05-23-linear11.jpg" alt="picture two" srcset="    /assets/resized/320/2022-05-23-linear11.jpg 320w,    /assets/resized/480/2022-05-23-linear11.jpg 480w,    /assets/resized/1280/2022-05-23-linear11.jpg 1280w, /assets/images/2022-05-23-linear11.jpg 2048w" />
+
+
+<img src="/assets/resized/320/linear11.jpg" alt="picture two" srcset="    /assets/resized/320/linear11.jpg 320w,    /assets/resized/480/linear11.jpg 480w,    /assets/resized/1280/linear11.jpg 1280w, linear11.jpg 2048w" />
 
       </a>
     
@@ -526,21 +560,25 @@ continued.</p>
 <figure class="half ">
   
     
-      <a href="/assets/images/2022-05-23-linear13.jpg">
+      <a href="linear13.jpg">
 
             
 
-<img src="/assets/images/2022-05-23-linear13.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear13.jpg 320w,    /assets/resized/480/2022-05-23-linear13.jpg 480w,    /assets/resized/1280/2022-05-23-linear13.jpg 1280w, /assets/images/2022-05-23-linear13.jpg 2048w" />
+
+
+<img src="/assets/resized/320/linear13.jpg" alt="picture three" srcset="    /assets/resized/320/linear13.jpg 320w,    /assets/resized/480/linear13.jpg 480w,    /assets/resized/1280/linear13.jpg 1280w, linear13.jpg 2048w" />
 
       </a>
     
   
     
-      <a href="/assets/images/2022-05-23-linear12.jpg">
+      <a href="linear12.jpg">
 
             
 
-<img src="/assets/images/2022-05-23-linear12.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear12.jpg 320w,    /assets/resized/480/2022-05-23-linear12.jpg 480w,    /assets/resized/1280/2022-05-23-linear12.jpg 1280w, /assets/images/2022-05-23-linear12.jpg 2048w" />
+
+
+<img src="/assets/resized/320/linear12.jpg" alt="picture three" srcset="    /assets/resized/320/linear12.jpg 320w,    /assets/resized/480/linear12.jpg 480w,    /assets/resized/1280/linear12.jpg 1280w, linear12.jpg 2048w" />
 
       </a>
     
@@ -557,21 +595,25 @@ No oscillations, nice clear output and all looked very good and pleasing.</p>
 <figure class="half ">
   
     
-      <a href="/assets/images/2022-05-23-linear14.jpg">
+      <a href="linear14.jpg">
 
             
 
-<img src="/assets/images/2022-05-23-linear14.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear14.jpg 320w,    /assets/resized/480/2022-05-23-linear14.jpg 480w,    /assets/resized/1280/2022-05-23-linear14.jpg 1280w, /assets/images/2022-05-23-linear14.jpg 2048w" />
+
+
+<img src="/assets/resized/320/linear14.jpg" alt="picture three" srcset="    /assets/resized/320/linear14.jpg 320w,    /assets/resized/480/linear14.jpg 480w,    /assets/resized/1280/linear14.jpg 1280w, linear14.jpg 2048w" />
 
       </a>
     
   
     
-      <a href="/assets/images/2022-05-23-linear15.jpg">
+      <a href="linear15.jpg">
 
             
 
-<img src="/assets/images/2022-05-23-linear15.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear15.jpg 320w,    /assets/resized/480/2022-05-23-linear15.jpg 480w,    /assets/resized/1280/2022-05-23-linear15.jpg 1280w, /assets/images/2022-05-23-linear15.jpg 2048w" />
+
+
+<img src="/assets/resized/320/linear15.jpg" alt="picture three" srcset="    /assets/resized/320/linear15.jpg 320w,    /assets/resized/480/linear15.jpg 480w,    /assets/resized/1280/linear15.jpg 1280w, linear15.jpg 2048w" />
 
       </a>
     
@@ -585,11 +627,13 @@ transferred across to the new board</p>
 <figure class=" ">
   
     
-      <a href="/assets/images/2022-05-23-linear16.jpg">
+      <a href="linear16.jpg">
 
             
 
-<img src="/assets/images/2022-05-23-linear16.jpg" alt="picture one" srcset="    /assets/resized/320/2022-05-23-linear16.jpg 320w,    /assets/resized/480/2022-05-23-linear16.jpg 480w,    /assets/resized/1280/2022-05-23-linear16.jpg 1280w, /assets/images/2022-05-23-linear16.jpg 1536w" />
+
+
+<img src="/assets/resized/320/linear16.jpg" alt="picture one" srcset="    /assets/resized/320/linear16.jpg 320w,    /assets/resized/480/linear16.jpg 480w,    /assets/resized/1280/linear16.jpg 1280w, linear16.jpg 1536w" />
 
       </a>
     
@@ -606,31 +650,37 @@ it around 45W output.</p>
 <figure class="third ">
   
     
-      <a href="/assets/images/2022-05-23-linear17.jpg">
+      <a href="linear17.jpg">
 
             
 
-<img src="/assets/images/2022-05-23-linear17.jpg" alt="picture two" srcset="    /assets/resized/320/2022-05-23-linear17.jpg 320w,    /assets/resized/480/2022-05-23-linear17.jpg 480w,    /assets/resized/1280/2022-05-23-linear17.jpg 1280w, /assets/images/2022-05-23-linear17.jpg 2048w" />
+
+
+<img src="/assets/resized/320/linear17.jpg" alt="picture two" srcset="    /assets/resized/320/linear17.jpg 320w,    /assets/resized/480/linear17.jpg 480w,    /assets/resized/1280/linear17.jpg 1280w, linear17.jpg 2048w" />
 
       </a>
     
   
     
-      <a href="/assets/images/2022-05-23-linear18.jpg">
+      <a href="linear18.jpg">
 
             
 
-<img src="/assets/images/2022-05-23-linear18.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear18.jpg 320w,    /assets/resized/480/2022-05-23-linear18.jpg 480w,    /assets/resized/1280/2022-05-23-linear18.jpg 1280w, /assets/images/2022-05-23-linear18.jpg 2237w" />
+
+
+<img src="/assets/resized/320/linear18.jpg" alt="picture three" srcset="    /assets/resized/320/linear18.jpg 320w,    /assets/resized/480/linear18.jpg 480w,    /assets/resized/1280/linear18.jpg 1280w, linear18.jpg 2237w" />
 
       </a>
     
   
     
-      <a href="/assets/images/2022-05-23-linear19.jpg">
+      <a href="linear19.jpg">
 
             
 
-<img src="/assets/images/2022-05-23-linear19.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear19.jpg 320w,    /assets/resized/480/2022-05-23-linear19.jpg 480w,    /assets/resized/1280/2022-05-23-linear19.jpg 1280w, /assets/images/2022-05-23-linear19.jpg 2048w" />
+
+
+<img src="/assets/resized/320/linear19.jpg" alt="picture three" srcset="    /assets/resized/320/linear19.jpg 320w,    /assets/resized/480/linear19.jpg 480w,    /assets/resized/1280/linear19.jpg 1280w, linear19.jpg 2048w" />
 
       </a>
     
@@ -649,61 +699,73 @@ this works.</p>
 <figure class="third ">
   
     
-      <a href="/assets/images/2022-05-23-linear20.jpg">
+      <a href="linear20.jpg">
 
             
 
-<img src="/assets/images/2022-05-23-linear20.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear20.jpg 320w,    /assets/resized/480/2022-05-23-linear20.jpg 480w,    /assets/resized/1280/2022-05-23-linear20.jpg 1280w, /assets/images/2022-05-23-linear20.jpg 2048w" />
+
+
+<img src="/assets/resized/320/linear20.jpg" alt="picture three" srcset="    /assets/resized/320/linear20.jpg 320w,    /assets/resized/480/linear20.jpg 480w,    /assets/resized/1280/linear20.jpg 1280w, linear20.jpg 2048w" />
 
       </a>
     
   
     
-      <a href="/assets/images/2022-05-23-linear21.jpg">
+      <a href="linear21.jpg">
 
             
 
-<img src="/assets/images/2022-05-23-linear21.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear21.jpg 320w,    /assets/resized/480/2022-05-23-linear21.jpg 480w,    /assets/resized/1280/2022-05-23-linear21.jpg 1280w, /assets/images/2022-05-23-linear21.jpg 2048w" />
+
+
+<img src="/assets/resized/320/linear21.jpg" alt="picture three" srcset="    /assets/resized/320/linear21.jpg 320w,    /assets/resized/480/linear21.jpg 480w,    /assets/resized/1280/linear21.jpg 1280w, linear21.jpg 2048w" />
 
       </a>
     
   
     
-      <a href="/assets/images/2022-05-23-linear23.jpg">
+      <a href="linear23.jpg">
 
             
 
-<img src="/assets/images/2022-05-23-linear23.jpg" alt="picture two" srcset="    /assets/resized/320/2022-05-23-linear23.jpg 320w,    /assets/resized/480/2022-05-23-linear23.jpg 480w,    /assets/resized/1280/2022-05-23-linear23.jpg 1280w, /assets/images/2022-05-23-linear23.jpg 2048w" />
+
+
+<img src="/assets/resized/320/linear23.jpg" alt="picture two" srcset="    /assets/resized/320/linear23.jpg 320w,    /assets/resized/480/linear23.jpg 480w,    /assets/resized/1280/linear23.jpg 1280w, linear23.jpg 2048w" />
 
       </a>
     
   
     
-      <a href="/assets/images/2022-05-23-linear24.jpg">
+      <a href="linear24.jpg">
 
             
 
-<img src="/assets/images/2022-05-23-linear24.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear24.jpg 320w,    /assets/resized/480/2022-05-23-linear24.jpg 480w,    /assets/resized/1280/2022-05-23-linear24.jpg 1280w, /assets/images/2022-05-23-linear24.jpg 2048w" />
+
+
+<img src="/assets/resized/320/linear24.jpg" alt="picture three" srcset="    /assets/resized/320/linear24.jpg 320w,    /assets/resized/480/linear24.jpg 480w,    /assets/resized/1280/linear24.jpg 1280w, linear24.jpg 2048w" />
 
       </a>
     
   
     
-      <a href="/assets/images/2022-05-23-linear25.jpg">
+      <a href="linear25.jpg">
 
             
 
-<img src="/assets/images/2022-05-23-linear25.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear25.jpg 320w,    /assets/resized/480/2022-05-23-linear25.jpg 480w,    /assets/resized/1280/2022-05-23-linear25.jpg 1280w, /assets/images/2022-05-23-linear25.jpg 1958w" />
+
+
+<img src="/assets/resized/320/linear25.jpg" alt="picture three" srcset="    /assets/resized/320/linear25.jpg 320w,    /assets/resized/480/linear25.jpg 480w,    /assets/resized/1280/linear25.jpg 1280w, linear25.jpg 1958w" />
 
       </a>
     
   
     
-      <a href="/assets/images/2022-05-23-linear26.jpg">
+      <a href="linear26.jpg">
 
             
 
-<img src="/assets/images/2022-05-23-linear26.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear26.jpg 320w,    /assets/resized/480/2022-05-23-linear26.jpg 480w,    /assets/resized/1280/2022-05-23-linear26.jpg 1280w, /assets/images/2022-05-23-linear26.jpg 1559w" />
+
+
+<img src="/assets/resized/320/linear26.jpg" alt="picture three" srcset="    /assets/resized/320/linear26.jpg 320w,    /assets/resized/480/linear26.jpg 480w,    /assets/resized/1280/linear26.jpg 1280w, linear26.jpg 1559w" />
 
       </a>
     
@@ -723,11 +785,13 @@ I have had many successful QSOs from all over Australia, NZ and the USA.</p>
 <figure class=" ">
   
     
-      <a href="/assets/images/2022-05-23-linear27.jpg">
+      <a href="linear27.jpg">
 
             
 
-<img src="/assets/images/2022-05-23-linear27.jpg" alt="picture three" srcset="    /assets/resized/320/2022-05-23-linear27.jpg 320w,    /assets/resized/480/2022-05-23-linear27.jpg 480w,    /assets/resized/1280/2022-05-23-linear27.jpg 1280w, /assets/images/2022-05-23-linear27.jpg 2048w" />
+
+
+<img src="/assets/resized/320/linear27.jpg" alt="picture three" srcset="    /assets/resized/320/linear27.jpg 320w,    /assets/resized/480/linear27.jpg 480w,    /assets/resized/1280/linear27.jpg 1280w, linear27.jpg 2048w" />
 
       </a>
     
@@ -902,11 +966,13 @@ itself.</p>
 <figure class=" ">
   
     
-      <a href="/assets/images/2017-05-19-mandelbrot.gif">
+      <a href="mandelbrot.gif">
 
             
 
-<img src="/assets/images/2017-05-19-mandelbrot.gif" alt="" srcset="    /assets/resized/320/2017-05-19-mandelbrot.gif 320w,    /assets/resized/480/2017-05-19-mandelbrot.gif 480w, /assets/images/2017-05-19-mandelbrot.gif 945w" />
+
+
+<img src="/assets/resized/320/mandelbrot.gif" alt="" srcset="    /assets/resized/320/mandelbrot.gif 320w,    /assets/resized/480/mandelbrot.gif 480w, mandelbrot.gif 945w" />
 
       </a>
     
@@ -920,11 +986,13 @@ removed the line buffering so each character can be seen as it is rendered.</p>
 <figure class=" ">
   
     
-      <a href="/assets/images/2017-05-19-mandelbrot-2.gif">
+      <a href="mandelbrot-2.gif">
 
             
 
-<img src="/assets/images/2017-05-19-mandelbrot-2.gif" alt="" srcset="    /assets/resized/320/2017-05-19-mandelbrot-2.gif 320w,    /assets/resized/480/2017-05-19-mandelbrot-2.gif 480w, /assets/images/2017-05-19-mandelbrot-2.gif 945w" />
+
+
+<img src="/assets/resized/320/mandelbrot-2.gif" alt="" srcset="    /assets/resized/320/mandelbrot-2.gif 320w,    /assets/resized/480/mandelbrot-2.gif 480w, mandelbrot-2.gif 945w" />
 
       </a>
     
@@ -964,11 +1032,13 @@ the board was basically ROM, RAM, CPU, and power related parts.</p>
 <figure class=" ">
   
     
-      <a href="/assets/images/2017-04-18-axc-em.jpg" title="AMX AXC-EM board.">
+      <a href="axc-em.jpg" title="AMX AXC-EM board.">
 
             
 
-<img src="/assets/images/2017-04-18-axc-em.jpg" alt="AMX AXC-EM board." srcset="    /assets/resized/320/2017-04-18-axc-em.jpg 320w,    /assets/resized/480/2017-04-18-axc-em.jpg 480w,    /assets/resized/1280/2017-04-18-axc-em.jpg 1280w, /assets/images/2017-04-18-axc-em.jpg 2048w" />
+
+
+<img src="/assets/resized/320/axc-em.jpg" alt="AMX AXC-EM board." srcset="    /assets/resized/320/axc-em.jpg 320w,    /assets/resized/480/axc-em.jpg 480w,    /assets/resized/1280/axc-em.jpg 1280w, axc-em.jpg 2048w" />
 
       </a>
     
@@ -1187,11 +1257,13 @@ protection devices and DMA.</p>
 <figure class=" ">
   
     
-      <a href="/assets/images/2017-04-26-mc68340.png" title="The internals of the MC68340">
+      <a href="mc68340.png" title="The internals of the MC68340">
 
             
 
-<img src="/assets/images/2017-04-26-mc68340.png" alt="The internals of the MC68340" srcset="    /assets/resized/320/2017-04-26-mc68340.png 320w,    /assets/resized/480/2017-04-26-mc68340.png 480w, /assets/images/2017-04-26-mc68340.png 1190w" />
+
+
+<img src="/assets/resized/320/mc68340.png" alt="The internals of the MC68340" srcset="    /assets/resized/320/mc68340.png 320w,    /assets/resized/480/mc68340.png 480w, mc68340.png 1190w" />
 
       </a>
     
@@ -1205,11 +1277,13 @@ choose, but the layout is:</p>
 <figure class=" ">
   
     
-      <a href="/assets/images/2017-04-26-sim40.png" title="The SIM40 address structure">
+      <a href="sim40.png" title="The SIM40 address structure">
 
             
 
-<img src="/assets/images/2017-04-26-sim40.png" alt="The SIM40 address structure" srcset="    /assets/resized/320/2017-04-26-sim40.png 320w,    /assets/resized/480/2017-04-26-sim40.png 480w,    /assets/resized/1280/2017-04-26-sim40.png 1280w, /assets/images/2017-04-26-sim40.png 1704w" />
+
+
+<img src="/assets/resized/320/sim40.png" alt="The SIM40 address structure" srcset="    /assets/resized/320/sim40.png 320w,    /assets/resized/480/sim40.png 480w,    /assets/resized/1280/sim40.png 1280w, sim40.png 1704w" />
 
       </a>
     
@@ -1254,11 +1328,13 @@ data and running it:</p>
 <figure class=" ">
   
     
-      <a href="/assets/images/2017-04-26-hello_world.gif" title="Demo showing updating code and pushing it to the bootloader">
+      <a href="hello_world.gif" title="Demo showing updating code and pushing it to the bootloader">
 
             
 
-<img src="/assets/images/2017-04-26-hello_world.gif" alt="GIF showing the boot-loader in action" srcset="    /assets/resized/320/2017-04-26-hello_world.gif 320w,    /assets/resized/480/2017-04-26-hello_world.gif 480w, /assets/images/2017-04-26-hello_world.gif 905w" />
+
+
+<img src="/assets/resized/320/hello_world.gif" alt="GIF showing the boot-loader in action" srcset="    /assets/resized/320/hello_world.gif 320w,    /assets/resized/480/hello_world.gif 480w, hello_world.gif 905w" />
 
       </a>
     
@@ -1331,21 +1407,25 @@ select lines, the even and odd enable lines and the LED output.</p>
 <figure class="half ">
   
     
-      <a href="/assets/images/2017-04-18-even.jpg" title="The even read">
+      <a href="even.jpg" title="The even read">
 
             
 
-<img src="/assets/images/2017-04-18-even.jpg" alt="The even read" srcset="    /assets/resized/320/2017-04-18-even.jpg 320w,    /assets/resized/480/2017-04-18-even.jpg 480w, /assets/images/2017-04-18-even.jpg 680w" />
+
+
+<img src="/assets/resized/320/even.jpg" alt="The even read" srcset="    /assets/resized/320/even.jpg 320w,    /assets/resized/480/even.jpg 480w, even.jpg 680w" />
 
       </a>
     
   
     
-      <a href="/assets/images/2017-04-18-odd.jpg" title="The odd read">
+      <a href="odd.jpg" title="The odd read">
 
             
 
-<img src="/assets/images/2017-04-18-odd.jpg" alt="The odd read" srcset="    /assets/resized/320/2017-04-18-odd.jpg 320w,    /assets/resized/480/2017-04-18-odd.jpg 480w, /assets/images/2017-04-18-odd.jpg 680w" />
+
+
+<img src="/assets/resized/320/odd.jpg" alt="The odd read" srcset="    /assets/resized/320/odd.jpg 320w,    /assets/resized/480/odd.jpg 480w, odd.jpg 680w" />
 
       </a>
     
@@ -1381,21 +1461,25 @@ board I recovered with a m68k processor on it.</p>
 <figure class="half ">
   
     
-      <a href="/assets/images/2017-04-18-axc-em.jpg" title="AMX AXC-EM board">
+      <a href="axc-em.jpg" title="AMX AXC-EM board">
 
             
 
-<img src="/assets/images/2017-04-18-axc-em.jpg" alt="AMX AXC-EM board" srcset="    /assets/resized/320/2017-04-18-axc-em.jpg 320w,    /assets/resized/480/2017-04-18-axc-em.jpg 480w,    /assets/resized/1280/2017-04-18-axc-em.jpg 1280w, /assets/images/2017-04-18-axc-em.jpg 2048w" />
+
+
+<img src="/assets/resized/320/axc-em.jpg" alt="AMX AXC-EM board" srcset="    /assets/resized/320/axc-em.jpg 320w,    /assets/resized/480/axc-em.jpg 480w,    /assets/resized/1280/axc-em.jpg 1280w, axc-em.jpg 2048w" />
 
       </a>
     
   
     
-      <a href="/assets/images/2017-04-18-mc68340.jpg" title="MC68340 cpu">
+      <a href="mc68340.jpg" title="MC68340 cpu">
 
             
 
-<img src="/assets/images/2017-04-18-mc68340.jpg" alt="MC68340 cpu" srcset="    /assets/resized/320/2017-04-18-mc68340.jpg 320w,    /assets/resized/480/2017-04-18-mc68340.jpg 480w,    /assets/resized/1280/2017-04-18-mc68340.jpg 1280w, /assets/images/2017-04-18-mc68340.jpg 2048w" />
+
+
+<img src="/assets/resized/320/mc68340.jpg" alt="MC68340 cpu" srcset="    /assets/resized/320/mc68340.jpg 320w,    /assets/resized/480/mc68340.jpg 480w,    /assets/resized/1280/mc68340.jpg 1280w, mc68340.jpg 2048w" />
 
       </a>
     
@@ -1441,11 +1525,13 @@ missing the two additional address lines.</p>
 <figure class="half ">
   
     
-      <a href="/assets/images/2017-04-08-eeprom_vs_eprom1.png" title="Pin outs of a 28C64 and a 27C256">
+      <a href="eeprom_vs_eprom1.png" title="Pin outs of a 28C64 and a 27C256">
 
             
 
-<img src="/assets/images/2017-04-08-eeprom_vs_eprom1.png" alt="Pin outs of a 28C64 and a 27C256" srcset="    /assets/resized/320/2017-04-08-eeprom_vs_eprom1.png 320w, /assets/images/2017-04-08-eeprom_vs_eprom1.png 400w" />
+
+
+<img src="/assets/resized/320/eeprom_vs_eprom1.png" alt="Pin outs of a 28C64 and a 27C256" srcset="    /assets/resized/320/eeprom_vs_eprom1.png 320w, eeprom_vs_eprom1.png 400w" />
 
       </a>
     
@@ -1466,11 +1552,13 @@ with machine pin sockets…</p>
 <figure class=" ">
   
     
-      <a href="/assets/images/2017-04-08-sockets_gone.jpg" title="Old sockets be gone!">
+      <a href="sockets_gone.jpg" title="Old sockets be gone!">
 
             
 
-<img src="/assets/images/2017-04-08-sockets_gone.jpg" alt="Removed the sockets" srcset="    /assets/resized/320/2017-04-08-sockets_gone.jpg 320w,    /assets/resized/480/2017-04-08-sockets_gone.jpg 480w,    /assets/resized/1280/2017-04-08-sockets_gone.jpg 1280w, /assets/images/2017-04-08-sockets_gone.jpg 4032w" />
+
+
+<img src="/assets/resized/320/sockets_gone.jpg" alt="Removed the sockets" srcset="    /assets/resized/320/sockets_gone.jpg 320w,    /assets/resized/480/sockets_gone.jpg 480w,    /assets/resized/1280/sockets_gone.jpg 1280w, sockets_gone.jpg 4032w" />
 
       </a>
     
@@ -1490,11 +1578,13 @@ sockets missing.</p>
 <figure class=" ">
   
     
-      <a href="/assets/images/2017-04-08-adapters_in_place.jpg" title="Adapters in place">
+      <a href="adapters_in_place.jpg" title="Adapters in place">
 
             
 
-<img src="/assets/images/2017-04-08-adapters_in_place.jpg" alt="Adapters in place" srcset="    /assets/resized/320/2017-04-08-adapters_in_place.jpg 320w,    /assets/resized/480/2017-04-08-adapters_in_place.jpg 480w,    /assets/resized/1280/2017-04-08-adapters_in_place.jpg 1280w, /assets/images/2017-04-08-adapters_in_place.jpg 3024w" />
+
+
+<img src="/assets/resized/320/adapters_in_place.jpg" alt="Adapters in place" srcset="    /assets/resized/320/adapters_in_place.jpg 320w,    /assets/resized/480/adapters_in_place.jpg 480w,    /assets/resized/1280/adapters_in_place.jpg 1280w, adapters_in_place.jpg 3024w" />
 
       </a>
     
@@ -1584,11 +1674,13 @@ them into the existing sockets I had for the 28C64s.</p>
 <figure class=" ">
   
     
-      <a href="/assets/images/2017-04-08-at28c256s_in_place.jpg" title="AT28C256s in place">
+      <a href="at28c256s_in_place.jpg" title="AT28C256s in place">
 
             
 
-<img src="/assets/images/2017-04-08-at28c256s_in_place.jpg" alt="AT28C256s in place" srcset="    /assets/resized/320/2017-04-08-at28c256s_in_place.jpg 320w,    /assets/resized/480/2017-04-08-at28c256s_in_place.jpg 480w,    /assets/resized/1280/2017-04-08-at28c256s_in_place.jpg 1280w, /assets/images/2017-04-08-at28c256s_in_place.jpg 4032w" />
+
+
+<img src="/assets/resized/320/at28c256s_in_place.jpg" alt="AT28C256s in place" srcset="    /assets/resized/320/at28c256s_in_place.jpg 320w,    /assets/resized/480/at28c256s_in_place.jpg 480w,    /assets/resized/1280/at28c256s_in_place.jpg 1280w, at28c256s_in_place.jpg 4032w" />
 
       </a>
     
@@ -1615,11 +1707,13 @@ it blinked perfectly, a nice solid consistent blink…</p>
 <figure class=" ">
   
     
-      <a href="/assets/images/2017-04-08-blinking1.gif" title="Blink you good thing!">
+      <a href="blinking1.gif" title="Blink you good thing!">
 
             
 
-<img src="/assets/images/2017-04-08-blinking1.gif" alt="Blink you good thing!" srcset="    /assets/resized/320/2017-04-08-blinking1.gif 320w, /assets/images/2017-04-08-blinking1.gif 450w" />
+
+
+<img src="/assets/resized/320/blinking1.gif" alt="Blink you good thing!" srcset="    /assets/resized/320/blinking1.gif 320w, blinking1.gif 450w" />
 
       </a>
     
@@ -1661,11 +1755,13 @@ files from: <a href="https://github.com/alangarf/amx_axc_kicad">https://github.c
 <figure class=" ">
   
     
-      <a href="/assets/images/2017-04-08-schematic.png" title="The schematic">
+      <a href="schematic.png" title="The schematic">
 
             
 
-<img src="/assets/images/2017-04-08-schematic.png" alt="The schematic" srcset="    /assets/resized/320/2017-04-08-schematic.png 320w,    /assets/resized/480/2017-04-08-schematic.png 480w,    /assets/resized/1280/2017-04-08-schematic.png 1280w, /assets/images/2017-04-08-schematic.png 3174w" />
+
+
+<img src="/assets/resized/320/schematic.png" alt="The schematic" srcset="    /assets/resized/320/schematic.png 320w,    /assets/resized/480/schematic.png 480w,    /assets/resized/1280/schematic.png 1280w, schematic.png 3174w" />
 
       </a>
     
