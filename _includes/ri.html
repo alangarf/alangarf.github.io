@@ -4,4 +4,6 @@
 {% endfor %}
 {% endcapture %}
 
-<img src="/{{ path }}" alt="{{ alt }}" srcset="{{ srcset | strip_newlines }} /{{ path }} {{ original.width }}w">
+{% assign original_filename = path | split: '/' | last %}
+
+<img src="/{{ resized.first.path }}" alt="{{ alt }}" srcset="{{ srcset | strip_newlines }} {{ original_filename }} {{ original.width }}w">

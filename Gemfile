@@ -15,5 +15,6 @@ group :jekyll_plugins do
   gem "jekyll-archives"
   gem "jekyll-responsive-image"
   gem "observer"
+  gem "jekyll-postfiles"
 end
 

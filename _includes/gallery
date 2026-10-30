@@ -1,3 +1,5 @@
+{% assign source_dir = page.path | remove: "/#excerpt" | remove: page.name %}
+
 {% if include.id %}
   {% assign gallery = page[include.id] %}
 {% else %}
@@ -19,11 +21,11 @@
 <figure class="{{ gallery_layout }} {{ include.class }}">
   {% for img in gallery %}
     {% if img.url %}
-      <a href="{{ img.url | relative_url }}"
+      <a href="{{ img.url }}"
         {% if img.title %}title="{{ img.title | escape_once }}"{% endif %}>
 
             {% responsive_image_block %}
-              path: {{ img.image_path }}
+              path: {{ source_dir }}{{ img.image_path }}
               {% if img.alt %}
               alt: {{ img.alt | escape_once }}
               {% endif %}
@@ -34,7 +36,7 @@
       </a>
     {% else %}
         {% responsive_image_block %}
-          path: {{ img.image_path }}
+          path: {{ source_dir }}{{ img.image_path }}
           {% if img.alt %}
           alt: {{ img.alt | escape_once }}
           {% endif %}

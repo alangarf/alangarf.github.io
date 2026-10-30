@@ -1,0 +1,12 @@
+<figure class="{{ include.class }}">
+  {%- if include.popup -%}
+    <a href="{{ page.url }}{{ include.image_path }}" class="image-popup"{% if include.caption %} title="{{ include.caption | markdownify | strip_html }}"{% endif %}>
+  {%- endif -%}
+  <img src="{{ page.url }}{{ include.image_path }}" alt="{% if include.alt %}{{ include.alt | escape_once }}{% endif %}">
+  {%- if include.popup -%}</a>{%- endif -%}
+  {%- if include.caption -%}
+    <figcaption>
+      {{ include.caption | markdownify | remove: "<p>" | remove: "</p>" }}
+    </figcaption>
+  {%- endif -%}
+</figure>
