@@ -89,14 +89,17 @@ author:
   bio              : "Generic nerd who dabbles in programming, electronics, CNC and retro computing."
   location         : "Australia"
   email            :
-  # fediverse      : "@you@instance.social"  # used for fediverse:creator meta tag
+  fediverse        : "@alangarf@mastodon.social"
   links:
     - label: "YouTube"
       icon: "fab fa-fw fa-youtube"
       url: "https://youtube.com/randomgarfield"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-square-x-twitter"
-      url: "https://twitter.com/alangarf"
+    # - label: "Twitter"
+    #   icon: "fab fa-fw fa-square-x-twitter"
+    #   url: "https://twitter.com/alangarf"
+    - label: "Mastodon"
+      icon: "fab fa-fw fa-mastodon"
+      url: "https://mastodon.social/@alangarf"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/alangarf"
@@ -104,8 +107,8 @@ author:
 # Site Footer
 footer:
   links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-square-x-twitter"
+    # - label: "Twitter"
+    #   icon: "fab fa-fw fa-square-x-twitter"
       # url:
       # rel: "me"  # optional: adds rel attribute (e.g. for IndieWeb web sign-in)
     - label: "Facebook"
