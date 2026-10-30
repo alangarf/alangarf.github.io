@@ -4,8 +4,8 @@ build:
 serve:
 	bundle exec jekyll serve
 
-deploy:
-	JEKYLL_ENV=production bundle exec jekyll build
+deploy: build
+	@echo "⚠️ If CSS has been changed you will need to invalidate Cloudflare!."
 
 	git -C _site add -f .
 	git -C _site commit -m "Deploy update: $$(date)"

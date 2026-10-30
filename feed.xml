@@ -1,5 +1,302 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://fromorbit.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fromorbit.com/" rel="alternate" type="text/html" /><updated>2026-10-30T15:38:28+11:00</updated><id>https://fromorbit.com/feed.xml</id><title type="html">FromOrbit.com</title><subtitle>Generic nerd who dabbles in programming, electronics, CNC and retro computing.
-</subtitle><author><name>Alan Garfield</name></author><entry><title type="html">RP PicoW LED clock using Rust and Embassy-rs</title><link href="https://fromorbit.com/pico-clock/" rel="alternate" type="text/html" title="RP PicoW LED clock using Rust and Embassy-rs" /><published>2026-06-25T00:00:00+10:00</published><updated>2026-06-25T00:00:00+10:00</updated><id>https://fromorbit.com/pico-clock</id><content type="html" xml:base="https://fromorbit.com/pico-clock/"><![CDATA[<p>For a while now, I’ve attempted to build an LED clock. My first attempt was about 16 years ago using a PIC18F452; it worked, but I wasn’t inspired by the development environment at the time, and I had to set the time manually. Truth be told, it was all awful.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://fromorbit.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fromorbit.com/" rel="alternate" type="text/html" /><updated>2026-10-30T23:20:55+11:00</updated><id>https://fromorbit.com/feed.xml</id><title type="html">FromOrbit.com</title><subtitle>Generic nerd who dabbles in programming, electronics, CNC and retro computing.
+</subtitle><author><name>Alan Garfield</name></author><entry><title type="html">The NRC2026 68008 based computer!</title><link href="https://fromorbit.com/nrc_2026/" rel="alternate" type="text/html" title="The NRC2026 68008 based computer!" /><published>2026-10-26T00:00:00+11:00</published><updated>2026-10-26T00:00:00+11:00</updated><id>https://fromorbit.com/nrc_2026</id><content type="html" xml:base="https://fromorbit.com/nrc_2026/"><![CDATA[<h2 id="nrc2026-what">NRC2026 What?</h2>
+<p>I’ve always loved the Motorola 68000 CPU, ever since I watched my Dad unpack his brand new Amiga 1000 back in 1985. Booting into Workbench and dragging the window bar down to reveal other applications running in the background was jaw-dropping. Much later, when I got my own A2000HD with its mighty 52MB SCSI HDD, I spent hours rendering scenes in LightWave 3D and fiddling around with C.</p>
+
+<p>Earlier on this blog, I even took a pair of old AMX controllers (which had m68k processors in them), got a basic bootloader working, and played around with them via a serial port for the Retro Computer Contest. But since then, I’ve always wanted to actually build my own 68000-family machine from scratch.</p>
+
+<h2 id="origins-a-10-year-anniversary-and-a-new-cpu">Origins: A 10-Year Anniversary and a New CPU</h2>
+<p>I had tried this once before with my friend Niels. We paired up to make an updated RC2014 called the NRC2016, but that project fizzled out after a critical mainboard fault (I got VCC and GND backwards. DOH!).</p>
+
+<p>Recently, Niels pointed out that it’s the 10-year anniversary of the NRC2016 and suggested we tackle another computer project. So, the NRC2026 was born; but this time, we’re building it around a 68008!</p>
+
+<h2 id="the-backbone-why-the-68008-and-rcbus80">The Backbone: Why the 68008 and RCBus80?</h2>
+<p>Why go with the 68008 instead of the full-fat 68000? It comes down to simplicity and board real estate. While the 68008 rocks the exact same 32-bit internal architecture and instruction set as its bigger sibling, it communicates with the outside world over an 8-bit data bus.</p>
+
+<p>With a standard 68000, you need pairs of ROM and RAM chips to handle the 16-bit wide bus, plus much more trace routing. The 68008 lets us build a tighter, simpler design using single 8-bit memory chips and peripherals. We settled on using the RCBus80 as the backbone of the whole thing.</p>
+
+<figure class="half ">
+  
+    
+      <a href="68008_card_1.jpg">
+
+            
+
+
+
+<img src="/assets/resized/320/68008_card_1.jpg" alt="The 68008 card with the addressing GAL" srcset="    /assets/resized/320/68008_card_1.jpg 320w,    /assets/resized/480/68008_card_1.jpg 480w,    /assets/resized/1280/68008_card_1.jpg 1280w, 68008_card_1.jpg 5005w" />
+
+      </a>
+    
+  
+    
+      <a href="68008_card_2.jpg">
+
+            
+
+
+
+<img src="/assets/resized/320/68008_card_2.jpg" alt="The 68008 card with BERR and Reset/Halt hack on the back" srcset="    /assets/resized/320/68008_card_2.jpg 320w,    /assets/resized/480/68008_card_2.jpg 480w,    /assets/resized/1280/68008_card_2.jpg 1280w, 68008_card_2.jpg 4241w" />
+
+      </a>
+    
+  
+  
+    <figcaption>Protoboard, for when you forget about the /BERR
+</figcaption>
+  
+</figure>
+
+<p>To glue it all together, we needed a way to map out the memory space for the RAM, ROM, and our I/O devices, like the ST16C2552 DUART and CH376S USB host controller. Rather than wiring up a sprawling rat’s nest of discrete 74-series logic chips for address decoding, we designed a custom GAL.</p>
+
+<p>Programming the GAL logic equations gave us a clean hardware layout and precise timing integrity. It hasn’t been without its quirks. Tweaking those equations definitely caused a few head-scratching boot failures along the way (e.g., leaving the ROM driving the data bus when no /CS was asserted, causing a massive pulse on the bus when another device was asserted, which instantly crashed the CPU).</p>
+
+<p>Because we settled on using the RCBus80 as the backbone, the whole system is wonderfully modular. Instead of cramming everything onto one monolithic PCB, we split the core components into their own pluggable expansion cards. There’s a card for the 68008 CPU, one for the ST16C2552 UART, and another for the USB drive.</p>
+
+<h2 id="power-and-comms-taming-the-main-board">Power and Comms: Taming the Main Board</h2>
+<p>For the main board, we wanted to make talking to the machine as frictionless as possible right out of the gate. We built an MCP2200 USB-to-serial converter right into the board itself. A pair of jumpers lets us easily route either of the two serial ports on the RCBus80 directly to it. We even broke out the CTS and RTS pins, allowing us to patch in hardware flow control via a separate jumper cable to the UART card if we ever need to keep the data hose from overflowing.</p>
+
+<figure class="half ">
+  
+    
+      <a href="main_board_1.jpg">
+
+            
+
+
+
+<img src="/assets/resized/320/main_board_1.jpg" alt="The 1MB of RAM and 128KB ROM (which only 64KB is used from)" srcset="    /assets/resized/320/main_board_1.jpg 320w,    /assets/resized/480/main_board_1.jpg 480w,    /assets/resized/1280/main_board_1.jpg 1280w, main_board_1.jpg 5881w" />
+
+      </a>
+    
+  
+    
+      <a href="main_board_2.jpg">
+
+            
+
+
+
+<img src="/assets/resized/320/main_board_2.jpg" alt="The 1MB of RAM and 128KB ROM (which only 64KB is used from)" srcset="    /assets/resized/320/main_board_2.jpg 320w,    /assets/resized/480/main_board_2.jpg 480w,    /assets/resized/1280/main_board_2.jpg 1280w, main_board_2.jpg 5313w" />
+
+      </a>
+    
+  
+  
+    <figcaption>Ignore the bodge wire, but marvel at my 3D printed feet!
+</figcaption>
+  
+</figure>
+
+<p>We originally used a CH224K to handle USB Type-C power negotiation, aiming for a 9V input regulated down to 5V by an on-board 7805. Suffice to say, with a full deck of cards, that 7805 got a little hot. But the bigger problem was caused by the slow startup of the CH224K. The board initially received 5V, forcing the 7805 into a low-voltage dropout state that ultimately supplied under 4V to the cards. Once USB PD negotiation finished, the input would jump to 9V, and the board would finally get its full 5V several seconds later. This caused all sorts of boot problems.</p>
+
+<p>Eventually, we ditched the CH224K and the hot 7805 entirely, settling on the simple 5.1kΩ CC pull-down resistor trick to pull a clean 5V at around 1A straight from the start. We tried using the Power Good signal, but it was all too complex and tiring.</p>
+
+<h2 id="memory-mapping-punching-a-128kb-hole-in-ram">Memory Mapping: Punching a 128KB Hole in RAM</h2>
+<p>Speaking of the GAL and mapping out the memory space, we need to talk about the RAM/ROM card. The 68008 only has a 20-bit address bus, which gives us a hard limit of a 1MB address space. We decided to just populate the card with a full 1MB of RAM, but obviously, the CPU still needs somewhere to find its boot ROM, and we need addresses for our I/O devices!</p>
+
+<figure class="half ">
+  
+    
+      <a href="RAM_ROM_1.jpg">
+
+            
+
+
+
+<img src="/assets/resized/320/RAM_ROM_1.jpg" alt="The 1MB of RAM and 128KB ROM (which only 64KB is used from)" srcset="    /assets/resized/320/RAM_ROM_1.jpg 320w,    /assets/resized/480/RAM_ROM_1.jpg 480w,    /assets/resized/1280/RAM_ROM_1.jpg 1280w, RAM_ROM_1.jpg 5437w" />
+
+      </a>
+    
+  
+    
+      <a href="RAM_ROM_2.jpg">
+
+            
+
+
+
+<img src="/assets/resized/320/RAM_ROM_2.jpg" alt="The 1MB of RAM and 128KB ROM (which only 64KB is used from)" srcset="    /assets/resized/320/RAM_ROM_2.jpg 320w,    /assets/resized/480/RAM_ROM_2.jpg 480w,    /assets/resized/1280/RAM_ROM_2.jpg 1280w, RAM_ROM_2.jpg 5818w" />
+
+      </a>
+    
+  
+  
+    <figcaption>The only card I got right the first time! Still Rev A.
+</figcaption>
+  
+</figure>
+
+<p>To make it all fit, we used the GAL to essentially punch a 128KB hole in that 1MB RAM space. We gladly sacrifice that 128KB of RAM so we can map 64KB of ROM right down low at the bottom of the address space (exactly where the 68008 expects to find its initial reset vectors). Then, we tuck all of our I/O devices way up high at the very top of the 1MB map. It wastes a little bit of physical RAM, but it keeps the memory map beautifully clean and leaves us with a massive chunk of contiguous memory for our code. 896KB of RAM is a lot more than the original 640KB the XT PC had!</p>
+
+<p>Even better, we programmed the CPU GAL to directly handle the /DTACK (Data Transfer Acknowledge) signal for the RAM and ROM. Instead of wiring up extra logic on the memory card to tell the CPU when data is ready, the GAL just takes care of it, making the whole memory interface significantly easier and cleaner.</p>
+
+<h2 id="io-prototyping-taming-the-duart-and-dtack">I/O Prototyping: Taming the DUART and /DTACK</h2>
+<p>With the memory map sorted, it was time to build out the I/O, starting with the ST16C2552 DUART. Before committing to a PCB, I built a prototype of the UART card on a proto-board using good old-fashioned point-to-point wiring. (I actually did the exact same thing for the USB board, but I’ll get into that in the next section!)</p>
+
+<figure class="half ">
+  
+    
+      <a href="duart_card_1.jpg">
+
+            
+
+
+
+<img src="/assets/resized/320/duart_card_1.jpg" alt="Prototype ST16C2552 front" srcset="    /assets/resized/320/duart_card_1.jpg 320w,    /assets/resized/480/duart_card_1.jpg 480w,    /assets/resized/1280/duart_card_1.jpg 1280w, duart_card_1.jpg 8160w" />
+
+      </a>
+    
+  
+    
+      <a href="duart_card_2.jpg">
+
+            
+
+
+
+<img src="/assets/resized/320/duart_card_2.jpg" alt="Prototype ST16C2552 back" srcset="    /assets/resized/320/duart_card_2.jpg 320w,    /assets/resized/480/duart_card_2.jpg 480w,    /assets/resized/1280/duart_card_2.jpg 1280w, duart_card_2.jpg 8160w" />
+
+      </a>
+    
+  
+  
+    <figcaption>Oh, the checkered stories this board could tell!
+</figcaption>
+  
+</figure>
+
+<p>Building the prototype by hand was crucial because it let me experiment with the address decoding and bus signals. Initially, I used a simple 74HC138 for the address decoding, but it was too blunt of an instrument and chewed up way too much of our precious I/O address space. I eventually swapped it out for a 74HC688 magnitude comparator, which allowed for a much smaller and exact memory allocation for the UART.</p>
+
+<p>The prototype also let me figure out the best way to handle the /DTACK signal, which is how we tell the 68008 that the data transfer is complete. At first, I used a simple 2N7002 MOSFET to just yank the line low to signal the CPU. It worked, but eventually, we switched to a 74AHCT1G125 buffer. By tying its input low and driving its /OE (output enable) straight from the DUART’s /CS (chip select) line, it cleanly pulls /DTACK low when active and goes into a high-impedance (Hi-Z) state otherwise. It makes the whole bus interaction much, much neater.</p>
+
+<p>We didn’t completely ditch the 2N7002s, though. The ST16C2552 has these stupid active-high interrupt output pins, which is exactly the opposite of what the 68k architecture expects. We still use the MOSFETs to invert those signals and yank the interrupt lines low, and the way it’s wired allows us to set two different priority levels for the UART interrupts if we ever need them.</p>
+
+<h2 id="storage-pivoting-from-sd-to-usb">Storage: Pivoting from SD to USB</h2>
+<p>Just like the DUART card, I wasn’t about to spin a custom PCB for our storage solution without proving the bus interactions first, so out came the proto-board and Kynar wire. Because we had already fought the battles with address decoding and the 74AHCT1G125 /DTACK buffering on the UART prototype, we knew exactly what to do and used a 74HC688 from the get-go to handle the address allocation for this card.</p>
+
+<figure class="half ">
+  
+    
+      <a href="usb_drive_card_1.jpg">
+
+            
+
+
+
+<img src="/assets/resized/320/usb_drive_card_1.jpg" alt="Prototype CH375S USB Drive Card" srcset="    /assets/resized/320/usb_drive_card_1.jpg 320w,    /assets/resized/480/usb_drive_card_1.jpg 480w,    /assets/resized/1280/usb_drive_card_1.jpg 1280w, usb_drive_card_1.jpg 8160w" />
+
+      </a>
+    
+  
+    
+      <a href="usb_drive_card_2.jpg">
+
+            
+
+
+
+<img src="/assets/resized/320/usb_drive_card_2.jpg" alt="Prototype CH375S USB Drive Card" srcset="    /assets/resized/320/usb_drive_card_2.jpg 320w,    /assets/resized/480/usb_drive_card_2.jpg 480w,    /assets/resized/1280/usb_drive_card_2.jpg 1280w, usb_drive_card_2.jpg 8160w" />
+
+      </a>
+    
+  
+  
+    <figcaption>This one was easy compared to the DUART!
+</figcaption>
+  
+</figure>
+
+<p>For the storage backend, we went with the CH376S, though our original plan looked a bit different. Initially, we were only interested in using it for SD Card storage. However, we quickly hit a wall: it turns out the low-level sector commands on the CH376S simply aren’t supported on SD Cards.</p>
+
+<p>So, we pivoted to USB. Ditching the SD card actually ended up being a massive bonus, because it meant we didn’t have to mess around with level converters to step our 5V bus logic down for a 3.3V SD card.</p>
+
+<p>The CH376S handles the entire USB host protocol and FAT filesystem layer internally, making it a perfect match for the 68008’s 8-bit data bus. Having actual USB flash drive support on a scratch-built retro machine is incredibly satisfying. It completely frees us from having to push every single binary over the serial line or continuously re-flash ROMs. You just drop the file on a thumb drive from a modern PC, plug it into the RCBus card, and the 68008 reads it straight into RAM.</p>
+
+<h2 id="firmware-bare-metal-rust-m68bug-and-chasing-ghosts">Firmware: Bare-Metal Rust, m68bug, and Chasing Ghosts</h2>
+<p>With the hardware stacked up and the power stabilized, we needed something for the CPU to actually execute. Writing bare-metal code for the 68k is an absolute joy, but it means you’re entirely on your own. No OS, no standard library holding your hand. Just you, the compiler, and a carefully crafted <code class="language-plaintext highlighter-rouge">linker.ld</code> script to tell the toolchain exactly where our ROM, RAM, and I/O live within that 1MB memory map.</p>
+
+<p>To get the system off the ground, I initially reached for the original bootloader I had written in assembly for those old AMX boards I mentioned earlier. It was a simple, rock-solid tool that just read Motorola SREC data from the user over the serial port and allowed you to execute it.</p>
+
+<p>Once that basic SREC loader was up and running, the very first programs I fed it were actually bare-metal <code class="language-plaintext highlighter-rouge">no_std</code> Rust applications I had compiled for the m68k. The first was the obligatory “hello world” just to prove the toolchain worked. Next, I leveled up to an ASCII Mandelbrot set to give the 68008 a bit of a math workout. Finally, I loaded up a simple Conway’s Game of Life, using the timing of the user’s initial keystroke to seed the random number generator for the starting universe.</p>
+
+<p>It was incredibly satisfying seeing modern Rust running on a 1980s architecture, but for a full computer project, we needed a proper machine monitor. My next brilliant plan was to port the classic Motorola TUTOR 1.3 firmware assembly routines over to GNU <code class="language-plaintext highlighter-rouge">as</code> syntax. I got pretty far into it, but it quickly turned into a nightmare. There were just too many changes required, and I found myself getting completely dragged under trying to finish the port. It honestly just sucked the fun out of the whole thing.</p>
+
+<p>So, I aborted the TUTOR port and pivoted. I wrote our custom ROM monitor, <code class="language-plaintext highlighter-rouge">m68bug</code>, entirely from scratch in C, implementing just a handful of the essential TUTOR-inspired commands we actually needed. Later on, we expanded it by adding discrete commands for the CH376S (like MOUNT and LOAD), which let us seamlessly load applications directly into RAM from the USB drive.</p>
+
+<p>Getting it to actually boot the first time, however, was a bit of a rollercoaster. We compiled <code class="language-plaintext highlighter-rouge">m68bug</code>, made sure the initial Stack Pointer and Program Counter reset vectors were sitting perfectly at <code class="language-plaintext highlighter-rouge">0x000000</code>, flashed the ROM, and flipped the switch.</p>
+
+<p>Nothing. Dead silence on the serial port.</p>
+
+<p>I spent ages chasing ghosts in the firmware, convinced my C startup code or linker script was broken. It drove me mad until I remembered: the ROM had actually worked perfectly in an earlier breadboard test. The firmware wasn’t the issue at all—it was 100% the changes we had just made to the GAL logic equations! The new GAL logic was causing a bus conflict and crashing the CPU before it could even spit out a single character. Once we fixed the equations, the board sprang to life, and seeing that <code class="language-plaintext highlighter-rouge">m68bug</code> prompt finally appear over the serial terminal was pure magic.</p>
+
+<figure class="half ">
+  
+    
+      <a href="full_stack_1.jpg">
+
+            
+
+
+
+<img src="/assets/resized/320/full_stack_1.jpg" alt="The NRC2026 looking across whole computer" srcset="    /assets/resized/320/full_stack_1.jpg 320w,    /assets/resized/480/full_stack_1.jpg 480w,    /assets/resized/1280/full_stack_1.jpg 1280w, full_stack_1.jpg 7961w" />
+
+      </a>
+    
+  
+    
+      <a href="full_stack_2.jpg">
+
+            
+
+
+
+<img src="/assets/resized/320/full_stack_2.jpg" alt="The NRC2026 looking across whole computer" srcset="    /assets/resized/320/full_stack_2.jpg 320w,    /assets/resized/480/full_stack_2.jpg 480w,    /assets/resized/1280/full_stack_2.jpg 1280w, full_stack_2.jpg 6143w" />
+
+      </a>
+    
+  
+  
+    <figcaption>The running system hacks and all
+</figcaption>
+  
+</figure>
+
+<h2 id="whats-next-rev-b-rev-c-and-beyond">What’s Next: Rev B, Rev C, and Beyond</h2>
+<p>This post is already getting pretty long, so I’ll wrap up the high-level overview here.</p>
+
+<p>There is a lot more to cover. Since building these initial prototypes, I’ve already designed and received the Rev B (and even a few Rev C!) PCBs for the expansion cards. Over the next few weeks, I’m going to write dedicated, in-depth posts for each individual board. I’ll break down the schematics, explain exactly how the hardware works under the hood, and share the lessons learned along the way. Stay tuned!</p>
+
+<figure class="half ">
+  
+    
+      <a href="new_boards.jpg">
+
+            
+
+
+
+<img src="/assets/resized/320/new_boards.jpg" alt="Wooo new boards!" srcset="    /assets/resized/320/new_boards.jpg 320w,    /assets/resized/480/new_boards.jpg 480w, new_boards.jpg 1280w" />
+
+      </a>
+    
+  
+    
+      <a href="new_duart_sneak.jpg">
+
+            
+
+
+
+<img src="/assets/resized/320/new_duart_sneak.jpg" alt="Sneak peak of the new DUART PCB!" srcset="    /assets/resized/320/new_duart_sneak.jpg 320w,    /assets/resized/480/new_duart_sneak.jpg 480w,    /assets/resized/1280/new_duart_sneak.jpg 1280w, new_duart_sneak.jpg 6144w" />
+
+      </a>
+    
+  
+  
+    <figcaption>New boards and a sneaky peak of the new DUART!
+</figcaption>
+  
+</figure>]]></content><author><name>Alan Garfield</name></author><summary type="html"><![CDATA[The power of Motorola compells you!]]></summary></entry><entry><title type="html">RP PicoW LED clock using Rust and Embassy-rs</title><link href="https://fromorbit.com/pico-clock/" rel="alternate" type="text/html" title="RP PicoW LED clock using Rust and Embassy-rs" /><published>2026-06-25T00:00:00+10:00</published><updated>2026-06-25T00:00:00+10:00</updated><id>https://fromorbit.com/pico-clock</id><content type="html" xml:base="https://fromorbit.com/pico-clock/"><![CDATA[<p>For a while now, I’ve attempted to build an LED clock. My first attempt was about 16 years ago using a PIC18F452; it worked, but I wasn’t inspired by the development environment at the time, and I had to set the time manually. Truth be told, it was all awful.</p>
 
 <p>In another attempt, I used an ATMega16. That got close, but once again, there was no easy Wi-Fi (at the time), and it was just not inspiring to work on. The attempt prior to this current one used the same four-module 8x8 LED displays with SPI control, but on an STM32F103 with a WizNet chip. It was written in C++ and worked well, but I unfortunately got swamped with work and never got back to it.</p>
 
@@ -1498,277 +1795,4 @@ etc etc. It’s still from 1992 so it fits the Challenge. :)</p>
 
 <p>So yeah, now I start again basically. I have to figure out the memory map, the
 device layout and the differences with an ‘020 versus a vanilla 68000. Dear god
-I hope it can read bytes from ROM!</p>]]></content><author><name>Alan Garfield</name></author><summary type="html"><![CDATA[Over, and over, and over, and over, and over, and over again.]]></summary></entry><entry><title type="html">Now we’re get’n somewhere! - Retro Challenge 2017/04</title><link href="https://fromorbit.com/gettin-somewhere-rc201704/" rel="alternate" type="text/html" title="Now we’re get’n somewhere! - Retro Challenge 2017/04" /><published>2017-04-08T00:00:00+10:00</published><updated>2017-04-08T00:00:00+10:00</updated><id>https://fromorbit.com/gettin-somewhere-rc201704</id><content type="html" xml:base="https://fromorbit.com/gettin-somewhere-rc201704/"><![CDATA[<p>After the UV fiasco I’ve finally managed to get around the issue. I did that by
-ditching EPROMs and instead replaced them with EEPROMs!</p>
-
-<p>Rummaging around in the shed I found two other cards from the system this
-controller was in originally. They were for controlling infrared devices and
-what not and used a M68HC11 CPU. They had 27C64 EPROMs and 28C64s EEPROM each.</p>
-
-<p>My guess is that rather than adding battery backed up RAM on these smaller
-cards, AMX opted just to use the 28C64 as SRAM since the write performance etc
-of them are pretty good. These smaller cards really didn’t store much other
-than configuration data and they would’ve just used the internal 768 bytes of RAM
-on chip and just set the 28C64 up as an external 8KB of non-volatile RAM.</p>
-
-<p>Anyway, I found them and thought “Hmmm a blinking LED doesn’t need 64KBs
-(2x32KB) of ROM to work, 16KBs (2x8KB) should be ample”. The only real issue I
-had was that I only had two and they were from different manufacturers. I wasn’t
-sure if this would cause an issue or not but I figured it would be worth a
-try.</p>
-
-<h1 id="a-try-">A try …</h1>
-
-<p>The 28C64s are basically almost pin compatible with the 27C256s (obviously
-missing the two additional address lines.</p>
-
-<figure class="half ">
-  
-    
-      <a href="eeprom_vs_eprom1.png" title="Pin outs of a 28C64 and a 27C256">
-
-            
-
-
-
-<img src="/assets/resized/320/eeprom_vs_eprom1.png" alt="Pin outs of a 28C64 and a 27C256" srcset="    /assets/resized/320/eeprom_vs_eprom1.png 320w, eeprom_vs_eprom1.png 400w" />
-
-      </a>
-    
-  
-  
-</figure>
-
-<p>So apart from A14, A13 and the VPP signal these would plug straight in. Woo hoo
-I was thinking, this’ll be easy!</p>
-
-<p>I set to work. I wanted to replace the crappy single leaf sockets that are on
-this board, but I wasn’t willing to do all of them in one hit. The PCB traces
-on the thicker tracks have started that weird bubbling/lifting thing that
-things of this vintage start to do. I figured it would be safer if I just did
-one set at a time. So I carefully desoldered the two sockets and replaced them
-with machine pin sockets…</p>
-
-<figure class=" ">
-  
-    
-      <a href="sockets_gone.jpg" title="Old sockets be gone!">
-
-            
-
-
-
-<img src="/assets/resized/320/sockets_gone.jpg" alt="Removed the sockets" srcset="    /assets/resized/320/sockets_gone.jpg 320w,    /assets/resized/480/sockets_gone.jpg 480w,    /assets/resized/1280/sockets_gone.jpg 1280w, sockets_gone.jpg 4032w" />
-
-      </a>
-    
-  
-  
-</figure>
-
-<p>It was at this time that I noticed pin 1 on these sockets had traces. Given
-these are the VPP lines I thought that was strange. It turns out they’re
-actually connected to A16! This isn’t a problem (yet) as the VPP lines require
-high voltage to do anything.</p>
-
-<p>The solution I came up with to make the 28C64s work without their write enable
-line being connected to A14 was to add another layer of machine pins with the
-sockets missing.</p>
-
-<figure class=" ">
-  
-    
-      <a href="adapters_in_place.jpg" title="Adapters in place">
-
-            
-
-
-
-<img src="/assets/resized/320/adapters_in_place.jpg" alt="Adapters in place" srcset="    /assets/resized/320/adapters_in_place.jpg 320w,    /assets/resized/480/adapters_in_place.jpg 480w,    /assets/resized/1280/adapters_in_place.jpg 1280w, adapters_in_place.jpg 3024w" />
-
-      </a>
-    
-  
-  
-</figure>
-
-<p>I opted to pull out the VPP, A13 and A14 pins just to make sure. I then
-programmed my blink routine into the two mismatched 28C64s and expected great
-things to happen… And they did… briefly…</p>
-
-<h1 id="the-led-blinked-sometimes">THE LED BLINKED!… sometimes.</h1>
-
-<p>After all the hassle with the EPROMS and UV light etc I <em>finally</em> had the
-little LED blink. The only issue was that it wouldn’t do it consistently.
-Sometimes it would blink 4 or 5 times then stop, other times it would blink
-once and stay on, and others it just wouldn’t blink at all. :(</p>
-
-<p>I started to suspect that possibly different timings with the EEPROMs vendors
-and that the CPU was only <em>sometimes</em> getting it’s stars to align well enough
-for the LED to blink for a few cycles etc before it got all jammed up. I wasn’t
-too disappointed as I knew my element14 delivery was arriving in the morning
-with my new AT28C256’s and the fact I got the board to do <em>anything</em> was a
-total win in my book at this point.</p>
-
-<p>I posted on twitter about my success and went to bed late, trying not to
-disturb my lovely wife once again.</p>
-
-<h1 id="something-fishy-is-going-on">Something fishy is going on.</h1>
-
-<p>Through my following working day I kept being suspicious of the timing
-conclusion I’d drawn myself into. It was odd that the CPU would process
-hundreds of thousands of instruction reads from these EEPROMs inside the delay
-loop code before “magically” the timing of the EEPROMs would became an issue
-and ruined the whole thing. That started to sound very very unlikely to me. It
-just didn’t make sense.</p>
-
-<p>I then started thinking about the code, and how the interrupt and error vectors
-where not set correctly in the early part of the ROM code. So if the CPU had an
-external interrupt triggered by some of the other uninitialized hardware, the
-CPU could be falling into an ISR that didn’t exist and lock up.</p>
-
-<p>This started to sound more and more likely to me, so once I finished work for
-the day I set about properly configuring the interrupt vector table and
-cleaning up my horrible testing code.</p>
-
-<p>I wanted the code to be relocatable and the vector table be properly configured
-using a linker script so that I can link up a bunch of objects and have the
-magic of linking work with me rather than it just being a dumb copy-it-here type
-deal.</p>
-
-<h1 id="building-the-code-environment">Building the code environment.</h1>
-
-<p><a href="https://github.com/alangarf/amx_axc_m68k">https://github.com/alangarf/amx_axc_m68k</a></p>
-
-<p>After much frustration trying to figure out why <code class="language-plaintext highlighter-rouge">ld</code> was overwriting my new
-<code class="language-plaintext highlighter-rouge">.vector</code> section and my general lack of understanding of a lot of what the
-linker does I enlisted the help of my dear friend
-<a href="https://twitter.com/trc_wm">Niels</a> to help point me in the right direction.</p>
-
-<p>Together we figured out my <code class="language-plaintext highlighter-rouge">.section</code> in my assembly code didn’t have the right
-flags set so <code class="language-plaintext highlighter-rouge">ld</code> wasn’t loading the <code class="language-plaintext highlighter-rouge">.vector</code> section into the output. Rightly
-so because it thought it didn’t have to.  After we figured that out the vectors
-where properly being set, and I had a workable development setup to continue on
-with.</p>
-
-<p>I later discovered that <code class="language-plaintext highlighter-rouge">objcopy</code> also can generate interleaved binary files
-just for the purpose of creating ROM files for systems like this one. So rather
-than using some dodgy python I wrote quickly to split the resulting binary ROM
-image in half, I simply made <code class="language-plaintext highlighter-rouge">objcopy</code> create an <em>even</em> and an <em>odd</em> ROM
-image!</p>
-
-<p>Suitably chuffed with myself at this point.</p>
-
-<h1 id="at28c256s-arrive">AT28C256s arrive!</h1>
-
-<p>Again, element14 in Sydney amaze me. My AT28C256s were ordered at 5:30PM the
-day before, and arrived at my door in country NSW Australia by lunch time the
-next day. I’m about 5 hours drive away from their warehouse (I used to live
-near their warehouse and boy it was useful), so it’s truly amazing how quickly
-I can get parts from them.</p>
-
-<p>Anyway, deciding for a quick win I didn’t bother creating a pin swapping socket
-for these new chips. I figured I’d just use only the first 8KB of them and drop
-them into the existing sockets I had for the 28C64s.</p>
-
-<figure class=" ">
-  
-    
-      <a href="at28c256s_in_place.jpg" title="AT28C256s in place">
-
-            
-
-
-
-<img src="/assets/resized/320/at28c256s_in_place.jpg" alt="AT28C256s in place" srcset="    /assets/resized/320/at28c256s_in_place.jpg 320w,    /assets/resized/480/at28c256s_in_place.jpg 480w,    /assets/resized/1280/at28c256s_in_place.jpg 1280w, at28c256s_in_place.jpg 4032w" />
-
-      </a>
-    
-  
-  
-</figure>
-
-<p>I realized after plugging them in that had I not removed the VPP lines from
-these sockets that I would’ve connected A16 to the A14 pin on these EEPROMs,
-which would’ve allowed for 16KBs of ROM split across 0x0000 -&gt; 0x3FFF and
-0x8000 -&gt; 0xBFFF.</p>
-
-<p>But more importantly when I do properly do the pin swap to make these into a
-continuous 64KB address space the write enable pin would end up at the VPP
-position which now I know has A16 attached to it!</p>
-
-<p>This could’ve had <strong>all sorts</strong> of weird consequences had I not known that now!</p>
-
-<h1 id="so-did-it-work">So did it work?</h1>
-
-<p>I powered up the board with the new EEPROMs and the updated code and <strong>success</strong>
-it blinked perfectly, a nice solid consistent blink…</p>
-
-<figure class=" ">
-  
-    
-      <a href="blinking1.gif" title="Blink you good thing!">
-
-            
-
-
-
-<img src="/assets/resized/320/blinking1.gif" alt="Blink you good thing!" srcset="    /assets/resized/320/blinking1.gif 320w, blinking1.gif 450w" />
-
-      </a>
-    
-  
-  
-</figure>
-
-<p>… until I lifted the board.</p>
-
-<h1 id="ugh-youre-kidding-me">UGH, you’re kidding me.</h1>
-
-<p>It seems like the issue I had with the other 28C64s wasn’t timing or bad code,
-it was a plain and simple dry joint somewhere on this board causing all the
-issues. :(</p>
-
-<p>I mean expecting a 27 year old board that spent at least 10 years bouncing
-around my garage to have no damage after all this time probably was a little
-naive.</p>
-
-<p>When testing the manufacturers firmware via a serial terminal I remember
-noticing initially that sometimes the board wouldn’t boot properly or it would
-crash sometimes. But even then I attributed this to a bad serial lead or the
-shitty terminal emulator I had on my Windows machine in the shed.</p>
-
-<p>So, now I have a treasure hunt on my hands. Is it a bad solder joint, or a
-cracked trace somewhere on the board. I’m going to start with resolding all the
-connections first, then I’ll start looking more closely at the traces. The main
-issue I have is that a <strong>lot</strong> of the traces are hidden under sockets and
-immovable devices so that could be fun. BUT at least now I have a working board
-with a known issue. If I giggle the board just so I can make it work reliably.
-So that’s a win in my book!</p>
-
-<h1 id="what-else-have-you-done-though-what-about-that-schema">What else have you done though, what about that schema?</h1>
-
-<p>Yeah I’ve updated the schematic some more, apart from the level conversion of
-the RS232 port I’ve got the entire schematic done now. You can get the KiCAD
-files from: <a href="https://github.com/alangarf/amx_axc_kicad">https://github.com/alangarf/amx_axc_kicad</a>.</p>
-
-<figure class=" ">
-  
-    
-      <a href="schematic.png" title="The schematic">
-
-            
-
-
-
-<img src="/assets/resized/320/schematic.png" alt="The schematic" srcset="    /assets/resized/320/schematic.png 320w,    /assets/resized/480/schematic.png 480w,    /assets/resized/1280/schematic.png 1280w, schematic.png 3174w" />
-
-      </a>
-    
-  
-  
-</figure>
-
-<h1 id="is-that-all">Is that all?</h1>
-
-<p>Yeah I think that’ll do for today. :)</p>]]></content><author><name>Alan Garfield</name></author><summary type="html"><![CDATA[Things are starting to be coming up Milhouse!]]></summary></entry></feed>
+I hope it can read bytes from ROM!</p>]]></content><author><name>Alan Garfield</name></author><summary type="html"><![CDATA[Over, and over, and over, and over, and over, and over again.]]></summary></entry></feed>

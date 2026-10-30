@@ -214,4 +214,10 @@ var store = [{
         "tags": [],
         "url": "/pico-clock/",
         "teaser": "/assets/resized/480/pico_clock_1.jpg"
+      },{
+        "title": "The NRC2026 68008 based computer!",
+        "excerpt":"NRC2026 What? I’ve always loved the Motorola 68000 CPU, ever since I watched my Dad unpack his brand new Amiga 1000 back in 1985. Booting into Workbench and dragging the window bar down to reveal other applications running in the background was jaw-dropping. Much later, when I got my own...","categories": [],
+        "tags": [],
+        "url": "/nrc_2026/",
+        "teaser": "/assets/resized/480/full_stack_1.jpg"
       }]
